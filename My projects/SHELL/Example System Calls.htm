@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Example System Calls</title>
+<link href="Example%20System%20Calls_files/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<hr>
+<a href="http://www.cems.uwe.ac.uk/%7Eirjohnso/coursenotes/lrc/system/pc/pc5.htm"><img alt="NEXT" src="Example%20System%20Calls_files/next_mot.gif" align="BOTTOM"></a>
+<a href="http://www.cems.uwe.ac.uk/%7Eirjohnso/coursenotes/lrc/index.html"><img alt="UP" src="Example%20System%20Calls_files/up_motif.gif" align="BOTTOM"></a>
+<a href="http://www.cems.uwe.ac.uk/%7Eirjohnso/coursenotes/lrc/system/pc/pc3.htm"><img alt="previous" src="Example%20System%20Calls_files/pr.gif" align="BOTTOM"></a>
+<br>
+<b>Next: </b><a href="http://www.cems.uwe.ac.uk/%7Eirjohnso/coursenotes/lrc/system/pc/pc5.htm">wait And exit System Calls</a> 
+<hr>   
+<center><h1><u>exec System Call</u></h1></center>
+<p>
+When you use the shell to run a command (<b>ls</b>, say) then at some point the shell will execute a <b>fork()</b> call to get a new process running. Having done that, how does the shell then get <b>ls</b> to run in the child process instead of the duplicate copy of the shell, which is what will be running immediately after the <b>fork()</b> call?
+</p><p>
+The solution in this case is to use an <b>exec()</b> system call. In fact, there are several different flavors of the <b>exec()</b> call, but they all perform essentially the same task. Use of the <b>exec()</b>
+ system call is the only way to get a program executed under Linux. The 
+way that it does this is to replace the text and user data segments of 
+the process that executes the <b>exec()</b> call with the text and user data contained in the program file whose name is passed as a parameter to <b>exec()</b>. This is probably best illustrated with a simple example.
+</p><p>
+Before we do that, however, I need to digress slightly to explain a little more about <b>exec()</b>.
+ When you execute a program from the shell, you have seen that it is 
+possible to specify parameters and switches to the program on the 
+command line. From your knowledge of C you also know that these command 
+line values are made available to a program via the <b><i>argc</i></b> and <b><i>argv</i></b> parameters to <b>main()</b>.
+ Somehow the shell needs to be able to take your command line values and
+ pass them on to the programs it runs on your behalf as their <b><i>argc</i></b> and <b><i>argv</i></b>. This is done by passing your command line values in a suitable form to <b>exec()</b> which will arrange for them to appear as <b><i>argc</i></b> and <b><i>argv</i></b> to the new program about to be run.
+</p><p>
+The simplest version of <b>exec()</b> with which to demonstrate these things is called <b>execl()</b>. The prototype for this is:
+</p><p>
+</p><pre>	#inciude &lt;unistd.h&gt;
+
+	int execl(char *patbname, char *arg0, ...);
+</pre>
+<p>
+The pathname is the full path to the command to execute. This is 
+followed by a variable length list of pointers to character strings. 
+These will become the contents of the array pointed to by <b><i>argv</i></b> in the new program. The list of pointers in <b>execl()</b> should be terminated by a <b>NULL</b> pointer. The following example program uses <b>execl()</b> to execute the simple command - <b>ls -l</b>:
+</p><p>
+</p><pre>	#inciude &lt;stdio.h&gt;
+
+	main()
+	{
+		execl("/bin/ls", "ls", "-l", 0); 
+		printf("Can only get here on error\n");
+	}
+</pre>
+<p>
+The first parameter to <b>execl()</b> in this example is the full pathname to the <b>ls</b> command. This is the file whose contents will be run, provided the process has execute permission on the file. The rest of the <b>execl()</b> parameters provide the strings to which the <b>argv</b> array elements in the new program will point. In this example, it means that the <b>ls</b> program will see the string <i>ls</i> pointed to by its <b>argv[0]</b>, and the string <i>-l</i> pointed to by its <b>argv[1]</b>.
+</p><p>
+Normally the <b>exec()</b> calls don't return. In general, they can't 
+because their function is to replace the text and user data segments in 
+the process that calls them for some other program - so there will be 
+nothing to return to!
+</p><p>
+However, if the <b>exec()</b> calls fail for any reason (usually because
+ you don't have execute permission for it) then they will return so that
+ you can have the opportunity to do something about the error.
+</p><p>
+In addition to making all these parameters available to the new program, the <b>exec()</b> calls also pass a value for the variable:
+</p><p>
+</p><pre>	extern char **environ;
+</pre>
+<p>
+This variable has the same format as the <b><i>argv</i></b> variable except that the items passed via <b><i>environ</i></b>
+ are the values in the environment of the process (like any exported 
+shell variables), rather than the command line parameters. In the case 
+of <b>execl()</b>, the value of the <b><i>environ</i></b> variable in the new program will be a copy of the value of this variable in the calling process.
+</p><p>
+The <b>execl()</b> version of <b>exec()</b> is fine in the circumstances
+ where you can ex-plicitly list all of the parameters, as in the 
+previous example. Now suppose you want to write a program that doesn't 
+just run <b>ls</b>, but will run any program you wish, and pass it any number of appropriate command line parameters. Obviously, <b>execl()</b> won't do the job.
+</p><p>
+The example program below, which implements this requirement, shows, however, that the system call <b>execv()</b> will perform as required:
+</p><p>
+</p><pre>	#inciude &lt;stdio.h&gt;
+
+	main(int argc, char **argv)
+	{
+		if (argc==1)
+		{
+			printf("Usage: run &lt;command&gt; [&lt;paraneters&gt;]\n"); 
+			exit(1)
+		}
+		execv(argv[l], &amp;argv[1)); 
+		printf("Sorry...   couldn't run that!\n");
+	}
+</pre>
+<p>
+The prototype for <b>execv()</b> shows that it only takes two parameters, the first is the full pathname to the command to execute and the second is the <b><i>argv</i></b> value you want to pass into the new program. In the previous example this value was derived from the <b><i>argv</i></b> value passed into the <b>run</b> command, so that the <b>run</b> command can take the command line parameter values you pass it and just pass them on.
+</p><p>
+The following is a typical command sequence using the <b>run</b> command:
+</p><p>
+</p><pre>	$ run ls -l mtos
+	Sorry... couldn't run that!
+	$ run /bin/ls -l mtos total 2
+	drwxr-xr-x	2 pc	book	1024 Apr  2 20:11 tdd
+	drwxr-xr-x	2 pc	book	1024 Apr  2 20:11 tsh
+</pre>
+<p>
+Notice the failure on the first attempt, this is because you need to 
+specify the full pathuame to the command you want to run when you are 
+using <b>execv()</b> (or <b>execl()</b>), as can be seen from the result of the second attempt.
+</p><p>
+The problem here is that the two versions of <b>exec()</b> covered so far do not use the values in your <b>PATH</b> environment variable when looking for the command you specify. As you may have guessed, however, there are versions of <b>exec()</b> that do. These are called <b>execlp()</b> and <b>execvp()</b>, which are exactly the same as the first pair but they also use the value of <b>PATH</b> to find the required command.
+</p><p>
+The final two versions of <b>exec()</b> are the same as the first two (i.e. they don't use <b>PATH</b>) but they do allow you manually to specify the value to appear in <b><i>environ</i></b> in the new program rather than accepting the automatic default. They are called <b>execle()</b> and <b>execve()</b>. The following is a list of all six <b>exec()</b> variants and the parameter numbers and types they take:
+</p><p>
+</p><pre>	int execl(pathname, argo, ..., argn, 0); 
+	int execv(pathname, argv);
+	int execlp(cmdname, arg0, ..., argn, 0); 
+	int execvp(cmdname, argv);
+	int execle(patbname, arg0, ..., arga, 0, envp);
+	int execve(pathname, argv, envp);
+
+	char *pathname, *cmdname;
+	char *arg0, ..., *argn;
+	char **argv, **envp;
+</pre>
+<p>
+Just as with <b>fork()</b>, most process attributes are preserved across an <b>exec()</b> call. This is because the system data segment remains intact during an <b>exec()</b>,
+ which only changes the text and user data segments. Most important is 
+the fact that the file descriptors which were associated with open file 
+descriptions before the call are normally still available after it. The 
+exception to this is that a flag exists within each file descriptor (not
+ the open file description) called the <i>close on exec</i> flag (guess what that does).
+</p><p>
+Setting the close on exec flag is another one of the miscellaneous facilities provided by a call to <b>fcntl()</b>. The form of the call for setting the close on exec flag on a particular file descriptor (<b>fd</b>) is:
+</p><p>
+</p><pre>	fcntl(fd, F_SETFD  FD_CLOEXEC);
+</pre>
+<p>
+Just to recap for a moment, when you want a running process to organize 
+the execution of another program as part of its operation, the sequence 
+of steps is as follows:
+</p><p>
+</p><ul>
+<li>The running process gets or generates the command that is to be executed.
+<br><br>
+</li><li>The process does a <b>fork()</b> system call. This starts up a 
+new process which is a copy of, and runs concurrently with, the original
+ process. The original process is called the parent and the new one is 
+called the child.
+<br><br>
+</li><li>The child process now executes an <b>exec()</b> call which 
+scraps the text and user data segments of the child process and replaces
+ them with the text and user data in the command file that is to be run.
+</li></ul>
+<p>
+Two obvious questions arise on looking at this scenario. First, wasn't 
+it rather a waste of effort creating the child process as an exact 
+duplicate of the parent only to scrap that immediately and replace it 
+with a new program? And, second, what does the parent process do while 
+the child process is executing?
+</p><p>
+Taking the questions in that order - Linux implements its <b>fork()</b> 
+system call in a very efficient way. In effect, Linux cheats. It doesn't
+ really make a full copy of the process at all, it just has two sets of 
+pointers, one for each process, that both point to the same real text 
+and data segments. In the case of the text segment, this doesn't matter 
+because the segment is read-only anyway. In the case of the data 
+segments, however, it decidedly does matter because these are supposed 
+to be a pair of independent processes. But, thinking about it for a 
+moment, as long as the two processes only read data from the data 
+segments and don't do any writing of new values, then neither process 
+will know that the cheat is taking place. In order for this scheme to 
+work completely, all Linux has to do is to spot when one of the two 
+processes tries to write something to one of the data segments and 
+create a copy of just that little bit when it is needed. This technique 
+is called <b><i>copy on write</i></b>.
+</p><p>
+In essence, any area that gets written to by either process gets copied 
+so that both processes then have their own copies of those areas. If the
+ child process immediately performs an <b>exec()</b> call, then very little of the shared data segment space will have been copied before the <b>exec()</b> takes place - a huge saving in time and resources.
+</p><hr><center>
+<a href="http://www.cems.uwe.ac.uk/%7Eirjohnso/coursenotes/lrc/system/pc/pc5.htm"><img alt="NEXT" src="Example%20System%20Calls_files/next_mot.gif" align="BOTTOM"></a>
+<a href="http://www.cems.uwe.ac.uk/%7Eirjohnso/coursenotes/lrc/index.html"><img alt="UP" src="Example%20System%20Calls_files/up_motif.gif" align="BOTTOM"></a>
+<a href="http://www.cems.uwe.ac.uk/%7Eirjohnso/coursenotes/lrc/system/pc/pc3.htm"><img alt="previous" src="Example%20System%20Calls_files/pr.gif" align="BOTTOM"></a>
+<br>
+<b>Next: </b><a href="http://www.cems.uwe.ac.uk/%7Eirjohnso/coursenotes/lrc/system/pc/pc5.htm">wait And exit System Calls</a>    
+<hr>
+</center>
+
+
+
+</body></html>

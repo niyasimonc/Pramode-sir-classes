@@ -1,0 +1,372 @@
+/*Utility Mill main custom styling
+Copyright 2007 Blended Technologies
+
+NOTE: input[name="..."] selectors don't work in IE, fix them if I care
+*/
+
+/* Site Wide Styling */
+/* ---------------------------------------------------------------------------*/
+
+a {
+text-decoration:none;
+border-bottom: 1px dotted;
+}
+
+h1, h2, h3, h4, h5, h6 {
+margin-bottom:1em;
+}
+h1{font-size:153.9%;}
+h2{font-size:146.5%;}
+h3{font-size:138.5%;}
+h4{font-size:123.1%;}
+h5{font-size:116%;}
+h6{font-size:116%;}
+
+dt {
+margin-top:1.3em;
+font-weight:bold;
+margin-bottom:.4em;
+}
+
+dd p {
+margin:.5em 0px 0px 0px;
+}
+
+input, textarea {
+font-family: Courier, monospace;
+font-size:100%;
+}
+input[type=submit] {
+font-family:arial,helvetica,clean,sans-serif;
+}
+
+pre {
+width:630px;
+overflow:auto;
+border:1px solid;
+max-height:24em;
+padding:.5em;
+}
+
+/* Header Area */
+/* ---------------------------------------------------------------------------*/
+div#hd h1 {
+font-size:300%;
+margin-top:0em;
+padding-top:.5em;
+padding-left:.6em;
+margin-bottom:0em;
+}
+
+div.menuBar {
+position:relative;
+left:20em;
+top:-2.35em;
+width:40em;
+}
+
+div.menuBar a {
+font-size: 123.1%;
+margin-right:.8em;
+}
+
+div#hd {
+color:white;
+margin-bottom:.6em;
+background: #333 url(/images/header_bk.gif) repeat-x scroll center top;
+height:100px;
+}
+
+div#hd a {
+color:white;
+text-decoration:none;
+border:none;
+}
+div#hd a:hover {
+border-bottom: 1px dotted;
+}
+
+/* Left sidebar navigation */
+/* ---------------------------------------------------------------------------*/
+div.sideBox {
+margin-bottom:1.5em;
+margin-top:.5em;
+}
+div.sideBoxTitle {
+border:solid 1px;
+text-align:center;
+padding:.3em;
+font-size:105%;
+font-weight:500;
+}
+div.sideBoxContent {
+border:solid 1px;
+border-top:none;
+padding:.5em;
+padding-top:.8em;
+text-align:center;
+}
+
+div.sideBoxContent ul {
+text-align:left;
+margin-left:1em;
+margin-top:0em;
+margin-bottom:0em;
+}
+div.sideBoxContent li {
+margin-bottom:.8em;
+list-style-type:none;
+}
+
+/* Main content */
+/* ---------------------------------------------------------------------------*/
+
+/*  Intro Area */
+div.main_desc {
+border: 1px solid;
+padding: 2em;
+margin-bottom:2.5em;
+height:400px;
+}
+div.main_desc h1 {
+font-size:280%;
+margin:0px;
+text-align:center;
+}
+div.main_desc h2 {
+text-align:center;
+margin-top:.7em;
+font-size:160%;
+color:green;
+}
+div.main_desc h2 a {
+color:green;
+}
+h3.intro {
+text-align:left;
+padding-left:.7em;
+}
+div.tour_container {
+position:relative;
+width:180px;
+height:180px;
+top:-18.5em;
+left:38.5em;
+margin:0px;
+}
+div.tour_container p {
+margin-bottom:.25em;
+font-size:105%;
+}
+div.tour_container img {
+border:1px solid black;
+padding:.5em;
+}
+div.tour_container a {
+border:none;
+}
+div.main_desc ul {
+width:420px;
+font-size:130%;
+}
+/*Hack for IE so list style images are not too close too list items:
+http://www.monkeyflash.com/css/aligning-list-bullet-images */
+div.main_desc li {
+padding-bottom:.8em;
+list-style-type:none;
+background:transparent url(/images/feature.png) no-repeat;
+background-position: 0 5px;
+padding-left:1.7em;
+margin:0px;
+}
+div.call_to_action {
+text-align:center;
+font-size:180%;
+position:relative;
+top:-168px;
+}
+div.call_to_action span {
+padding-left:.4em;
+padding-right:.4em;
+}
+/* Other */
+
+div.yui-g {
+padding-left:2em;
+}
+
+ul.utilitiesListing {
+line-height:1.6em;
+}
+
+/*Hack for IE so list style images are not too close too list items:
+http://www.monkeyflash.com/css/aligning-list-bullet-images */
+ul.utilitiesListing li {
+padding-bottom:.7em;
+list-style-type:none;
+background:transparent url(/images/16px_Crystal_Clear_action_player_play.png) no-repeat;
+background-position: 0 5px;
+padding-left:2.1em;
+}
+
+ul.utilitiesListing li a.utilTitle {
+font-size:115%;
+}
+span.util_desc {
+display:block;
+}
+span.util_desc span.usermod {
+font-size:85%;
+color:gray;
+}
+
+    /* Utility Editing / Running */
+
+textarea.error {
+color:red;
+}
+
+div#only_look_msg {
+border:black solid 1px;
+width:400px;
+padding: 1em;
+background-color:#99CCFF;
+margin-top:2em;
+}
+div#only_look_msg h4 {
+font-size:145%;
+}
+div#only_look_msg h5 {
+line-height:1.35em;
+margin:0px;
+}
+
+p.warning {
+color:red;
+font-weight:bold;
+}
+
+strong.wrong {
+color:red;
+}
+
+div.readonly input, div.readonly select, div.readonly textarea, textarea.readonly, input.readonly  {
+background-color:#eee;
+color:gray;
+}
+
+div#inputs_setup {
+overflow:auto !important;
+padding:1em;
+padding-bottom:2em;
+width:630px;
+border:solid 1px;
+}
+
+div.utility_inputs div.inputset {
+margin-top:1em;
+}
+
+input[name=btnRun] {
+font-size:108%;
+width:4em;
+}
+input[name=btnAddRow],input[name=btnUpdateInputs],input[name=btnSave] {
+font-size:108% !important;
+margin-left:.3em;
+}
+
+input.required,textarea.required, select.required {
+background-color:#FFFF99;
+}
+
+div#inputs_setup acronym {
+text-align:left;
+}
+div#inputs_setup input, select, textarea {
+font-size:85%;
+}
+div#overhead {
+margin-top:2em;
+}
+div#overhead div.inputset{
+margin-top:.5em;
+}
+
+input#newName {
+width:26em;
+font-size:100%;
+}
+input#Overhead_desc_input {
+width:40em;
+font-size:100%;
+}
+textarea#Overhead_writeup_input {
+width:47em;
+height:22em;
+font-size:100%;
+}
+
+div#inputs_setup {
+margin-top:3em;
+}
+div#code_editing {
+margin-top:3em;
+}
+textarea#code1 {
+font-size:100%;
+margin-bottom:1em;
+}
+input[name=maxlength] {
+width:40px;
+}
+input[name=layout_order] {
+width:40px;
+}
+input[name=regex] {
+width:60px;
+}
+input[name=label] {
+width:130px;
+}
+input[name=var_name] {
+width:120px;
+}
+input[name=tooltip] {
+width:120px;
+}
+input[name=dropdown_values] {
+width:130px;
+}
+
+div.just_testing {
+margin-top:1.6em;
+margin-bottom:1em;
+}
+
+/* Footer */
+/* ---------------------------------------------------------------------------*/
+
+div#ft {
+color:white;
+margin-bottom:0em;
+background: #333 url(/images/footer_bk.gif) repeat-x scroll center top;
+height:80px;
+margin-top:3em;
+padding-top:1.6em;
+padding-left:1em;
+}
+div#ft p {
+padding:0em;
+margin:.5em;
+}
+div#ft a {
+color:white;
+}
+
+/* Help */
+/* ---------------------------------------------------------------------------*/
+
+div#help_page h2 {
+margin-top:2em;
+}

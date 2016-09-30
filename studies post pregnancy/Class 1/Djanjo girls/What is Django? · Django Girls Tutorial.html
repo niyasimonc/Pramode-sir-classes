@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+        <title>What is Django? · Django Girls Tutorial</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <meta name="description" content="For readers at home: this chapter is covered in How the Internet Works video.">
+        <meta name="generator" content="GitBook 3.0.0-pre.7">
+        <meta name="author" content="DjangoGirls">
+        
+        
+    
+    <style class="anchorjs"></style><link rel="stylesheet" href="What%20is%20Django%3F%20%C2%B7%20Django%20Girls%20Tutorial_files/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="What%20is%20Django%3F%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="What%20is%20Django%3F%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin_002.css">
+                
+            
+                
+                <link rel="stylesheet" href="What%20is%20Django%3F%20%C2%B7%20Django%20Girls%20Tutorial_files/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="What%20is%20Django%3F%20%C2%B7%20Django%20Girls%20Tutorial_files/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="What%20is%20Django%3F%20%C2%B7%20Django%20Girls%20Tutorial_files/website_002.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://tutorial.djangogirls.org/gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="http://tutorial.djangogirls.org/gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    
+    
+    
+    
+
+    <link rel="prev" href="http://tutorial.djangogirls.org/en/python_introduction/"><link rel="next" href="http://tutorial.djangogirls.org/en/django_installation/"></head>
+    <body>
+        
+<div class="book without-animation with-summary font-size-2 font-family-1" data-level="7" data-chapter-title="What is Django?" data-filepath="django/README.md" data-basepath="../../en" data-revision="Tue Apr 26 2016 07:53:45 GMT+0000 (UTC)" data-innerlanguage="">
+    
+
+<div class="book-summary"><div role="search" class="book-search"><input placeholder="Type to search" class="form-control" type="text"></div>
+    
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+                
+                <li>
+                    <a href="https://gitter.im/DjangoGirls/tutorial" target="_blank" class="custom-link">Need help? Talk to us!</a>
+                </li>
+            
+                
+                <li>
+                    <a href="https://www.gitbook.com/book/djangogirls/djangogirls-tutorial" target="_blank" class="custom-link">Django Girls Tutorial</a>
+                </li>
+            
+            
+
+            
+            <li class="divider"></li>
+            
+
+
+            
+            
+    
+        <li class="chapter " data-level="0" data-path="../">
+            
+                <a href="http://tutorial.djangogirls.org/en/">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="../installation/">
+            
+                <a href="http://tutorial.djangogirls.org/en/installation/">
+            
+                    
+                        <b>1.</b>
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="../how_the_internet_works/">
+            
+                <a href="http://tutorial.djangogirls.org/en/how_the_internet_works/">
+            
+                    
+                        <b>2.</b>
+                    
+                    How the Internet works
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="../intro_to_command_line/">
+            
+                <a href="http://tutorial.djangogirls.org/en/intro_to_command_line/">
+            
+                    
+                        <b>3.</b>
+                    
+                    Introduction to command line
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="../python_installation/">
+            
+                <a href="http://tutorial.djangogirls.org/en/python_installation/">
+            
+                    
+                        <b>4.</b>
+                    
+                    Python installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="../code_editor/">
+            
+                <a href="http://tutorial.djangogirls.org/en/code_editor/">
+            
+                    
+                        <b>5.</b>
+                    
+                    Code editor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="../python_introduction/">
+            
+                <a href="http://tutorial.djangogirls.org/en/python_introduction/">
+            
+                    
+                        <b>6.</b>
+                    
+                    Introduction to Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="7" data-path="./">
+            
+                <a href="http://tutorial.djangogirls.org/en/django/">
+            
+                    
+                        <b>7.</b>
+                    
+                    What is Django?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="../django_installation/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_installation/">
+            
+                    
+                        <b>8.</b>
+                    
+                    Django installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="../django_start_project/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_start_project/">
+            
+                    
+                        <b>9.</b>
+                    
+                    Your first Django project!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="../django_models/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_models/">
+            
+                    
+                        <b>10.</b>
+                    
+                    Django models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="../django_admin/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_admin/">
+            
+                    
+                        <b>11.</b>
+                    
+                    Django admin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="../deploy/">
+            
+                <a href="http://tutorial.djangogirls.org/en/deploy/">
+            
+                    
+                        <b>12.</b>
+                    
+                    Deploy!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="../django_urls/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_urls/">
+            
+                    
+                        <b>13.</b>
+                    
+                    Django urls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14" data-path="../django_views/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_views/">
+            
+                    
+                        <b>14.</b>
+                    
+                    Django views - time to create!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15" data-path="../html/">
+            
+                <a href="http://tutorial.djangogirls.org/en/html/">
+            
+                    
+                        <b>15.</b>
+                    
+                    Introduction to HTML
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="16" data-path="../django_orm/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_orm/">
+            
+                    
+                        <b>16.</b>
+                    
+                    Django ORM (Querysets)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17" data-path="../dynamic_data_in_templates/">
+            
+                <a href="http://tutorial.djangogirls.org/en/dynamic_data_in_templates/">
+            
+                    
+                        <b>17.</b>
+                    
+                    Dynamic data in templates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="18" data-path="../django_templates/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_templates/">
+            
+                    
+                        <b>18.</b>
+                    
+                    Django templates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19" data-path="../css/">
+            
+                <a href="http://tutorial.djangogirls.org/en/css/">
+            
+                    
+                        <b>19.</b>
+                    
+                    CSS - make it pretty
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="20" data-path="../template_extending/">
+            
+                <a href="http://tutorial.djangogirls.org/en/template_extending/">
+            
+                    
+                        <b>20.</b>
+                    
+                    Template extending
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="21" data-path="../extend_your_application/">
+            
+                <a href="http://tutorial.djangogirls.org/en/extend_your_application/">
+            
+                    
+                        <b>21.</b>
+                    
+                    Extend your application
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="22" data-path="../django_forms/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_forms/">
+            
+                    
+                        <b>22.</b>
+                    
+                    Django Forms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="23" data-path="../whats_next/">
+            
+                <a href="http://tutorial.djangogirls.org/en/whats_next/">
+            
+                    
+                        <b>23.</b>
+                    
+                    What's next?
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            <li class="divider"></li>
+            
+
+            <li>
+                <a href="https://www.gitbook.com/" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+</div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+<div class="book-header" role="navigation">
+    
+    <a href="#" aria-label="" class="btn pull-left js-toolbar-action"><i class="fa fa-align-justify"></i></a><a href="http://tutorial.djangogirls.org/en/GLOSSARY.html" class="btn pull-left" aria-label="Glossary"><i class="fa fa-sort-alpha-asc"></i></a>
+    
+
+    <!-- Title -->
+    <a href="#" aria-label="GitHub" class="btn pull-right js-toolbar-action"><i class="fa fa-github"></i></a><div class="dropdown pull-left language-picker js-toolbar-action"><a href="#" aria-label="Change language" class="btn toggle-dropdown"><i class="fa fa-globe"></i></a><div class="dropdown-menu dropdown-right"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div></div></div><a href="#" aria-label="Search" class="btn pull-left js-toolbar-action"><i class="fa fa-search"></i></a><div class="dropdown pull-right  js-toolbar-action"><a href="#" aria-label="Share" class="btn toggle-dropdown"><i class="fa fa-share-alt"></i></a><div class="dropdown-menu dropdown-left"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div><div class="buttons"><button class="button size-5 ">Facebook</button><button class="button size-5 ">Google+</button><button class="button size-5 ">Twitter</button><button class="button size-5 ">Weibo</button><button class="button size-5 ">Instapaper</button></div></div></div><a href="#" aria-label="" class="btn pull-right js-toolbar-action"><i class="fa fa-facebook"></i></a><a href="#" aria-label="" class="btn pull-right js-toolbar-action"><i class="fa fa-twitter"></i></a><div class="dropdown pull-left font-settings js-toolbar-action"><a href="#" aria-label="Font Settings" class="btn toggle-dropdown"><i class="fa fa-font"></i></a><div class="dropdown-menu dropdown-right"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div><div class="buttons"><button class="button size-2 font-reduce">A</button><button class="button size-2 font-enlarge">A</button></div><div class="buttons"><button class="button size-2 ">Serif</button><button class="button size-2 ">Sans</button></div><div class="buttons"><button class="button size-3 ">White</button><button class="button size-3 ">Sepia</button><button class="button size-3 ">Night</button></div></div></div><h1 id="what-is-django-1">
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="http://tutorial.djangogirls.org/en">What is Django?</a>
+    <a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: what is django 1" href="#what-is-django-1" class="anchorjs-link "></a></h1>
+</div>
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            <section class="normal markdown-section">
+                            
+                            <h1 id="what-is-django">What is Django?<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: what is django" href="#what-is-django" class="anchorjs-link "></a></h1>
+<p>Django (<em>/ˈdʒæŋɡoʊ/ jang-goh</em>) is a free and open source web 
+application framework, written in Python. A web framework is a set of 
+components that helps you to develop websites faster and easier.</p>
+<p>When you're building a website, you always need a similar set of 
+components: a way to handle user authentication (signing up, signing in,
+ signing out), a management panel for your website, forms, a way to 
+upload files, etc.</p>
+<p>Luckily for you other people long ago noticed that web developers 
+face similar problems when building a new site, so they teamed up and 
+created frameworks (Django is one of them) that give you ready-made 
+components you can use.</p>
+<p>Frameworks exist to save you from having to reinvent the wheel and 
+help alleviate some of the overhead when you’re building a new site.</p>
+<h2 id="why-do-you-need-a-framework">Why do you need a framework?<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: why do you need a framework" href="#why-do-you-need-a-framework" class="anchorjs-link "></a></h2>
+<p>To understand what Django actually is for, we need to take a closer 
+look at the servers. The first thing is that the server needs to know 
+that you want it to serve you a webpage.</p>
+<p>Imagine a mailbox (port) which is monitored for incoming letters 
+(requests). This is done by a web server. The web server reads the 
+letter, and sends a response with a webpage. But when you want to send 
+something, you need to have some content. And Django is something that 
+helps you create the content.</p>
+<h2 id="what-happens-when-someone-requests-a-website-from-your-server">What happens when someone requests a website from your server?<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: what happens when someone requests a website from your server" href="#what-happens-when-someone-requests-a-website-from-your-server" class="anchorjs-link "></a></h2>
+<p>When a request comes to a web server it's passed to Django which 
+tries to figure out what actually is requested. It takes a webpage 
+address first and tries to figure out what to do. This part is done by 
+Django's <strong>urlresolver</strong> (note that a website address is called a URL - Uniform Resource Locator - so the name <em>urlresolver</em>
+ makes sense). It is not very smart - it takes a list of patterns and 
+tries to match the URL. Django checks patterns from top to the bottom 
+and if something is matched then Django passes the request to the 
+associated function (which is called <em>view</em>).</p>
+<p>Imagine a mail carrier with a letter. She is walking down the street 
+and checks each house number against the one on the letter. If it 
+matches, she puts the letter there. This is how the urlresolver works!</p>
+<p>In the <em>view</em> function all the interesting things are done: we
+ can look at a database to look for some information. Maybe the user 
+asked to change something in the data? Like a letter saying "Please 
+change the description of my job."  The <em>view</em> can check if you are allowed to do that, then update the job description for you and send back a message: "Done!". Then the <em>view</em> generates a response and Django can send it to the user's web browser.</p>
+<p>Of course, the description above is a little bit simplified, but you 
+don't need to know all the technical things yet. Having a general idea 
+is enough.</p>
+<p>So instead of diving too much into details, we will simply start 
+creating something with Django and we will learn all the important parts
+ along the way!</p>
+
+                            
+                            </section>
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="http://tutorial.djangogirls.org/en/python_introduction/" class="navigation navigation-prev " aria-label="Previous page: Introduction to Python">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a style="margin-right: 0px;" href="http://tutorial.djangogirls.org/en/django_installation/" class="navigation navigation-next " aria-label="Next page: Django installation">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+</div>
+
+        
+    <script src="What%20is%20Django%3F%20%C2%B7%20Django%20Girls%20Tutorial_files/analytics.js" async=""></script><script src="What%20is%20Django%3F%20%C2%B7%20Django%20Girls%20Tutorial_files/app.js"></script>
+    
+        
+        <script src="What%20is%20Django%3F%20%C2%B7%20Django%20Girls%20Tutorial_files/anchor.js"></script>
+        
+    
+        
+        <script src="What%20is%20Django%3F%20%C2%B7%20Django%20Girls%20Tutorial_files/anchor-style.js"></script>
+        
+    
+        
+        <script src="What%20is%20Django%3F%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin.js"></script>
+        
+    
+        
+        <script src="What%20is%20Django%3F%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin_002.js"></script>
+        
+    
+        
+        <script src="What%20is%20Django%3F%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin_003.js"></script>
+        
+    
+        
+        <script src="What%20is%20Django%3F%20%C2%B7%20Django%20Girls%20Tutorial_files/lunr.js"></script>
+        
+    
+        
+        <script src="What%20is%20Django%3F%20%C2%B7%20Django%20Girls%20Tutorial_files/search.js"></script>
+        
+    
+        
+        <script src="What%20is%20Django%3F%20%C2%B7%20Django%20Girls%20Tutorial_files/buttons_002.js"></script>
+        
+    
+        
+        <script src="What%20is%20Django%3F%20%C2%B7%20Django%20Girls%20Tutorial_files/buttons.js"></script>
+        
+    
+    <script>
+    require(["gitbook"], function(gitbook) {
+        gitbook.start({"ga":{"token":"UA-51680040-3","configuration":"auto"},"richquotes":{"default":false},"github":{"url":"https://github.com/DjangoGirls/tutorial"},"language-picker":{"grid-columns":3},"heading-anchors":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}}});
+    });
+    </script>
+
+    
+
+</body></html>

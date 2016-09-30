@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html style="" class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6. Functional Programming — Python Practice Book</title>
+  
+
+  
+  
+
+  
+  <link href="6.%20Functional%20Programming%20%E2%80%94%20Python%20Practice%20Book_files/css.css" rel="stylesheet" type="text/css">
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="6.%20Functional%20Programming%20%E2%80%94%20Python%20Practice%20Book_files/theme.css" type="text/css">
+  
+
+  
+    <link rel="top" title="Python Practice Book" href="http://anandology.com/python-practice-book/index.html">
+        <link rel="prev" title="5. Iterators &amp; Generators" href="http://anandology.com/python-practice-book/iterators.html">
+ 
+
+<script src="6.%20Functional%20Programming%20%E2%80%94%20Python%20Practice%20Book_files/ga.js" async="" type="text/javascript"></script><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-31293347-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+  
+  <script src="6.%20Functional%20Programming%20%E2%80%94%20Python%20Practice%20Book_files/modernizr.js"></script>
+
+<script src="6.%20Functional%20Programming%20%E2%80%94%20Python%20Practice%20Book_files/in.php" async="" type="text/javascript"></script></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="http://anandology.com/python-practice-book/index.html" class="fa fa-home"> Python Practice Book</a>
+        <div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input name="q" placeholder="Search docs" type="text">
+    <input name="check_keywords" value="yes" type="hidden">
+    <input name="area" value="default" type="hidden">
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="http://anandology.com/python-practice-book/getting-started.html">1. Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/getting-started.html#running-python-interpreter">1.1. Running Python Interpreter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/getting-started.html#running-python-scripts">1.2. Running Python Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/getting-started.html#assignments">1.3. Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/getting-started.html#numbers">1.4. Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/getting-started.html#strings">1.5. Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/getting-started.html#functions">1.6. Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/getting-started.html#conditional-expressions">1.7. Conditional Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/getting-started.html#lists">1.8. Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/getting-started.html#modules">1.9. Modules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://anandology.com/python-practice-book/working-with-data.html">2. Working with Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/working-with-data.html#lists">2.1. Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/working-with-data.html#tuples">2.2. Tuples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/working-with-data.html#sets">2.3. Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/working-with-data.html#strings">2.4. Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/working-with-data.html#working-with-files">2.5. Working With Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/working-with-data.html#list-comprehensions">2.6. List Comprehensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/working-with-data.html#dictionaries">2.7. Dictionaries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://anandology.com/python-practice-book/modules.html">3. Modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/modules.html#standard-library">3.1. Standard Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/modules.html#installing-third-party-modules">3.2. Installing third-party modules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://anandology.com/python-practice-book/object_oriented_programming.html">4. Object Oriented Programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/object_oriented_programming.html#state">4.1. State</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/object_oriented_programming.html#classes-and-objects">4.2. Classes and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/object_oriented_programming.html#inheritance">4.3. Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/object_oriented_programming.html#special-class-methods">4.4. Special Class Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/object_oriented_programming.html#errors-and-exceptions">4.5. Errors and Exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://anandology.com/python-practice-book/iterators.html">5. Iterators &amp; Generators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/iterators.html#iterators">5.1. Iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/iterators.html#generators">5.2. Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/iterators.html#generator-expressions">5.3. Generator Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/iterators.html#itertools">5.4. Itertools</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">6. Functional Programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#recursion">6.1. Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#higher-order-functions-decorators">6.2. Higher Order Functions &amp; Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exec-eval">6.3. exec &amp; eval</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="http://anandology.com/python-practice-book/index.html">Python Practice Book</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="http://anandology.com/python-practice-book/index.html">Docs</a> »</li>
+      
+    <li>6. Functional Programming</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="http://anandology.com/python-practice-book/_sources/functional-programming.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr>
+</div>
+          <div role="main">
+            
+  <div class="section" id="functional-programming">
+<h1>6. Functional Programming<a class="headerlink" href="#functional-programming" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="recursion">
+<h2>6.1. Recursion<a class="headerlink" href="#recursion" title="Permalink to this headline">¶</a></h2>
+<p>Defining solution of a problem in terms of the same problem, typically of
+smaller size, is called recursion. Recursion makes it possible to express
+solution of a problem very concisely and elegantly.</p>
+<p>A function is called recursive if it makes call to itself. Typically, a
+recursive function will have a terminating condition and one or more recursive
+calls to itself.</p>
+<div class="section" id="example-computing-exponent">
+<h3>6.1.1. Example: Computing Exponent<a class="headerlink" href="#example-computing-exponent" title="Permalink to this headline">¶</a></h3>
+<p>Mathematically we can define exponent of a number in terms of its smaller
+power.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">exp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Computes the result of x raised to the power of n.</span>
+
+<span class="sd">        &gt;&gt;&gt; exp(2, 3)</span>
+<span class="sd">        8</span>
+<span class="sd">        &gt;&gt;&gt; exp(3, 2)</span>
+<span class="sd">        9</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Lets look at the execution pattern.</p>
+<div class="highlight-python"><div class="highlight"><pre>exp(2, 4)
++-- 2 * exp(2, 3)
+|       +-- 2 * exp(2, 2)
+|       |       +-- 2 * exp(2, 1)
+|       |       |       +-- 2 * exp(2, 0)
+|       |       |       |       +-- 1
+|       |       |       +-- 2 * 1
+|       |       |       +-- 2
+|       |       +-- 2 * 2
+|       |       +-- 4
+|       +-- 2 * 4
+|       +-- 8
++-- 2 * 8
++-- 16
+</pre></div>
+</div>
+<p>Number of calls to the above <tt class="docutils literal"><span class="pre">exp</span></tt> function is proportional to size of the
+problem, which is <tt class="docutils literal"><span class="pre">n</span></tt> here.</p>
+<p>We can compute exponent in fewer steps if we use successive squaring.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">fast_exp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fast_exp</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">fast_exp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Lets look at the execution pattern now.</p>
+<div class="highlight-python"><div class="highlight"><pre>fast_exp(2, 10)
++-- fast_exp(4, 5) # 2 * 2
+|   +-- 4 * fast_exp(4, 4)
+|   |       +-- fast_exp(16, 2) # 4 * 4
+|   |       |   +-- fast_exp(256, 1) # 16 * 16
+|   |       |   |   +-- 256 * fast_exp(256, 0)
+|   |       |   |             +-- 1
+|   |       |   |   +-- 256 * 1
+|   |       |   |   +-- 256
+|   |       |   +-- 256
+|   |       +-- 256
+|   +-- 4 * 256
+|   +-- 1024
++-- 1024
+1024
+</pre></div>
+</div>
+<p><strong>Problem 1: </strong>Implement a function <tt class="docutils literal"><span class="pre">product</span></tt> to multiply 2 numbers recursively
+using <tt class="docutils literal"><span class="pre">+</span></tt> and <tt class="docutils literal"><span class="pre">-</span></tt> operators only.</p>
+</div>
+<div class="section" id="example-flatten-a-list">
+<h3>6.1.2. Example: Flatten a list<a class="headerlink" href="#example-flatten-a-list" title="Permalink to this headline">¶</a></h3>
+<p>Supposed you have a nested list and want to flatten it.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">flatten_list</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">result</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">"""Flattens a nested list.</span>
+
+<span class="sd">        &gt;&gt;&gt; flatten_list([ [1, 2, [3, 4] ], [5, 6], 7])</span>
+<span class="sd">        [1, 2, 3, 4, 5, 6, 7]</span>
+<span class="sd">    """</span><span class="s">"</span>
+    <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">flatten_list</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+<p><strong>Problem 2: </strong>Write a function <tt class="docutils literal"><span class="pre">flatten_dict</span></tt> to flatten a nested dictionary
+by joining the keys with <tt class="docutils literal"><span class="pre">.</span></tt> character.</p><div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">flatten_dict</span><span class="p">({</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="p">{</span><span class="s">'x'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">'y'</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">4</span><span class="p">})</span>
+<span class="go">{'a': 1, 'b.x': 2, 'b.y': 3, 'c': 4}</span>
+</pre></div>
+</div>
+<p></p>
+<p><strong>Problem 3: </strong>Write a function <tt class="docutils literal"><span class="pre">unflatten_dict</span></tt> to do reverse of <tt class="docutils literal"><span class="pre">flatten_dict</span></tt>.</p><div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">unflatten_dict</span><span class="p">({</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">'b.x'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">'b.y'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">4</span><span class="p">})</span>
+<span class="go">{'a': 1, 'b': {'x': 2, 'y': 3}, 'c': 4}</span>
+</pre></div>
+</div>
+<p></p>
+<p><strong>Problem 4: </strong>Write a function <tt class="docutils literal"><span class="pre">treemap</span></tt> to map a function over nested list.</p><div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">treemap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">]]])</span>
+<span class="go">[1, 4, [9, 16, [25]]]</span>
+</pre></div>
+</div>
+<p></p>
+<p><strong>Problem 5: </strong>Write a function <tt class="docutils literal"><span class="pre">tree_reverse</span></tt> to reverse elements of a
+nested-list recursively.</p><div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">tree_reverse</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]],</span> <span class="mi">6</span><span class="p">])</span>
+<span class="go">[6, [[5, 4], 3], [2, 1]]</span>
+</pre></div>
+</div>
+<p></p>
+</div>
+<div class="section" id="example-json-encode">
+<h3>6.1.3. Example: JSON Encode<a class="headerlink" href="#example-json-encode" title="Permalink to this headline">¶</a></h3>
+<p>Lets look at more commonly used example of serializing a python datastructure
+into <a class="reference external" href="https://en.wikipedia.org/wiki/JSON">JSON (JavaScript Object Notation)</a>.</p>
+<p>Here is an example of JSON record.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">"name"</span><span class="p">:</span> <span class="s">"Advanced Python Training"</span><span class="p">,</span>
+    <span class="s">"date"</span><span class="p">:</span> <span class="s">"October 13, 2012"</span><span class="p">,</span>
+    <span class="s">"completed"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s">"instructor"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">"name"</span><span class="p">:</span> <span class="s">"Anand Chitipothu"</span><span class="p">,</span>
+        <span class="s">"website"</span><span class="p">:</span> <span class="s">"http://anandology.com/"</span>
+    <span class="p">},</span>
+    <span class="s">"participants"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">"name"</span><span class="p">:</span> <span class="s">"Participant 1"</span><span class="p">,</span>
+            <span class="s">"email"</span><span class="p">:</span> <span class="s">"email1@example.com"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s">"name"</span><span class="p">:</span> <span class="s">"Participant 2"</span><span class="p">,</span>
+            <span class="s">"email"</span><span class="p">:</span> <span class="s">"email2@example.com"</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>It looks very much like Python dictionaries and lists. There are some
+differences though. Strings are always enclosed in double quotes, booleans are
+represented as <tt class="docutils literal"><span class="pre">true</span></tt> and <tt class="docutils literal"><span class="pre">false</span></tt>.</p>
+<p>The standard library module <cite>json</cite> provides functionality to work in JSON. Lets
+try to implement it now as it is very good example of use of recursion.</p>
+<p>For simplicity, lets assume that strings will not have any special characters
+and can have space, tab and newline characters.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">json_encode</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s">"true"</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s">"false"</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">'"'</span> <span class="o">+</span> <span class="n">escape_string</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">+</span> <span class="s">'"'</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">"["</span> <span class="o">+</span> <span class="s">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">json_encode</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">data</span><span class="p">)</span> <span class="o">+</span> <span class="s">"]"</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s">"</span><span class="si">%s</span><span class="s"> is not JSON serializable"</span> <span class="o">%</span> <span class="nb">repr</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">escape_string</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="sd">"""Escapes double-quote, tab and new line characters in a string."""</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'"'</span><span class="p">,</span> <span class="s">'</span><span class="se">\\</span><span class="s">"'</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"</span><span class="se">\t</span><span class="s">"</span><span class="p">,</span> <span class="s">"</span><span class="se">\\</span><span class="s">t"</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"</span><span class="se">\\</span><span class="s">n"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">s</span>
+</pre></div>
+</div>
+<p>This handles booleans, integers, strings, floats and lists, but doesn’t handle
+dictionaries yet. That is left an exercise to the readers.</p>
+<p>If you notice the block of code that is handling lists, we are calling
+<cite>json_encode</cite> recursively for each element of the list, that is required
+because each element can be of any type, even a list or a dictionary.</p>
+<p><strong>Problem 6: </strong>Complete the above implementation of <tt class="docutils literal"><span class="pre">json_encode</span></tt> by handling
+the case of dictionaries.</p>
+<p><strong>Problem 7: </strong>Implement a program <tt class="docutils literal"><span class="pre">dirtree.py</span></tt> that takes a directory as
+argument and prints all the files in that directory recursively as a tree.</p><p>Hint: Use <tt class="docutils literal"><span class="pre">os.listdir</span></tt> and <tt class="docutils literal"><span class="pre">os.path.isdir</span></tt> funtions.</p>
+<p></p>
+<div class="highlight-python"><div class="highlight"><pre>$ python dirtree.py foo/
+foo/
+|-- a.txt
+|-- b.txt
+|-- bar/
+|   |-- p.txt
+|   `-- q.txt
+`-- c.txt
+</pre></div>
+</div>
+<p><strong>Problem 8: </strong>Write a function <tt class="docutils literal"><span class="pre">count_change</span></tt> to count the number of ways to
+change any given amount. Available coins are also passed as argument to the
+function.</p><div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">count_change</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">count_change</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="go">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">count_change</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
+<span class="go">292</span>
+</pre></div>
+</div>
+<p></p>
+<p><strong>Problem 9: </strong>Write a function <tt class="docutils literal"><span class="pre">permute</span></tt> to compute all possible permutations
+of elements of a given list.</p><div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">permute</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="go">[[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]</span>
+</pre></div>
+</div>
+<p></p>
+</div>
+</div>
+<div class="section" id="higher-order-functions-decorators">
+<h2>6.2. Higher Order Functions &amp; Decorators<a class="headerlink" href="#higher-order-functions-decorators" title="Permalink to this headline">¶</a></h2>
+<p>In Python, functions are first-class objects. They can be passed as arguments
+to other functions and a new functions can be returned from a function call.</p>
+<div class="section" id="example-tracing-function-calls">
+<h3>6.2.1. Example: Tracing Function Calls<a class="headerlink" href="#example-tracing-function-calls" title="Permalink to this headline">¶</a></h3>
+<p>For example, consider the following <tt class="docutils literal"><span class="pre">fib</span></tt> function.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="ow">is</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">n</span> <span class="ow">is</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Suppose we want to trace all the calls to the <tt class="docutils literal"><span class="pre">fib</span></tt> function.
+We can write a higher order function to return a new function, which prints whenever <tt class="docutils literal"><span class="pre">fib</span></tt> function is called.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">trace</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">print</span> <span class="n">f</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span> <span class="n">x</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">'return'</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="n">g</span>
+
+<span class="n">fib</span> <span class="o">=</span> <span class="n">trace</span><span class="p">(</span><span class="n">fib</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">fib</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This produces the following output.</p>
+<div class="highlight-text"><div class="highlight"><pre>fib 3
+fib 2
+fib 1
+return 1
+fib 0
+return 1
+return 2
+fib 1
+return 1
+return 3
+3
+</pre></div>
+</div>
+<p>Noticed that the trick here is at <tt class="docutils literal"><span class="pre">fib</span> <span class="pre">=</span> <span class="pre">trace(fib)</span></tt>. We have replaced the
+function <tt class="docutils literal"><span class="pre">fib</span></tt> with a new function, so whenever that function is called
+recursively, it is the our new function, which prints the trace before calling
+the orginal function.</p>
+<p>To make the output more readable, let us indent the function calls.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">trace</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">indent</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">'|  '</span> <span class="o">*</span> <span class="n">f</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="s">'|--'</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span> <span class="n">x</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">indent</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">'|  '</span> <span class="o">*</span> <span class="n">f</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="s">'|--'</span><span class="p">,</span> <span class="s">'return'</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">indent</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="n">g</span>
+
+<span class="n">fib</span> <span class="o">=</span> <span class="n">trace</span><span class="p">(</span><span class="n">fib</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">fib</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This produces the following output.</p>
+<div class="highlight-python"><div class="highlight"><pre>$ python fib.py
+|-- fib 4
+|  |-- fib 3
+|  |  |-- fib 2
+|  |  |  |-- fib 1
+|  |  |  |  |-- return 1
+|  |  |  |-- fib 0
+|  |  |  |  |-- return 1
+|  |  |  |-- return 2
+|  |  |-- fib 1
+|  |  |  |-- return 1
+|  |  |-- return 3
+|  |-- fib 2
+|  |  |-- fib 1
+|  |  |  |-- return 1
+|  |  |-- fib 0
+|  |  |  |-- return 1
+|  |  |-- return 2
+|  |-- return 5
+5
+</pre></div>
+</div>
+<p>This pattern is so useful that python has special syntax for specifying this concisely.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nd">@trace</span>
+<span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>It is equivalant of adding <tt class="docutils literal"><span class="pre">fib</span> <span class="pre">=</span> <span class="pre">trace(fib)</span></tt> after the function definition.</p>
+</div>
+<div class="section" id="example-memoize">
+<h3>6.2.2. Example: Memoize<a class="headerlink" href="#example-memoize" title="Permalink to this headline">¶</a></h3>
+<p>In the above example, it is clear that number of function calls are growing
+exponentially with the size of input and there is lot of redundant computation
+that is done.</p>
+<p>Suppose we want to get rid of the redundant computation by caching the result
+of <tt class="docutils literal"><span class="pre">fib</span></tt> when it is called for the first time and reuse it when it is needed
+next time. Doing this is very popular in functional programming world and it is
+called <tt class="docutils literal"><span class="pre">memoize</span></tt>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">memoize</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cache</span><span class="p">:</span>
+            <span class="n">cache</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">g</span>
+
+<span class="n">fib</span> <span class="o">=</span> <span class="n">trace</span><span class="p">(</span><span class="n">fib</span><span class="p">)</span>
+<span class="n">fib</span> <span class="o">=</span> <span class="n">memoize</span><span class="p">(</span><span class="n">fib</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">fib</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you notice, after <tt class="docutils literal"><span class="pre">memoize</span></tt>, growth of <tt class="docutils literal"><span class="pre">fib</span></tt> has become linear.</p>
+<div class="highlight-text"><div class="highlight"><pre>|-- fib 4
+|  |-- fib 3
+|  |  |-- fib 2
+|  |  |  |-- fib 1
+|  |  |  |  |-- return 1
+|  |  |  |-- fib 0
+|  |  |  |  |-- return 1
+|  |  |  |-- return 2
+|  |  |-- return 3
+|  |-- return 5
+5
+</pre></div>
+</div>
+<p><strong>Problem 10: </strong>Write a function <tt class="docutils literal"><span class="pre">profile</span></tt>,
+ which takes a function as argument and returns a new function, which 
+behaves exactly similar to the given function, except that it prints the
+ time consumed in executing it.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fib</span> <span class="o">=</span> <span class="n">profile</span><span class="p">(</span><span class="n">fib</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fib</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="go">time taken: 0.1 sec</span>
+<span class="go">10946</span>
+</pre></div>
+</div>
+<p><strong>Problem 11: </strong>Write a function <tt class="docutils literal"><span class="pre">vectorize</span></tt> which takes a function <tt class="docutils literal"><span class="pre">f</span></tt> and return a new function, which takes a list as argument and calls <tt class="docutils literal"><span class="pre">f</span></tt> for every element and returns the result as a list.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">vectorize</span><span class="p">(</span><span class="n">square</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="go">[1, 4, 9]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">vectorize</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="p">([</span><span class="s">"hello"</span><span class="p">,</span> <span class="s">"world"</span><span class="p">])</span>
+<span class="go">[5, 5]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="go">[2, 3]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-unixcommand-decorator">
+<h3>6.2.3. Example: unixcommand decorator<a class="headerlink" href="#example-unixcommand-decorator" title="Permalink to this headline">¶</a></h3>
+<p>Many unix commands have a typical pattern. They accept multiple filenames as
+arguments, does some processing and prints the lines back. Some examples of
+such commands are <tt class="docutils literal"><span class="pre">cat</span></tt> and <tt class="docutils literal"><span class="pre">grep</span></tt>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">unixcommand</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">filenames</span><span class="p">):</span>
+        <span class="n">printlines</span><span class="p">(</span><span class="n">out</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">readlines</span><span class="p">(</span><span class="n">filenames</span><span class="p">)</span>
+                           <span class="k">for</span> <span class="n">out</span> <span class="ow">in</span> <span class="n">f</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">g</span>
+</pre></div>
+</div>
+<p>Lets see how to use it.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nd">@unixcommand</span>
+<span class="k">def</span> <span class="nf">cat</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
+    <span class="k">yield</span> <span class="n">line</span>
+
+<span class="nd">@unixcommand</span>
+<span class="k">def</span> <span class="nf">lowercase</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
+    <span class="k">yield</span> <span class="n">line</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="exec-eval">
+<h2>6.3. exec &amp; eval<a class="headerlink" href="#exec-eval" title="Permalink to this headline">¶</a></h2>
+<p>Python privides the whole interpreter as a built-in function. You can
+ pass a string and ask it is execute that piece of code at run time.</p>
+<p>For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">exec</span><span class="p">(</span><span class="s">"x = 1"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+<p>By default <tt class="docutils literal"><span class="pre">exec</span></tt> works in the current environment, so it updated the globals in
+the above example. It is also possible to specify an environment to <tt class="docutils literal"><span class="pre">exec</span></tt>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">env</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span> <span class="p">:</span> <span class="mi">42</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">exec</span><span class="p">(</span><span class="s">'x = a+1'</span><span class="p">,</span> <span class="n">env</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">env</span><span class="p">[</span><span class="s">'x'</span><span class="p">]</span>
+<span class="go">43</span>
+</pre></div>
+</div>
+<p>It is also possible to create functions or classes dynamically using <tt class="docutils literal"><span class="pre">exec</span></tt>,
+though it is usually not a good idea.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">code</span> <span class="o">=</span> <span class="s">'def add_</span><span class="si">%d</span><span class="s">(x): return x + </span><span class="si">%d</span><span class="s">'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">exec</span><span class="p">(</span><span class="n">code</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">add_1</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">add_3</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">6</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">eval</span></tt> is like <tt class="docutils literal"><span class="pre">exec</span></tt> but it takes an expression and returns its value.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">eval</span><span class="p">(</span><span class="s">"2+3"</span><span class="p">)</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">eval</span><span class="p">(</span><span class="s">"a * a"</span><span class="p">)</span>
+<span class="go">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">env</span> <span class="o">=</span> <span class="p">{</span><span class="s">'x'</span> <span class="p">:</span> <span class="mi">42</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">eval</span><span class="p">(</span><span class="s">'x+1'</span><span class="p">,</span> <span class="n">env</span><span class="p">)</span>
+<span class="go">43</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="http://anandology.com/python-practice-book/iterators.html" class="btn btn-neutral" title="5. Iterators &amp; Generators"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>
+        © Copyright 2014, <a href="http://anandology.com/">Anand Chitipothu</a>.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2014-08-10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="6.%20Functional%20Programming%20%E2%80%94%20Python%20Practice%20Book_files/jquery.js"></script>
+      <script type="text/javascript" src="6.%20Functional%20Programming%20%E2%80%94%20Python%20Practice%20Book_files/underscore.js"></script>
+      <script type="text/javascript" src="6.%20Functional%20Programming%20%E2%80%94%20Python%20Practice%20Book_files/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="6.%20Functional%20Programming%20%E2%80%94%20Python%20Practice%20Book_files/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ 
+
+<script src="6.%20Functional%20Programming%20%E2%80%94%20Python%20Practice%20Book_files/js.js" type="text/javascript"></script>
+<script type="text/javascript">try{ clicky.init(66579110); }catch(e){}</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/66579110ns.gif" /></p></noscript>
+
+
+
+
+</body></html>

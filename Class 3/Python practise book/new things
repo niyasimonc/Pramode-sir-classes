@@ -1,0 +1,109 @@
+lambda
+filter
+map
+reduce
+import
+zip
+The sort method works even when the list has different types of objects and even lists.We can optionally specify a function as sort key like in sorted.
+Since parenthesis are also used for grouping, tuples with a single value are represented with an additional comma.
+
+
+A module is imported using the import statement.
+
+>>> import time
+>>> print time.asctime()
+'Fri Mar 30 12:59:21 2012'
+
+There is also another way to use the import statement.
+
+>>> from time import asctime
+>>> asctime()
+'Fri Mar 30 13:01:37 2012'
+
+
+
+
+The zipfile module provides interface to read and write zip files.
+
+Here are some examples to demonstate the power of zipfile module.
+
+The following example prints names of all the files in a zip archive.
+
+import zipfile
+z = zipfile.ZipFile("a.zip")
+for name in z.namelist():
+    print name
+
+The try statement can have an optional else clause, which is executed only if no exception is raised in the try-block.
+
+There can be an optional else clause with a try statement, which is executed irrespective of whether or not exception has occured.
+Exception is raised using the raised keyword.
+
+
+
+
+
+The built-in function iter takes an iterable object and returns an iterator.
+
+The __iter__ method is what makes an object iterable. Behind the scenes, the iter function calls __iter__ method on the given object.The return value of __iter__ is an iterator. It should have a next method and raise StopIteration when there are no more elements.
+
+
+
+
+Yield is a keyword that is used like return, except the function will return a generator.When next` method is called for the first time, the function starts executing until it reaches yield statement. The yielded value is returned by the next call.
+
+************************************************************
+
+
+
+
+
+
+
+
+a={1,2,3}
+type of a is set
+a={}  > null dict
+
+a={ x*x for x in range(5)}   set comprehension
+a={x:x+1 for x in range(10)} dict comprehension
+
+The pass statement does nothing. It can be used when a statement is required syntactically but the program requires no action.
+
+even functions without a return statement do return a value, albeit a rather boring one. This value is called None
+
+
+The default values are evaluated at the point of function definition in the defining scope, so that
+i = 5
+
+def f(arg=i):
+    print arg
+
+i = 6
+f()
+
+
+
+>>> range(3, 6)             # normal call with separate arguments
+[3, 4, 5]
+>>> args = [3, 6]
+>>> range(*args)            # call with arguments unpacked from a list
+[3, 4, 5]
+
+In the same fashion, dictionaries can deliver keyword arguments with the **-operator:
+>>>
+
+>>> def parrot(voltage, state='a stiff', action='voom'):
+...     print "-- This parrot wouldn't", action,
+...     print "if you put", voltage, "volts through it.",
+...     print "E's", state, "!"
+...
+>>> d = {"voltage": "four million", "state": "bleedin' demised", "action": "VOOM"}
+>>> parrot(**d)
+-- This parrot wouldn't VOOM if you put four million volts through it. E's bleedin' demised !
+
+
+
+
+
+

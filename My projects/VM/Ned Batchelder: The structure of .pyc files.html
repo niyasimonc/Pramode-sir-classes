@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width"><title>Ned Batchelder: The structure of .pyc files</title><link rel="stylesheet" href="Ned%20Batchelder:%20The%20structure%20of%20.pyc%20files_files/style.css" type="text/css"><link rel="stylesheet" href="Ned%20Batchelder:%20The%20structure%20of%20.pyc%20files_files/printstyle.css" type="text/css" media="print"><link rel="alternate" type="application/rss+xml" href="http://nedbatchelder.com/blog/rss.xml" title="RSS feed for Ned's blog"><script src="Ned%20Batchelder:%20The%20structure%20of%20.pyc%20files_files/ga.js" async="" type="text/javascript"></script><script type="text/javascript" src="Ned%20Batchelder:%20The%20structure%20of%20.pyc%20files_files/nedbatchelder.js"></script><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32134006-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></head><body><table id="logo_banner"><tbody><tr><td id="logo"><a href="http://nedbatchelder.com/"><img src="Ned%20Batchelder:%20The%20structure%20of%20.pyc%20files_files/dodeca3_100.gif" alt="[*]" height="120" width="100"></a></td><td id="banner"><span class="path"><a href="http://nedbatchelder.com/">Ned Batchelder</a> : <a href="http://nedbatchelder.com/blog">Blog</a> | <a href="http://nedbatchelder.com/code">Code</a> | <a href="http://nedbatchelder.com/text">Text</a> | <a href="http://nedbatchelder.com/site">Site</a></span><br><span class="headslug">The structure of .pyc files</span><br><span class="path">
+                    » <a href="http://nedbatchelder.com/">Home</a> : <a href="http://nedbatchelder.com/blog">Blog</a> : <a href="http://nedbatchelder.com/blog/200804.html">April 2008</a></span></td></tr></tbody></table><table id="content_menu"><tbody><tr><td id="content"><div class="body"><div id="searchwelcome"></div><div class="blog-entry" id="e20080409T055530"><div class="head"><h3 class="title"><a class="s" href="http://nedbatchelder.com/blog/200804/the_structure_of_pyc_files.html" rel="bookmark" title="Link to this post">The structure of .pyc files</a></h3><p class="date">Wednesday 9 <a class="s" href="http://nedbatchelder.com/blog/200804.html">April 2008</a></p></div><p>I spent some time digging around in the Python code to understand how .pyc
+files work.  It turns out they are fairly simple, then kind of complex.
+</p><p>At the simple level, a .pyc file is a binary file containing only three things:</p><ul><li>A four-byte magic number,</li><li>A four-byte modification timestamp, and</li><li>A marshalled <a class="offsite" rel="external" href="http://docs.python.org/ref/types.html#l2h-143">code object</a>.</li></ul><p>The magic number is nothing as cool as
+<a class="offsite" rel="external" href="http://www.artima.com/insidejvm/whyCAFEBABE.html">cafebabe</a>,
+it's simply two bytes that change
+with each change to the marshalling code, and then two bytes of 0d0a.
+The 0d0a bytes are a carriage return and line feed, so that if a .pyc file is
+processed as text, it will change, and the magic number will be corrupted.  This
+will keep the file from executing after a copy corruption.
+The marshalling code is tweaked in every major release of Python, so in practice
+the magic number is unique in each version of the Python interpreter.
+For Python 2.5, it's b3f20d0a. (the gory details are in <a class="offsite" rel="external" href="http://svn.python.org/view/python/trunk/Python/import.c?view=markup">import.c</a>)</p><p>The four-byte modification timestamp is the Unix modification timestamp of the
+source file that generated the .pyc, so that it can be recompiled if the source
+changes.</p><p>The entire rest of the file is just the output of <a class="offsite" rel="external" href="http://docs.python.org/lib/module-marshal.html">marshal.dump</a>
+of the code object that results from compiling the source file.  Marshal is like
+pickle, in that it serializes Python objects.  It has different goals than pickle,
+though.  Where pickle is meant to produce version-independent serialization suitable
+for persistence, marshal is meant for short-lived serialized objects, so its representation
+can change with each Python version. Also, pickle is designed to work properly for
+user-defined types, while marshal handles the complexities of Python internal types.
+The one we care about in particular here is the code object.</p><p>The nature of marshalling gives us the important characteristics of .pyc files:
+they are independent of platform, but very sensitive to Python versions.  A 2.4 .pyc
+file will not execute under 2.5, but it can be copied from one operating system to another just fine.
+</p><p>So that's the simple part: two longs and a marshalled code object.  The complexity,
+of course, is in the structure of the code object.  They contain all sorts of information
+produced by the compiler, the meatiest of which is the bytecode itself.</p><p>Luckily it isn't hard to write a program to dump these things out, thanks to the
+<a class="offsite" rel="external" href="http://docs.python.org/lib/module-marshal.html">marshal</a> and
+<a class="offsite" rel="external" href="http://docs.python.org/lib/module-dis.html">dis</a> modules:
+</p><blockquote class="code"><code><span class="kn">import</span>&nbsp;<span class="nn">dis</span><span class="o">,</span>&nbsp;<span class="nn">marshal</span><span class="o">,</span>&nbsp;<span class="nn">struct</span><span class="o">,</span>&nbsp;<span class="nn">sys</span><span class="o">,</span>&nbsp;<span class="nn">time</span><span class="o">,</span>&nbsp;<span class="nn">types</span><br><br><span class="k">def</span>&nbsp;<span class="nf">show_file</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="n">f</span>&nbsp;<span class="o">=</span>&nbsp;<span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span>&nbsp;<span class="s">"rb"</span><span class="p">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="n">magic</span>&nbsp;<span class="o">=</span>&nbsp;<span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="n">moddate</span>&nbsp;<span class="o">=</span>&nbsp;<span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="n">modtime</span>&nbsp;<span class="o">=</span>&nbsp;<span class="n">time</span><span class="o">.</span><span class="n">asctime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s">'L'</span><span class="p">,</span>&nbsp;<span class="n">moddate</span><span class="p">)[</span><span class="mi">0</span><span class="p">]))</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">print</span>&nbsp;<span class="s">"magic&nbsp;</span><span class="si">%s</span><span class="s">"</span>&nbsp;<span class="o">%</span>&nbsp;<span class="p">(</span><span class="n">magic</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'hex'</span><span class="p">))</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">print</span>&nbsp;<span class="s">"moddate&nbsp;</span><span class="si">%s</span><span class="s">&nbsp;(</span><span class="si">%s</span><span class="s">)"</span>&nbsp;<span class="o">%</span>&nbsp;<span class="p">(</span><span class="n">moddate</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'hex'</span><span class="p">),</span>&nbsp;<span class="n">modtime</span><span class="p">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="n">code</span>&nbsp;<span class="o">=</span>&nbsp;<span class="n">marshal</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="n">show_code</span><span class="p">(</span><span class="n">code</span><span class="p">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;
+<br><span class="k">def</span>&nbsp;<span class="nf">show_code</span><span class="p">(</span><span class="n">code</span><span class="p">,</span>&nbsp;<span class="n">indent</span><span class="o">=</span><span class="s">''</span><span class="p">):</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">print</span>&nbsp;<span class="s">"</span><span class="si">%s</span><span class="s">code"</span>&nbsp;<span class="o">%</span>&nbsp;<span class="n">indent</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="n">indent</span>&nbsp;<span class="o">+=</span>&nbsp;<span class="s">'&nbsp;&nbsp;&nbsp;'</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">print</span>&nbsp;<span class="s">"</span><span class="si">%s</span><span class="s">argcount&nbsp;</span><span class="si">%d</span><span class="s">"</span>&nbsp;<span class="o">%</span>&nbsp;<span class="p">(</span><span class="n">indent</span><span class="p">,</span>&nbsp;<span class="n">code</span><span class="o">.</span><span class="n">co_argcount</span><span class="p">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">print</span>&nbsp;<span class="s">"</span><span class="si">%s</span><span class="s">nlocals&nbsp;</span><span class="si">%d</span><span class="s">"</span>&nbsp;<span class="o">%</span>&nbsp;<span class="p">(</span><span class="n">indent</span><span class="p">,</span>&nbsp;<span class="n">code</span><span class="o">.</span><span class="n">co_nlocals</span><span class="p">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">print</span>&nbsp;<span class="s">"</span><span class="si">%s</span><span class="s">stacksize&nbsp;</span><span class="si">%d</span><span class="s">"</span>&nbsp;<span class="o">%</span>&nbsp;<span class="p">(</span><span class="n">indent</span><span class="p">,</span>&nbsp;<span class="n">code</span><span class="o">.</span><span class="n">co_stacksize</span><span class="p">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">print</span>&nbsp;<span class="s">"</span><span class="si">%s</span><span class="s">flags&nbsp;</span><span class="si">%04x</span><span class="s">"</span>&nbsp;<span class="o">%</span>&nbsp;<span class="p">(</span><span class="n">indent</span><span class="p">,</span>&nbsp;<span class="n">code</span><span class="o">.</span><span class="n">co_flags</span><span class="p">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="n">show_hex</span><span class="p">(</span><span class="s">"code"</span><span class="p">,</span>&nbsp;<span class="n">code</span><span class="o">.</span><span class="n">co_code</span><span class="p">,</span>&nbsp;<span class="n">indent</span><span class="o">=</span><span class="n">indent</span><span class="p">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="n">dis</span><span class="o">.</span><span class="n">disassemble</span><span class="p">(</span><span class="n">code</span><span class="p">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">print</span>&nbsp;<span class="s">"</span><span class="si">%s</span><span class="s">consts"</span>&nbsp;<span class="o">%</span>&nbsp;<span class="n">indent</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">for</span>&nbsp;<span class="n">const</span>&nbsp;<span class="ow">in</span>&nbsp;<span class="n">code</span><span class="o">.</span><span class="n">co_consts</span><span class="p">:</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">if</span>&nbsp;<span class="nb">type</span><span class="p">(</span><span class="n">const</span><span class="p">)</span>&nbsp;<span class="o">==</span>&nbsp;<span class="n">types</span><span class="o">.</span><span class="n">CodeType</span><span class="p">:</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="n">show_code</span><span class="p">(</span><span class="n">const</span><span class="p">,</span>&nbsp;<span class="n">indent</span><span class="o">+</span><span class="s">'&nbsp;&nbsp;&nbsp;'</span><span class="p">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">else</span><span class="p">:</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">print</span>&nbsp;<span class="s">"&nbsp;&nbsp;&nbsp;</span><span class="si">%s%r</span><span class="s">"</span>&nbsp;<span class="o">%</span>&nbsp;<span class="p">(</span><span class="n">indent</span><span class="p">,</span>&nbsp;<span class="n">const</span><span class="p">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">print</span>&nbsp;<span class="s">"</span><span class="si">%s</span><span class="s">names&nbsp;</span><span class="si">%r</span><span class="s">"</span>&nbsp;<span class="o">%</span>&nbsp;<span class="p">(</span><span class="n">indent</span><span class="p">,</span>&nbsp;<span class="n">code</span><span class="o">.</span><span class="n">co_names</span><span class="p">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">print</span>&nbsp;<span class="s">"</span><span class="si">%s</span><span class="s">varnames&nbsp;</span><span class="si">%r</span><span class="s">"</span>&nbsp;<span class="o">%</span>&nbsp;<span class="p">(</span><span class="n">indent</span><span class="p">,</span>&nbsp;<span class="n">code</span><span class="o">.</span><span class="n">co_varnames</span><span class="p">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">print</span>&nbsp;<span class="s">"</span><span class="si">%s</span><span class="s">freevars&nbsp;</span><span class="si">%r</span><span class="s">"</span>&nbsp;<span class="o">%</span>&nbsp;<span class="p">(</span><span class="n">indent</span><span class="p">,</span>&nbsp;<span class="n">code</span><span class="o">.</span><span class="n">co_freevars</span><span class="p">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">print</span>&nbsp;<span class="s">"</span><span class="si">%s</span><span class="s">cellvars&nbsp;</span><span class="si">%r</span><span class="s">"</span>&nbsp;<span class="o">%</span>&nbsp;<span class="p">(</span><span class="n">indent</span><span class="p">,</span>&nbsp;<span class="n">code</span><span class="o">.</span><span class="n">co_cellvars</span><span class="p">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">print</span>&nbsp;<span class="s">"</span><span class="si">%s</span><span class="s">filename&nbsp;</span><span class="si">%r</span><span class="s">"</span>&nbsp;<span class="o">%</span>&nbsp;<span class="p">(</span><span class="n">indent</span><span class="p">,</span>&nbsp;<span class="n">code</span><span class="o">.</span><span class="n">co_filename</span><span class="p">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">print</span>&nbsp;<span class="s">"</span><span class="si">%s</span><span class="s">name&nbsp;</span><span class="si">%r</span><span class="s">"</span>&nbsp;<span class="o">%</span>&nbsp;<span class="p">(</span><span class="n">indent</span><span class="p">,</span>&nbsp;<span class="n">code</span><span class="o">.</span><span class="n">co_name</span><span class="p">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">print</span>&nbsp;<span class="s">"</span><span class="si">%s</span><span class="s">firstlineno&nbsp;</span><span class="si">%d</span><span class="s">"</span>&nbsp;<span class="o">%</span>&nbsp;<span class="p">(</span><span class="n">indent</span><span class="p">,</span>&nbsp;<span class="n">code</span><span class="o">.</span><span class="n">co_firstlineno</span><span class="p">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="n">show_hex</span><span class="p">(</span><span class="s">"lnotab"</span><span class="p">,</span>&nbsp;<span class="n">code</span><span class="o">.</span><span class="n">co_lnotab</span><span class="p">,</span>&nbsp;<span class="n">indent</span><span class="o">=</span><span class="n">indent</span><span class="p">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;
+<br><span class="k">def</span>&nbsp;<span class="nf">show_hex</span><span class="p">(</span><span class="n">label</span><span class="p">,</span>&nbsp;<span class="n">h</span><span class="p">,</span>&nbsp;<span class="n">indent</span><span class="p">):</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="n">h</span>&nbsp;<span class="o">=</span>&nbsp;<span class="n">h</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'hex'</span><span class="p">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">if</span>&nbsp;<span class="nb">len</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>&nbsp;<span class="o">&lt;</span>&nbsp;<span class="mi">60</span><span class="p">:</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">print</span>&nbsp;<span class="s">"</span><span class="si">%s%s</span><span class="s">&nbsp;</span><span class="si">%s</span><span class="s">"</span>&nbsp;<span class="o">%</span>&nbsp;<span class="p">(</span><span class="n">indent</span><span class="p">,</span>&nbsp;<span class="n">label</span><span class="p">,</span>&nbsp;<span class="n">h</span><span class="p">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">else</span><span class="p">:</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">print</span>&nbsp;<span class="s">"</span><span class="si">%s%s</span><span class="s">"</span>&nbsp;<span class="o">%</span>&nbsp;<span class="p">(</span><span class="n">indent</span><span class="p">,</span>&nbsp;<span class="n">label</span><span class="p">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">for</span>&nbsp;<span class="n">i</span>&nbsp;<span class="ow">in</span>&nbsp;<span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span>&nbsp;<span class="nb">len</span><span class="p">(</span><span class="n">h</span><span class="p">),</span>&nbsp;<span class="mi">60</span><span class="p">):</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">print</span>&nbsp;<span class="s">"</span><span class="si">%s</span><span class="s">&nbsp;&nbsp;&nbsp;</span><span class="si">%s</span><span class="s">"</span>&nbsp;<span class="o">%</span>&nbsp;<span class="p">(</span><span class="n">indent</span><span class="p">,</span>&nbsp;<span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">60</span><span class="p">])</span><br><br><span class="n">show_file</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><br></code></blockquote><p>Running this on the .pyc from an ultra-simple Python file:</p><blockquote class="code"><code><span class="n">a</span><span class="p">,</span>&nbsp;<span class="n">b</span>&nbsp;<span class="o">=</span>&nbsp;<span class="mi">1</span><span class="p">,</span>&nbsp;<span class="mi">0</span><br><span class="k">if</span>&nbsp;<span class="n">a</span>&nbsp;<span class="ow">or</span>&nbsp;<span class="n">b</span><span class="p">:</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">print</span>&nbsp;<span class="s">"Hello"</span><span class="p">,</span>&nbsp;<span class="n">a</span><br></code></blockquote><p>produces this:</p><blockquote class="code"><code>magic&nbsp;b3f20d0a<br>moddate&nbsp;8a9efc47&nbsp;(Wed&nbsp;Apr&nbsp;09&nbsp;06:46:34&nbsp;2008)<br>code<br>&nbsp;&nbsp;&nbsp;argcount&nbsp;0<br>&nbsp;&nbsp;&nbsp;nlocals&nbsp;0<br>&nbsp;&nbsp;&nbsp;stacksize&nbsp;2<br>&nbsp;&nbsp;&nbsp;flags&nbsp;0040<br>&nbsp;&nbsp;&nbsp;code<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6404005c02005a00005a0100650000700700016501006f0d000164020047<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;65000047486e01000164030053<br>&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;LOAD_CONST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;((1,&nbsp;0))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;UNPACK_SEQUENCE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;STORE_NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;(a)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9&nbsp;STORE_NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;(b)<br><br>&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12&nbsp;LOAD_NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;(a)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15&nbsp;JUMP_IF_TRUE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;(to&nbsp;25)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18&nbsp;POP_TOP<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;19&nbsp;LOAD_NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;(b)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;22&nbsp;JUMP_IF_FALSE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13&nbsp;(to&nbsp;38)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&nbsp;&nbsp;&nbsp;25&nbsp;POP_TOP<br><br>&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;26&nbsp;LOAD_CONST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;('Hello')<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;29&nbsp;PRINT_ITEM<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30&nbsp;LOAD_NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;(a)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;33&nbsp;PRINT_ITEM<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;34&nbsp;PRINT_NEWLINE<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;35&nbsp;JUMP_FORWARD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;(to&nbsp;39)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&nbsp;&nbsp;&nbsp;38&nbsp;POP_TOP<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&nbsp;&nbsp;&nbsp;39&nbsp;LOAD_CONST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;(None)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;42&nbsp;RETURN_VALUE<br>&nbsp;&nbsp;&nbsp;consts<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Hello'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;None<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1,&nbsp;0)<br>&nbsp;&nbsp;&nbsp;names&nbsp;('a',&nbsp;'b')<br>&nbsp;&nbsp;&nbsp;varnames&nbsp;()<br>&nbsp;&nbsp;&nbsp;freevars&nbsp;()<br>&nbsp;&nbsp;&nbsp;cellvars&nbsp;()<br>&nbsp;&nbsp;&nbsp;filename&nbsp;'C:\\ned\\sample.py'<br>&nbsp;&nbsp;&nbsp;name&nbsp;'&lt;module&gt;'<br>&nbsp;&nbsp;&nbsp;firstlineno&nbsp;1<br>&nbsp;&nbsp;&nbsp;lnotab&nbsp;0c010e01<br></code></blockquote><p>A lot of this stuff I don't understand, but the byte codes are nicely disassembled
+and presented symbolically.  The Python virtual machine is a stack-oriented interpreter,
+so a lot of the operations are loads and pops, and of course jumps and conditionals.
+For the adventurous: the byte-code interpreter is in 
+<a class="offsite" rel="external" href="http://svn.python.org/view/python/trunk/Python/ceval.c?view=markup">ceval.c</a>.
+The exact details of the byte codes change with each major version of Python.  For
+example, the PRINT_ITEM and PRINT_NEWLINE opcodes we see here are
+<a class="offsite" rel="external" href="http://mail.python.org/pipermail/python-dev/2005-September/056154.html">gone in Python 3.0</a>.
+</p><p>In the disassembled output, the left-most numbers (1, 2, 3) are the line numbers in the original
+source file and the next numbers (0, 3, 6, 9, ...) are the byte offsets of the instruction.
+The operands to the instruction are presented numerically, and then in parentheses,
+interpreted symbolically.  Lines with "&gt;&gt;" are the targets of jump instructions
+somewhere else in the code.
+</p><p>This sample was very simple, with a single code object for the flow of instructions in the module.
+A real module with class and function definitions would be more complicated.  The classes and
+functions would themselves be code objects in the consts list, nested as deeply as needed to
+represent the module.  The module code object has class code objects which themselves have
+function code objects, and so on.</p><p>Once you start digging around at this level, there are all sorts of facilities
+for working with code objects.  In the standard library, there's the
+<a class="offsite" rel="external" href="http://docs.python.org/lib/built-in-funcs.html#l2h-18">compile</a> built-in function,
+and the 
+<a class="offsite" rel="external" href="http://docs.python.org/lib/module-compiler.html">compiler</a>, 
+<a class="offsite" rel="external" href="http://docs.python.org/lib/module-codeop.html">codeop</a>
+and <a class="offsite" rel="external" href="http://docs.python.org/lib/bytecodes.html">opcode</a> modules.
+For the truly adventurous, there are third-party packages like
+<a class="offsite" rel="external" href="http://www.aminus.org/rbre/python/index.html">codewalk</a>,
+<a class="offsite" rel="external" href="http://wiki.python.org/moin/ByteplayDoc">byteplay</a> and 
+<a class="offsite" rel="external" href="http://bytecodehacks.sourceforge.net/bch-docs/bch/index.html">bytecodehacks</a>.
+<a class="offsite" rel="external" href="http://www.python.org/dev/peps/pep-0339/">PEP 339</a> gives more detail about compilation
+and opcodes.  Finally, Ananth Shrinivas had another take on 
+<a class="offsite" rel="external" href="http://thermalnoise.wordpress.com/2007/12/30/exploring-python-bytecode/">exploring Python bytecode</a>.
+</p><div class="foot"><span class="via">
+
+    
+    
+        tagged: 
+        <a href="http://nedbatchelder.com/blog/tag/python.html" rel="tag">python</a></span><span class="react">»&nbsp;11 reactions</span></div></div><div class="comments" id="comments">
+<h1>Comments</h1>
+
+	<div class="comment">
+		<img class="gravatar" src="Ned%20Batchelder:%20The%20structure%20of%20.pyc%20files_files/6cc09155d4a43cc770bf1e77fd87867a.jpg" alt="[gravatar]" height="40" width="40">
+		<div class="head">
+			<span class="who"><b><a href="http://utilitymill.com/" rel="nofollow" target="_blank">Greg</a></b></span>
+			<span class="when"><span class="adminlink"></span> 11:42 AM on 9 Apr 2008</span>
+		</div>
+		
+		<p class="commenttext">
+			This is really cool, So cool in fact that I made it into an online utility:  <a rel="nofollow" href="http://utilitymill.com/utility/pyc_xray">PYC Xray</a>.
+<br>
+<br>I hope you don't mind.
+		</p>
+	</div>
+	<div class="comment">
+		<img class="gravatar" src="Ned%20Batchelder:%20The%20structure%20of%20.pyc%20files_files/9bf8e30390499ac27be44b3611e5106b.jpg" alt="[gravatar]" height="40" width="40">
+		<div class="head">
+			<span class="who"><b>localhost</b></span>
+			<span class="when"><span class="adminlink"></span> 12:04 PM on 9 Apr 2008</span>
+		</div>
+		
+		<p class="commenttext">
+			informative &amp; concise, great post!
+		</p>
+	</div>
+	<div class="comment">
+		<img class="gravatar" src="Ned%20Batchelder:%20The%20structure%20of%20.pyc%20files_files/57cf2fa83da2aaba0fb1f1b43f7c883e.jpg" alt="[gravatar]" height="40" width="40">
+		<div class="head">
+			<span class="who"><b>Jason Harris</b></span>
+			<span class="when"><span class="adminlink"></span> 2:31 PM on 9 Apr 2008</span>
+		</div>
+		
+		<p class="commenttext">
+			Try 'i' for the unpack format on a 64 bit machine if you are having trouble.
+<br>moddate = f.read(4)
+<br>modtime = time.asctime(time.localtime(struct.unpack('i', moddate)[0]))
+		</p>
+	</div>
+	<div class="comment">
+		<img class="gravatar" src="Ned%20Batchelder:%20The%20structure%20of%20.pyc%20files_files/26156e2b45d0a7aa9b98b78019997f5b.jpg" alt="[gravatar]" height="40" width="40">
+		<div class="head">
+			<span class="who"><b><a href="http://trentm.com/blog/" rel="nofollow" target="_blank">Trent Mick</a></b></span>
+			<span class="when"><span class="adminlink"></span> 2:13 AM on 11 Apr 2008</span>
+		</div>
+		
+		<p class="commenttext">
+			(Mostly off-topic, but I thought interesting.)
+<br>
+<br>Regarding the 0xcafebabe magic number for Java class data: When 
+writing filetype detection code for Komodo's "Replace in Files" (<a rel="nofollow" href="http://svn.openkomodo.com/openkomodo/checkout/openkomodo/trunk/src/python-sitelib/textinfo.py">http://svn.openkomodo.com/openkomodo/checkout/openkomodo/trunk/src/python-sitelib/textinfo.py</a>) I ran into the fact that Mach-O universal binary data magic number is also "0xcafebabe".
+<br>
+<br>$ uname
+<br>Darwin
+<br>$ od -H -N 4 /System/Library/Java/com/apple/net/URLFilter.class 
+<br>0000000          bebafeca                                                
+<br>0000004
+<br>$ od -H -N 4 /usr/bin/python
+<br>0000000          bebafeca                                                
+<br>0000004
+<br>
+<br>From /usr/share/file/magic (i.e. the data that `file` uses to guess filetype):
+<br>
+<br># Since Java bytecode and Mach-O universal binaries have the same magic number
+<br># the test must be preformed in the same "magic" sequence to get both right.
+<br># The long at offset 4 in a universal binary tells the number of architectures.
+<br># The short at offset 4 in a Java bytecode file is the compiler minor version
+<br># and the short at offset 6 is the compiler major version.  Since there are
+<br># only 18 labeled Mach-O architectures at current, and the first released 
+<br># Java class format was version 43.0, we can safely choose any number
+<br># between 18 and 39 to test the number of architectures against
+<br># (and use as a hack).
+		</p>
+	</div>
+	<div class="comment">
+		<img class="gravatar" src="Ned%20Batchelder:%20The%20structure%20of%20.pyc%20files_files/f0383904a467f6302b858fbfee6bfd4f.jpg" alt="[gravatar]" height="40" width="40">
+		<div class="head">
+			<span class="who"><b>zeo</b></span>
+			<span class="when"><span class="adminlink"></span> 3:14 PM on 10 Jun 2008</span>
+		</div>
+		
+		<p class="commenttext">
+			hi !
+<br>is there no downloadable decomyle / depython appication available on the web ?
+<br>(which at least processes python 2.5) only these expensive services ?
+		</p>
+	</div>
+	<div class="comment">
+		<img class="gravatar" src="Ned%20Batchelder:%20The%20structure%20of%20.pyc%20files_files/d41d8cd98f00b204e9800998ecf8427e_002.jpg" alt="[gravatar]" height="40" width="40">
+		<div class="head">
+			<span class="who"><b><a href="http://www.google.com/" rel="nofollow" target="_blank">dogeen</a></b></span>
+			<span class="when"><span class="adminlink"></span> 3:21 AM on 25 Mar 2010</span>
+		</div>
+		
+		<p class="commenttext">
+			Thanks a lot for the article.. This is exactly what I need to rewrite the bytecode in pyc files. 
+<br>But I may actually write a decompy/depython using your technique and make it open-source :)..
+<br>
+<br>maybe those who are trying to make money from decompy will learn &gt;:)
+		</p>
+	</div>
+	<div class="comment">
+		<img class="gravatar" src="Ned%20Batchelder:%20The%20structure%20of%20.pyc%20files_files/fc761ccaf6c0d7d977e2959f9bfebd06.png" alt="[gravatar]" height="40" width="40">
+		<div class="head">
+			<span class="who"><b><a href="http://eli.thegreenplace.net/" rel="nofollow" target="_blank">Eli</a></b></span>
+			<span class="when"><span class="adminlink"></span> 1:51 AM on 22 Sep 2010</span>
+		</div>
+		
+		<p class="commenttext">
+			Nice post, Ned. 
+<br>
+<br>One suggestion: in show_code the indented prints are very repetitive
+ (%s and then passing indent every time). It seems better to encapsulate
+ this into an internal function defined inside show_code that prints its
+ args with the correct offset.
+		</p>
+	</div>
+	<div class="comment">
+		<img class="gravatar" src="Ned%20Batchelder:%20The%20structure%20of%20.pyc%20files_files/e21b157276cac451b31aa35d9e1bdd90.jpg" alt="[gravatar]" height="40" width="40">
+		<div class="head">
+			<span class="who"><b><a href="http://blog.beford.org/" rel="nofollow" target="_blank">Fernando</a></b></span>
+			<span class="when"><span class="adminlink"></span> 7:08 PM on 21 Sep 2011</span>
+		</div>
+		
+		<p class="commenttext">
+			Great code, I had to change struct.unpack('L', moddate)[0]) to 
+struct.unpack('&lt;L', moddate)[0]) to get it working on 64 bits python.
+ I think if you use it on x86 with '&lt;L' it works too.
+		</p>
+	</div>
+	<div class="comment">
+		<img class="gravatar" src="Ned%20Batchelder:%20The%20structure%20of%20.pyc%20files_files/d41d8cd98f00b204e9800998ecf8427e.jpg" alt="[gravatar]" height="40" width="40">
+		<div class="head">
+			<span class="who"><b><a href="http://andersrymdblogg.wordpress.com/" rel="nofollow" target="_blank">Anders</a></b></span>
+			<span class="when"><span class="adminlink"></span> 3:33 AM on 27 Jan 2012</span>
+		</div>
+		
+		<p class="commenttext">
+			Great work!
+<br>
+<br>(I used the adaption on:
+<br><a rel="nofollow" href="http://code.activestate.com/recipes/577880-inspect-a-pyc-file/">http://code.activestate.com/recipes/577880-inspect-a-pyc-file/</a> and it made me 
+<br>see in the dark. =)
+		</p>
+	</div>
+	<div class="comment">
+		<img class="gravatar" src="Ned%20Batchelder:%20The%20structure%20of%20.pyc%20files_files/66d9265556d1898fb9e8bba012dc2b46.png" alt="[gravatar]" height="40" width="40">
+		<div class="head">
+			<span class="who"><b><a href="http://www.synalysis.net/" rel="nofollow" target="_blank">Andreas</a></b></span>
+			<span class="when"><span class="adminlink"></span> 6:55 PM on 11 Jul 2013</span>
+		</div>
+		
+		<p class="commenttext">
+			On OS X you can <a rel="nofollow" href="http://www.synalysis.net/formats.xml">decode .pyc files</a> now automatically and visualize the contents with <a rel="nofollow" href="http://www.synalysis.net/">Synalyze It!</a>.
+		</p>
+	</div>
+	<div class="comment">
+		<img class="gravatar" src="Ned%20Batchelder:%20The%20structure%20of%20.pyc%20files_files/62ebae6755527ecd38516a1d3e22bf87.jpg" alt="[gravatar]" height="40" width="40">
+		<div class="head">
+			<span class="who"><b>Ian</b></span>
+			<span class="when"><span class="adminlink"></span> 8:49 AM on 24 Nov 2013</span>
+		</div>
+		
+		<p class="commenttext">
+			The format has changed slightly as of Python 3.3+, so the algorithm 
+above no longer works.  In addition to the two original four-byte fields
+ there is a new four-byte field that encodes the size of the source file
+ as a long. Consequently the marshaled code object now begins at 
+position 12.
+		</p>
+	</div>
+
+<div id="commentform">
+<h2>Add a comment:</h2>
+<div>
+	<form method="post" action="http://nedbatchelder.com/blog/200804/the_structure_of_pyc_files.html#commentform" id="commentformform">
+		<table>
+			<tbody><tr>
+				<td class="labels">
+					<div class="label">name</div>
+				</td>
+				<td class="inputs">
+					<input class="edit" name="f504c5b1a1fbd116280d3ac4f51d53489" id="f504c5b1a1fbd116280d3ac4f51d53489" size="40" type="text">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="label">email</div>
+				</td>
+				<td>
+					<div class="dn">
+                        Ignore this:
+                        <input class="edit" name="f0868a85b2da4302782202e756343f7bc" id="f0868a85b2da4302782202e756343f7bc" size="40" type="email">
+					</div>
+					<input class="edit" name="fbe79f39ee71aad581d48135ae3819b5a" id="fbe79f39ee71aad581d48135ae3819b5a" size="40" type="email">
+					<span class="notice">not displayed and no spam.</span>
+					<div class="dn">
+                        Leave this empty:
+                        <input class="edit" name="f794d4a1fd9967394c01ba41b7c54f05c" id="f794d4a1fd9967394c01ba41b7c54f05c" size="40" type="email">
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="label">www</div>
+				</td>
+				<td>
+					<input class="edit" name="f1c23a402ccdfb5d8d4608635a172264d" id="f1c23a402ccdfb5d8d4608635a172264d" size="40" type="url">
+					<span class="notice">not searched.</span>
+				</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>
+					<div class="notice">Name and either email or www are required.</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<div class="dn">
+						Don't put anything here:
+						<textarea name="ff2c92b085bb138614d0cf6ff12d3e928" id="ff2c92b085bb138614d0cf6ff12d3e928" rows="7" cols="77" style="width:100%"></textarea>
+					</div>
+					<div>
+						<textarea name="f1dfc9b62c030c6718b3363a2a37799fa" id="f1dfc9b62c030c6718b3363a2a37799fa" rows="7" cols="77" style="width:100%"></textarea>
+					</div>
+					<div class="dn">
+						Leave this empty:
+						<textarea name="fd42e00ae52a0197ecada5ce618c3c0e6" id="fd42e00ae52a0197ecada5ce618c3c0e6" rows="7" cols="77" style="width:100%"></textarea>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="notice right">
+					URLs auto-link and some tags are allowed: &lt;a&gt;&lt;b&gt;&lt;i&gt;&lt;p&gt;&lt;br&gt;&lt;pre&gt;.
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<div class="notice right">
+						<label for="cbnotify">
+							<input name="f6f9ddb80366b812bbb1452e3d79d0857" id="cbnotify" type="checkbox">
+							<span class="label">Email me future comments</span>
+						</label>&nbsp;&nbsp;
+						<input id="previewbtn" name="f942cf3363bbf4ba184a77c9ebe68112a" value="preview &gt;&gt;" type="submit">
+						<span class="dn">
+                            <input name="fd95fff9a28960e4559d3e5e4314ff123" value="I'm a spambot" type="submit">
+						</span>
+					</div>
+				</td>
+			</tr>
+		</tbody></table>
+		<input name="fe3af510de085baf11f208a3de4d38712" value="e20080409T055530" type="hidden">
+		<input name="spinner" value="93de410ed1ddd4f589d575d380cf7394" type="hidden">
+		<input name="f67167d93417410b805740b1bd0c7bf17" value="1442223325" type="hidden">
+
+
+	</form>
+</div>
+</div>
+
+</div>
+</div></td><td id="menu"><div class="sidebar">
+
+
+<div class="blogroll"><ul class="first"><li class="first">Search this site:
+            
+<form action="http://www.google.com/search" style="margin-top:6px;"><input name="q" value="site:nedbatchelder.com" type="hidden"><table><tbody><tr><td class="vmid"><input name="q" style="border:1px solid #7e9db9;padding:2px;width:144px;height:16px;" type="text"></td><td class="vmid"><input id="submit" class="vmid" title="Search" alt="Search" src="Ned%20Batchelder:%20The%20structure%20of%20.pyc%20files_files/search.png" type="image"></td></tr></tbody></table></form></li><li><a href="http://nedbatchelder.com/site/aboutned.html" rel="author">About me</a></li><li class="inline">Also me:
+            <ul><li><a href="http://twitter.com/nedbat">twitter</a>&nbsp;· </li><li><a href="mailto:ned@nedbatchelder.com">email</a></li></ul></li><li class="inline">Tip me:
+            <ul><li><a href="https://coinbase.com/nedbat">bitcoin</a></li></ul></li><li>Commerce:
+            <ul class="compact"><li>»&nbsp;<a href="http://www.amazon.com/exec/obidos/redirect-home/nedbatchelder-20">Amazon</a></li><li>»&nbsp;<a href="http://susansenator.com/survivalguide.html">Susan's books</a><br><a href="http://susansenator.com/makingpeace.html"><img src="Ned%20Batchelder:%20The%20structure%20of%20.pyc%20files_files/makingpeacetiny.png" alt="Making Peace With Autism" style="margin: 10px 0 0 0" height="127" width="83"></a> <a href="http://susansenator.com/dirt.html"><img src="Ned%20Batchelder:%20The%20structure%20of%20.pyc%20files_files/dirttiny.png" alt="Dirt, a novel" style="margin: 10px 0 0 0" height="125" width="86"></a><!--
+                    <a href='http://susansenator.com/survivalguide.html'><img src='pix/survivalguidetiny.png' alt='Autism Mom&#39;s Survival Guide' width='86' height='121' style='margin: 10px 0 0 0'></a>
+                    --></li></ul></li><li class="inline">More blog:
+            <ul><li><a href="http://nedbatchelder.com/blog/tag/python.html">python</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/art.html">art</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/archive2015.html">15</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/funny.html">funny</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/webpage.html">web</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/archive2014.html">14</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/tools.html">tools</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/parenting.html">parenting</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/archive2013.html">13</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/math.html">math</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/politics.html">politics</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/archive2012.html">12</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/movies.html">movies</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/ling.html">language</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/archive2011.html">11</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/mycode.html">my code</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/history.html">history</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/archive2010.html">10</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/coverage.html">coverage</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/books.html">books</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/archive2009.html">09</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/type.html">typography</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/business.html">business</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/archive2008.html">08</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/autism.html">autism</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/howto.html">how-to</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/archive2007.html">07</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/friendfam.html">friends &amp; family</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/science.html">science</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/archive2006.html">06</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/games.html">games</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/quick.html">quick links</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/archive2005.html">05</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/windows.html">windows</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/online.html">online</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/archive2004.html">04</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/work.html">work</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/photos.html">photos</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/archive2003.html">03</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/crafts.html">crafts</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/music.html">music</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/archive2002.html">02</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/cakes.html">cakes</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tag/google.html">google</a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/tags.html"><i>all tags</i></a><span class="thinspace">&nbsp;</span>·<span class="thinspace"> </span></li><li><a href="http://nedbatchelder.com/blog/archiveall.html"><b><i>everything!</i></b></a></li></ul></li><li><a href="http://nedbatchelder.com/blog/rss.xml" type="application/rss+xml" style="
+                    padding: 0 .4em;
+                    background: #F60;
+                    color: white;
+                    border: 1px solid;
+                    border-color: #FC9 #630 #330 #F96;
+                    font-weight: bold;
+                    text-decoration: none;
+                    ">RSS</a></li></ul></div>
+
+</div></td></tr><tr><td id="copyright" colspan="2"><p class="copyright"><a rel="copyright license" href="http://nedbatchelder.com/site/legal.html">
+                            © Copyright
+                            
+                                2008,
+                            
+                            Ned Batchelder
+                        </a></p></td></tr></tbody></table>
+</body></html>

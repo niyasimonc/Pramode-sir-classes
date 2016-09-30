@@ -1,0 +1,604 @@
+<!--?xml version="1.0" encoding="utf-8" ?-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="Docutils 0.9: http://docutils.sourceforge.net/">
+<title></title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 7056 2011-06-17 10:50:48Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+  overflow: hidden;
+}
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: inherit }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block, pre.math {
+  background-color: #ccffcc ;
+  margin-left: 2em ;
+  margin-right: 2em }
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) ### was 80% */
+  font-size: 50% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document">
+
+
+<div class="section" id="the-basics-of-data-compression">
+<h1>The Basics of Data Compression</h1>
+<p>In earlier days, computers were small and conserving space in memory 
+or on a disk drive was always a premium. The computer I am using now has
+ over 1 million times the memory of my first PC that I bought in 1983, 
+and the new 80 gigabyte disk holds 4000 times the amount of data. The 
+first computer also cost a lot more.</p>
+<p>Ironically, space is still at a premium primarily because as the 
+machines have gotten bigger and faster, so have the problems we want to 
+solve.</p>
+<p>In this study we'll look at an early algorithm developed by David 
+Huffman in 1952 when he was a graduate student at MIT. The algorithm 
+squeezes the "fluff" out of data but in a way that the original can be 
+reproduced exactly. You see this done in programs like Winzip, stuffit, 
+or for Unix folk, gzip. This is called "lossless" compression and is 
+different from "lossy" compression used in audio and video files where 
+the exact original cannot be reproduced.</p>
+<p>For demonstration purposes we'll stick with character data and mostly
+ just use a small subset of the alphabet. As usual, we'll use small 
+amounts of Python code to make it all work.</p>
+<p>Computers store text in several ways. The most common encoding is 
+Ascii where each character is stored in an 8 bit byte. So, for example, 
+the character 'e' is the bit sequence '001100101'. As any byte can take 
+one of 256 distinct values (0 to 255) there is plenty of room for the 
+Latin alphabet, the numbers zero to nine and lots of punctuation 
+characters such as periods, commas, newline indicators and so on. 
+Actually, if we stick to English text, we can get by the first 127 
+values. Other European languages require some more letters and use the 
+upper range 128-255 as well. Still other languages, like Russian or 
+Chinese, require more elaborate coding systems such as Unicode where 
+multiple bytes are used per character.</p>
+<p>The secret of compressing data lies in the fact that not all 
+characters are equally common. For instance, in typical English text the
+ letter 'e' is much more common than the letter 'z'. In fact there are 
+roughly 70 'e's for every 'z'. If we could encode the letter 'e' with 
+less than the usual 8 bits and in exchange let the letter 'z' be take 
+more, we'd be money ahead.</p>
+<p>This sort of thing is pretty common. Human languages have mostly 
+evolved so that the most common words such as "I", "am", "Yo", "soy", 
+"ich" and "bin" are nearly as short as possible. Uncommon words like 
+"ominous", "peligroso", or "Einkommensteurerklaerung" come rarely enough
+ to not make too much difference.</p>
+<div class="section" id="huffman-data-compression">
+<h2>Huffman Data Compression.</h2>
+<p>We will look at several functions that bring together an example of 
+Huffman data compression for text files. These functions do the 
+following.</p>
+<ol class="arabic simple">
+<li>Examine text to be compressed to determine the relative frequencies of individual letters.</li>
+<li>Assign a binary code to each letter using shorter codes for the more
+ frequent letters. This is the heart of the Huffman algorithm.</li>
+<li>Encode normal text into its compressed form. We'll see this just as a
+ string of '0's and '1's. This will turn out to be quite easy.</li>
+<li>Recover the original text from the compressed. This will demonstrate
+ a nice use of recursive traversal of a binary tree, but will still 
+remain fairly simple.</li>
+</ol>
+<p>To view the complete computer program's source code  <a class="reference external" href="http://www.openbookproject.net/py4fun/huffman/huffman.py.txt">Click Here</a> .</p>
+</div>
+<div class="section" id="determining-relative-frequencies">
+<h2>Determining Relative Frequencies.</h2>
+<p>Our function "frequency" takes a text string as input and returns a 
+dictionary of the letters encountered with a count of how often they 
+appear.</p>
+<pre class="literal-block">def frequency (str) :
+    freqs = {}
+    for ch in str :
+        freqs[ch] = freqs.get(ch,0) + 1
+    return freqs
+</pre>
+<p>Here is an example run. To keep things simple we are using text 
+consisting of only 7 characters (a-g), but we will vary their frequency.</p>
+<pre class="literal-block">% python &gt;&gt;&gt;
+import huffman
+&gt;&gt;&gt; freqs = huffman.frequency("aaabccdeeeeeffg")
+&gt;&gt;&gt; print freqs
+{'a': 3, 'c': 2, 'b': 1, 'e': 5, 'd': 1, 'g': 1, 'f': 2}
+&gt;&gt;&gt;
+</pre>
+<p>The dictionary returned lets us look up the frequency for each 
+letter. Notice the use of the .get function. If the letter is not 
+already in the dictionary, the default value zero is returned, otherwise
+ its existing count. In either case the count is incremented and the 
+key/value pair is updated or newly added to the dictionary.</p>
+</div>
+<div class="section" id="assigning-codes-to-the-characters">
+<h2>Assigning codes to the Characters</h2>
+<p>Our next function builds and sorts a list of tuples. This list will be the input for the main Huffman algorithm.</p>
+<pre class="literal-block">def sortFreq (freqs) :
+    letters = freqs.keys()
+    tuples = []
+    for let in letters :
+        tuples.append((freqs[let],let))
+    tuples.sort()
+    return tuples
+</pre>
+<p>The dictionary "freqs" that we built above is the input to the function "sortFreq"</p>
+<pre class="literal-block">&gt;&gt;&gt; tuples = huffman.sortFreq(freqs)
+&gt;&gt;&gt; print tuples
+[(1, 'b'), (1, 'd'), (1, 'g'), (2, 'c'), (2, 'f'), (3, 'a'), (5, 'e')] &gt;&gt;&gt;
+</pre>
+<p>The sort method for a list compares individual elements. In this case
+ the elements are tuples of two values, a number and a character. The 
+sort method will first compare the numbers and only if they are equal 
+will it compare the character values. Notice that sorting the list has 
+the effect of moving the least common letters to the front of the list. 
+This will be very convenient.</p>
+<p>Let's jump ahead just a bit. Here are the codes that will be assigned to each of the seven characters.</p>
+<pre class="literal-block">a   '00'
+b   '1010'
+c   '011'
+d   '1011'
+e   '11'
+f   '100'
+g   '010'
+</pre>
+<p>Each character is assigned to a string of 0's and 1's. We're cheating
+ a bit. It's easier to use strings in our program than the actual bits 
+we would use in real life. But see the exercises at the end.</p>
+<p>Notice that the two most common characters, "a" and "e" are 
+represented by just two bits, whereas the two least common characters 
+"b" and "d" each use four bits.</p>
+<p>Perhaps not so easy to see is that there is no ambiguity in this 
+encoding. Any string of zero's and one's will map to a unique string of 
+the characters 'a' to 'g'. This is much more intuitive if we draw a tree
+ for the code table.</p>
+<img alt="tree.jpg" src="huffman_files/tree.jpg">
+<p>If we start at the bottom and traverse up the tree through the 
+branches we can arrive at any character in a series of left and right 
+turns. If we add a "zero" for each left turn and a "one" for each right 
+turn, the coding for the character at the end is produced. For example, a
+ left-right-left takes us to the letter "g" which has "010" for its 
+code.</p>
+<p>Since a unique path leads to each letter we don't need anything to 
+delimit one character from another. We will be able to just run their 
+bits together.</p>
+<p>So now let's back up and see how this tree is built from the 
+frequency distribution. It is both clever and actually not too hard.</p>
+<p>Remember we had the following list of tuples. The tuples are in order
+ of the frequency of the letter each represents. We will turn this list 
+into a tree.</p>
+<pre class="literal-block">&gt;&gt;&gt; print tuples
+[(1, 'b'), (1, 'd'), (1, 'g'), (2, 'c'), (2, 'f'), (3, 'a'), (5, 'e')]   &lt;/pre&gt;
+</pre>
+<p>Unlike real trees, our tree will grow from the top to the bottom, 
+from the leafs back to the root. (Whimsical fantasy should be in every 
+programmers toolbox). We'll pull two elements from the front of the list
+ and combine them into a new element. Remember these 2 elements will 
+have the least frequencies. The new element will be the branch point to 
+the 2 elements. The frequency of the new branch point is simply the sum 
+of the frequencies of its two parts. Think about this for a  just a 
+moment and it should make sense. The first time we do this the new 
+element will look like</p>
+<pre class="literal-block">(2, ((1, 'b'), (1, 'd')))
+</pre>
+<p>which is the branch point in the upper right of the tree leading to 
+the characters 'b' and 'd'. Since both 'b' and 'd' have a frequency of 
+1, their branch point has a frequency of 2. Next we add this new element
+ onto the list and resort it putting the new element (branch point) into
+ its proper position in the list. The process is repeated. Each time two
+ elements are replaced by one until the list has a single element which 
+represents the complete tree.</p>
+<p>Here is the Python function that does this. It's even less wordy than the above explanation.</p>
+<pre class="literal-block">def buildTree(tuples) :
+    while len(tuples) &gt; 1 :
+        leastTwo = tuple(tuples[0:2])                  # get the 2 to combine
+        theRest  = tuples[2:]                          # all the others
+        combFreq = leastTwo[0][0] + leastTwo[1][0]     # the branch points freq
+        tuples   = theRest + [(combFreq,leastTwo)]     # add branch point to the end
+        tuples.sort()                                  # sort it into place
+    return tuples[0]            # Return the single tree inside the list
+</pre>
+<p>Once we have the tree, we can trim of the frequencies leaving us with a nice nested representation.</p>
+<pre class="literal-block">def trimTree (tree) :
+     # Trim the freq counters off, leaving just the letters
+    p = tree[1]                                    # ignore freq count in [0]
+    if type(p) == type("") : return p              # if just a leaf, return it
+    else : return (trimTree(p[0]), trimTree(p[1])) # trim left then right and recombine
+</pre>
+<pre class="literal-block">&gt;&gt;&gt; tree = huffman.buildTree(tuples)
+&gt;&gt;&gt; trim = huffman.trimTree(tree)
+&gt;&gt;&gt; print trim
+(('a', ('g', 'c')), (('f', ('b', 'd')), 'e'))
+</pre>
+<p>So "trim" has the tree above as coded into a set of nested tuples.</p>
+<p>Codes may be assigned by recursively traversing the tree, keeping 
+track of the left and right turns in the variable "pat". When we reach a
+ leaf of the tree, i.e. a string rather than a nested tuple, we can 
+assign the code calculated enroute. We have a global dictionary "codes" 
+which will be filled in along the way.</p>
+<pre class="literal-block">def assignCodes (node, pat='') :
+    global codes
+    if type(node) == type("") :
+        codes[node] = pat                # A leaf. set its code
+    else  :                              #
+        assignCodes(node[0], pat+"0")    # Branch point. Do the left branch
+        assignCodes(node[1], pat+"1")    # then do the right branch.
+</pre>
+<p>Here we will run the function <em>assignCodes</em> on the trimmed tree to build our lookup dictionary for encoding.</p>
+<pre class="literal-block">&gt;&gt;&gt; print trim
+(('a', ('g', 'c')), (('f', ('b', 'd')), 'e'))
+&gt;&gt;&gt; huffman.assignCodes(trim)
+&gt;&gt;&gt; print  huffman.codes
+{'a': '00', 'c': '011', 'b': '1010', 'e': '11', 'd': '1011', 'g': '010', 'f': '100'}
+</pre>
+</div>
+<div class="section" id="encoding-and-decoding-a-text-stream">
+<h2>Encoding and Decoding a Text Stream.</h2>
+<p>Once we have our codes dictionary populated encoding a text string is
+ simple. We have only to look up the bit string for each character and 
+paste it on.</p>
+<pre class="literal-block">def encode (str) :
+    global codes
+    output = ""
+    for ch in str : output += codes[ch]
+    return output
+</pre>
+<p>This turns on our original string "aaabccdeeeeeffg" into 44 bits that
+ we represent with "00000010010100101010111111111101101110111000". The 
+original text at one byte per character requires 120 bits.</p>
+<p>Decoding the bit stream back into text is a little harder but still 
+not bad. Each "zero" in the bit stream means a left turn up the tree, 
+each "one" a right turn. When a leaf is reached, its character is sent 
+to the output and we restart at the base of the tree for the next 
+character.</p>
+<pre class="literal-block">def decode (tree, str) :
+    output = ""
+    p = tree
+    for bit in str :
+        if bit == '0' : p = p[0]     # Head up the left branch
+        else          : p = p[1]     # or up the right branch
+        if type(p) == type("") :
+            output += p              # found a character. Add to output
+            p = tree                 # and restart for next character
+    return output
+</pre>
+</div>
+<div class="section" id="a-real-example">
+<h2>A Real Example.</h2>
+<p>Feeding this document through our program resulted in the following 
+set of codes. I have omitted most of the middle. You can see that the 
+space character is by far the most common followed by 'e' and 't'.</p>
+<pre class="literal-block">[(1, '%'), (1, '/'), (1, 'Y'), (2, '7'), (2, '8') ... (608, 't'), (803, 'e'), (1292, ' ')]
+</pre>
+<p>As you can see the algorithm compressed 22135 bytes to 13568 and then
+ successfully restored the original. The function "main" reads text from
+ standard input and puts it through the paces. Your results may vary as 
+the file is undergoing change.</p>
+<pre class="literal-block">% python ./huffman.py &lt; huffman.html
+Original text length 22135
+Requires 108543 bits. (13568 bytes)
+Restored matches original True
+Code for space is  100
+Code for letter e  1110
+Code for letter y  101010
+Code for letter z  1111101100
+</pre>
+</div>
+<div class="section" id="ideas-for-further-exploration">
+<h2>Ideas for Further Exploration</h2>
+<p>In order to compress a text file and then later restore it, the tree 
+must be included along with the bit stream. Modify the code to produce 
+compressed files along with their decoding tree.</p>
+<p>Suppose we made a reverse dictionary from "codes" where the keys are 
+the compressed bits and the values are the original Ascii characters. 
+Could you use this instead of the tree to decode compressed text? Modify
+ the function "decode" to work this way. Compare the two functions for 
+simplicity and speed.</p>
+<p>Create binary ones and zeros so that real compression actually takes 
+place. You will need to investigate the bit operators in Python.</p>
+<p>Can the program as it stands compress binary data as well? Test it.</p>
+<p>Try using text from other types of sources like reports and even other languages.</p>
+<p>German and English keyboards have the "Y" and "Z" keys switched. Why?
+ Run some German text through the program to check relative frequencies 
+of "Y" and "Z" in the two languages.</p>
+<p><a class="reference external" href="http://www.gnu.org/copyleft/copyleft.html">Copyright</a> © 2009-2015 Chris Meyers</p>
+</div>
+</div>
+<div class="section" id="id1">
+<h1>.</h1>
+</div>
+</div>
+
+
+</body></html>

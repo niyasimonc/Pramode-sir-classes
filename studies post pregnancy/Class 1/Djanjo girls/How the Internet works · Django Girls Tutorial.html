@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+        <title>How the Internet works · Django Girls Tutorial</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <meta name="description" content="For readers at home: this chapter is covered in How the Internet Works video.">
+        <meta name="generator" content="GitBook 3.0.0-pre.7">
+        <meta name="author" content="DjangoGirls">
+        
+        
+    
+    <style class="anchorjs"></style><link rel="stylesheet" href="How%20the%20Internet%20works%20%C2%B7%20Django%20Girls%20Tutorial_files/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="How%20the%20Internet%20works%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="How%20the%20Internet%20works%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin_002.css">
+                
+            
+                
+                <link rel="stylesheet" href="How%20the%20Internet%20works%20%C2%B7%20Django%20Girls%20Tutorial_files/website_002.css">
+                
+            
+                
+                <link rel="stylesheet" href="How%20the%20Internet%20works%20%C2%B7%20Django%20Girls%20Tutorial_files/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="How%20the%20Internet%20works%20%C2%B7%20Django%20Girls%20Tutorial_files/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://tutorial.djangogirls.org/gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="http://tutorial.djangogirls.org/gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="http://tutorial.djangogirls.org/en/intro_to_command_line/">
+    
+    
+    <link rel="prev" href="http://tutorial.djangogirls.org/en/installation/">
+    
+
+    </head>
+    <body>
+        
+<div class="book without-animation with-summary font-size-2 font-family-1" data-level="2" data-chapter-title="How the Internet works" data-filepath="how_the_internet_works/README.md" data-basepath="../../en" data-revision="Tue Apr 26 2016 07:53:45 GMT+0000 (UTC)" data-innerlanguage="">
+    
+
+<div class="book-summary"><div role="search" class="book-search"><input placeholder="Type to search" class="form-control" type="text"></div>
+    
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+                
+                <li>
+                    <a href="https://gitter.im/DjangoGirls/tutorial" target="_blank" class="custom-link">Need help? Talk to us!</a>
+                </li>
+            
+                
+                <li>
+                    <a href="https://www.gitbook.com/book/djangogirls/djangogirls-tutorial" target="_blank" class="custom-link">Django Girls Tutorial</a>
+                </li>
+            
+            
+
+            
+            <li class="divider"></li>
+            
+
+
+            
+            
+    
+        <li class="chapter " data-level="0" data-path="../">
+            
+                <a href="http://tutorial.djangogirls.org/en/">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="../installation/">
+            
+                <a href="http://tutorial.djangogirls.org/en/installation/">
+            
+                    
+                        <b>1.</b>
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2" data-path="./">
+            
+                <a href="http://tutorial.djangogirls.org/en/how_the_internet_works/">
+            
+                    
+                        <b>2.</b>
+                    
+                    How the Internet works
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="../intro_to_command_line/">
+            
+                <a href="http://tutorial.djangogirls.org/en/intro_to_command_line/">
+            
+                    
+                        <b>3.</b>
+                    
+                    Introduction to command line
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="../python_installation/">
+            
+                <a href="http://tutorial.djangogirls.org/en/python_installation/">
+            
+                    
+                        <b>4.</b>
+                    
+                    Python installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="../code_editor/">
+            
+                <a href="http://tutorial.djangogirls.org/en/code_editor/">
+            
+                    
+                        <b>5.</b>
+                    
+                    Code editor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="../python_introduction/">
+            
+                <a href="http://tutorial.djangogirls.org/en/python_introduction/">
+            
+                    
+                        <b>6.</b>
+                    
+                    Introduction to Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="../django/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django/">
+            
+                    
+                        <b>7.</b>
+                    
+                    What is Django?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="../django_installation/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_installation/">
+            
+                    
+                        <b>8.</b>
+                    
+                    Django installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="../django_start_project/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_start_project/">
+            
+                    
+                        <b>9.</b>
+                    
+                    Your first Django project!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="../django_models/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_models/">
+            
+                    
+                        <b>10.</b>
+                    
+                    Django models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="../django_admin/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_admin/">
+            
+                    
+                        <b>11.</b>
+                    
+                    Django admin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="../deploy/">
+            
+                <a href="http://tutorial.djangogirls.org/en/deploy/">
+            
+                    
+                        <b>12.</b>
+                    
+                    Deploy!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="../django_urls/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_urls/">
+            
+                    
+                        <b>13.</b>
+                    
+                    Django urls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14" data-path="../django_views/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_views/">
+            
+                    
+                        <b>14.</b>
+                    
+                    Django views - time to create!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15" data-path="../html/">
+            
+                <a href="http://tutorial.djangogirls.org/en/html/">
+            
+                    
+                        <b>15.</b>
+                    
+                    Introduction to HTML
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="16" data-path="../django_orm/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_orm/">
+            
+                    
+                        <b>16.</b>
+                    
+                    Django ORM (Querysets)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17" data-path="../dynamic_data_in_templates/">
+            
+                <a href="http://tutorial.djangogirls.org/en/dynamic_data_in_templates/">
+            
+                    
+                        <b>17.</b>
+                    
+                    Dynamic data in templates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="18" data-path="../django_templates/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_templates/">
+            
+                    
+                        <b>18.</b>
+                    
+                    Django templates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19" data-path="../css/">
+            
+                <a href="http://tutorial.djangogirls.org/en/css/">
+            
+                    
+                        <b>19.</b>
+                    
+                    CSS - make it pretty
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="20" data-path="../template_extending/">
+            
+                <a href="http://tutorial.djangogirls.org/en/template_extending/">
+            
+                    
+                        <b>20.</b>
+                    
+                    Template extending
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="21" data-path="../extend_your_application/">
+            
+                <a href="http://tutorial.djangogirls.org/en/extend_your_application/">
+            
+                    
+                        <b>21.</b>
+                    
+                    Extend your application
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="22" data-path="../django_forms/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_forms/">
+            
+                    
+                        <b>22.</b>
+                    
+                    Django Forms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="23" data-path="../whats_next/">
+            
+                <a href="http://tutorial.djangogirls.org/en/whats_next/">
+            
+                    
+                        <b>23.</b>
+                    
+                    What's next?
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            <li class="divider"></li>
+            
+
+            <li>
+                <a href="https://www.gitbook.com/" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+</div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+<div class="book-header" role="navigation">
+    
+    <a href="#" aria-label="" class="btn pull-left js-toolbar-action"><i class="fa fa-align-justify"></i></a><a href="http://tutorial.djangogirls.org/en/GLOSSARY.html" class="btn pull-left" aria-label="Glossary"><i class="fa fa-sort-alpha-asc"></i></a>
+    
+
+    <!-- Title -->
+    <a href="#" aria-label="GitHub" class="btn pull-right js-toolbar-action"><i class="fa fa-github"></i></a><div class="dropdown pull-left language-picker js-toolbar-action"><a href="#" aria-label="Change language" class="btn toggle-dropdown"><i class="fa fa-globe"></i></a><div class="dropdown-menu dropdown-right"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div></div></div><a href="#" aria-label="Search" class="btn pull-left js-toolbar-action"><i class="fa fa-search"></i></a><div class="dropdown pull-right  js-toolbar-action"><a href="#" aria-label="Share" class="btn toggle-dropdown"><i class="fa fa-share-alt"></i></a><div class="dropdown-menu dropdown-left"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div><div class="buttons"><button class="button size-5 ">Facebook</button><button class="button size-5 ">Google+</button><button class="button size-5 ">Twitter</button><button class="button size-5 ">Weibo</button><button class="button size-5 ">Instapaper</button></div></div></div><a href="#" aria-label="" class="btn pull-right js-toolbar-action"><i class="fa fa-facebook"></i></a><a href="#" aria-label="" class="btn pull-right js-toolbar-action"><i class="fa fa-twitter"></i></a><div class="dropdown pull-left font-settings js-toolbar-action"><a href="#" aria-label="Font Settings" class="btn toggle-dropdown"><i class="fa fa-font"></i></a><div class="dropdown-menu dropdown-right"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div><div class="buttons"><button class="button size-2 font-reduce">A</button><button class="button size-2 font-enlarge">A</button></div><div class="buttons"><button class="button size-2 ">Serif</button><button class="button size-2 ">Sans</button></div><div class="buttons"><button class="button size-3 ">White</button><button class="button size-3 ">Sepia</button><button class="button size-3 ">Night</button></div></div></div><h1 id="how-the-internet-works-1">
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="http://tutorial.djangogirls.org/en">How the Internet works</a>
+    <a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: how the internet works 1" href="#how-the-internet-works-1" class="anchorjs-link "></a></h1>
+</div>
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            <section class="normal markdown-section">
+                            
+                            <h1 id="how-the-internet-works">How the Internet works<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: how the internet works" href="#how-the-internet-works" class="anchorjs-link "></a></h1>
+<blockquote>
+<p>For readers at home: this chapter is covered in <a href="https://www.youtube.com/watch?v=oM9yAA09wdc" target="_blank">How the Internet Works</a> video.</p>
+<p>This chapter is inspired by a talk "How the Internet works" by Jessica McKellar (<a href="http://web.mit.edu/jesstess/www/" target="_blank">http://web.mit.edu/jesstess/www/</a>).</p>
+</blockquote>
+<p>We bet you use the Internet every day. But do you actually know what happens when you type an address like <a href="http://djangogirls.org/" target="_blank">http://djangogirls.org</a> into your browser and press <code>enter</code>?</p>
+<p>The first thing you need to understand is that a website is just a 
+bunch of files saved on a hard disk. Just like your movies, music, or 
+pictures.
+However, there is one part that is unique for websites: they include 
+computer code called HTML.</p>
+<p>If you're not familiar with programming it can be hard to grasp HTML 
+at first, but your web browsers (like Chrome, Safari, Firefox, etc.) 
+love it. Web browsers are designed to understand this code,
+follow its instructions, and present these files that your website is 
+made of, exactly the way you want.</p>
+<p>As with every file, we need to store HTML files somewhere on a hard 
+disk. For the Internet, we use special, powerful computers called <em>servers</em>. They don't have
+a screen, mouse or a keyboard, because their main purpose is to store data and serve it. That's why they're called <em>servers</em> -- because they <em>serve</em> you data.</p>
+<p>OK, but you want to know how the Internet looks like, right?</p>
+<p>We drew you a picture! It looks like this:</p>
+<p><img src="How%20the%20Internet%20works%20%C2%B7%20Django%20Girls%20Tutorial_files/internet_1.png" alt="Figure 1.1"></p>
+<p>Looks like a mess, right? In fact it is a network of connected machines (the above mentioned <em>servers</em>).
+ Hundreds of thousands of machines! Many, many kilometers of cables 
+around the world! You can visit a Submarine Cable Map website (<a href="http://submarinecablemap.com/" target="_blank">http://submarinecablemap.com</a>) to see how complicated the net is. Here is a screenshot from the website:</p>
+<p><img src="How%20the%20Internet%20works%20%C2%B7%20Django%20Girls%20Tutorial_files/internet_3.png" alt="Figure 1.2"></p>
+<p>It is fascinating, isn't it? But obviously, it is not possible to 
+have a wire between every machine connected to the Internet. So, to 
+reach a machine (for example the one where <a href="http://djangogirls.org/" target="_blank">http://djangogirls.org</a> is saved) we need to pass a request through many, many different machines.</p>
+<p>It looks like this:</p>
+<p><img src="How%20the%20Internet%20works%20%C2%B7%20Django%20Girls%20Tutorial_files/internet_2.png" alt="Figure 1.3"></p>
+<p>Imagine that when you type <a href="http://djangogirls.org/" target="_blank">http://djangogirls.org</a>, you send a letter that says: "Dear Django Girls, I want to see the djangogirls.org website. Send it to me, please!"</p>
+<p>Your letter goes to the post office closest to you. Then it goes to 
+another that is a bit nearer to your addressee, then to another, and 
+another until it is delivered at its destination. The only unique thing 
+is that if you send many letters (<em>data packets</em>) to the same place, they could go through totally different post offices (<em>routers</em>). This depends on how they are distributed at each office.</p>
+<p><img src="How%20the%20Internet%20works%20%C2%B7%20Django%20Girls%20Tutorial_files/internet_4.png" alt="Figure 1.4"></p>
+<p>Yes, it is as simple as that. You send messages and you expect some 
+response. Of course, instead of paper and pen you use bytes of data, but
+ the idea is the same!</p>
+<p>Instead of addresses with a street name, city, zip code and country 
+name, we use IP addresses. Your computer first asks the DNS (Domain Name
+ System) to translate djangogirls.org into an IP address. It works a 
+little bit like old-fashioned phonebooks where you could look up the 
+name of the person you want to contact and find their phone number and 
+address.</p>
+<p>When you send a letter, it needs to have certain features to be 
+delivered correctly: an address, stamp etc. You also use a language that
+ the receiver understands, right? The same applies to the <em>data packets</em> you send to see a website. We use a protocol called HTTP (Hypertext Transfer Protocol).</p>
+<p>So, basically, when you have a website, you need to have a <em>server</em> (machine) where it lives. When the <em>server</em> receives an incoming <em>request</em> (in a letter), it sends back your website (in another letter).</p>
+<p>Since this is a Django tutorial, you will ask what Django does. When 
+you send a response, you don't always want to send the same thing to 
+everybody. It is so much better if your letters are personalized, 
+especially for the person that has just written to you, right? Django 
+helps you with creating these personalized, interesting letters :).</p>
+<p>Enough talk, time to create!</p>
+
+                            
+                            </section>
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="http://tutorial.djangogirls.org/en/installation/" class="navigation navigation-prev " aria-label="Previous page: Installation">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a style="margin-right: 0px;" href="http://tutorial.djangogirls.org/en/intro_to_command_line/" class="navigation navigation-next " aria-label="Next page: Introduction to command line">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+</div>
+
+        
+    <script src="How%20the%20Internet%20works%20%C2%B7%20Django%20Girls%20Tutorial_files/analytics.js" async=""></script><script src="How%20the%20Internet%20works%20%C2%B7%20Django%20Girls%20Tutorial_files/app.js"></script>
+    
+        
+        <script src="How%20the%20Internet%20works%20%C2%B7%20Django%20Girls%20Tutorial_files/anchor.js"></script>
+        
+    
+        
+        <script src="How%20the%20Internet%20works%20%C2%B7%20Django%20Girls%20Tutorial_files/anchor-style.js"></script>
+        
+    
+        
+        <script src="How%20the%20Internet%20works%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin_003.js"></script>
+        
+    
+        
+        <script src="How%20the%20Internet%20works%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin.js"></script>
+        
+    
+        
+        <script src="How%20the%20Internet%20works%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin_002.js"></script>
+        
+    
+        
+        <script src="How%20the%20Internet%20works%20%C2%B7%20Django%20Girls%20Tutorial_files/lunr.js"></script>
+        
+    
+        
+        <script src="How%20the%20Internet%20works%20%C2%B7%20Django%20Girls%20Tutorial_files/search.js"></script>
+        
+    
+        
+        <script src="How%20the%20Internet%20works%20%C2%B7%20Django%20Girls%20Tutorial_files/buttons_002.js"></script>
+        
+    
+        
+        <script src="How%20the%20Internet%20works%20%C2%B7%20Django%20Girls%20Tutorial_files/buttons.js"></script>
+        
+    
+    <script>
+    require(["gitbook"], function(gitbook) {
+        gitbook.start({"ga":{"token":"UA-51680040-3","configuration":"auto"},"richquotes":{"default":false},"github":{"url":"https://github.com/DjangoGirls/tutorial"},"language-picker":{"grid-columns":3},"heading-anchors":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}}});
+    });
+    </script>
+
+    
+
+</body></html>

@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+        <title>CSS - make it pretty · Django Girls Tutorial</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        <meta name="author" content="DjangoGirls">
+        
+        
+    
+    <style class="anchorjs"></style><link rel="stylesheet" href="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin_002.css">
+                
+            
+                
+                <link rel="stylesheet" href="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/sidebar-ad.css">
+                
+            
+                
+                <link rel="stylesheet" href="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/block.css">
+                
+            
+                
+                <link rel="stylesheet" href="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/website_002.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://tutorial.djangogirls.org/gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="http://tutorial.djangogirls.org/gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="http://tutorial.djangogirls.org/en/template_extending/">
+    
+    
+    <link rel="prev" href="http://tutorial.djangogirls.org/en/django_templates/">
+    
+
+    </head>
+    <body>
+        
+<div class="book without-animation with-summary font-size-2 font-family-1">
+    <div class="book-summary">
+        
+  
+            
+<div id="book-search-input" role="search">
+    <input placeholder="Type to search" type="text">
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://gitter.im/DjangoGirls/tutorial" target="_blank" class="custom-link">Need help? Talk to us!</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://www.gitbook.com/book/djangogirls/djangogirls-tutorial" target="_blank" class="custom-link">Django Girls Tutorial</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="http://tutorial.djangogirls.org/en/">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../installation/">
+            
+                <a href="http://tutorial.djangogirls.org/en/installation/">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../how_the_internet_works/">
+            
+                <a href="http://tutorial.djangogirls.org/en/how_the_internet_works/">
+            
+                    
+                    How the Internet works
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../intro_to_command_line/">
+            
+                <a href="http://tutorial.djangogirls.org/en/intro_to_command_line/">
+            
+                    
+                    Introduction to command line
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../python_installation/">
+            
+                <a href="http://tutorial.djangogirls.org/en/python_installation/">
+            
+                    
+                    Python installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../code_editor/">
+            
+                <a href="http://tutorial.djangogirls.org/en/code_editor/">
+            
+                    
+                    Code editor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../python_introduction/">
+            
+                <a href="http://tutorial.djangogirls.org/en/python_introduction/">
+            
+                    
+                    Introduction to Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../django/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django/">
+            
+                    
+                    What is Django?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../django_installation/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_installation/">
+            
+                    
+                    Django installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../django_start_project/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_start_project/">
+            
+                    
+                    Your first Django project!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../django_models/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_models/">
+            
+                    
+                    Django models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../django_admin/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_admin/">
+            
+                    
+                    Django admin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../deploy/">
+            
+                <a href="http://tutorial.djangogirls.org/en/deploy/">
+            
+                    
+                    Deploy!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../django_urls/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_urls/">
+            
+                    
+                    Django urls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../django_views/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_views/">
+            
+                    
+                    Django views - time to create!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../html/">
+            
+                <a href="http://tutorial.djangogirls.org/en/html/">
+            
+                    
+                    Introduction to HTML
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../django_orm/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_orm/">
+            
+                    
+                    Django ORM (Querysets)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../dynamic_data_in_templates/">
+            
+                <a href="http://tutorial.djangogirls.org/en/dynamic_data_in_templates/">
+            
+                    
+                    Dynamic data in templates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="../django_templates/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_templates/">
+            
+                    
+                    Django templates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.20" data-path="./">
+            
+                <a href="http://tutorial.djangogirls.org/en/css/">
+            
+                    
+                    CSS - make it pretty
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="../template_extending/">
+            
+                <a href="http://tutorial.djangogirls.org/en/template_extending/">
+            
+                    
+                    Template extending
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="../extend_your_application/">
+            
+                <a href="http://tutorial.djangogirls.org/en/extend_your_application/">
+            
+                    
+                    Extend your application
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" data-path="../django_forms/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_forms/">
+            
+                    
+                    Django Forms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.24" data-path="../whats_next/">
+            
+                <a href="http://tutorial.djangogirls.org/en/whats_next/">
+            
+                    
+                    What's next?
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com/" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+  <div class="sidebar-addition">
+      
+        <a href="https://store.djangogirls.org/" target="_blank">
+      
+        <img src="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/codelikeagirl---mockup4_large.jpg">
+      
+        </a>
+      
+      
+        <p>💖 Support our work and buy a Django Girls t-shirt! ✨</p>
+      
+      
+      <a href="https://store.djangogirls.org/" class="btn" target="_blank">
+        Get a t-shirt!
+      </a>
+      
+  </div>
+
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <a href="#" aria-label="" class="btn pull-left js-toolbar-action"><i class="fa fa-align-justify"></i></a><a href="#" aria-label="GitHub" class="btn pull-right js-toolbar-action"><i class="fa fa-github"></i></a><div class="dropdown pull-left language-picker js-toolbar-action"><a href="#" aria-label="Change language" class="btn toggle-dropdown"><i class="fa fa-globe"></i></a><div class="dropdown-menu dropdown-right"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div></div></div><div class="dropdown pull-right  js-toolbar-action"><a href="#" aria-label="Share" class="btn toggle-dropdown"><i class="fa fa-share-alt"></i></a><div class="dropdown-menu dropdown-left"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div><div class="buttons"><button class="button size-5 ">Facebook</button><button class="button size-5 ">Google+</button><button class="button size-5 ">Twitter</button><button class="button size-5 ">Weibo</button><button class="button size-5 ">Instapaper</button></div></div></div><a href="#" aria-label="" class="btn pull-right js-toolbar-action"><i class="fa fa-facebook"></i></a><a href="#" aria-label="" class="btn pull-right js-toolbar-action"><i class="fa fa-twitter"></i></a><div class="dropdown pull-left font-settings js-toolbar-action"><a href="#" aria-label="Font Settings" class="btn toggle-dropdown"><i class="fa fa-font"></i></a><div class="dropdown-menu dropdown-right"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div><div class="buttons"><button class="button size-2 font-reduce">A</button><button class="button size-2 font-enlarge">A</button></div><div class="buttons"><button class="button size-2 ">Serif</button><button class="button size-2 ">Sans</button></div><div class="buttons"><button class="button size-3 ">White</button><button class="button size-3 ">Sepia</button><button class="button size-3 ">Night</button></div></div></div><h1 id="css-make-it-pretty">
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="http://tutorial.djangogirls.org/en/">CSS - make it pretty</a>
+    <a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: css make it pretty" href="#css-make-it-pretty" class="anchorjs-link "></a></h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="css---make-it-pretty">CSS - make it pretty!<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: css   make it pretty" href="#css---make-it-pretty" class="anchorjs-link "></a></h1><p>Our blog still looks pretty ugly, right? Time to make it nice! We will use CSS for that.</p><h2 id="what-is-css">What is CSS?<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: what is css" href="#what-is-css" class="anchorjs-link "></a></h2><p>Cascading
+ Style Sheets (CSS) is a language used for describing the look and 
+formatting of a website written in markup language (like HTML). Treat it
+ as make-up for our webpage ;).</p><p>But we don't want to start from 
+scratch again, right? Once more, we'll use something that programmers 
+released on the Internet for free. You know, reinventing the wheel is no
+ fun.</p><h2 id="lets-use-bootstrap">Let's use Bootstrap!<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: lets use bootstrap" href="#lets-use-bootstrap" class="anchorjs-link "></a></h2><p>Bootstrap is one of the most popular HTML and CSS frameworks for developing beautiful websites: <a href="https://getbootstrap.com/" target="_blank">https://getbootstrap.com/</a></p><p>It was written by programmers who worked for Twitter. Now it's developed by volunteers from all over the world!</p><h2 id="install-bootstrap">Install Bootstrap<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: install bootstrap" href="#install-bootstrap" class="anchorjs-link "></a></h2><p>To install Bootstrap, you need to add this to your <code>&lt;head&gt;</code> in your <code>.html</code> file:</p><p></p><p class="code-label">blog/templates/blog/post_list.html</p><p></p><pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"</span>&gt;</span></code></pre>
+<p>This doesn't add any files to your project. It just points to files that exist on the internet.
+Just go ahead, open your website and refresh the page. Here it is!</p><p><img alt="Figure 14.1" src="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/bootstrap1.png"></p><p>Looking nicer already!</p><h2 id="static-files-in-django">Static files in Django<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: static files in django" href="#static-files-in-django" class="anchorjs-link "></a></h2><p>Finally we will take a closer look at these things we've been calling <strong>static files</strong>.
+ Static files are all your CSS and images. Their content doesn't depend 
+on the request context and will be the same for every user.</p><h3 id="where-to-put-static-files-for-django">Where to put static files for Django<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: where to put static files for django" href="#where-to-put-static-files-for-django" class="anchorjs-link "></a></h3><p>Django
+ already knows where to find the static files for the built-in "admin" 
+app. Now we just need to add some static files for our own app, <code>blog</code>.</p><p>We do that by creating a folder called <code>static</code> inside the blog app:</p><pre><code>djangogirls
+├── blog
+│   ├── migrations
+│   └── static
+└── mysite</code></pre>
+<p>Django will automatically find any folders called "static" inside any
+ of your apps' folders. Then, it will be able to use their contents as 
+static files.</p><h2 id="your-first-css-file">Your first CSS file!<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: your first css file" href="#your-first-css-file" class="anchorjs-link "></a></h2><p>Let's create a CSS file now, to add your own style to your web-page. Create a new directory called <code>css</code> inside your <code>static</code> directory. Then create a new file called <code>blog.css</code> inside this <code>css</code> directory. Ready?</p><pre><code>djangogirls
+└─── blog
+     └─── static
+          └─── css
+               └─── blog.css</code></pre>
+<p>Time to write some CSS! Open up the <code>blog/static/css/blog.css</code> file in your code editor.</p><p>We
+ won't be going too deep into customizing and learning about CSS here. 
+It's pretty easy and you can learn it on your own after this workshop. 
+There is a recommendation for a free course to learn more at the end of 
+this page.</p><p>But let's do at least a little. Maybe we could change the color of our header?
+To understand colors, computers use special codes. These codes start with <code>#</code> followed by 6 letters (A-F) and numbers (0-9). For example, the code for blue is <code>#0000FF</code>. You can find the color codes for many colors here: <a href="http://www.colorpicker.com/" target="_blank">http://www.colorpicker.com/</a>. You may also use <a href="http://www.w3schools.com/colors/colors_names.asp" target="_blank">predefined colors</a>, such as <code>red</code> and <code>green</code>.</p><p>In your <code>blog/static/css/blog.css</code> file you should add the following code:</p><p></p><p class="code-label">blog/static/css/blog.css</p><p></p><pre><code class="lang-css"><span class="hljs-selector-tag">h1</span> <span class="hljs-selector-tag">a</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#FCA205</span>;
+}</code></pre>
+<p><code>h1 a</code> is a CSS Selector. This means we're applying our styles to any <code>a</code> element inside of an <code>h1</code> element. So when we have something like: <code>&lt;h1&gt;&lt;a href=""&gt;link&lt;/a&gt;&lt;/h1&gt;</code> the <code>h1 a</code> style will apply. In this case, we're telling it to change its color to <code>#FCA205</code>, which is orange. Of course, you can put your own color here!</p><p>In
+ a CSS file we determine styles for elements in the HTML file. The first
+ way we identify elements is with the element name. You might remember 
+these as tags from the HTML section. Things like <code>a</code>, <code>h1</code>, and <code>body</code> are all examples of element names.
+We also identify elements by the attribute <code>class</code> or the attribute <code>id</code>.
+ Class and id are names you give the element by yourself. Classes define
+ groups of elements, and ids point to specific elements. For example, 
+you could identify the following tag by using the tag name <code>a</code>, the class <code>external_link</code>, or the id <code>link_to_wiki_page</code>:</p><pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://en.wikipedia.org/wiki/Django"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"external_link"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"link_to_wiki_page"</span>&gt;</span></code></pre>
+<p>Read about <a href="http://www.w3schools.com/cssref/css_selectors.asp" target="_blank">CSS Selectors in w3schools</a>.</p><p>Then, we need to also tell our HTML template that we added some CSS. Open the <code>blog/templates/blog/post_list.html</code> file and add this line at the very beginning of it:</p><p></p><p class="code-label">blog/templates/blog/post_list.html</p><p></p><pre><code class="lang-html">{% load staticfiles %}</code></pre>
+<p>We're just loading static files here :).
+Between the <code>&lt;head&gt;</code> and <code>&lt;/head&gt;</code>, after the links to the Bootstrap CSS files add this line:</p><p></p><p class="code-label">blog/templates/blog/post_list.html</p><p></p><pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"{% static 'css/blog.css' %}"</span>&gt;</span></code></pre>
+<p>The browser reads the files in the order they're given, so we need to
+ make sure this is in the right place. Otherwise the code in our file 
+may override code in Bootstrap files.
+We just told our template where our CSS file is located.</p><p>Your file should now look like this:</p><p></p><p class="code-label">blog/templates/blog/post_list.html</p><p></p><pre><code class="lang-html">{% load staticfiles %}
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Django Girls blog<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"{% static 'css/blog.css' %}"</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/"</span>&gt;</span>Django Girls Blog<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        {% for post in posts %}
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>published: {{ post.published_date }}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span>&gt;</span>{{ post.title }}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{ post.text|linebreaksbr }}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        {% endfor %}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+<p>OK, save the file and refresh the site!</p><p><img alt="Figure 14.2" src="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/color2.png"></p><p>Nice work! Maybe we would also like to give our website a little air and increase the margin on the left side? Let's try this!</p><p></p><p class="code-label">blog/static/css/blog.css</p><p></p><pre><code class="lang-css"><span class="hljs-selector-tag">body</span> {
+    <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">15px</span>;
+}</code></pre>
+<p>Add this to your CSS, save the file and see how it works!</p><p><img alt="Figure 14.3" src="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/margin2.png"></p><p>Maybe we can customize the font in our header? Paste this into your <code>&lt;head&gt;</code> in <code>blog/templates/blog/post_list.html</code> file:</p><p></p><p class="code-label">blog/templates/blog/post_list.html</p><p></p><pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"//fonts.googleapis.com/css?family=Lobster&amp;subset=latin,latin-ext"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span></code></pre>
+<p>As before, check the order and place before the link to <code>blog/static/css/blog.css</code>. This line will import a font called <em>Lobster</em> from Google Fonts (<a href="https://www.google.com/fonts" target="_blank">https://www.google.com/fonts</a>).</p><p>Find the <code>h1 a</code> declaration block (the code between braces <code>{</code> and <code>}</code>) in the CSS file <code>blog/static/css/blog.css</code>.  Now add the line <code>font-family: 'Lobster';</code> between the braces, and refresh the page:</p><p></p><p class="code-label">blog/static/css/blog.css</p><p></p><pre><code class="lang-css"><span class="hljs-selector-tag">h1</span> <span class="hljs-selector-tag">a</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#FCA205</span>;
+    <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'Lobster'</span>;
+}</code></pre>
+<p><img alt="Figure 14.3" src="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/font.png"></p><p>Great!</p><p>As
+ mentioned above, CSS has a concept of classes. These allow you to name a
+ part of the HTML code and apply styles only to this part, without 
+affecting other parts. This can be super helpful! Maybe you have two 
+divs that are doing something different (like your header and your 
+post).  A class can help you make them look different.</p><p>Go ahead and name some parts of the HTML code. Add a class called <code>page-header</code> to your <code>div</code> that contains your header, like this:</p><p></p><p class="code-label">blog/templates/blog/post_list.html</p><p></p><pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"page-header"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/"</span>&gt;</span>Django Girls Blog<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<p>And now add a class <code>post</code> to your <code>div</code> containing a blog post.</p><p></p><p class="code-label">blog/templates/blog/post_list.html</p><p></p><pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"post"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>published: {{ post.published_date }}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span>&gt;</span>{{ post.title }}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{ post.text|linebreaksbr }}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<p>We will now add declaration blocks to different selectors. Selectors starting with <code>.</code>
+ relate to classes. There are many great tutorials and explanations 
+about CSS on the Web to help you understand the following code. For now,
+ just copy and paste it into your <code>blog/static/css/blog.css</code> file:</p><p></p><p class="code-label">blog/static/css/blog.css</p><p></p><pre><code class="lang-css"><span class="hljs-selector-class">.page-header</span> {
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#ff9400</span>;
+    <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">20px</span> <span class="hljs-number">20px</span> <span class="hljs-number">20px</span> <span class="hljs-number">40px</span>;
+}
+
+<span class="hljs-selector-class">.page-header</span> <span class="hljs-selector-tag">h1</span>, <span class="hljs-selector-class">.page-header</span> <span class="hljs-selector-tag">h1</span> <span class="hljs-selector-tag">a</span>, <span class="hljs-selector-class">.page-header</span> <span class="hljs-selector-tag">h1</span> <span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:visited</span>, <span class="hljs-selector-class">.page-header</span> <span class="hljs-selector-tag">h1</span> <span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:active</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#ffffff</span>;
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">36pt</span>;
+    <span class="hljs-attribute">text-decoration</span>: none;
+}
+
+<span class="hljs-selector-class">.content</span> {
+    <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">40px</span>;
+}
+
+<span class="hljs-selector-tag">h1</span>, <span class="hljs-selector-tag">h2</span>, <span class="hljs-selector-tag">h3</span>, <span class="hljs-selector-tag">h4</span> {
+    <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'Lobster'</span>, cursive;
+}
+
+<span class="hljs-selector-class">.date</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#828282</span>;
+}
+
+<span class="hljs-selector-class">.save</span> {
+    <span class="hljs-attribute">float</span>: right;
+}
+
+<span class="hljs-selector-class">.post-form</span> <span class="hljs-selector-tag">textarea</span>, <span class="hljs-selector-class">.post-form</span> <span class="hljs-selector-tag">input</span> {
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+}
+
+<span class="hljs-selector-class">.top-menu</span>, <span class="hljs-selector-class">.top-menu</span><span class="hljs-selector-pseudo">:hover</span>, <span class="hljs-selector-class">.top-menu</span><span class="hljs-selector-pseudo">:visited</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#ffffff</span>;
+    <span class="hljs-attribute">float</span>: right;
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">26pt</span>;
+    <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">20px</span>;
+}
+
+<span class="hljs-selector-class">.post</span> {
+    <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">70px</span>;
+}
+
+<span class="hljs-selector-class">.post</span> <span class="hljs-selector-tag">h1</span> <span class="hljs-selector-tag">a</span>, <span class="hljs-selector-class">.post</span> <span class="hljs-selector-tag">h1</span> <span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:visited</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#000000</span>;
+}</code></pre>
+<p>Then surround the HTML code which displays the posts with declarations of classes. Replace this:</p><p></p><p class="code-label">blog/templates/blog/post_list.html</p><p></p><pre><code class="lang-html">{% for post in posts %}
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"post"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>published: {{ post.published_date }}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span>&gt;</span>{{ post.title }}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{ post.text|linebreaksbr }}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+{% endfor %}</code></pre>
+<p>in the <code>blog/templates/blog/post_list.html</code> with this:</p><p></p><p class="code-label">blog/templates/blog/post_list.html</p><p></p><pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"content container"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-8"</span>&gt;</span>
+            {% for post in posts %}
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"post"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"date"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>published: {{ post.published_date }}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span>&gt;</span>{{ post.title }}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{ post.text|linebreaksbr }}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            {% endfor %}
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<p>Save those files and refresh your website.</p><p><img alt="Figure 14.4" src="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/final.png"></p><p>Woohoo!
+ Looks awesome, right?
+Look at the code we just pasted to find the places where we added 
+classes in the HTML and used them in the CSS. Where would you make the 
+change if you wanted the date to be turquoise?</p><p>Don't be afraid to 
+tinker with this CSS a little bit and try to change some things. Playing
+ with the CSS can help you understand what the different things are 
+doing. If you break something, don't worry, you can always undo it!</p><p>We really recommend taking this free online <a href="https://www.codecademy.com/tracks/web" target="_blank">Codeacademy HTML &amp; CSS course</a>. It can help you learn all about making your websites prettier with CSS.</p><p>Ready for the next chapter?! :)</p>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 id="results-matching" class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: results matching" href="#results-matching" class="anchorjs-link "></a></h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 id="no-results-matching" class="search-results-title">No results matching "<span class="search-query"></span>"<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: no results matching" href="#no-results-matching" class="anchorjs-link "></a></h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="http://tutorial.djangogirls.org/en/django_templates/" class="navigation navigation-prev " aria-label="Previous page: Django templates">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a style="margin-right: 0px;" href="http://tutorial.djangogirls.org/en/template_extending/" class="navigation navigation-next " aria-label="Next page: Template extending">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script src="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/analytics.js" async=""></script><script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"CSS - make it pretty","level":"1.20","depth":1,"next":{"title":"Template extending","level":"1.21","depth":1,"path":"template_extending/README.md","ref":"template_extending/README.md","articles":[]},"previous":{"title":"Django templates","level":"1.19","depth":1,"path":"django_templates/README.md","ref":"django_templates/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["heading-anchors@1.0.3","ga@1.0.1","richquotes@0.0.7","github@2.0.0","language-picker","sidebar-ad","codeblock-label",""],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"language-picker":{"grid-columns":3},"github":{"url":"https://github.com/DjangoGirls/tutorial"},"codeblock-label":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"default":false},"heading-anchors":{},"sidebar-ad":{"imageUrl":"https://cdn.shopify.com/s/files/1/0992/7712/products/codelikeagirl---mockup4_large.jpg","url":"https://store.djangogirls.org/","description":"💖 Support our work and buy a Django Girls t-shirt! ✨","btnText":"Get a t-shirt!"},"highlight":{},"ga":{"configuration":"auto","token":"UA-51680040-3"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"github":"DjangoGirls/tutorial","theme":"default","author":"DjangoGirls","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Girls Tutorial","language":"en","links":{"sidebar":{"Need help? Talk to us!":"https://gitter.im/DjangoGirls/tutorial","Django Girls Tutorial":"https://www.gitbook.com/book/djangogirls/djangogirls-tutorial"},"gitbook":true},"gitbook":"*","description":"This book is a Django tutorial created for DjangoGirls event."},"file":{"path":"css/README.md","mtime":"2016-08-16T12:08:42.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-08-16T12:09:40.212Z"},"basePath":"..","book":{"language":"en"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/gitbook.js"></script>
+    <script src="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/theme.js"></script>
+    
+        
+        <script src="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/anchor.js"></script>
+        
+    
+        
+        <script src="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/anchor-style.js"></script>
+        
+    
+        
+        <script src="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin.js"></script>
+        
+    
+        
+        <script src="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin_002.js"></script>
+        
+    
+        
+        <script src="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin_003.js"></script>
+        
+    
+        
+        <script src="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/search-engine.js"></script>
+        
+    
+        
+        <script src="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/search.js"></script>
+        
+    
+        
+        <script src="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/lunr.js"></script>
+        
+    
+        
+        <script src="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/search-lunr.js"></script>
+        
+    
+        
+        <script src="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/buttons.js"></script>
+        
+    
+        
+        <script src="CSS%20-%20make%20it%20pretty%20%C2%B7%20Django%20Girls%20Tutorial_files/fontsettings.js"></script>
+        
+    
+
+    
+
+
+</body></html>

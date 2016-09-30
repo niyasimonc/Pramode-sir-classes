@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+        <title>Introduction to command line · Django Girls Tutorial</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <meta name="description" content="For readers at home: this chapter is covered in How the Internet Works video.">
+        <meta name="generator" content="GitBook 3.0.0-pre.7">
+        <meta name="author" content="DjangoGirls">
+        
+        
+    
+    <style class="anchorjs"></style><link rel="stylesheet" href="Introduction%20to%20command%20line%20%C2%B7%20Django%20Girls%20Tutorial_files/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="Introduction%20to%20command%20line%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="Introduction%20to%20command%20line%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin_002.css">
+                
+            
+                
+                <link rel="stylesheet" href="Introduction%20to%20command%20line%20%C2%B7%20Django%20Girls%20Tutorial_files/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="Introduction%20to%20command%20line%20%C2%B7%20Django%20Girls%20Tutorial_files/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="Introduction%20to%20command%20line%20%C2%B7%20Django%20Girls%20Tutorial_files/website_002.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://tutorial.djangogirls.org/gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="http://tutorial.djangogirls.org/gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    
+    
+    
+    
+
+    <link rel="prev" href="http://tutorial.djangogirls.org/en/how_the_internet_works/"><link rel="next" href="http://tutorial.djangogirls.org/en/python_installation/"></head>
+    <body>
+        
+<div class="book without-animation with-summary font-size-2 font-family-1" data-level="3" data-chapter-title="Introduction to command line" data-filepath="intro_to_command_line/README.md" data-basepath="../../en" data-revision="Tue Apr 26 2016 07:53:45 GMT+0000 (UTC)" data-innerlanguage="">
+    
+
+<div class="book-summary"><div role="search" class="book-search"><input placeholder="Type to search" class="form-control" type="text"></div>
+    
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+                
+                <li>
+                    <a href="https://gitter.im/DjangoGirls/tutorial" target="_blank" class="custom-link">Need help? Talk to us!</a>
+                </li>
+            
+                
+                <li>
+                    <a href="https://www.gitbook.com/book/djangogirls/djangogirls-tutorial" target="_blank" class="custom-link">Django Girls Tutorial</a>
+                </li>
+            
+            
+
+            
+            <li class="divider"></li>
+            
+
+
+            
+            
+    
+        <li class="chapter " data-level="0" data-path="../">
+            
+                <a href="http://tutorial.djangogirls.org/en/">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="../installation/">
+            
+                <a href="http://tutorial.djangogirls.org/en/installation/">
+            
+                    
+                        <b>1.</b>
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="../how_the_internet_works/">
+            
+                <a href="http://tutorial.djangogirls.org/en/how_the_internet_works/">
+            
+                    
+                        <b>2.</b>
+                    
+                    How the Internet works
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3" data-path="./">
+            
+                <a href="http://tutorial.djangogirls.org/en/intro_to_command_line/">
+            
+                    
+                        <b>3.</b>
+                    
+                    Introduction to command line
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="../python_installation/">
+            
+                <a href="http://tutorial.djangogirls.org/en/python_installation/">
+            
+                    
+                        <b>4.</b>
+                    
+                    Python installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="../code_editor/">
+            
+                <a href="http://tutorial.djangogirls.org/en/code_editor/">
+            
+                    
+                        <b>5.</b>
+                    
+                    Code editor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="../python_introduction/">
+            
+                <a href="http://tutorial.djangogirls.org/en/python_introduction/">
+            
+                    
+                        <b>6.</b>
+                    
+                    Introduction to Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="../django/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django/">
+            
+                    
+                        <b>7.</b>
+                    
+                    What is Django?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="../django_installation/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_installation/">
+            
+                    
+                        <b>8.</b>
+                    
+                    Django installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="../django_start_project/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_start_project/">
+            
+                    
+                        <b>9.</b>
+                    
+                    Your first Django project!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="../django_models/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_models/">
+            
+                    
+                        <b>10.</b>
+                    
+                    Django models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="../django_admin/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_admin/">
+            
+                    
+                        <b>11.</b>
+                    
+                    Django admin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="../deploy/">
+            
+                <a href="http://tutorial.djangogirls.org/en/deploy/">
+            
+                    
+                        <b>12.</b>
+                    
+                    Deploy!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="../django_urls/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_urls/">
+            
+                    
+                        <b>13.</b>
+                    
+                    Django urls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14" data-path="../django_views/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_views/">
+            
+                    
+                        <b>14.</b>
+                    
+                    Django views - time to create!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15" data-path="../html/">
+            
+                <a href="http://tutorial.djangogirls.org/en/html/">
+            
+                    
+                        <b>15.</b>
+                    
+                    Introduction to HTML
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="16" data-path="../django_orm/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_orm/">
+            
+                    
+                        <b>16.</b>
+                    
+                    Django ORM (Querysets)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17" data-path="../dynamic_data_in_templates/">
+            
+                <a href="http://tutorial.djangogirls.org/en/dynamic_data_in_templates/">
+            
+                    
+                        <b>17.</b>
+                    
+                    Dynamic data in templates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="18" data-path="../django_templates/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_templates/">
+            
+                    
+                        <b>18.</b>
+                    
+                    Django templates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="19" data-path="../css/">
+            
+                <a href="http://tutorial.djangogirls.org/en/css/">
+            
+                    
+                        <b>19.</b>
+                    
+                    CSS - make it pretty
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="20" data-path="../template_extending/">
+            
+                <a href="http://tutorial.djangogirls.org/en/template_extending/">
+            
+                    
+                        <b>20.</b>
+                    
+                    Template extending
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="21" data-path="../extend_your_application/">
+            
+                <a href="http://tutorial.djangogirls.org/en/extend_your_application/">
+            
+                    
+                        <b>21.</b>
+                    
+                    Extend your application
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="22" data-path="../django_forms/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_forms/">
+            
+                    
+                        <b>22.</b>
+                    
+                    Django Forms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="23" data-path="../whats_next/">
+            
+                <a href="http://tutorial.djangogirls.org/en/whats_next/">
+            
+                    
+                        <b>23.</b>
+                    
+                    What's next?
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            <li class="divider"></li>
+            
+
+            <li>
+                <a href="https://www.gitbook.com/" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+</div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+<div class="book-header" role="navigation">
+    
+    <a href="#" aria-label="" class="btn pull-left js-toolbar-action"><i class="fa fa-align-justify"></i></a><a href="http://tutorial.djangogirls.org/en/GLOSSARY.html" class="btn pull-left" aria-label="Glossary"><i class="fa fa-sort-alpha-asc"></i></a>
+    
+
+    <!-- Title -->
+    <a href="#" aria-label="GitHub" class="btn pull-right js-toolbar-action"><i class="fa fa-github"></i></a><div class="dropdown pull-left language-picker js-toolbar-action"><a href="#" aria-label="Change language" class="btn toggle-dropdown"><i class="fa fa-globe"></i></a><div class="dropdown-menu dropdown-right"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div></div></div><a href="#" aria-label="Search" class="btn pull-left js-toolbar-action"><i class="fa fa-search"></i></a><div class="dropdown pull-right  js-toolbar-action"><a href="#" aria-label="Share" class="btn toggle-dropdown"><i class="fa fa-share-alt"></i></a><div class="dropdown-menu dropdown-left"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div><div class="buttons"><button class="button size-5 ">Facebook</button><button class="button size-5 ">Google+</button><button class="button size-5 ">Twitter</button><button class="button size-5 ">Weibo</button><button class="button size-5 ">Instapaper</button></div></div></div><a href="#" aria-label="" class="btn pull-right js-toolbar-action"><i class="fa fa-facebook"></i></a><a href="#" aria-label="" class="btn pull-right js-toolbar-action"><i class="fa fa-twitter"></i></a><div class="dropdown pull-left font-settings js-toolbar-action"><a href="#" aria-label="Font Settings" class="btn toggle-dropdown"><i class="fa fa-font"></i></a><div class="dropdown-menu dropdown-right"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div><div class="buttons"><button class="button size-2 font-reduce">A</button><button class="button size-2 font-enlarge">A</button></div><div class="buttons"><button class="button size-2 ">Serif</button><button class="button size-2 ">Sans</button></div><div class="buttons"><button class="button size-3 ">White</button><button class="button size-3 ">Sepia</button><button class="button size-3 ">Night</button></div></div></div><h1 id="introduction-to-command-line">
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="http://tutorial.djangogirls.org/en">Introduction to command line</a>
+    <a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: introduction to command line" href="#introduction-to-command-line" class="anchorjs-link "></a></h1>
+</div>
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            <section class="normal markdown-section">
+                            
+                            <h1 id="introduction-to-the-command-line-interface">Introduction to the command-line interface<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: introduction to the command line interface" href="#introduction-to-the-command-line-interface" class="anchorjs-link "></a></h1>
+<blockquote>
+<p>For readers at home: this chapter is covered in <a href="https://www.youtube.com/watch?v=jvZLWhkzX-8" target="_blank">Your new friend: Command Line</a> video.</p>
+</blockquote>
+<p>Huh, it's exciting, right?! You'll write your first line of code in just a few minutes :)</p>
+<p><strong>Let us introduce you to your first new friend: the command line!</strong></p>
+<p>The following steps will show you how to use the black window all 
+hackers use. It might look a bit scary at first but really it's just a 
+prompt waiting for commands from you.</p>
+<blockquote>
+<p><strong>Note</strong> Please note that throughout this book we use 
+the terms 'directory' and 'folder' interchangably but they are one and 
+the same thing.</p>
+</blockquote>
+<h2 id="what-is-the-command-line">What is the command line?<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: what is the command line" href="#what-is-the-command-line" class="anchorjs-link "></a></h2>
+<p>The window, which is usually called the <strong>command line</strong> or <strong>command-line interface</strong>,
+ is a text-based application for viewing, handling, and manipulating 
+files on your computer. Much like Windows Explorer or Finder on Mac, but
+ without the graphical interface. Other names for the command line are: <em>cmd</em>, <em>CLI</em>, <em>prompt</em>, <em>console</em> or <em>terminal</em>.</p>
+<h2 id="open-the-command-line-interface">Open the command-line interface<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: open the command line interface" href="#open-the-command-line-interface" class="anchorjs-link "></a></h2>
+<p>To start some experiments we need to open our command-line interface first.</p>
+<h3 id="windows">Windows<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: windows" href="#windows" class="anchorjs-link "></a></h3>
+<p>Go to Start menu → All Programs → Accessories → Command Prompt.</p>
+<h3 id="mac-os-x">Mac OS X<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: mac os x" href="#mac-os-x" class="anchorjs-link "></a></h3>
+<p>Applications → Utilities → Terminal.</p>
+<h3 id="linux">Linux<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: linux" href="#linux" class="anchorjs-link "></a></h3>
+<p>It's probably under Applications → Accessories → Terminal, but that 
+may depend on your system. If it's not there, just Google it :)</p>
+<h2 id="prompt">Prompt<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: prompt" href="#prompt" class="anchorjs-link "></a></h2>
+<p>You now should see a white or black window that is waiting for your commands.</p>
+<p>If you're on Mac or Linux, you probably see <code>$</code>, just like this:</p>
+<pre><code>$
+</code></pre><p>On Windows, it's a <code>&gt;</code> sign, like this:</p>
+<pre><code>&gt;
+</code></pre><p>Each command will be prepended by this sign and one space, but you don't have to type it. Your computer will do it for you :)</p>
+<blockquote>
+<p>Just a small note: in your case there may be something like <code>C:\Users\ola&gt;</code> or <code>Olas-MacBook-Air:~ ola$</code> before the prompt sign and that's 100% correct.</p>
+</blockquote>
+<p>The part up to and including the <code>$</code> or the <code>&gt;</code> is called the <em>command line prompt</em>, or <em>prompt</em> for short. It prompts you to input something there.</p>
+<p>In the tutorial, when we want you to type in a command, we will include the <code>$</code> or <code>&gt;</code>, and occasionally more to the left. You can ignore the left part and just type in the command which starts after the prompt.</p>
+<h2 id="your-first-command-yay">Your first command (YAY!)<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: your first command yay" href="#your-first-command-yay" class="anchorjs-link "></a></h2>
+<p>Let's start with something simple. Type this command:</p>
+<pre><code>$ whoami
+</code></pre><p>or</p>
+<pre><code>&gt; whoami
+</code></pre><p>And then hit <code>enter</code>. This is our result:</p>
+<pre><code>$ whoami
+olasitarska
+</code></pre><p>As you can see, the computer has just printed your username. Neat, huh?:)</p>
+<blockquote>
+<p>Try to type each command, do not copy-paste. You'll remember more this way!</p>
+</blockquote>
+<h2 id="basics">Basics<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: basics" href="#basics" class="anchorjs-link "></a></h2>
+<p>Each operating system has a slightly different set of commands for 
+the command line, so make sure to follow instructions for your operating
+ system. Let's try this, shall we?</p>
+<h3 id="current-directory">Current directory<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: current directory" href="#current-directory" class="anchorjs-link "></a></h3>
+<p>It'd be nice to know where are we now, right? Let's see. Type this command and hit <code>enter</code>:</p>
+<pre><code>$ pwd
+/Users/olasitarska
+</code></pre><p>If you're on Windows:</p>
+<pre><code>&gt; cd
+C:\Users\olasitarska
+</code></pre><p>You'll probably see something similar on your machine. 
+Once you open the command line you usually start at your user's home 
+directory.</p>
+<blockquote>
+<p>Note: 'pwd' stands for 'print working directory'.</p>
+</blockquote>
+<hr>
+<h3 id="list-files-and-directories">List files and directories<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: list files and directories" href="#list-files-and-directories" class="anchorjs-link "></a></h3>
+<p>So what's in it? It'd be cool to find out. Let's see:</p>
+<pre><code>$ ls
+Applications
+Desktop
+Downloads
+Music
+...
+</code></pre><p> Windows:</p>
+<pre><code>&gt; dir
+ Directory of C:\Users\olasitarska
+05/08/2014 07:28 PM &lt;DIR&gt;      Applications
+05/08/2014 07:28 PM &lt;DIR&gt;      Desktop
+05/08/2014 07:28 PM &lt;DIR&gt;      Downloads
+05/08/2014 07:28 PM &lt;DIR&gt;      Music
+...
+</code></pre><hr>
+<h3 id="change-current-directory">Change current directory<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: change current directory" href="#change-current-directory" class="anchorjs-link "></a></h3>
+<p>Now, let's go to our Desktop directory:</p>
+<pre><code>$ cd Desktop
+</code></pre><p>Windows:</p>
+<pre><code>&gt; cd Desktop
+</code></pre><p>Check if it's really changed:</p>
+<pre><code>$ pwd
+/Users/olasitarska/Desktop
+</code></pre><p>Windows:</p>
+<pre><code>&gt; cd
+C:\Users\olasitarska\Desktop
+</code></pre><p>Here it is!</p>
+<blockquote>
+<p>PRO tip: if you type <code>cd D</code> and then hit <code>tab</code> 
+on your keyboard, the command line will automatically autofill the rest 
+of the name so you can navigate faster. If there is more than one folder
+ starting with "D", hit the <code>tab</code> button twice to get a list of options.</p>
+</blockquote>
+<hr>
+<h3 id="create-directory">Create directory<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: create directory" href="#create-directory" class="anchorjs-link "></a></h3>
+<p>How about creating a practice directory on your desktop? You can do it this way:</p>
+<pre><code>$ mkdir practice
+</code></pre><p>Windows:</p>
+<pre><code>&gt; mkdir practice
+</code></pre><p>This little command will create a folder with the name <code>practice</code> on your desktop. You can check if it's there just by looking on your Desktop or by running a <code>ls</code> or <code>dir</code> command! Try it :)</p>
+<blockquote>
+<p>PRO tip: If you don't want to type the same commands over and over, try pressing the <code>up arrow</code> and <code>down arrow</code> on your keyboard to cycle through recently used commands.</p>
+</blockquote>
+<hr>
+<h3 id="exercise">Exercise!<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: exercise" href="#exercise" class="anchorjs-link "></a></h3>
+<p>Small challenge for you: in your newly created <code>practice</code> directory create a directory called <code>test</code>. Use <code>cd</code> and <code>mkdir</code> commands.</p>
+<h4 id="solution">Solution:<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: solution" href="#solution" class="anchorjs-link "></a></h4>
+<pre><code>$ cd practice
+$ mkdir test
+$ ls
+test
+</code></pre><p>Windows:</p>
+<pre><code>&gt; cd practice
+&gt; mkdir test
+&gt; dir
+05/08/2014 07:28 PM &lt;DIR&gt;      test
+</code></pre><p>Congrats! :)</p>
+<hr>
+<h3 id="clean-up">Clean up<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: clean up" href="#clean-up" class="anchorjs-link "></a></h3>
+<p>We don't want to leave a mess, so let's remove everything we did until that point.</p>
+<p>First, we need to get back to Desktop:</p>
+<pre><code>$ cd ..
+</code></pre><p>Windows:</p>
+<pre><code>&gt; cd ..
+</code></pre><p>Using <code>..</code> with the <code>cd</code> command 
+will change your current directory to the parent directory (this is the 
+directory that contains your current directory).</p>
+<p>Check where you are:</p>
+<pre><code>$ pwd
+/Users/olasitarska/Desktop
+</code></pre><p>Windows:</p>
+<pre><code>&gt; cd
+C:\Users\olasitarska\Desktop
+</code></pre><p>Now time to delete the <code>practice</code> directory:</p>
+<blockquote>
+<p><strong>Attention</strong>: Deleting files using <code>del</code>, <code>rmdir</code> or <code>rm</code> is irrecoverable, meaning <em>deleted files will be gone forever</em>! So, be very careful with this command.</p>
+</blockquote>
+<pre><code>$ rm -r practice
+</code></pre><p>Windows:</p>
+<pre><code>&gt; rmdir /S practice
+practice, Are you sure &lt;Y/N&gt;? Y
+</code></pre><p>Done! To be sure it's actually deleted, let's check it:</p>
+<pre><code>$ ls
+</code></pre><p>Windows:</p>
+<pre><code>&gt; dir
+</code></pre><h3 id="exit">Exit<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: exit" href="#exit" class="anchorjs-link "></a></h3>
+<p>That's it for now! You can safely close the command line now. Let's do it the hacker way, alright?:)</p>
+<pre><code>$ exit
+</code></pre><p>Windows:</p>
+<pre><code>&gt; exit
+</code></pre><p>Cool, huh?:)</p>
+<h2 id="summary">Summary<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: summary" href="#summary" class="anchorjs-link "></a></h2>
+<p> Here is a summary of some useful commands:</p>
+<table>
+<thead>
+<tr>
+<th>Command (Windows)</th>
+<th>Command (Mac OS / Linux)</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>exit</td>
+<td>exit</td>
+<td>close the window</td>
+<td><strong>exit</strong></td>
+</tr>
+<tr>
+<td>cd</td>
+<td>cd</td>
+<td>change directory</td>
+<td><strong>cd test</strong></td>
+</tr>
+<tr>
+<td>dir</td>
+<td>ls</td>
+<td>list directories/files</td>
+<td><strong>dir</strong></td>
+</tr>
+<tr>
+<td>copy</td>
+<td>cp</td>
+<td>copy file</td>
+<td><strong>copy c:\test\test.txt c:\windows\test.txt</strong></td>
+</tr>
+<tr>
+<td>move</td>
+<td>mv</td>
+<td>move file</td>
+<td><strong>move c:\test\test.txt c:\windows\test.txt</strong></td>
+</tr>
+<tr>
+<td>mkdir</td>
+<td>mkdir</td>
+<td>create a new directory</td>
+<td><strong>mkdir testdirectory</strong></td>
+</tr>
+<tr>
+<td>del</td>
+<td>rm</td>
+<td>delete a directory/file</td>
+<td><strong>del c:\test\test.txt</strong></td>
+</tr>
+</tbody>
+</table>
+<p>These are just a very few of the commands you can run in your command
+ line, but you're not going to use anything more than that today.</p>
+<p>If you're curious, <a href="http://ss64.com/" target="_blank">ss64.com</a> contains a complete reference of commands for all operating systems.</p>
+<h2 id="ready">Ready?<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: ready" href="#ready" class="anchorjs-link "></a></h2>
+<p>Let's dive into Python!</p>
+
+                            
+                            </section>
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="http://tutorial.djangogirls.org/en/how_the_internet_works/" class="navigation navigation-prev " aria-label="Previous page: How the Internet works">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a style="margin-right: 0px;" href="http://tutorial.djangogirls.org/en/python_installation/" class="navigation navigation-next " aria-label="Next page: Python installation">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+</div>
+
+        
+    <script src="Introduction%20to%20command%20line%20%C2%B7%20Django%20Girls%20Tutorial_files/analytics.js" async=""></script><script src="Introduction%20to%20command%20line%20%C2%B7%20Django%20Girls%20Tutorial_files/app.js"></script>
+    
+        
+        <script src="Introduction%20to%20command%20line%20%C2%B7%20Django%20Girls%20Tutorial_files/anchor.js"></script>
+        
+    
+        
+        <script src="Introduction%20to%20command%20line%20%C2%B7%20Django%20Girls%20Tutorial_files/anchor-style.js"></script>
+        
+    
+        
+        <script src="Introduction%20to%20command%20line%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin.js"></script>
+        
+    
+        
+        <script src="Introduction%20to%20command%20line%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin_002.js"></script>
+        
+    
+        
+        <script src="Introduction%20to%20command%20line%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin_003.js"></script>
+        
+    
+        
+        <script src="Introduction%20to%20command%20line%20%C2%B7%20Django%20Girls%20Tutorial_files/lunr.js"></script>
+        
+    
+        
+        <script src="Introduction%20to%20command%20line%20%C2%B7%20Django%20Girls%20Tutorial_files/search.js"></script>
+        
+    
+        
+        <script src="Introduction%20to%20command%20line%20%C2%B7%20Django%20Girls%20Tutorial_files/buttons_002.js"></script>
+        
+    
+        
+        <script src="Introduction%20to%20command%20line%20%C2%B7%20Django%20Girls%20Tutorial_files/buttons.js"></script>
+        
+    
+    <script>
+    require(["gitbook"], function(gitbook) {
+        gitbook.start({"ga":{"token":"UA-51680040-3","configuration":"auto"},"richquotes":{"default":false},"github":{"url":"https://github.com/DjangoGirls/tutorial"},"language-picker":{"grid-columns":3},"heading-anchors":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}}});
+    });
+    </script>
+
+    
+
+</body></html>

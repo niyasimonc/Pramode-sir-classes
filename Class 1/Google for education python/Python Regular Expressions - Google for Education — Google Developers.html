@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html class="devsite" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <script async="" src="Python%20Regular%20Expressions%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/cbgapi.loaded_1"></script><script async="" src="Python%20Regular%20Expressions%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/cbgapi.loaded_0"></script><script gapi_processed="true" src="Python%20Regular%20Expressions%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/platform.js" async="" type="text/javascript"></script><script src="Python%20Regular%20Expressions%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/analytics.js" async=""></script><script>var b=window.devsite||{};b.timing={};window.devsite=b;window.devsite.timing=b.timing;b.timing.timers=[];b.timing.tick=function(d,a,g){for(var c=0;c<b.timing.timers.length;c++)b.timing.timers[c].tick(d,a,g)};window.devsite.timing.tick=b.timing.tick;b.timing.report=function(d){b.setTimeout(function(){for(var a=0;a<b.timing.timers.length;a++)window.jstiming.report(b.timing.timers[a],d)},500)};
+b.timing.init=function(d){b.timing.timers.push(window.jstiming.load);if(d){var a=new window.jstiming.Timer;a.name=d;b.timing.timers.push(a)}document.addEventListener&&window.addEventListener&&(document.addEventListener("DOMContentLoaded",b.timing.handleDomContentLoaded,!1),window.addEventListener("load",b.timing.handleLoad,!1))};b.timing.handleDomContentLoaded=function(){b.timing.tick("ol");document.removeEventListener("DOMContentLoaded",b.timing.handleDomContentLoaded,!1)};
+b.timing.handleLoad=function(){window.removeEventListener("load",b.timing.handleLoad,!1);var d=document.querySelector("#devsite-request-elapsed");d&&(d=parseInt(d.getAttribute("data-request-elapsed"),10))&&(b.timing.tick("_st_start",null,1),b.timing.tick("st","_st_start",1+d));b.timing.tick("prt");b.timing.report()};(function(){function d(a){this.t={};this.tick=function(a,d,c){var e=void 0!=c?c:(new Date).getTime();this.t[a]=[e,d];if(void 0==c)try{window.console.timeStamp("CSI/"+a)}catch(f){}};this.tick("start",null,a)}var a;window.performance&&(a=window.performance.timing);var g=a?new d(a.responseStart):new d;window.jstiming={Timer:d,load:g};if(a){var c=a.navigationStart,f=a.responseStart;0<c&&f>=c&&(window.jstiming.srt=f-c)}if(a){var e=window.jstiming.load;0<c&&f>=c&&(e.tick("_wtsrt",void 0,c),e.tick("wtsrt_",
+"_wtsrt",f),e.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),e&&0<c&&(e.tick("_tbnd",void 0,window.chrome.csi().startE),e.tick("tbnd_","_tbnd",c))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,e&&0<c&&(e.tick("_tbnd",void 0,window.external.startE),e.tick("tbnd_","_tbnd",c))),a&&(window.jstiming.pt=a)}catch(h){}})();
+devsite.timing.init('DocPage');</script>
+    
+      <link href="https://developers.google.com/edu/python/regular-expressions" rel="canonical">
+    
+    <meta charset="utf-8">
+    
+      
+    
+    <meta name="xsrf_token" content="xjAYo777bCTIfHQ5Ba03eAQLGijhANYHFb9R4Q0GCqw6MTQzMTY3NDE2NzM5OTg4MA">
+      <link rel="stylesheet" type="text/css" href="Python%20Regular%20Expressions%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/screen-maia.css">
+      <link href="Python%20Regular%20Expressions%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/css_002.css" rel="stylesheet" type="text/css">
+    
+      
+        <link rel="stylesheet" type="text/css" href="Python%20Regular%20Expressions%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/screen-docs.css">
+      
+      
+      <link href="Python%20Regular%20Expressions%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/screen-foot.css" rel="stylesheet" type="text/css" id="screen-foot" data-href="https://developers.google.com/_static/eb84c2176e/css/screen-foot.css">
+    
+    <link rel="shortcut icon" href="https://developers.google.com/_static/eb84c2176e/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://developers.google.com/_static/eb84c2176e/images/apple-touch-icon.png">
+    <link href="Python%20Regular%20Expressions%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/css.css" rel="stylesheet" type="text/css">
+    
+    
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Google Developers" href="https://developers.google.com/s/opensearch.xml">
+    
+    
+    
+    <script src="Python%20Regular%20Expressions%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/jquery.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="https://developers.google.com/_static/eb84c2176e/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+  <meta property="og:site_name" content="Google Developers">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://developers.google.com/edu/python/regular-expressions">
+  <meta property="og:locale" content="en">
+
+  <script type="text/javascript">
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script>
+  
+    <title>Python Regular Expressions - Google for Education — Google Developers</title>
+    <meta property="og:title" content="Python Regular Expressions">
+  
+  
+
+  
+    
+    
+    
+  
+
+
+    <style>
+    
+    </style>
+  </head>
+  <body class=" slim   two-column docs normal-width">
+
+  <div class="maia-max">
+
+    
+    <div id="sandbar">
+      
+        
+          
+
+
+
+
+
+<div id="maia-header" class="maia-header">
+  <header id="googlebar">
+    <div id="logo-wrapper">
+      <a id="logo" href="https://developers.google.com/">
+        <img src="Python%20Regular%20Expressions%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/developers-logo.svg" alt="Google">
+      </a>
+      <script>
+      if (navigator.userAgent.match(/msie/i) && navigator.appVersion.indexOf['8'] ==0) {
+        $('#gc-logo img').attr({src:'https://developers.google.com/_static/eb84c2176e/images/developers-logo.png'});
+      }
+      </script>
+    </div>
+
+    <div id="search-wrapper" class="head-sec search-wrapper2 history-enabled">
+      <form class="search" action="/s/results" method="GET" id="top-search">
+        <div id="searchbox" class="devsite-searchbox searchbox"><span class="devsite-search-chip">Google for Education</span>
+           
+           <input name="q" class="devsite-search-query" placeholder="Search" autocomplete="off" type="text">
+        <ul style="display: none;" tabindex="0" role="menu" id="ui-id-1" class="suggest-results ui-menu ui-widget ui-widget-content ui-corner-all"></ul></div>
+        <button style="position: relative; top: 0px; left: 0px;" id="search-button" class="button button-blue big">
+          <img src="Python%20Regular%20Expressions%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/search.png" alt="Search">
+        </button>
+        
+          <input name="p" id="search_project" value="/edu" data-project-name="Google for Education" data-project-path="/edu" data-query-match="" type="hidden">
+        
+        
+
+
+  
+  <input id="suggest-category-label-2" value="Pages in Google for Education" type="hidden">
+  
+  <input id="suggest-category-label-3" value="Reference in Google for Education" type="hidden">
+
+
+<input id="suggest-category-label-1" value="Products" type="hidden">
+
+<input id="suggest-all-results-label" value="See all results for" type="hidden">
+
+      </form>
+    </div>
+
+    
+    <div id="user-history">
+      <img src="Python%20Regular%20Expressions%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/16x9.png" id="history-badge" class="history-opened" alt="Click here to see your recently viewed pages and most viewed pages.">
+    <div style="position: relative; top: 10px; left: -149.667px;" class="triangle-border footer-only" id="user-history-box"><div class="release-announcement" id="user-history-footer">The
+ Google Developers website now saves the pages you visit when you are 
+logged into Google. You can quickly access them via the history icon at 
+the top of the site. <br><a href="https://history.google.com/" class="release-manage-link" target="_blank">Manage History</a><a href="#" id="dismiss">Dismiss</a></div></div></div>
+    
+
+    <div id="social-wrapper" class="social">
+      
+      <span class="signed-in">
+        <div>
+          <a class"email"="" href="https://plus.google.com/me">niyasimonc@gmail.com</a>
+          <a href="https://www.google.com/accounts/Logout?continue=https://developers.google.com/edu/python/regular-expressions&amp;service=ahsid">Sign out</a>
+        </div>
+        <img class="avatar" src="Python%20Regular%20Expressions%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/photo.jpg">
+      </span>
+      
+    </div>
+  </header>
+</div>
+
+<script>
+  if (window.jQuery) {
+    $(document).ready(function() {
+      if (window.devsite && window.devsite.search) {
+        window.devsite.search.init('en', true, null, true)
+      }
+    });
+  }
+</script>
+
+        
+      
+    </div><!-- end div.sandbar -->
+    
+
+    
+    <div class="kd-butterbar">
+      <span>
+        <span class="message"></span>
+        
+        <a href="#" class="kd-butterbar-dismiss">Hide</a>
+      </span>
+    </div>
+    
+    <div id="gc-wrapper" itemscope="" itemtype="http://schema.org/Article">
+      
+        
+          <input class="google-analytics-id-json" value="{&quot;dimensions&quot;: {&quot;dimension6&quot;: &quot;en&quot;, &quot;dimension4&quot;: &quot;Google for Education&quot;, &quot;dimension5&quot;: &quot;en&quot;, &quot;dimension3&quot;: false, &quot;dimension1&quot;: &quot;Signed In&quot;}, &quot;gaid&quot;: &quot;UA-24532603-1&quot;}" type="hidden">
+        
+          <input class="google-analytics-id-json" value="{&quot;dimensions&quot;: {&quot;dimension6&quot;: &quot;en&quot;, &quot;dimension4&quot;: &quot;Google for Education&quot;, &quot;dimension5&quot;: &quot;en&quot;, &quot;dimension3&quot;: false, &quot;dimension1&quot;: &quot;Signed In&quot;}, &quot;gaid&quot;: &quot;UA-49880327-1&quot;}" type="hidden">
+        
+      
+
+      
+
+      
+
+<div id="gc-appnav" class="maia-aux">
+  <ol class="breadcrumbs">
+    
+    <li><a href="https://developers.google.com/products/">Products</a></li>
+    
+    <li><a href="https://developers.google.com/edu/">Google for Education</a></li>
+    
+  </ol>
+</div>
+
+
+
+      
+        
+        
+          <div class="maia-aux" id="gc-appbar">
+
+          
+          
+
+  <a href="https://developers.google.com/edu/" class="gc-appbar-title">
+    
+    Google for Education
+  </a>
+
+
+
+<div class="plusone-container" style="height:27px">
+  <div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px;"><iframe title="+1" data-gapiattached="true" src="Python%20Regular%20Expressions%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/fastbutton.html" name="I0_1431674190844" id="I0_1431674190844" vspace="0" tabindex="0" style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+          
+          </div>
+
+        
+      
+
+      
+        
+          <div id="gc-main" class="main">
+        
+        
+  
+  
+      
+      
+      <div id="gc-sidebar">
+        
+
+  <nav class="devsite-section-nav devsite-nav gc-toc"><ul class="devsite-nav-expandable"><li class="devsite-nav-item devsite-nav-item-section-expandable"><a href="https://developers.google.com/edu/python" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Python Course</a><a class="devsite-nav-toggle devsite-nav-toggle-expanded"></a><ul class="devsite-nav-section devsite-nav-section-expanded"><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/set-up" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Python Set Up</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/introduction" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Introduction</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/strings" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Strings</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/lists" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Lists</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/sorting" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Sorting</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/dict-files" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Dicts and Files</a></li><li class="devsite-nav-item devsite-nav-active"><a href="https://developers.google.com/edu/python/regular-expressions" class="devsite-nav-title gc-analytics-event devsite-nav-active" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Regular Expressions</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/utilities" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Utilities</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><a tabindex="0" class="devsite-nav-title devsite-nav-title-no-path ">Lecture Videos day1, day2</a><a class="devsite-nav-toggle devsite-nav-toggle-collapsed"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=tKTZoB2Vjuk" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">1.1 Introduction, strings</a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=EPYupizJYQI" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">1.2 Lists and sorting</a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=haycL41dAhg" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">1.3 Dicts and files</a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=kWyoYtvJpe4" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">2.1 Regular expr</a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=uKZ8GBKmeDM" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">2.2 Utilities</a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=Nn2KQmVF5Og" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">2.3 Utilities urllib</a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=IcteAbMC1Ok" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">2.4 Conclusions</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><a tabindex="0" class="devsite-nav-title devsite-nav-title-no-path ">Python Exercises</a><a class="devsite-nav-toggle devsite-nav-toggle-collapsed"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/exercises/basic" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Basic Exercises</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/exercises/baby-names" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Baby Names Exercise</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/exercises/copy-special" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Copy Special Exercise</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/exercises/log-puzzle" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Log Puzzle Exercise</a></li></ul></li></ul></nav>
+
+
+      </div>
+      
+
+      <div id="gc-content">
+        
+        <div>
+  
+          
+  
+  <h1 itemprop="name" class="page-title">Python Regular Expressions</h1>
+  
+  <div itemprop="articleBody">
+  
+
+
+
+<p>
+
+</p>
+
+<p>Regular expressions are a powerful language for matching text 
+patterns. This page gives a basic introduction to regular expressions 
+themselves sufficient for our Python exercises and shows how regular 
+expressions work in Python. The Python "re" module provides regular 
+expression support. <!-- link to better/more regex materials here, e.g. http://www.amk.ca/python/howto/regex/ --></p>
+
+<p>In Python a regular expression search is typically written as:</p>
+
+<pre class="prettyprint"><span class="pln">&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">pat</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">)</span></pre>
+
+<p>The re.search() method takes a regular expression pattern and a 
+string and searches for that pattern within the string. If the search is
+ successful, search() returns a match object or None otherwise. 
+Therefore, the search is usually immediately followed by an if-statement
+ to test if the search succeeded, as shown in the following example 
+which searches for the pattern 'word:' followed by a 3 letter word 
+(details below):</p>
+
+<pre class="prettyprint"><span class="pln">str </span><span class="pun">=</span><span class="pln"> </span><span class="str">'an example word:cat!!'</span><span class="pln"><br>match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'word:\w\w\w'</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">)</span><span class="pln"><br></span><span class="com"># If-statement after search() tests if it succeeded</span><span class="pln"><br>&nbsp; </span><span class="kwd">if</span><span class="pln"> match</span><span class="pun">:</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> </span><span class="str">'found'</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="com">## 'found word:cat'</span><span class="pln"><br>&nbsp; </span><span class="kwd">else</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> </span><span class="str">'did not find'</span></pre>
+
+<p>The code <code>match = re.search(pat, str)</code> stores the search 
+result in a variable named "match". Then the if-statement tests the 
+match -- if true the search succeeded and match.group() is the matching 
+text (e.g. 'word:cat'). Otherwise if the match is false (None to be more
+ specific), then the search did not succeed, and there is no matching 
+text.</p>
+
+<p>The 'r' at the start of the pattern string designates a python "raw" 
+string which passes through backslashes without change which is very 
+handy for regular expressions (Java needs this feature badly!). I 
+recommend that you always write pattern strings with the 'r' just as a 
+habit.</p>
+
+<h2>Basic Patterns</h2>
+
+<p>The power of regular expressions is that they can specify patterns, 
+not just fixed characters. Here are the most basic patterns which match 
+single chars:</p>
+
+<ul>
+   <li> a, X, 9, &lt;  -- ordinary characters just match themselves 
+exactly. The meta-characters which do not match themselves because they 
+have special meanings are: . ^ $ * + ? { [ ] \ | ( ) (details below)
+
+   </li><li> . (a period) -- matches any single character except newline '\n'
+
+   </li><li> \w -- (lowercase w) matches a "word" character: a letter or
+ digit or underbar [a-zA-Z0-9_]. Note that although "word" is the 
+mnemonic for this, it only matches a single word char, not a whole word.
+ \W (upper case W) matches any non-word character.
+
+   </li><li> \b -- boundary between word and non-word
+
+   </li><li> \s -- (lowercase s) matches a single whitespace character 
+-- space, newline, return, tab, form [ \n\r\t\f]. \S (upper case S) 
+matches any non-whitespace character.
+
+   </li><li> \t, \n, \r  -- tab, newline, return
+
+   </li><li> \d -- decimal digit [0-9] (some older regex utilities do not support but \d, but they all support \w and \s)
+
+   </li><li> ^ = start, $ = end -- match the start or end of the string
+
+   </li><li> \   -- inhibit the "specialness" of a character. So, for 
+example, use \. to match a period or \\ to match a slash. If you are 
+unsure if a character has special meaning, such as '@', you can put a 
+slash in front of it, \@, to make sure it is treated just as a 
+character.
+</li></ul>
+
+<h2>Basic Examples</h2>
+
+<p>Joke: what do you call a pig with three eyes?  piiig!</p>
+
+<p>The basic rules of regular expression search for a pattern within a string are:</p>
+
+<ul>
+   <li> The search proceeds through the string from start to end, stopping at the first match found
+
+   </li><li> All of the pattern must be matched, but not all of the string
+
+   </li><li> If <code>match = re.search(pat, str)</code> is successful, match is not None and in particular match.group() is the matching text
+</li></ul>
+
+<pre class="prettyprint"><span class="pln">&nbsp; </span><span class="com">## Search for pattern 'iii' in string 'piiig'.</span><span class="pln"><br>&nbsp; </span><span class="com">## All of the pattern must match, but it may appear anywhere.</span><span class="pln"><br>&nbsp; </span><span class="com">## On success, match.group() is matched text.</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'iii'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'piiig'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"iii"</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'igs'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'piiig'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;</span><span class="kwd">not</span><span class="pln"> found</span><span class="pun">,</span><span class="pln"> match </span><span class="pun">==</span><span class="pln"> </span><span class="kwd">None</span><span class="pln"><br><br>&nbsp; </span><span class="com">## . = any char but \n</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'..g'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'piiig'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"iig"</span><span class="pln"><br><br>&nbsp; </span><span class="com">## \d = digit char, \w = word char</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'\d\d\d'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'p123g'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"123"</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'\w\w\w'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'@@abcd!!'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"abc"</span></pre>
+
+<h2>Repetition</h2>
+
+<p>Things get more interesting when you use + and * to specify repetition in the pattern</p>
+
+<ul>
+   <li> + -- 1 or more occurrences of the pattern to its left, e.g. 'i+' = one or more i's
+
+   </li><li> *  -- 0 or more occurrences of the pattern to its left
+
+   </li><li> ?  -- match 0 or 1 occurrences of the pattern to its left
+</li></ul>
+
+<h3>Leftmost &amp; Largest</h3>
+
+<p>First the search finds the leftmost match for the pattern, and second
+ it tries to use up as much of the string as possible -- i.e. + and * go
+ as far as possible (the + and * are said to be "greedy").</p>
+
+<h2>Repetition Examples</h2>
+
+<pre class="prettyprint"><span class="pln">&nbsp; </span><span class="com">## i+ = one or more i's, as many as possible.</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'pi+'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'piiig'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"piii"</span><span class="pln"><br><br>&nbsp; </span><span class="com">## Finds the first/leftmost solution, and within it drives the +</span><span class="pln"><br>&nbsp; </span><span class="com">## as far as possible (aka 'leftmost and largest').</span><span class="pln"><br>&nbsp; </span><span class="com">## In this example, note that it does not get to the second set of i's.</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'i+'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'piigiiii'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"ii"</span><span class="pln"><br><br>&nbsp; </span><span class="com">## \s* = zero or more whitespace chars</span><span class="pln"><br>&nbsp; </span><span class="com">## Here look for 3 digits, possibly separated by whitespace.</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'\d\s*\d\s*\d'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'xx1 2 &nbsp; 3xx'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"1 2 &nbsp; 3"</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'\d\s*\d\s*\d'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'xx12 &nbsp;3xx'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"12 &nbsp;3"</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'\d\s*\d\s*\d'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'xx123xx'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"123"</span><span class="pln"><br><br>&nbsp; </span><span class="com">## ^ = matches the start of string, so this fails:</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'^b\w+'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'foobar'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;</span><span class="kwd">not</span><span class="pln"> found</span><span class="pun">,</span><span class="pln"> match </span><span class="pun">==</span><span class="pln"> </span><span class="kwd">None</span><span class="pln"><br>&nbsp; </span><span class="com">## but without the ^ it succeeds:</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'b\w+'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'foobar'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"bar"</span></pre>
+
+<h2>Emails Example</h2>
+
+<p>Suppose you want to find the email address inside the string 'xyz 
+alice-b@google.com purple monkey'. We'll use this as a running example 
+to demonstrate more regular expression features. Here's an attempt using
+ the pattern r'\w+@\w+':</p>
+
+<pre class="prettyprint"><span class="pln">&nbsp; str </span><span class="pun">=</span><span class="pln"> </span><span class="str">'purple alice-b@google.com monkey dishwasher'</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'\w+@\w+'</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">)</span><span class="pln"><br>&nbsp; </span><span class="kwd">if</span><span class="pln"> match</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> &nbsp;</span><span class="com">## 'b@google'</span></pre>
+
+<p>The search does not get the whole email address in this case because 
+the \w does not match the '-' or '.' in the address. We'll fix this 
+using the regular expression features below.</p>
+
+<h3>Square Brackets</h3>
+
+<p>Square brackets can be used to indicate a set of chars, so [abc] 
+matches 'a' or 'b' or 'c'. The codes \w, \s etc. work inside square 
+brackets too with the one exception that dot (.) just means a literal 
+dot. For the emails problem, the square brackets are an easy way to add 
+'.' and '-' to the set of chars which can appear around the @ with the 
+pattern r'[\w.-]+@[\w.-]+' to get the whole email address:</p>
+
+<pre class="prettyprint"><span class="pln">&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'[\w.-]+@[\w.-]+'</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">)</span><span class="pln"><br>&nbsp; </span><span class="kwd">if</span><span class="pln"> match</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> &nbsp;</span><span class="com">## 'alice-b@google.com'</span></pre>
+
+(More square-bracket features) You can also use a dash to indicate a 
+range, so [a-z] matches all lowercase letters. To use a dash without 
+indicating a range, put the dash last, e.g. [abc-]. An up-hat (^) at the
+ start of a square-bracket set inverts it, so [^ab] means any char 
+except 'a' or 'b'.
+
+<h2>Group Extraction</h2>
+
+<p>The "group" feature of a regular expression allows you to pick out 
+parts of the matching text. Suppose for the emails problem that we want 
+to extract the username and host separately. To do this, add parenthesis
+ ( ) around the username and host in the pattern, like this: 
+r'([\w.-]+)@([\w.-]+)'. In this case, the parenthesis do not change what
+ the pattern will match, instead they establish logical "groups" inside 
+of the match text. On a successful search, match.group(1) is the match 
+text corresponding to the 1st left parenthesis, and match.group(2) is 
+the text corresponding to the 2nd left parenthesis. The plain 
+match.group() is still the whole match text as usual.</p>
+
+<pre class="prettyprint"><span class="pln">&nbsp; str </span><span class="pun">=</span><span class="pln"> </span><span class="str">'purple alice-b@google.com monkey dishwasher'</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="str">'([\w.-]+)@([\w.-]+)'</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">)</span><span class="pln"><br>&nbsp; </span><span class="kwd">if</span><span class="pln"> match</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> &nbsp; </span><span class="com">## 'alice-b@google.com' (the whole match)</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">(</span><span class="lit">1</span><span class="pun">)</span><span class="pln"> &nbsp;</span><span class="com">## 'alice-b' (the username, group 1)</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">(</span><span class="lit">2</span><span class="pun">)</span><span class="pln"> &nbsp;</span><span class="com">## 'google.com' (the host, group 2)</span></pre>
+
+<p>A common workflow with regular expressions is that you write a 
+pattern for the thing you are looking for, adding parenthesis groups to 
+extract the parts you want.</p>
+
+<h2>findall</h2>
+
+findall() is probably the single most powerful function in the re 
+module. Above we used re.search() to find the first match for a pattern.
+ findall() finds *all* the matches and returns them as a list of 
+strings, with each string representing one match.
+
+<pre class="prettyprint"><span class="pln">&nbsp; </span><span class="com">## Suppose we have a text with many email addresses</span><span class="pln"><br>&nbsp; str </span><span class="pun">=</span><span class="pln"> </span><span class="str">'purple alice@google.com, blah monkey bob@abc.com blah dishwasher'</span><span class="pln"><br><br>&nbsp; </span><span class="com">## Here re.findall() returns a list of all the found email strings</span><span class="pln"><br>&nbsp; emails </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">findall</span><span class="pun">(</span><span class="pln">r</span><span class="str">'[\w\.-]+@[\w\.-]+'</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">)</span><span class="pln"> </span><span class="com">## ['alice@google.com', 'bob@abc.com']</span><span class="pln"><br>&nbsp; </span><span class="kwd">for</span><span class="pln"> email </span><span class="kwd">in</span><span class="pln"> emails</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="com"># do something with each found email string</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> email</span></pre>
+
+<h2>findall With Files</h2>
+
+<p>For files, you may be in the habit of writing a loop to iterate over 
+the lines of the file, and you could then call findall() on each line. 
+Instead, let findall() do the iteration for you -- much better! Just 
+feed the whole file text into findall() and let it return a list of all 
+the matches in a single step (recall that f.read() returns the whole 
+text of a file in a single string):</p>
+
+<pre class="prettyprint"><span class="pln">&nbsp; </span><span class="com"># Open file</span><span class="pln"><br>&nbsp; f </span><span class="pun">=</span><span class="pln"> open</span><span class="pun">(</span><span class="str">'test.txt'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'r'</span><span class="pun">)</span><span class="pln"><br>&nbsp; </span><span class="com"># Feed the file text into findall(); it returns a list of all the found strings</span><span class="pln"><br>&nbsp; strings </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">findall</span><span class="pun">(</span><span class="pln">r</span><span class="str">'some pattern'</span><span class="pun">,</span><span class="pln"> f</span><span class="pun">.</span><span class="pln">read</span><span class="pun">())</span></pre>
+
+<h2>findall and Groups</h2>
+
+<p>The parenthesis ( ) group mechanism can be combined with findall(). 
+If the pattern includes 2 or more parenthesis groups, then instead of 
+returning a list of strings, findall() returns a list of *tuples*. Each 
+tuple represents one match of the pattern, and inside the tuple is the 
+group(1), group(2) .. data. So if 2 parenthesis groups are added to the 
+email pattern, then findall() returns a list of tuples, each length 2 
+containing the username and host, e.g. ('alice', 'google.com').</p>
+
+<pre class="prettyprint"><span class="pln">&nbsp; str </span><span class="pun">=</span><span class="pln"> </span><span class="str">'purple alice@google.com, blah monkey bob@abc.com blah dishwasher'</span><span class="pln"><br>&nbsp; tuples </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">findall</span><span class="pun">(</span><span class="pln">r</span><span class="str">'([\w\.-]+)@([\w\.-]+)'</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">)</span><span class="pln"><br>&nbsp; </span><span class="kwd">print</span><span class="pln"> tuples &nbsp;</span><span class="com">## [('alice', 'google.com'), ('bob', 'abc.com')]</span><span class="pln"><br>&nbsp; </span><span class="kwd">for</span><span class="pln"> tuple </span><span class="kwd">in</span><span class="pln"> tuples</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> tuple</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span><span class="pln"> &nbsp;</span><span class="com">## username</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> tuple</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]</span><span class="pln"> &nbsp;</span><span class="com">## host</span></pre>
+
+<p>Once you have the list of tuples, you can loop over it to do some 
+computation for each tuple. If the pattern includes no parenthesis, then
+ findall() returns a list of found strings as in earlier examples. If 
+the pattern includes a single set of parenthesis, then findall() returns
+ a list of strings corresponding to that single group. (Obscure optional
+ feature: Sometimes you have paren ( ) groupings in the pattern, but 
+which you do not want to extract. In that case, write the parens with a 
+?: at the start, e.g. (?: ) and that left paren will not count as a 
+group result.)</p>
+
+<h2>RE Workflow and Debug</h2>
+
+<p>Regular expression patterns pack a lot of meaning into just a few 
+characters , but they are so dense, you can spend a lot of time 
+debugging your patterns. Set up your runtime so you can run a pattern 
+and print what it matches easily, for example by running it on a small 
+test text and printing the result of findall(). If the pattern matches 
+nothing, try weakening the pattern, removing parts of it so you get too 
+many matches. When it's matching nothing, you can't make any progress 
+since there's nothing concrete to look at. Once it's matching too much, 
+then you can work on tightening it up incrementally to hit just what you
+ want.</p>
+
+<h2>Options</h2>
+
+<p>The re functions take options to modify the behavior of the pattern 
+match. The option flag is added as an extra argument to the search() or 
+findall() etc., e.g. re.search(pat, str, re.IGNORECASE).</p>
+<ul>
+   <li> IGNORECASE -- ignore upper/lowercase differences for matching, so 'a' matches both 'a' and 'A'.
+
+   </li><li> DOTALL -- allow dot (.) to match newline -- normally it 
+matches anything but newline. This can trip you up -- you think .* 
+matches everything, but by default it does not go past the end of a 
+line. Note that \s (whitespace) includes newlines, so if you want to 
+match a run of whitespace that may include a newline, you can just use 
+\s*
+
+   </li><li> MULTILINE -- Within a string made of many lines, allow ^ 
+and $ to match the start and end of each line. Normally ^/$ would just 
+match the start and end of the whole string.
+</li></ul>
+
+<h2>Greedy vs. Non-Greedy (optional)</h2>
+
+<p>This is optional section which shows a more advanced regular expression technique not needed for the exercises.</p>
+
+<p>Suppose you have text with tags in it: &lt;b&gt;foo&lt;/b&gt; and &lt;i&gt;so on&lt;/i&gt;</p>
+
+<p>Suppose you are trying to match each tag with the pattern '(&lt;.*&gt;)' -- what does it match first?</p>
+
+<p>The result is a little surprising, but the greedy aspect of the .* 
+causes it to match the whole '&lt;b&gt;foo&lt;/b&gt; and &lt;i&gt;so 
+on&lt;/i&gt;' as one big match. The problem is that the .* goes as far 
+as is it can, instead of stopping at the first &gt; (aka it is 
+"greedy").</p>
+
+<p>There is an extension to regular expression where you add a ? at the 
+end, such as .*? or .+?, changing them to be non-greedy. Now they stop 
+as soon as they can. So the pattern '(&lt;.*?&gt;)' will get just 
+'&lt;b&gt;' as the first match, and '&lt;/b&gt;' as the second match, 
+and so on getting each &lt;..&gt; pair in turn.  The style is typically 
+that you use a .*?, and then immediately its right look for some 
+concrete marker (&gt; in this case) that forces the end of the .*? run.</p>
+
+<p>The *? extension originated in Perl, and regular expressions that 
+include Perl's extensions are known as Perl Compatible Regular 
+Expressions  -- pcre. Python includes pcre support. Many command line 
+utils etc. have a flag where they accept pcre patterns. </p>
+
+<p>An older but widely used technique to code this idea of "all of these
+ chars except stopping at X" uses the square-bracket style. For the 
+above you could write the pattern, but instead of .* to get all the 
+chars, use [^&gt;]* which skips over all characters which are not &gt; 
+(the leading ^ "inverts" the square bracket set, so it matches any char 
+not in the brackets).</p>
+
+<h2>Substitution (optional)</h2>
+
+<p>The re.sub(pat, replacement, str) function searches for all the 
+instances of pattern in the given string, and replaces them. The 
+replacement string can include '\1', '\2' which refer to the text from 
+group(1), group(2), and so on from the original matching text.</p>
+
+<p>Here's an example which searches for all the email addresses, and 
+changes them to keep the user (\1) but have yo-yo-dyne.com as the host.</p>
+
+<pre class="prettyprint"><span class="pln">&nbsp; str </span><span class="pun">=</span><span class="pln"> </span><span class="str">'purple alice@google.com, blah monkey bob@abc.com blah dishwasher'</span><span class="pln"><br>&nbsp; </span><span class="com">## re.sub(pat, replacement, str) -- returns new string with all replacements,</span><span class="pln"><br>&nbsp; </span><span class="com">## \1 is group(1), \2 group(2) in the replacement</span><span class="pln"><br>&nbsp; </span><span class="kwd">print</span><span class="pln"> re</span><span class="pun">.</span><span class="kwd">sub</span><span class="pun">(</span><span class="pln">r</span><span class="str">'([\w\.-]+)@([\w\.-]+)'</span><span class="pun">,</span><span class="pln"> r</span><span class="str">'\1@yo-yo-dyne.com'</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">)</span><span class="pln"><br>&nbsp; </span><span class="com">## purple alice@yo-yo-dyne.com, blah monkey bob@yo-yo-dyne.com blah dishwasher</span></pre>
+
+<h2>Exercise</h2>
+
+<p>To practice regular expressions, see the <a href="https://developers.google.com/edu/python/exercises/baby-names">Baby Names Exercise</a>.</p>
+
+
+
+
+
+
+      
+  </div>
+
+  
+        </div>
+        
+<div id="gc-content-footer">
+
+<div id="gc-content-license">
+
+    
+      
+        <p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="https://developers.google.com/site-policies">Site Policies</a>.</p>
+      
+    
+    
+    
+
+</div>
+
+
+
+<div itemprop="datePublished" content="2012-12-13T01:16:45.614230" id="gc-content-last-updated">Last updated December 13, 2012.</div>
+
+</div>
+
+
+      </div>
+  
+
+        
+      </div>
+        
+      
+      
+        
+          
+        
+      
+
+      
+
+  
+
+  
+       <!-- not (if site.theme == 'maia' or site.theme == 'maia-cloud') -->
+      <div id="gc-footer-container">
+        <footer id="gc-footer">
+          
+
+
+
+
+        <div id="maia-footer-local" class="footer-local">
+          <div id="footer-top" class="maia-aux">
+            <div class="footer-top-wrap">
+
+             <div class="search-wrap new_left">
+               <div class="dev-wrap new_left">
+                 <a href="https://developers.google.com/"><img src="Python%20Regular%20Expressions%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/developers-logo.png"></a>
+               </div>
+               <form class="search new_left" action="/s/results" method="GET" id="footer-search">
+                 <div id="searchbox" class="devsite-searchbox searchbox new_left">
+                   <input name="q" class="devsite-search-query" placeholder="Search" autocomplete="off" type="text">
+                 </div>
+                 <button id="search-button" class="button button-blue big new_left">
+                   <img src="Python%20Regular%20Expressions%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/search.png" alt="Search">
+                 </button>
+               </form>
+             </div>
+             <div class="plus-wrap new_left">
+               <div class="plus">
+                 <div id="___follow_0" style="position: absolute; width: 450px; left: -10000px;"><iframe data-gapiattached="true" src="Python%20Regular%20Expressions%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/follow.html" name="I1_1431674190850" id="I1_1431674190850" vspace="0" tabindex="0" style="position:absolute;top:-10000px;width:450px;margin:0px;border-style:none" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div><div data-gapistub="true" data-onload="true" data-gapiscan="true" class="g-follow" data-annotation="bubble" data-height="24" data-href="https://plus.google.com/+GoogleDevelopers/" data-rel="publisher"></div>
+               </div>
+             </div>
+           </div>
+         </div>
+
+      <div id="footer-list" class="maia-aux">
+    <div class="footer-list-wrap  maia-cols">
+      <div class="maia-col-3">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="https://developers.google.com/products/">Products</a></li>
+          <li><a href="https://developers.google.com/events/">Events</a></li>
+          <li><a href="https://developers.google.com/community/">Communities</a></li>
+        </ul>
+      </div>
+      <div class="maia-col-3">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="http://googledevelopers.blogspot.com/" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Blog Link">Blog</a></li>
+          <li><a href="https://plus.google.com/+GoogleDevelopers/posts" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer G+ Link">Google+ Community</a></li>
+          <li><a href="http://www.youtube.com/user/GoogleDevelopers" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer YouTube Link">YouTube Channel</a></li>
+          <li><a class="google-feedback" id="devsite-feedback-site">Report an Issue</a></li>
+          <li><a href="https://developers.google.com/careers/">Jobs</a></li>
+        </ul>
+      </div>
+      
+      <script type="text/javascript">
+      $(document).ready(function() {
+        new devsite.feedback.Widget({
+            'product_id': '81425',
+            'bucket': 'Documentation',
+            'version': 'devsite-20150514-r00-rc02.default'
+          },
+          document.querySelectorAll('#devsite-feedback-site'),
+          null,
+          null,
+          null,
+          null
+        );
+      });
+      </script>
+      <div class="maia-col-3">
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="https://developers.google.com/groups/">Groups</a></li>
+          <li><a href="https://developers.google.com/experts/">Experts</a></li>
+          <li><a href="https://developers.google.com/startups/">Startups</a></li>
+          <li><a href="https://www.womentechmakers.com/">Women Techmakers</a></li>
+        </ul>
+      </div>
+      <div class="maia-col-3">
+        <h4>Top Products</h4>
+        <ul class="top-prod-1 left">
+          <li><a href="https://developers.google.com/ads/">Ads</a></li>
+          <li><a href="https://developers.google.com/analytics/">Analytics</a></li>
+          <li><a href="https://developer.android.com/" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Android Link">Android</a></li>
+          <li><a href="https://developers.google.com/cast/">Cast</a></li>
+          <li><a href="https://developers.google.com/chrome/">Chrome</a></li>
+          <li><a href="https://cloud.google.com/docs/" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Cloud Link">Cloud</a></li>
+        </ul>
+        <ul class="top-prod-2 left">
+          <li><a href="https://developers.google.com/google-apps/">Google Apps</a></li>
+          <li><a href="https://developers.google.com/+/">Google+</a></li>
+          <li><a href="https://developers.google.com/maps/">Maps</a></li>
+          <li><a href="https://developers.google.com/search/">Search</a></li>
+          <li><a href="https://developers.google.com/commerce/wallet/">Wallet</a></li>
+          <li><a href="https://developers.google.com/youtube/">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div><!-- END DIV#MAIA-FOOTER-LOCAL -->
+
+<div id="maia-footer-global" class="footer-global">
+  <div class="maia-aux">
+    <span id="terms">
+      <a href="https://developers.google.com/site-terms/">Terms of Use</a>
+    </span>
+    <span class="pipe">
+    </span>
+    <span id="privacy">
+      <a href="http://www.google.com/intl/en/privacy/" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Privacy Link">Privacy Policy</a>
+    </span>
+
+    
+    <div id="gc-language" class="new_right">
+    <ul>
+      <li>
+        <form id="setlang" action="/i18n/setlang/" method="post">
+          <input name="xsrf_token" value="xjAYo777bCTIfHQ5Ba03eAQLGijhANYHFb9R4Q0GCqw6MTQzMTY3NDE2NzM5OTg4MA" type="hidden">
+          <select style="display: none;" id="footer_language" name="language">
+            <option value="ar">
+                العربيّة
+              </option><option value="bg">
+                български
+              </option><option value="ca">
+                català
+              </option><option value="zh-cn">
+                简体中文
+              </option><option value="zh-tw">
+                繁體中文
+              </option><option value="hr">
+                Hrvatski
+              </option><option value="cs">
+                česky
+              </option><option value="da">
+                dansk
+              </option><option value="nl">
+                Nederlands
+              </option><option value="en" selected="selected">
+                English
+              </option><option value="fa">
+                فارسی
+              </option><option value="fi">
+                suomi
+              </option><option value="fr">
+                français
+              </option><option value="de">
+                Deutsch
+              </option><option value="el">
+                Ελληνικά
+              </option><option value="he">
+                עברית
+              </option><option value="hi">
+                Hindi
+              </option><option value="hu">
+                Magyar
+              </option><option value="id">
+                Bahasa Indonesia
+              </option><option value="it">
+                italiano
+              </option><option value="ja">
+                日本語
+              </option><option value="ko">
+                한국어
+              </option><option value="lv">
+                latviešu
+              </option><option value="lt">
+                Lithuanian
+              </option><option value="nb">
+                norsk (bokmål)
+              </option><option value="nn">
+                norsk (nynorsk)
+              </option><option value="pl">
+                polski
+              </option><option value="pt-br">
+                Português Brasileiro
+              </option><option value="pt">
+                Português
+              </option><option value="ro">
+                Română
+              </option><option value="ru">
+                Русский
+              </option><option value="sr">
+                српски
+              </option><option value="sk">
+                slovenský
+              </option><option value="sl">
+                Slovenščina
+              </option><option value="es">
+                español
+              </option><option value="sv">
+                svenska
+              </option><option value="th">
+                Thai
+              </option><option value="tr">
+                Türkçe
+              </option><option value="uk">
+                Українська
+              </option><option value="vi">
+                Vietnamese
+              </option>
+          </select><span class="kd-button kd-menubutton kd-select"><div style="display: inline-block;"><div style="float: left;" class="label">
+                English
+              </div><div class="kd-disclosureindicator"></div></div></span>
+        </form>
+      </li>
+    </ul>
+    </div>
+    
+  </div>
+</div><!-- END DIV#MAIA-FOOTER-GLOBAL -->
+
+        </footer>
+      </div>
+      
+
+      
+      
+  
+
+    </div>
+
+    <div id="search-autocomplete" class="search-results search-autocomplete" style="display:none"></div>
+    <script type="text/javascript" async="" defer="defer" src="Python%20Regular%20Expressions%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/api.js"></script>
+
+    
+    <script>
+      (function($) {
+        var cssHref = $('#screen-foot').attr('data-href');
+        $('#screen-foot').attr('href', cssHref);
+        $('#screen-foot').load(function() {
+          
+          devsite.timing.tick('cl');
+        });
+      })(jQuery);
+    </script>
+    
+
+    <script id="jqueryui" src="Python%20Regular%20Expressions%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/jquery-ui.js"></script>
+    
+    <script type="text/javascript" src="Python%20Regular%20Expressions%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/a"></script>
+    <script src="Python%20Regular%20Expressions%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/script_foot_closure.js"></script>
+    <script src="Python%20Regular%20Expressions%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/script_foot.js"></script>
+    <script>
+      
+      devsite.timing.tick('jl');
+      (function($) {
+        devsite.devsite.Init($, 'devsite',
+            '[]', '',
+            'en', true,
+            'eb84c2176e', 'niyasimonc@gmail.com',
+            false,
+            {"296e8173cd0024b4839dd7f3d7fa4387": true, "04f8c40014dc472fb1b95e175fb1b9fd": true, "6749dcb526ce9bde6993550c7d928d24": true, "993b1906435224595bd618f6f331ee45": true, "6e6d95ece619bf85cc1ea2c6da8a4690": true});
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+    </script>
+
+    
+
+    
+
+    <script type="text/javascript">
+    $('#setlang select').each(function() {
+      if (navigator.userAgent.match(/msie/i)) {
+        $(this).change(function() {
+          $('#setlang').submit();
+        });
+      } else {
+        $(this).kdSelect({'change': function() {
+          $('#setlang').submit();
+        }});
+      }
+    });
+    </script>
+
+    
+
+    
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="Python%20Regular%20Expressions%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/conversion.js"></script><img alt="" src="Python%20Regular%20Expressions%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/a_002" border="0" height="1" width="1">
+    <noscript>
+      <img style="display:none;" src="//www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;guid=ON&amp;script=0"/>
+    </noscript>
+
+    
+
+    
+    
+    <script async="" defer="defer" src="Python%20Regular%20Expressions%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/async_survey"></script>
+    
+
+    
+
+
+
+<script type="text/javascript" defer="defer">
+
+
+</script>
+
+
+
+
+  </div><ul style="display: none; position: absolute; top: 5857.2px; right: 0px; bottom: auto; left: auto; height: 1312px; padding: 0px;" class="kd-menulist"><li class="kd-menulistitem">
+                العربيّة
+              </li><li class="kd-menulistitem">
+                български
+              </li><li class="kd-menulistitem">
+                català
+              </li><li class="kd-menulistitem">
+                简体中文
+              </li><li class="kd-menulistitem">
+                繁體中文
+              </li><li class="kd-menulistitem">
+                Hrvatski
+              </li><li class="kd-menulistitem">
+                česky
+              </li><li class="kd-menulistitem">
+                dansk
+              </li><li class="kd-menulistitem">
+                Nederlands
+              </li><li class="kd-menulistitem selected">
+                English
+              </li><li class="kd-menulistitem">
+                فارسی
+              </li><li class="kd-menulistitem">
+                suomi
+              </li><li class="kd-menulistitem">
+                français
+              </li><li class="kd-menulistitem">
+                Deutsch
+              </li><li class="kd-menulistitem">
+                Ελληνικά
+              </li><li class="kd-menulistitem">
+                עברית
+              </li><li class="kd-menulistitem">
+                Hindi
+              </li><li class="kd-menulistitem">
+                Magyar
+              </li><li class="kd-menulistitem">
+                Bahasa Indonesia
+              </li><li class="kd-menulistitem">
+                italiano
+              </li><li class="kd-menulistitem">
+                日本語
+              </li><li class="kd-menulistitem">
+                한국어
+              </li><li class="kd-menulistitem">
+                latviešu
+              </li><li class="kd-menulistitem">
+                Lithuanian
+              </li><li class="kd-menulistitem">
+                norsk (bokmål)
+              </li><li class="kd-menulistitem">
+                norsk (nynorsk)
+              </li><li class="kd-menulistitem">
+                polski
+              </li><li class="kd-menulistitem">
+                Português Brasileiro
+              </li><li class="kd-menulistitem">
+                Português
+              </li><li class="kd-menulistitem">
+                Română
+              </li><li class="kd-menulistitem">
+                Русский
+              </li><li class="kd-menulistitem">
+                српски
+              </li><li class="kd-menulistitem">
+                slovenský
+              </li><li class="kd-menulistitem">
+                Slovenščina
+              </li><li class="kd-menulistitem">
+                español
+              </li><li class="kd-menulistitem">
+                svenska
+              </li><li class="kd-menulistitem">
+                Thai
+              </li><li class="kd-menulistitem">
+                Türkçe
+              </li><li class="kd-menulistitem">
+                Українська
+              </li><li class="kd-menulistitem">
+                Vietnamese
+              </li></ul><!-- END DIV.MAIA-MAX -->
+  
+
+  
+    
+    <span id="devsite-request-elapsed" data-request-elapsed="612.679958344"></span>
+  
+
+<div id="contain-402"></div><script src="Python%20Regular%20Expressions%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/prompt"></script><iframe tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;" src="https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fdevelopers.google.com#rpctoken=862573554&amp;forcesecure=1" id="oauth2relay728062092" name="oauth2relay728062092"></iframe></body><iframe src="" style="display: none;"></iframe></html>

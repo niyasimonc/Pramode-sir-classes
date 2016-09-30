@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html class="devsite" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <script async="" src="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/cbgapi.loaded_1"></script><script async="" src="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/cbgapi.loaded_0"></script><script gapi_processed="true" src="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/platform.js" async="" type="text/javascript"></script><script src="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/analytics.js" async=""></script><script>var b=window.devsite||{};b.timing={};window.devsite=b;window.devsite.timing=b.timing;b.timing.timers=[];b.timing.tick=function(d,a,g){for(var c=0;c<b.timing.timers.length;c++)b.timing.timers[c].tick(d,a,g)};window.devsite.timing.tick=b.timing.tick;b.timing.report=function(d){b.setTimeout(function(){for(var a=0;a<b.timing.timers.length;a++)window.jstiming.report(b.timing.timers[a],d)},500)};
+b.timing.init=function(d){b.timing.timers.push(window.jstiming.load);if(d){var a=new window.jstiming.Timer;a.name=d;b.timing.timers.push(a)}document.addEventListener&&window.addEventListener&&(document.addEventListener("DOMContentLoaded",b.timing.handleDomContentLoaded,!1),window.addEventListener("load",b.timing.handleLoad,!1))};b.timing.handleDomContentLoaded=function(){b.timing.tick("ol");document.removeEventListener("DOMContentLoaded",b.timing.handleDomContentLoaded,!1)};
+b.timing.handleLoad=function(){window.removeEventListener("load",b.timing.handleLoad,!1);var d=document.querySelector("#devsite-request-elapsed");d&&(d=parseInt(d.getAttribute("data-request-elapsed"),10))&&(b.timing.tick("_st_start",null,1),b.timing.tick("st","_st_start",1+d));b.timing.tick("prt");b.timing.report()};(function(){function d(a){this.t={};this.tick=function(a,d,c){var e=void 0!=c?c:(new Date).getTime();this.t[a]=[e,d];if(void 0==c)try{window.console.timeStamp("CSI/"+a)}catch(f){}};this.tick("start",null,a)}var a;window.performance&&(a=window.performance.timing);var g=a?new d(a.responseStart):new d;window.jstiming={Timer:d,load:g};if(a){var c=a.navigationStart,f=a.responseStart;0<c&&f>=c&&(window.jstiming.srt=f-c)}if(a){var e=window.jstiming.load;0<c&&f>=c&&(e.tick("_wtsrt",void 0,c),e.tick("wtsrt_",
+"_wtsrt",f),e.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),e&&0<c&&(e.tick("_tbnd",void 0,window.chrome.csi().startE),e.tick("tbnd_","_tbnd",c))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,e&&0<c&&(e.tick("_tbnd",void 0,window.external.startE),e.tick("tbnd_","_tbnd",c))),a&&(window.jstiming.pt=a)}catch(h){}})();
+devsite.timing.init('DocPage');</script>
+    
+      <link href="https://developers.google.com/edu/python/sorting" rel="canonical">
+    
+    <meta charset="utf-8">
+    
+      
+    
+    <meta name="xsrf_token" content="8bc4izMLV1Hz9uA3saXtho35VWirVbkvh99keQp-rfc6MTQzMTY3NTYyNTAzMTkyMA">
+      <link rel="stylesheet" type="text/css" href="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/screen-maia.css">
+      <link href="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/css.css" rel="stylesheet" type="text/css">
+    
+      
+        <link rel="stylesheet" type="text/css" href="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/screen-docs.css">
+      
+      
+      <link href="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/screen-foot.css" rel="stylesheet" type="text/css" id="screen-foot" data-href="https://developers.google.com/_static/eb84c2176e/css/screen-foot.css">
+    
+    <link rel="shortcut icon" href="https://developers.google.com/_static/eb84c2176e/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://developers.google.com/_static/eb84c2176e/images/apple-touch-icon.png">
+    <link href="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/css_002.css" rel="stylesheet" type="text/css">
+    
+    
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Google Developers" href="https://developers.google.com/s/opensearch.xml">
+    
+    
+    
+    <script src="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/jquery.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="https://developers.google.com/_static/eb84c2176e/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+  <meta property="og:site_name" content="Google Developers">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://developers.google.com/edu/python/sorting">
+  <meta property="og:locale" content="en">
+
+  <script type="text/javascript">
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script>
+  
+    <title>Python Sorting - Google for Education — Google Developers</title>
+    <meta property="og:title" content="Python Sorting">
+  
+  
+
+  
+    
+    
+    
+  
+
+
+    <style>
+    
+    </style>
+  </head>
+  <body class=" slim   two-column docs normal-width">
+
+  <div class="maia-max">
+
+    
+    <div id="sandbar">
+      
+        
+          
+
+
+
+
+
+<div id="maia-header" class="maia-header">
+  <header id="googlebar">
+    <div id="logo-wrapper">
+      <a id="logo" href="https://developers.google.com/">
+        <img src="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/developers-logo.svg" alt="Google">
+      </a>
+      <script>
+      if (navigator.userAgent.match(/msie/i) && navigator.appVersion.indexOf['8'] ==0) {
+        $('#gc-logo img').attr({src:'https://developers.google.com/_static/eb84c2176e/images/developers-logo.png'});
+      }
+      </script>
+    </div>
+
+    <div id="search-wrapper" class="head-sec search-wrapper2 history-enabled">
+      <form class="search" action="/s/results" method="GET" id="top-search">
+        <div id="searchbox" class="devsite-searchbox searchbox"><span class="devsite-search-chip">Google for Education</span>
+           
+           <input name="q" class="devsite-search-query" placeholder="Search" autocomplete="off" type="text">
+        <ul style="display: none;" tabindex="0" role="menu" id="ui-id-1" class="suggest-results ui-menu ui-widget ui-widget-content ui-corner-all"></ul></div>
+        <button style="position: relative; top: 0px; left: 0px;" id="search-button" class="button button-blue big">
+          <img src="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/search.png" alt="Search">
+        </button>
+        
+          <input name="p" id="search_project" value="/edu" data-project-name="Google for Education" data-project-path="/edu" data-query-match="" type="hidden">
+        
+        
+
+
+  
+  <input id="suggest-category-label-2" value="Pages in Google for Education" type="hidden">
+  
+  <input id="suggest-category-label-3" value="Reference in Google for Education" type="hidden">
+
+
+<input id="suggest-category-label-1" value="Products" type="hidden">
+
+<input id="suggest-all-results-label" value="See all results for" type="hidden">
+
+      </form>
+    </div>
+
+    
+    <div id="user-history">
+      <img src="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/16x9.png" id="history-badge" class="history-opened" alt="Click here to see your recently viewed pages and most viewed pages.">
+    <div style="position: relative; top: 10px; left: -149.667px;" class="triangle-border footer-only" id="user-history-box"><div class="release-announcement" id="user-history-footer">The
+ Google Developers website now saves the pages you visit when you are 
+logged into Google. You can quickly access them via the history icon at 
+the top of the site. <br><a href="https://history.google.com/" class="release-manage-link" target="_blank">Manage History</a><a href="#" id="dismiss">Dismiss</a></div></div></div>
+    
+
+    <div id="social-wrapper" class="social">
+      
+      <span class="signed-in">
+        <div>
+          <a class"email"="" href="https://plus.google.com/me">niyasimonc@gmail.com</a>
+          <a href="https://www.google.com/accounts/Logout?continue=https://developers.google.com/edu/python/sorting&amp;service=ahsid">Sign out</a>
+        </div>
+        <img class="avatar" src="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/photo.jpg">
+      </span>
+      
+    </div>
+  </header>
+</div>
+
+<script>
+  if (window.jQuery) {
+    $(document).ready(function() {
+      if (window.devsite && window.devsite.search) {
+        window.devsite.search.init('en', true, null, true)
+      }
+    });
+  }
+</script>
+
+        
+      
+    </div><!-- end div.sandbar -->
+    
+
+    
+    <div class="kd-butterbar">
+      <span>
+        <span class="message"></span>
+        
+        <a href="#" class="kd-butterbar-dismiss">Hide</a>
+      </span>
+    </div>
+    
+    <div id="gc-wrapper" itemscope="" itemtype="http://schema.org/Article">
+      
+        
+          <input class="google-analytics-id-json" value="{&quot;dimensions&quot;: {&quot;dimension6&quot;: &quot;en&quot;, &quot;dimension4&quot;: &quot;Google for Education&quot;, &quot;dimension5&quot;: &quot;en&quot;, &quot;dimension3&quot;: false, &quot;dimension1&quot;: &quot;Signed In&quot;}, &quot;gaid&quot;: &quot;UA-24532603-1&quot;}" type="hidden">
+        
+          <input class="google-analytics-id-json" value="{&quot;dimensions&quot;: {&quot;dimension6&quot;: &quot;en&quot;, &quot;dimension4&quot;: &quot;Google for Education&quot;, &quot;dimension5&quot;: &quot;en&quot;, &quot;dimension3&quot;: false, &quot;dimension1&quot;: &quot;Signed In&quot;}, &quot;gaid&quot;: &quot;UA-49880327-1&quot;}" type="hidden">
+        
+      
+
+      
+
+      
+
+<div id="gc-appnav" class="maia-aux">
+  <ol class="breadcrumbs">
+    
+    <li><a href="https://developers.google.com/products/">Products</a></li>
+    
+    <li><a href="https://developers.google.com/edu/">Google for Education</a></li>
+    
+  </ol>
+</div>
+
+
+
+      
+        
+        
+          <div class="maia-aux" id="gc-appbar">
+
+          
+          
+
+  <a href="https://developers.google.com/edu/" class="gc-appbar-title">
+    
+    Google for Education
+  </a>
+
+
+
+<div class="plusone-container" style="height:27px">
+  <div id="___plusone_0" style="position: absolute; width: 450px; left: -10000px;"><iframe data-gapiattached="true" src="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/fastbutton.html" name="I0_1431675626887" id="I0_1431675626887" vspace="0" tabindex="0" style="position:absolute;top:-10000px;width:450px;margin:0px;border-style:none" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div><div data-gapistub="true" data-onload="true" data-gapiscan="true" class="g-plusone" data-href="https://developers.google.com/edu/python/sorting" data-size="medium" data-source="google:developers"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+          
+          </div>
+
+        
+      
+
+      
+        
+          <div id="gc-main" class="main">
+        
+        
+  
+  
+      
+      
+      <div id="gc-sidebar">
+        
+
+  <nav class="devsite-section-nav devsite-nav gc-toc"><ul class="devsite-nav-expandable"><li class="devsite-nav-item devsite-nav-item-section-expandable"><a href="https://developers.google.com/edu/python" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Python Course</a><a class="devsite-nav-toggle devsite-nav-toggle-expanded"></a><ul class="devsite-nav-section devsite-nav-section-expanded"><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/set-up" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Python Set Up</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/introduction" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Introduction</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/strings" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Strings</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/lists" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Lists</a></li><li class="devsite-nav-item devsite-nav-active"><a href="https://developers.google.com/edu/python/sorting" class="devsite-nav-title gc-analytics-event devsite-nav-active" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Sorting</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/dict-files" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Dicts and Files</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/regular-expressions" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Regular Expressions</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/utilities" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Utilities</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><a tabindex="0" class="devsite-nav-title devsite-nav-title-no-path ">Lecture Videos day1, day2</a><a class="devsite-nav-toggle devsite-nav-toggle-collapsed"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=tKTZoB2Vjuk" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">1.1 Introduction, strings</a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=EPYupizJYQI" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">1.2 Lists and sorting</a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=haycL41dAhg" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">1.3 Dicts and files</a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=kWyoYtvJpe4" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">2.1 Regular expr</a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=uKZ8GBKmeDM" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">2.2 Utilities</a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=Nn2KQmVF5Og" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">2.3 Utilities urllib</a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=IcteAbMC1Ok" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">2.4 Conclusions</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><a tabindex="0" class="devsite-nav-title devsite-nav-title-no-path ">Python Exercises</a><a class="devsite-nav-toggle devsite-nav-toggle-collapsed"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/exercises/basic" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Basic Exercises</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/exercises/baby-names" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Baby Names Exercise</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/exercises/copy-special" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Copy Special Exercise</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/exercises/log-puzzle" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Log Puzzle Exercise</a></li></ul></li></ul></nav>
+
+
+      </div>
+      
+
+      <div id="gc-content">
+        
+        <div>
+  
+          
+  
+  <h1 itemprop="name" class="page-title">Python Sorting</h1>
+  
+  <div itemprop="articleBody">
+  
+
+
+
+<p>
+
+</p>
+
+<p>The easiest way to sort is with the sorted(list) function, which 
+takes a list and returns a new list with those elements in sorted order.
+ The original list is not changed.</p>
+
+<pre class="prettyprint"><span class="pln">&nbsp; a </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">]</span><span class="pln"><br>&nbsp; </span><span class="kwd">print</span><span class="pln"> sorted</span><span class="pun">(</span><span class="pln">a</span><span class="pun">)</span><span class="pln"> &nbsp;</span><span class="com">## [1, 3, 4, 5]</span><span class="pln"><br>&nbsp; </span><span class="kwd">print</span><span class="pln"> a &nbsp;</span><span class="com">## [5, 1, 4, 3]</span></pre>
+
+<p>It's most common to pass a list into the sorted() function, but in 
+fact it can take as input any sort of iterable collection. The older 
+list.sort() method is an alternative detailed below. The sorted() 
+function seems easier to use compared to sort(), so I recommend using 
+sorted().</p>
+
+<p>The sorted() function can be customized though optional arguments. 
+The sorted() optional argument reverse=True, e.g. sorted(list, 
+reverse=True), makes it sort backwards.</p>
+
+<pre class="prettyprint"><span class="pln">&nbsp; strs </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="str">'aa'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'BB'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'zz'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'CC'</span><span class="pun">]</span><span class="pln"><br>&nbsp; </span><span class="kwd">print</span><span class="pln"> sorted</span><span class="pun">(</span><span class="pln">strs</span><span class="pun">)</span><span class="pln"> &nbsp;</span><span class="com">## ['BB', 'CC', 'aa', 'zz'] (case sensitive)</span><span class="pln"><br>&nbsp; </span><span class="kwd">print</span><span class="pln"> sorted</span><span class="pun">(</span><span class="pln">strs</span><span class="pun">,</span><span class="pln"> reverse</span><span class="pun">=</span><span class="kwd">True</span><span class="pun">)</span><span class="pln"> &nbsp; </span><span class="com">## ['zz', 'aa', 'CC', 'BB']</span></pre>
+
+<h3>Custom Sorting With key=</h3>
+
+<p>For more complex custom sorting, sorted() takes an optional "key=" 
+specifying a "key" function that transforms each element before 
+comparison. The key function takes in 1 value and returns 1 value, and 
+the returned "proxy" value is used for the comparisons within the sort.</p>
+
+<p>For example with a list of strings, specifying key=len (the built in 
+len() function) sorts the strings by length, from shortest to longest. 
+The sort calls len() for each string to get the list of proxy length 
+values, and the sorts with those proxy values.</p>
+
+<pre class="prettyprint"><span class="pln">&nbsp; strs </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="str">'ccc'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'aaaa'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'d'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'bb'</span><span class="pun">]</span><span class="pln"><br>&nbsp; </span><span class="kwd">print</span><span class="pln"> sorted</span><span class="pun">(</span><span class="pln">strs</span><span class="pun">,</span><span class="pln"> key</span><span class="pun">=</span><span class="pln">len</span><span class="pun">)</span><span class="pln"> &nbsp;</span><span class="com">## ['d', 'bb', 'ccc', 'aaaa']</span></pre>
+
+<p>
+<img src="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/sorted-key.png" style="display:block; margin:0 auto" alt="calling sorted with key=len" width="400"></p>
+
+<p>As another example, specifying "str.lower" as the key function is a 
+way to force the sorting to treat uppercase and lowercase the same:</p>
+
+<pre class="prettyprint"><span class="pln">&nbsp; </span><span class="com">## "key" argument specifying str.lower function to use for sorting</span><span class="pln"><br>&nbsp; </span><span class="kwd">print</span><span class="pln"> sorted</span><span class="pun">(</span><span class="pln">strs</span><span class="pun">,</span><span class="pln"> key</span><span class="pun">=</span><span class="pln">str</span><span class="pun">.</span><span class="pln">lower</span><span class="pun">)</span><span class="pln"> &nbsp;</span><span class="com">## ['aa', 'BB', 'CC', 'zz']</span></pre>
+
+<p>You can also pass in your own MyFn as the key function, like this:</p>
+
+<pre class="prettyprint"><span class="pln">&nbsp; </span><span class="com">## Say we have a list of strings we want to sort by the last letter of the string.</span><span class="pln"><br>&nbsp; strs </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="str">'xc'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'zb'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'yd'</span><span class="pln"> </span><span class="pun">,</span><span class="str">'wa'</span><span class="pun">]</span><span class="pln"><br><br>&nbsp; </span><span class="com">## Write a little function that takes a string, and returns its last letter.</span><span class="pln"><br>&nbsp; </span><span class="com">## This will be the key function (takes in 1 value, returns 1 value).</span><span class="pln"><br>&nbsp; </span><span class="kwd">def</span><span class="pln"> </span><span class="typ">MyFn</span><span class="pun">(</span><span class="pln">s</span><span class="pun">):</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">return</span><span class="pln"> s</span><span class="pun">[-</span><span class="lit">1</span><span class="pun">]</span><span class="pln"><br><br>&nbsp; </span><span class="com">## Now pass key=MyFn to sorted() to sort by the last letter:</span><span class="pln"><br>&nbsp; </span><span class="kwd">print</span><span class="pln"> sorted</span><span class="pun">(</span><span class="pln">strs</span><span class="pun">,</span><span class="pln"> key</span><span class="pun">=</span><span class="typ">MyFn</span><span class="pun">)</span><span class="pln"> &nbsp;</span><span class="com">## ['wa', 'zb', 'xc', 'yd']</span></pre>
+
+<p>To use key= custom sorting, remember that you provide a function that
+ takes one value and returns the proxy value to guide the sorting. There
+ is also an optional argument "cmp=cmpFn" to sorted() that specifies a 
+traditional two-argument comparison function that takes two values from 
+the list and returns negative/0/positive to indicate their ordering. The
+ built in comparison function for strings, ints, ... is cmp(a, b), so 
+often you want to call cmp() in your custom comparator. The newer one 
+argument key= sorting is generally preferable.</p>
+
+<h3>sort() method</h3>
+
+<p>As an alternative to sorted(), the sort() method on a list sorts that
+ list into ascending order, e.g. list.sort(). The sort() method changes 
+the underlying list and returns None, so use it like this:</p>
+
+<pre class="prettyprint"><span class="pln">&nbsp; alist</span><span class="pun">.</span><span class="pln">sort</span><span class="pun">()</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">## correct</span><span class="pln"><br>&nbsp; alist </span><span class="pun">=</span><span class="pln"> blist</span><span class="pun">.</span><span class="pln">sort</span><span class="pun">()</span><span class="pln"> &nbsp; &nbsp;</span><span class="com">## NO incorrect, sort() returns None</span></pre>
+
+<p>The above is a very common misunderstanding with sort() -- it *does 
+not return* the sorted list. The sort() method must be called on a list;
+ it does not work on any enumerable collection (but the sorted() 
+function above works on anything). The sort() method predates the 
+sorted() function, so you will likely see it in older code. The sort() 
+method does not need to create a new list, so it can be a little faster 
+in the case that the elements to sort are already in a list.</p>
+
+<h2>Tuples</h2>
+
+<p>A tuple is a fixed size grouping of elements, such as an (x, y) 
+co-ordinate. Tuples are like lists, except they are immutable and do not
+ change size (tuples are not strictly immutable since one of the 
+contained elements could be mutable). Tuples play a sort of "struct" 
+role in Python -- a convenient way to pass around a little logical, 
+fixed size bundle of values. A function that needs to return multiple 
+values can just return a tuple of the values. For example, if I wanted 
+to have a list of 3-d coordinates, the natural python representation 
+would be a list of tuples, where each tuple is size 3 holding one (x, y,
+ z) group.</p>
+
+<p>To create a tuple, just list the values within parenthesis separated 
+by commas. The "empty" tuple is just an empty pair of parenthesis. 
+Accessing the elements in a tuple is just like a list -- len(), [ ], 
+for, in, etc. all work the same.</p>
+
+<pre class="prettyprint"><span class="pln">&nbsp; tuple </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="str">'hi'</span><span class="pun">)</span><span class="pln"><br>&nbsp; </span><span class="kwd">print</span><span class="pln"> len</span><span class="pun">(</span><span class="pln">tuple</span><span class="pun">)</span><span class="pln"> &nbsp;</span><span class="com">## 3</span><span class="pln"><br>&nbsp; </span><span class="kwd">print</span><span class="pln"> tuple</span><span class="pun">[</span><span class="lit">2</span><span class="pun">]</span><span class="pln"> &nbsp; &nbsp;</span><span class="com">## hi</span><span class="pln"><br>&nbsp; tuple</span><span class="pun">[</span><span class="lit">2</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">'bye'</span><span class="pln"> &nbsp;</span><span class="com">## NO, tuples cannot be changed</span><span class="pln"><br>&nbsp; tuple </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="str">'bye'</span><span class="pun">)</span><span class="pln"> &nbsp;</span><span class="com">## this works</span></pre>
+
+<p>To create a size-1 tuple, the lone element must be followed by a comma.</p>
+
+<pre class="prettyprint"><span class="pln">&nbsp; tuple </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="str">'hi'</span><span class="pun">,)</span><span class="pln"> &nbsp; </span><span class="com">## size-1 tuple</span></pre>
+
+<p>It's a funny case in the syntax, but the comma is necessary to 
+distinguish the tuple from the ordinary case of putting an expression in
+ parentheses. In some cases you can omit the parenthesis and Python will
+ see from the commas that you intend a tuple.</p>
+
+<p>Assigning a tuple to an identically sized tuple of variable names 
+assigns all the corresponding values. If the tuples are not the same 
+size, it throws an error. This feature works for lists too.</p>
+
+<pre class="prettyprint"><span class="pln">&nbsp; </span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">,</span><span class="pln"> z</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="lit">42</span><span class="pun">,</span><span class="pln"> </span><span class="lit">13</span><span class="pun">,</span><span class="pln"> </span><span class="str">"hike"</span><span class="pun">)</span><span class="pln"><br>&nbsp; </span><span class="kwd">print</span><span class="pln"> z &nbsp;</span><span class="com">## hike</span><span class="pln"><br>&nbsp; </span><span class="pun">(</span><span class="pln">err_string</span><span class="pun">,</span><span class="pln"> err_code</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Foo</span><span class="pun">()</span><span class="pln"> &nbsp;</span><span class="com">## Foo() returns a length-2 tuple</span></pre>
+
+<!-- xxx
+<p>Sorting a list of tuples based on part of the tuple is a fairly common case, so there's a special facility for it. Import the module "operator". Then call sort like this: list.sort(key=operator.itemgetter(N)) to sort based on the Nth element from each tuple.  maybe cut this - too much -->
+
+<h2>List Comprehensions (optional)</h2>
+
+<p>List comprehensions are a more advanced feature which is nice for 
+some cases but is not needed for the exercises and is not something you 
+need to learn at first (i.e. you can skip this section). A list 
+comprehension is a compact way to write an expression that expands to a 
+whole list. Suppose we have a list nums [1, 2, 3], here is the list 
+comprehension to compute a list of their squares [1, 4, 9]:</p>
+
+<pre class="prettyprint"><span class="pln">&nbsp; nums </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">]</span><span class="pln"><br><br>&nbsp; squares </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="pln"> n </span><span class="pun">*</span><span class="pln"> n </span><span class="kwd">for</span><span class="pln"> n </span><span class="kwd">in</span><span class="pln"> nums </span><span class="pun">]</span><span class="pln"> &nbsp; </span><span class="com">## [1, 4, 9, 16]</span></pre>
+
+<p>The syntax is <code>[ <i>expr</i> for var in list ]</code> -- the <code>for var in list</code> looks like a regular for-loop, but without the colon (:). The <i>expr</i>
+ to its left is evaluated once for each element to give the values for 
+the new list. Here is an example with strings, where each string is 
+changed to upper case with '!!!' appended:</p>
+
+<pre class="prettyprint"><span class="pln">&nbsp; strs </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="str">'hello'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'and'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'goodbye'</span><span class="pun">]</span><span class="pln"><br><br>&nbsp; shouting </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">upper</span><span class="pun">()</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">'!!!'</span><span class="pln"> </span><span class="kwd">for</span><span class="pln"> s </span><span class="kwd">in</span><span class="pln"> strs </span><span class="pun">]</span><span class="pln"><br>&nbsp; </span><span class="com">## ['HELLO!!!', 'AND!!!', 'GOODBYE!!!']</span></pre>
+
+<p>You can add an if test to the right of the for-loop to narrow the 
+result. The if test is evaluated for each element, including only the 
+elements where the test is true.</p>
+
+<pre class="prettyprint"><span class="pln">&nbsp; </span><span class="com">## Select values &lt;= 2</span><span class="pln"><br>&nbsp; nums </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">8</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">6</span><span class="pun">]</span><span class="pln"><br>&nbsp; small </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="pln"> n </span><span class="kwd">for</span><span class="pln"> n </span><span class="kwd">in</span><span class="pln"> nums </span><span class="kwd">if</span><span class="pln"> n </span><span class="pun">&lt;=</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="pun">]</span><span class="pln"> &nbsp;</span><span class="com">## [2, 1]</span><span class="pln"><br><br>&nbsp; </span><span class="com">## Select fruits containing 'a', change to upper case</span><span class="pln"><br>&nbsp; fruits </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="str">'apple'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'cherry'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'bannana'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'lemon'</span><span class="pun">]</span><span class="pln"><br>&nbsp; afruits </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">upper</span><span class="pun">()</span><span class="pln"> </span><span class="kwd">for</span><span class="pln"> s </span><span class="kwd">in</span><span class="pln"> fruits </span><span class="kwd">if</span><span class="pln"> </span><span class="str">'a'</span><span class="pln"> </span><span class="kwd">in</span><span class="pln"> s </span><span class="pun">]</span><span class="pln"><br>&nbsp; </span><span class="com">## ['APPLE', 'BANNANA']</span></pre>
+
+<h2>Exercise: list1.py</h2>
+
+<p>To practice the material in this section, try later problems in <strong>list1.py</strong> that use sorting and tuples (in the <a href="https://developers.google.com/edu/python/exercises/basic">Basic Exercises</a>).</p>
+
+
+
+
+
+
+      
+  </div>
+
+  
+        </div>
+        
+<div id="gc-content-footer">
+
+<div id="gc-content-license">
+
+    
+      
+        <p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="https://developers.google.com/site-policies">Site Policies</a>.</p>
+      
+    
+    
+    
+
+</div>
+
+
+
+<div itemprop="datePublished" content="2012-12-13T01:16:38.909620" id="gc-content-last-updated">Last updated December 13, 2012.</div>
+
+</div>
+
+
+      </div>
+  
+
+        
+      </div>
+        
+      
+      
+        
+          
+        
+      
+
+      
+
+  
+
+  
+       <!-- not (if site.theme == 'maia' or site.theme == 'maia-cloud') -->
+      <div id="gc-footer-container">
+        <footer id="gc-footer">
+          
+
+
+
+
+        <div id="maia-footer-local" class="footer-local">
+          <div id="footer-top" class="maia-aux">
+            <div class="footer-top-wrap">
+
+             <div class="search-wrap new_left">
+               <div class="dev-wrap new_left">
+                 <a href="https://developers.google.com/"><img src="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/developers-logo.png"></a>
+               </div>
+               <form class="search new_left" action="/s/results" method="GET" id="footer-search">
+                 <div id="searchbox" class="devsite-searchbox searchbox new_left">
+                   <input name="q" class="devsite-search-query" placeholder="Search" autocomplete="off" type="text">
+                 </div>
+                 <button id="search-button" class="button button-blue big new_left">
+                   <img src="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/search.png" alt="Search">
+                 </button>
+               </form>
+             </div>
+             <div class="plus-wrap new_left">
+               <div class="plus">
+                 <div id="___follow_0" style="position: absolute; width: 450px; left: -10000px;"><iframe data-gapiattached="true" src="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/follow.html" name="I1_1431675626892" id="I1_1431675626892" vspace="0" tabindex="0" style="position:absolute;top:-10000px;width:450px;margin:0px;border-style:none" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div><div data-gapistub="true" data-onload="true" data-gapiscan="true" class="g-follow" data-annotation="bubble" data-height="24" data-href="https://plus.google.com/+GoogleDevelopers/" data-rel="publisher"></div>
+               </div>
+             </div>
+           </div>
+         </div>
+
+      <div id="footer-list" class="maia-aux">
+    <div class="footer-list-wrap  maia-cols">
+      <div class="maia-col-3">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="https://developers.google.com/products/">Products</a></li>
+          <li><a href="https://developers.google.com/events/">Events</a></li>
+          <li><a href="https://developers.google.com/community/">Communities</a></li>
+        </ul>
+      </div>
+      <div class="maia-col-3">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="http://googledevelopers.blogspot.com/" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Blog Link">Blog</a></li>
+          <li><a href="https://plus.google.com/+GoogleDevelopers/posts" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer G+ Link">Google+ Community</a></li>
+          <li><a href="http://www.youtube.com/user/GoogleDevelopers" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer YouTube Link">YouTube Channel</a></li>
+          <li><a class="google-feedback" id="devsite-feedback-site">Report an Issue</a></li>
+          <li><a href="https://developers.google.com/careers/">Jobs</a></li>
+        </ul>
+      </div>
+      
+      <script type="text/javascript">
+      $(document).ready(function() {
+        new devsite.feedback.Widget({
+            'product_id': '81425',
+            'bucket': 'Documentation',
+            'version': 'devsite-20150514-r00-rc02.default'
+          },
+          document.querySelectorAll('#devsite-feedback-site'),
+          null,
+          null,
+          null,
+          null
+        );
+      });
+      </script>
+      <div class="maia-col-3">
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="https://developers.google.com/groups/">Groups</a></li>
+          <li><a href="https://developers.google.com/experts/">Experts</a></li>
+          <li><a href="https://developers.google.com/startups/">Startups</a></li>
+          <li><a href="https://www.womentechmakers.com/">Women Techmakers</a></li>
+        </ul>
+      </div>
+      <div class="maia-col-3">
+        <h4>Top Products</h4>
+        <ul class="top-prod-1 left">
+          <li><a href="https://developers.google.com/ads/">Ads</a></li>
+          <li><a href="https://developers.google.com/analytics/">Analytics</a></li>
+          <li><a href="https://developer.android.com/" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Android Link">Android</a></li>
+          <li><a href="https://developers.google.com/cast/">Cast</a></li>
+          <li><a href="https://developers.google.com/chrome/">Chrome</a></li>
+          <li><a href="https://cloud.google.com/docs/" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Cloud Link">Cloud</a></li>
+        </ul>
+        <ul class="top-prod-2 left">
+          <li><a href="https://developers.google.com/google-apps/">Google Apps</a></li>
+          <li><a href="https://developers.google.com/+/">Google+</a></li>
+          <li><a href="https://developers.google.com/maps/">Maps</a></li>
+          <li><a href="https://developers.google.com/search/">Search</a></li>
+          <li><a href="https://developers.google.com/commerce/wallet/">Wallet</a></li>
+          <li><a href="https://developers.google.com/youtube/">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div><!-- END DIV#MAIA-FOOTER-LOCAL -->
+
+<div id="maia-footer-global" class="footer-global">
+  <div class="maia-aux">
+    <span id="terms">
+      <a href="https://developers.google.com/site-terms/">Terms of Use</a>
+    </span>
+    <span class="pipe">
+    </span>
+    <span id="privacy">
+      <a href="http://www.google.com/intl/en/privacy/" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Privacy Link">Privacy Policy</a>
+    </span>
+
+    
+    <div id="gc-language" class="new_right">
+    <ul>
+      <li>
+        <form id="setlang" action="/i18n/setlang/" method="post">
+          <input name="xsrf_token" value="8bc4izMLV1Hz9uA3saXtho35VWirVbkvh99keQp-rfc6MTQzMTY3NTYyNTAzMTkyMA" type="hidden">
+          <select style="display: none;" id="footer_language" name="language">
+            <option value="ar">
+                العربيّة
+              </option><option value="bg">
+                български
+              </option><option value="ca">
+                català
+              </option><option value="zh-cn">
+                简体中文
+              </option><option value="zh-tw">
+                繁體中文
+              </option><option value="hr">
+                Hrvatski
+              </option><option value="cs">
+                česky
+              </option><option value="da">
+                dansk
+              </option><option value="nl">
+                Nederlands
+              </option><option value="en" selected="selected">
+                English
+              </option><option value="fa">
+                فارسی
+              </option><option value="fi">
+                suomi
+              </option><option value="fr">
+                français
+              </option><option value="de">
+                Deutsch
+              </option><option value="el">
+                Ελληνικά
+              </option><option value="he">
+                עברית
+              </option><option value="hi">
+                Hindi
+              </option><option value="hu">
+                Magyar
+              </option><option value="id">
+                Bahasa Indonesia
+              </option><option value="it">
+                italiano
+              </option><option value="ja">
+                日本語
+              </option><option value="ko">
+                한국어
+              </option><option value="lv">
+                latviešu
+              </option><option value="lt">
+                Lithuanian
+              </option><option value="nb">
+                norsk (bokmål)
+              </option><option value="nn">
+                norsk (nynorsk)
+              </option><option value="pl">
+                polski
+              </option><option value="pt-br">
+                Português Brasileiro
+              </option><option value="pt">
+                Português
+              </option><option value="ro">
+                Română
+              </option><option value="ru">
+                Русский
+              </option><option value="sr">
+                српски
+              </option><option value="sk">
+                slovenský
+              </option><option value="sl">
+                Slovenščina
+              </option><option value="es">
+                español
+              </option><option value="sv">
+                svenska
+              </option><option value="th">
+                Thai
+              </option><option value="tr">
+                Türkçe
+              </option><option value="uk">
+                Українська
+              </option><option value="vi">
+                Vietnamese
+              </option>
+          </select><span class="kd-button kd-menubutton kd-select"><div style="display: inline-block;"><div style="float: left;" class="label">
+                English
+              </div><div class="kd-disclosureindicator"></div></div></span>
+        </form>
+      </li>
+    </ul>
+    </div>
+    
+  </div>
+</div><!-- END DIV#MAIA-FOOTER-GLOBAL -->
+
+        </footer>
+      </div>
+      
+
+      
+      
+  
+
+    </div>
+
+    <div id="search-autocomplete" class="search-results search-autocomplete" style="display:none"></div>
+    <script type="text/javascript" async="" defer="defer" src="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/api.js"></script>
+
+    
+    <script>
+      (function($) {
+        var cssHref = $('#screen-foot').attr('data-href');
+        $('#screen-foot').attr('href', cssHref);
+        $('#screen-foot').load(function() {
+          
+          devsite.timing.tick('cl');
+        });
+      })(jQuery);
+    </script>
+    
+
+    <script id="jqueryui" src="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/jquery-ui.js"></script>
+    
+    <script type="text/javascript" src="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/a"></script>
+    <script src="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/script_foot_closure.js"></script>
+    <script src="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/script_foot.js"></script>
+    <script>
+      
+      devsite.timing.tick('jl');
+      (function($) {
+        devsite.devsite.Init($, 'devsite',
+            '[]', '',
+            'en', true,
+            'eb84c2176e', 'niyasimonc@gmail.com',
+            false,
+            {"296e8173cd0024b4839dd7f3d7fa4387": true, "04f8c40014dc472fb1b95e175fb1b9fd": true, "6749dcb526ce9bde6993550c7d928d24": true, "993b1906435224595bd618f6f331ee45": true, "6e6d95ece619bf85cc1ea2c6da8a4690": true});
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+    </script>
+
+    
+
+    
+
+    <script type="text/javascript">
+    $('#setlang select').each(function() {
+      if (navigator.userAgent.match(/msie/i)) {
+        $(this).change(function() {
+          $('#setlang').submit();
+        });
+      } else {
+        $(this).kdSelect({'change': function() {
+          $('#setlang').submit();
+        }});
+      }
+    });
+    </script>
+
+    
+
+    
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/conversion.js"></script><img alt="" src="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/a_002" border="0" height="1" width="1">
+    <noscript>
+      <img style="display:none;" src="//www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;guid=ON&amp;script=0"/>
+    </noscript>
+
+    
+
+    
+    
+    <script async="" defer="defer" src="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/async_survey"></script>
+    
+
+    
+
+
+
+<script type="text/javascript" defer="defer">
+
+
+</script>
+
+
+
+
+  </div><ul style="display: none; position: absolute; top: 2974.93px; right: 0px; bottom: auto; left: auto; height: 1312px; padding: 0px;" class="kd-menulist"><li class="kd-menulistitem">
+                العربيّة
+              </li><li class="kd-menulistitem">
+                български
+              </li><li class="kd-menulistitem">
+                català
+              </li><li class="kd-menulistitem">
+                简体中文
+              </li><li class="kd-menulistitem">
+                繁體中文
+              </li><li class="kd-menulistitem">
+                Hrvatski
+              </li><li class="kd-menulistitem">
+                česky
+              </li><li class="kd-menulistitem">
+                dansk
+              </li><li class="kd-menulistitem">
+                Nederlands
+              </li><li class="kd-menulistitem selected">
+                English
+              </li><li class="kd-menulistitem">
+                فارسی
+              </li><li class="kd-menulistitem">
+                suomi
+              </li><li class="kd-menulistitem">
+                français
+              </li><li class="kd-menulistitem">
+                Deutsch
+              </li><li class="kd-menulistitem">
+                Ελληνικά
+              </li><li class="kd-menulistitem">
+                עברית
+              </li><li class="kd-menulistitem">
+                Hindi
+              </li><li class="kd-menulistitem">
+                Magyar
+              </li><li class="kd-menulistitem">
+                Bahasa Indonesia
+              </li><li class="kd-menulistitem">
+                italiano
+              </li><li class="kd-menulistitem">
+                日本語
+              </li><li class="kd-menulistitem">
+                한국어
+              </li><li class="kd-menulistitem">
+                latviešu
+              </li><li class="kd-menulistitem">
+                Lithuanian
+              </li><li class="kd-menulistitem">
+                norsk (bokmål)
+              </li><li class="kd-menulistitem">
+                norsk (nynorsk)
+              </li><li class="kd-menulistitem">
+                polski
+              </li><li class="kd-menulistitem">
+                Português Brasileiro
+              </li><li class="kd-menulistitem">
+                Português
+              </li><li class="kd-menulistitem">
+                Română
+              </li><li class="kd-menulistitem">
+                Русский
+              </li><li class="kd-menulistitem">
+                српски
+              </li><li class="kd-menulistitem">
+                slovenský
+              </li><li class="kd-menulistitem">
+                Slovenščina
+              </li><li class="kd-menulistitem">
+                español
+              </li><li class="kd-menulistitem">
+                svenska
+              </li><li class="kd-menulistitem">
+                Thai
+              </li><li class="kd-menulistitem">
+                Türkçe
+              </li><li class="kd-menulistitem">
+                Українська
+              </li><li class="kd-menulistitem">
+                Vietnamese
+              </li></ul><!-- END DIV.MAIA-MAX -->
+  
+
+  
+    
+    <span id="devsite-request-elapsed" data-request-elapsed="619.750022888"></span>
+  
+
+<div id="contain-402"></div><script src="Python%20Sorting%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/prompt"></script><iframe tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;" src="https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fdevelopers.google.com#rpctoken=925904432&amp;forcesecure=1" id="oauth2relay1568716512" name="oauth2relay1568716512"></iframe></body></html>

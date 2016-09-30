@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+        <title>Installation · Django Girls Tutorial</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        <meta name="author" content="DjangoGirls">
+        
+        
+    
+    <style class="anchorjs"></style><link rel="stylesheet" href="Installation%20%C2%B7%20Django%20Girls%20Tutorial_files/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="Installation%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="Installation%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin_002.css">
+                
+            
+                
+                <link rel="stylesheet" href="Installation%20%C2%B7%20Django%20Girls%20Tutorial_files/sidebar-ad.css">
+                
+            
+                
+                <link rel="stylesheet" href="Installation%20%C2%B7%20Django%20Girls%20Tutorial_files/block.css">
+                
+            
+                
+                <link rel="stylesheet" href="Installation%20%C2%B7%20Django%20Girls%20Tutorial_files/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="Installation%20%C2%B7%20Django%20Girls%20Tutorial_files/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="Installation%20%C2%B7%20Django%20Girls%20Tutorial_files/website_002.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://tutorial.djangogirls.org/gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="http://tutorial.djangogirls.org/gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="http://tutorial.djangogirls.org/en/how_the_internet_works/">
+    
+    
+    <link rel="prev" href="http://tutorial.djangogirls.org/en/">
+    
+
+    </head>
+    <body>
+        
+<div class="book without-animation with-summary font-size-2 font-family-1">
+    <div class="book-summary">
+        
+  
+            
+<div id="book-search-input" role="search">
+    <input placeholder="Type to search" type="text">
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://gitter.im/DjangoGirls/tutorial" target="_blank" class="custom-link">Need help? Talk to us!</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://www.gitbook.com/book/djangogirls/djangogirls-tutorial" target="_blank" class="custom-link">Django Girls Tutorial</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="http://tutorial.djangogirls.org/en/">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="./">
+            
+                <a href="http://tutorial.djangogirls.org/en/installation/">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../how_the_internet_works/">
+            
+                <a href="http://tutorial.djangogirls.org/en/how_the_internet_works/">
+            
+                    
+                    How the Internet works
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../intro_to_command_line/">
+            
+                <a href="http://tutorial.djangogirls.org/en/intro_to_command_line/">
+            
+                    
+                    Introduction to command line
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../python_installation/">
+            
+                <a href="http://tutorial.djangogirls.org/en/python_installation/">
+            
+                    
+                    Python installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../code_editor/">
+            
+                <a href="http://tutorial.djangogirls.org/en/code_editor/">
+            
+                    
+                    Code editor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../python_introduction/">
+            
+                <a href="http://tutorial.djangogirls.org/en/python_introduction/">
+            
+                    
+                    Introduction to Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../django/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django/">
+            
+                    
+                    What is Django?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../django_installation/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_installation/">
+            
+                    
+                    Django installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../django_start_project/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_start_project/">
+            
+                    
+                    Your first Django project!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../django_models/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_models/">
+            
+                    
+                    Django models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../django_admin/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_admin/">
+            
+                    
+                    Django admin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../deploy/">
+            
+                <a href="http://tutorial.djangogirls.org/en/deploy/">
+            
+                    
+                    Deploy!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../django_urls/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_urls/">
+            
+                    
+                    Django urls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../django_views/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_views/">
+            
+                    
+                    Django views - time to create!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../html/">
+            
+                <a href="http://tutorial.djangogirls.org/en/html/">
+            
+                    
+                    Introduction to HTML
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../django_orm/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_orm/">
+            
+                    
+                    Django ORM (Querysets)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../dynamic_data_in_templates/">
+            
+                <a href="http://tutorial.djangogirls.org/en/dynamic_data_in_templates/">
+            
+                    
+                    Dynamic data in templates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="../django_templates/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_templates/">
+            
+                    
+                    Django templates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="../css/">
+            
+                <a href="http://tutorial.djangogirls.org/en/css/">
+            
+                    
+                    CSS - make it pretty
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="../template_extending/">
+            
+                <a href="http://tutorial.djangogirls.org/en/template_extending/">
+            
+                    
+                    Template extending
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="../extend_your_application/">
+            
+                <a href="http://tutorial.djangogirls.org/en/extend_your_application/">
+            
+                    
+                    Extend your application
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" data-path="../django_forms/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_forms/">
+            
+                    
+                    Django Forms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.24" data-path="../whats_next/">
+            
+                <a href="http://tutorial.djangogirls.org/en/whats_next/">
+            
+                    
+                    What's next?
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com/" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+  <div class="sidebar-addition">
+      
+        <a href="https://store.djangogirls.org/" target="_blank">
+      
+        <img src="Installation%20%C2%B7%20Django%20Girls%20Tutorial_files/codelikeagirl---mockup4_large.jpg">
+      
+        </a>
+      
+      
+        <p>💖 Support our work and buy a Django Girls t-shirt! ✨</p>
+      
+      
+      <a href="https://store.djangogirls.org/" class="btn" target="_blank">
+        Get a t-shirt!
+      </a>
+      
+  </div>
+
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <a href="#" aria-label="" class="btn pull-left js-toolbar-action"><i class="fa fa-align-justify"></i></a><a href="#" aria-label="GitHub" class="btn pull-right js-toolbar-action"><i class="fa fa-github"></i></a><div class="dropdown pull-left language-picker js-toolbar-action"><a href="#" aria-label="Change language" class="btn toggle-dropdown"><i class="fa fa-globe"></i></a><div class="dropdown-menu dropdown-right"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div></div></div><div class="dropdown pull-right  js-toolbar-action"><a href="#" aria-label="Share" class="btn toggle-dropdown"><i class="fa fa-share-alt"></i></a><div class="dropdown-menu dropdown-left"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div><div class="buttons"><button class="button size-5 ">Facebook</button><button class="button size-5 ">Google+</button><button class="button size-5 ">Twitter</button><button class="button size-5 ">Weibo</button><button class="button size-5 ">Instapaper</button></div></div></div><a href="#" aria-label="" class="btn pull-right js-toolbar-action"><i class="fa fa-facebook"></i></a><a href="#" aria-label="" class="btn pull-right js-toolbar-action"><i class="fa fa-twitter"></i></a><div class="dropdown pull-left font-settings js-toolbar-action"><a href="#" aria-label="Font Settings" class="btn toggle-dropdown"><i class="fa fa-font"></i></a><div class="dropdown-menu dropdown-right"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div><div class="buttons"><button class="button size-2 font-reduce">A</button><button class="button size-2 font-enlarge">A</button></div><div class="buttons"><button class="button size-2 ">Serif</button><button class="button size-2 ">Sans</button></div><div class="buttons"><button class="button size-3 ">White</button><button class="button size-3 ">Sepia</button><button class="button size-3 ">Night</button></div></div></div><h1 id="installation-1">
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="http://tutorial.djangogirls.org/en/">Installation</a>
+    <a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: installation 1" href="#installation-1" class="anchorjs-link "></a></h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="if-youre-doing-the-tutorial-at-home">If you're doing the tutorial at home<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: if youre doing the tutorial at home" href="#if-youre-doing-the-tutorial-at-home" class="anchorjs-link "></a></h1><p>If you're doing the tutorial at home, not at one of the <a href="https://djangogirls.org/events/" target="_blank">Django Girls events</a>, you can completely skip this chapter now and go straight to the <a href="http://tutorial.djangogirls.org/en/how_the_internet_works/">How the Internet works?</a> chapter.</p><p>This
+ is because we cover these things in the whole tutorial anyway, and this
+ is just an additional page that gathers all of the installation 
+instructions in one place. The Django Girls event includes one 
+"Installation evening" where we install everything so we don't need to 
+bother with it during the workshop, so this is useful for us.</p><p>If 
+you find it useful, you can follow through this chapter too. But if you 
+want to start learning things before installing a bunch of stuff on your
+ computer, skip this chapter and we will explain the installation part 
+to you later on.</p><p>Good luck!</p><h1 id="installation">Installation<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: installation" href="#installation" class="anchorjs-link "></a></h1><p>In
+ the workshop you will be building a blog, and there are a few setup 
+tasks in the tutorial which would be good to work through beforehand so 
+that you are ready to start coding on the day.</p><h1 id="chromebook-setup-if-youre-using-one">Chromebook setup (if you're using one)<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: chromebook setup if youre using one" href="#chromebook-setup-if-youre-using-one" class="anchorjs-link "></a></h1><p>You can <a href="http://tutorial.djangogirls.org/en/installation/#install-python" target="_blank">skip right over this section</a> if you're not using a Chromebook. If you
+are, your installation experience will be a little different. You can ignore the
+rest of the installation instructions.</p><h3 id="cloud-9">Cloud 9<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: cloud 9" href="#cloud-9" class="anchorjs-link "></a></h3><p>Cloud 9 is a tool that gives you a code editor and access to a computer running
+on the internet where you can install, write, and run software. For the duration
+of the tutorial, Cloud 9 will act as your <em>local machine</em>. You'll still be
+running commands in a terminal interface just like your classmates on OS X,
+Ubuntu, or Windows, but your terminal will be connected to a computer running
+somewhere else that Cloud 9 sets up for you.</p><ol><li>Install Cloud 9 from the <a href="https://chrome.google.com/webstore/detail/cloud9/nbdmccoknlfggadpfkmcpnamfnbkmkcp" target="_blank">Chrome web store</a>
+</li>
+<li>Go to <a href="https://c9.io/" target="_blank">c9.io</a>
+</li>
+<li>Sign up for an account
+</li>
+<li>Click <em>Create a New Workspace</em>
+</li>
+<li>Name it <em>django-girls</em>
+</li>
+<li>Select the <em>Blank</em> (second from the right on the bottom row with orange logo)
+</li></ol>
+<p>Now you should see an interface with a sidebar, a big main window with some
+text, and a small window at the bottom that looks something like:</p><p></p><p class="code-label">Cloud 9</p><p></p><pre><code>yourusername:~/workspace $</code></pre>
+<p>This bottom area is your <em>terminal</em>, where you will give the computer Cloud 9
+has prepared for you instructions. You can resize that window to make it a bit
+bigger.</p><h3 id="virtual-environment">Virtual Environment<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: virtual environment" href="#virtual-environment" class="anchorjs-link "></a></h3><p>A virtual environment (also called a virtualenv) is like a private box we can
+stuff useful computer code into for a project we're working on. We use them to
+keep the various bits of code we want for our various projects separate so
+things don't get mixed up between projects.</p><p>In your terminal at the bottom of the Cloud 9 interface, run the following:</p><p></p><p class="code-label">Cloud 9</p><p></p><pre><code>sudo apt install python3.5-venv</code></pre>
+<p>If this still doesn't work, ask your coach for some help.</p><p>Next, run:</p><p></p><p class="code-label">Cloud 9</p><p></p><pre><code>mkdir djangogirls
+cd djangogirls
+python3.5 -mvenv myvenv
+source myvenv/bin/activate
+pip install django~=1.9.0</code></pre>
+<p>(note that on the last line we use a tilde followed by an equal sign: ~=).</p><h3 id="github">Github<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: github" href="#github" class="anchorjs-link "></a></h3><p>Make a <a href="https://github.com/" target="_blank">Github</a> account.</p><h3 id="pythonanywhere">PythonAnywhere<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: pythonanywhere" href="#pythonanywhere" class="anchorjs-link "></a></h3><p>The Django Girls tutorial includes a section on what is called Deployment,
+which is the process of taking the code that powers your new web application
+and moving it to a publicly accessible computer (called a server) so other
+people can see your work.</p><p>This part is a little odd when doing the tutorial on a Chromebook since we're
+already using a computer that is on the internet (as opposed to, say, a laptop).
+However, it's still useful, as we can think of our Cloud 9 workspace as a place
+or our "in progress" work and Python Anywhere as a place to show off our stuff
+as it becomes more complete.</p><p>Thus, sign up for a new Python Anywhere account at
+<a href="http://www.pythonanywhere.com/" target="_blank">www.pythonanywhere.com</a>.</p><h1 id="install-python">Install Python<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: install python" href="#install-python" class="anchorjs-link "></a></h1><blockquote><p>For readers at home: this chapter is covered in the <a href="https://www.youtube.com/watch?v=pVTaqzKZCdA" target="_blank">Installing Python &amp; Code Editor</a> video.</p><p>This section is based on a tutorial by Geek Girls Carrots (<a href="https://github.com/ggcarrots/django-carrots" target="_blank">https://github.com/ggcarrots/django-carrots</a>)</p></blockquote><p>Django
+ is written in Python. We need Python to do anything in Django. Let's 
+start by installing it! We want you to install Python 3.5, so if you 
+have any earlier version, you will need to upgrade it.</p><h3 id="windows">Windows<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: windows" href="#windows" class="anchorjs-link "></a></h3><p>You can download Python for Windows from the website <a href="https://www.python.org/downloads/release/python-351/" target="_blank">https://www.python.org/downloads/release/python-351/</a>. After downloading the <strong>*.msi</strong>
+ file, you should run it (double-click on it) and follow the 
+instructions there. It is important to remember the path (the directory)
+ where you installed Python. It will be needed later!</p><p>One thing to
+ watch out for:  on the second screen of the installation wizard, marked
+ "Customize", make sure you scroll down to the "Add python.exe to the 
+Path" option and select "Will be installed on local hard drive", as 
+shown here:</p><p><img alt="Don't forget to add Python to the Path" src="Installation%20%C2%B7%20Django%20Girls%20Tutorial_files/add_python_to_windows_path.png"></p><p>In
+ upcoming steps, you'll be using the Windows Command Line (which we'll 
+also tell you about). For now, if you need to type in some commands, go 
+to Start menu → All Programs → Accessories → Command Prompt. (On newer 
+versions of Windows, you might have to search for "Command Prompt" since
+ it's sometimes hidden.)</p><h3 id="linux">Linux<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: linux" href="#linux" class="anchorjs-link "></a></h3><p>It
+ is very likely that you already have Python installed out of the box. 
+To check if you have it installed (and which version it is), open a 
+console and type the following command:</p><p></p><p class="code-label">command-line</p><p></p><pre><code>$ python3 --version
+Python 3.5.1</code></pre>
+<p>If you have a different 'micro version' of Python installed, e.g. 
+3.5.0, then you don't have to upgrade. If you don't have Python 
+installed, or if you want a different version, you can install it as 
+follows:</p><h4 id="debian-or-ubuntu">Debian or Ubuntu<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: debian or ubuntu" href="#debian-or-ubuntu" class="anchorjs-link "></a></h4><p>Type this command into your console:</p><p></p><p class="code-label">command-line</p><p></p><pre><code>$ sudo apt-get install python3.5</code></pre>
+<h4 id="fedora-up-to-21">Fedora (up to 21)<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: fedora up to 21" href="#fedora-up-to-21" class="anchorjs-link "></a></h4><p>Use this command in your console:</p><p></p><p class="code-label">command-line</p><p></p><pre><code>$ sudo yum install python3</code></pre>
+<h4 id="fedora-22">Fedora (22+)<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: fedora 22" href="#fedora-22" class="anchorjs-link "></a></h4><p>Use this command in your console:</p><p></p><p class="code-label">command-line</p><p></p><pre><code>$ sudo dnf install python3</code></pre>
+<h4 id="opensuse">openSUSE<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: opensuse" href="#opensuse" class="anchorjs-link "></a></h4><p>Use this command in your console:</p><p></p><p class="code-label">command-line</p><p></p><pre><code>$ sudo zypper install python3</code></pre>
+<h3 id="os-x">OS X<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: os x" href="#os-x" class="anchorjs-link "></a></h3><blockquote class="clearfix alert alert-info"><strong class="fa fa-4x fa-edit"></strong><p>
+ Before you install Python on OS X, you should ensure your Mac settings 
+allow installing packages that aren't from the App Store. Go to System 
+Preferences (it's in the Applications folder), click "Security &amp; 
+Privacy," and then the "General" tab. If your "Allow apps downloaded 
+from:" is set to "Mac App Store," change it to "Mac App Store and 
+identified developers."</p></blockquote><p>You need to go to the website <a href="https://www.python.org/downloads/release/python-351/" target="_blank">https://www.python.org/downloads/release/python-351/</a> and download the Python installer:</p><ul><li>Download the <em>Mac OS X 64-bit/32-bit installer</em> file,
+</li>
+<li>Double click <em>python-3.5.1-macosx10.6.pkg</em> to run the installer.
+</li></ul>
+<p>Verify the installation was successful by opening the <em>Terminal</em> application and running the <code>python3</code> command:</p><p></p><p class="code-label">command-line</p><p></p><pre><code>$ python3 --version
+Python 3.5.1</code></pre>
+<hr><p>If you have any doubts, or if something went wrong and you have 
+no idea what to do next, please ask your coach! Sometimes things don't 
+go smoothly and it's better to ask for help from someone with more 
+experience.</p><h1 id="set-up-virtualenv-and-install-django">Set up virtualenv and install Django<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: set up virtualenv and install django" href="#set-up-virtualenv-and-install-django" class="anchorjs-link "></a></h1><blockquote><p>Part of this section is based on tutorials by Geek Girls Carrots (<a href="https://github.com/ggcarrots/django-carrots" target="_blank">https://github.com/ggcarrots/django-carrots</a>).</p><p>Part of this section is based on the <a href="http://django-marcador.keimlink.de/" target="_blank">django-marcador
+tutorial</a> licensed under the Creative Commons
+Attribution-ShareAlike 4.0 International License. The django-marcador tutorial
+is copyrighted by Markus Zapke-Gründemann et al.</p></blockquote><h2 id="virtual-environment">Virtual environment<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: virtual environment" href="#virtual-environment" class="anchorjs-link "></a></h2><p>Before
+ we install Django we will get you to install an extremely useful tool 
+to help keep your coding environment tidy on your computer. It's 
+possible to skip this step, but it's highly recommended. Starting with 
+the best possible setup will save you a lot of trouble in the future!</p><p>So, let's create a <strong>virtual environment</strong> (also called a <em>virtualenv</em>).
+ Virtualenv will isolate your Python/Django setup on a per-project 
+basis. This means that any changes you make to one website won't affect 
+any others you're also developing. Neat, right?</p><p>All you need to do is find a directory in which you want to create the <code>virtualenv</code>; your home directory, for example. On Windows it might look like <code>C:\Users\Name\</code> (where <code>Name</code> is the name of your login).</p><blockquote><p><strong>NOTE:</strong>
+ On Windows, make sure that this directory does not contain accented or 
+special characters; if your username contains accented characters, use a
+ different directory, for example <code>C:\djangogirls</code>.</p></blockquote><p>For this tutorial we will be using a new directory <code>djangogirls</code> from your home directory:</p><p></p><p class="code-label">command-line</p><p></p><pre><code>$ mkdir djangogirls
+$ cd djangogirls</code></pre>
+<p>We will make a virtualenv called <code>myvenv</code>. The general command will be in the format:</p><p></p><p class="code-label">command-line</p><p></p><pre><code>$ python3 -m venv myvenv</code></pre>
+<h3 id="windows">Windows<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: windows" href="#windows" class="anchorjs-link "></a></h3><p>To create a new <code>virtualenv</code>, you need to open the console (we told you about that a few chapters ago – remember?) and run <code>C:\Python35\python -m venv myvenv</code>. It will look like this:</p><p></p><p class="code-label">command-line</p><p></p><pre><code>C:\Users\Name\djangogirls&gt; C:\Python35\python -m venv myvenv</code></pre>
+<p>where <code>C:\Python35\python</code> is the directory in which you previously installed Python and <code>myvenv</code> is the name of your <code>virtualenv</code>.
+ You can use any other name, but stick to lowercase and use no spaces, 
+accents or special characters. It is also good idea to keep the name 
+short – you'll be referencing it a lot!</p><h3 id="linux-and-os-x">Linux and OS X<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: linux and os x" href="#linux-and-os-x" class="anchorjs-link "></a></h3><p>Creating a <code>virtualenv</code> on both Linux and OS X is as simple as running <code>python3 -m venv myvenv</code>.
+It will look like this:</p><p></p><p class="code-label">command-line</p><p></p><pre><code>$ python3 -m venv myvenv</code></pre>
+<p><code>myvenv</code> is the name of your <code>virtualenv</code>. You 
+can use any other name, but stick to lowercase and use no spaces. It is 
+also good idea to keep the name short as you'll be referencing it a lot!</p><blockquote><p><strong>NOTE:</strong> On some versions of Debian/Ubuntu you may receive the following error:</p><p></p><p class="code-label">command-line</p><p></p><pre><code>The virtual environment was not created successfully because ensurepip is not available.  On Debian/Ubuntu systems, you need to install the python3-venv package using the following command.
+   apt-get install python3-venv
+You may need to use sudo with that command.  After installing the python3-venv package, recreate your virtual environment.</code></pre>
+<p>In this case, follow the instructions above and install the <code>python3-venv</code> package:
+</p><p class="code-label">command-line</p><p></p><pre><code>$ sudo apt-get install python3-venv</code></pre>
+<p><strong>NOTE:</strong> On some versions of Debian/Ubuntu initiating the virtual environment like this currently gives the following error:</p><p></p><p class="code-label">command-line</p><p></p><pre><code>Error: Command '['/home/eddie/Slask/tmp/venv/bin/python3', '-Im', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1</code></pre>
+<p>To get around this, use the <code>virtualenv</code> command instead.</p><p></p><p class="code-label">command-line</p><p></p><pre><code>$ sudo apt-get install python-virtualenv
+$ virtualenv --python=python3.5 myvenv</code></pre>
+<p><strong>NOTE:</strong> If you get an error like</p><p></p><p class="code-label">command-line</p><p></p><pre><code>E: Unable to locate package python3-venv</code></pre>
+<p>then instead run:</p><p></p><p class="code-label">command-line</p><p></p><pre><code>sudo apt install python3.5-venv</code></pre>
+</blockquote><h2 id="working-with-virtualenv">Working with virtualenv<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: working with virtualenv" href="#working-with-virtualenv" class="anchorjs-link "></a></h2><p>The command above will create a directory called <code>myvenv</code> (or whatever name you chose) that contains our virtual environment (basically a bunch of directory and files).</p><h4 id="windows">Windows<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: windows" href="#windows" class="anchorjs-link "></a></h4><p>Start your virtual environment by running:</p><p></p><p class="code-label">command-line</p><p></p><pre><code>C:\Users\Name\djangogirls&gt; myvenv\Scripts\activate</code></pre>
+<blockquote><p><strong>NOTE:</strong> on Windows 10 you might get an error in the Windows PowerShell says <code>execution of scripts is disabled on this system</code>. In those cases open another Windows PowerShell and Run as Administrator try doing this before continue:</p><p></p><p class="code-label">command-line</p><p></p><pre><code>C:\WINDOWS\system32&gt; Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+    Execution Policy Change
+    The execution policy helps protect you from scripts that you do not trust. Changing the execution policy might expose you to the security risks described in the about_Execution_Policies help topic at http://go.microsoft.com/fwlink/?LinkID=135170. Do you want to change the execution policy? [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"): A</code></pre>
+</blockquote><h4 id="linux-and-os-x">Linux and OS X<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: linux and os x" href="#linux-and-os-x" class="anchorjs-link "></a></h4><p>Start your virtual environment by running:</p><p></p><p class="code-label">command-line</p><p></p><pre><code>$ source myvenv/bin/activate</code></pre>
+<p>Remember to replace <code>myvenv</code> with your chosen <code>virtualenv</code> name!</p><blockquote><p><strong>NOTE:</strong> sometimes <code>source</code> might not be available. In those cases try doing this instead:</p><p></p><p class="code-label">command-line</p><p></p><pre><code>$ . myvenv/bin/activate</code></pre>
+</blockquote><p>You will know that you have <code>virtualenv</code> started when you see that the prompt in your console is prefixed with <code>(myvenv)</code>.</p><p>When working within a virtual environment, <code>python</code> will automatically refer to the correct version so you can use <code>python</code> instead of <code>python3</code>.</p><p>OK, we have all important dependencies in place. We can finally install Django!</p><h2 id="installing-django">Installing Django<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: installing django" href="#installing-django" class="anchorjs-link "></a></h2><p>Now that you have your <code>virtualenv</code> started, you can install Django.</p><p>Before we do that, we should make sure we have the latest version of <code>pip</code>, the software that we use to install Django.
+In the console, run <code>pip install --upgrade pip</code>.</p><p>Then run <code>pip install django~=1.9.0</code> (note that we use a tilde followed by an equal sign: <code>~=</code>) to install Django.</p><p></p><p class="code-label">command-line</p><p></p><pre><code>(myvenv) ~$ pip install django~=1.9.0
+Downloading/unpacking django==1.9
+Installing collected packages: django
+Successfully installed django
+Cleaning up...</code></pre>
+<p>on Windows</p><blockquote><p>If you get an error when calling pip on 
+Windows platform, please check if your project pathname contains spaces,
+ accents or special characters (for example, <code>C:\Users\User Name\djangogirls</code>). If it does, please consider using another place without spaces, accents or special characters (suggestion: <code>C:\djangogirls</code>).
+ Create a new virtualenv in the new directory, then delete the old one 
+and try the above command again. (Moving the virtualenv directory won't 
+work since virtualenv uses absolute paths.)</p></blockquote><p>on Windows 8 and Windows 10</p><blockquote><p>Your command line might freeze after when you try to install Django. If this happens, instead of the above command use:</p><p></p><p class="code-label">command-line</p><p></p><pre><code>C:\Users\Name\djangogirls&gt; python -m pip install django~=1.9.0</code></pre>
+</blockquote><p>on Linux</p><blockquote><p>If you get an error when calling pip on Ubuntu 12.04 please run <code>python -m pip install -U --force-reinstall pip</code> to fix the pip installation in the virtualenv.</p></blockquote><p>That's it! You're now (finally) ready to create a Django application!</p><h1 id="install-a-code-editor">Install a code editor<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: install a code editor" href="#install-a-code-editor" class="anchorjs-link "></a></h1><p>There
+ are a lot of different editors and it largely boils down to personal 
+preference. Most Python programmers use complex but extremely powerful 
+IDEs (Integrated Development Environments), such as PyCharm. As a 
+beginner, however, that's probably less suitable; our recommendations 
+are equally powerful, but a lot simpler.</p><p>Our suggestions are below, but feel free to ask your coach what their preferences are – it'll be easier to get help from them.</p><h2 id="gedit">Gedit<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: gedit" href="#gedit" class="anchorjs-link "></a></h2><p>Gedit is an open-source, free editor, available for all operating systems.</p><p><a href="https://wiki.gnome.org/Apps/Gedit#Download" target="_blank">Download it here</a></p><h2 id="sublime-text-2">Sublime Text 2<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: sublime text 2" href="#sublime-text-2" class="anchorjs-link "></a></h2><p>Sublime
+ Text is a very popular editor with a free evaluation period. It's easy 
+to install and use, and it's available for all operating systems.</p><p><a href="https://www.sublimetext.com/2" target="_blank">Download it here</a></p><h2 id="atom">Atom<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: atom" href="#atom" class="anchorjs-link "></a></h2><p>Atom is an extremely new code editor created by <a href="https://github.com/" target="_blank">GitHub</a>. It's free, open-source, easy to install and easy to use. It's available for Windows, OS X and Linux.</p><p><a href="https://atom.io/" target="_blank">Download it here</a></p><h2 id="why-are-we-installing-a-code-editor">Why are we installing a code editor?<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: why are we installing a code editor" href="#why-are-we-installing-a-code-editor" class="anchorjs-link "></a></h2><p>You
+ might be wondering why we are installing this special code editor 
+software, rather than using something like Word or Notepad.</p><p>The first reason is that code needs to be <strong>plain text</strong>,
+ and the problem with programs like Word and Textedit is that they don't
+ actually produce plain text, they produce rich text (with fonts and 
+formatting), using custom formats like <a href="https://en.wikipedia.org/wiki/Rich_Text_Format" target="_blank">RTF (Rich Text Format)</a>.</p><p>The
+ second reason is that code editors are specialised for editing code, so
+ they can provide helpful features like highlighting code with colour 
+according to its meaning, or automatically closing quotes for you.</p><p>We'll see all this in action later. Soon, you'll come to think of your trusty old code editor as one of your favourite tools. :)</p><h1 id="install-git">Install Git<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: install git" href="#install-git" class="anchorjs-link "></a></h1><h3 id="windows">Windows<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: windows" href="#windows" class="anchorjs-link "></a></h3><p>You can download Git from <a href="https://git-scm.com/" target="_blank">git-scm.com</a>.
+ You can hit "next" on all steps except for one; in the fifth step 
+entitled "Adjusting your PATH environment", choose "Use Git and optional
+ Unix tools from the Windows Command Prompt" (the bottom option). Other 
+than that, the defaults are fine. Checkout Windows-style, commit 
+Unix-style line endings is good.</p><h3 id="macos">MacOS<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: macos" href="#macos" class="anchorjs-link "></a></h3><p>Download Git from <a href="https://git-scm.com/" target="_blank">git-scm.com</a> and just follow the instructions.</p><h3 id="linux">Linux<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: linux" href="#linux" class="anchorjs-link "></a></h3><p>If it isn't installed already, git should be available via your package manager, so try:</p><h4 id="debian-or-ubuntu">Debian or Ubuntu<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: debian or ubuntu" href="#debian-or-ubuntu" class="anchorjs-link "></a></h4><p></p><p class="code-label">command-line</p><p></p><pre><code class="lang-bash">$ sudo apt-get install git</code></pre>
+<h4 id="fedora-up-to-21">Fedora (up to 21)<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: fedora up to 21" href="#fedora-up-to-21" class="anchorjs-link "></a></h4><p></p><p class="code-label">command-line</p><p></p><pre><code class="lang-bash">$ sudo yum install git</code></pre>
+<h4 id="fedora-22">Fedora (22+)<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: fedora 22" href="#fedora-22" class="anchorjs-link "></a></h4><p></p><p class="code-label">command-line</p><p></p><pre><code class="lang-bash">$ sudo dnf install git</code></pre>
+<h4 id="opensuse">openSUSE<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: opensuse" href="#opensuse" class="anchorjs-link "></a></h4><p></p><p class="code-label">command-line</p><p></p><pre><code class="lang-bash">$ sudo zypper install git</code></pre>
+<h1 id="create-a-github-account">Create a GitHub account<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: create a github account" href="#create-a-github-account" class="anchorjs-link "></a></h1><p>Go to <a href="https://www.github.com/" target="_blank">GitHub.com</a> and sign up for a new, free user account.</p><h1 id="create-a-pythonanywhere-account">Create a PythonAnywhere account<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: create a pythonanywhere account" href="#create-a-pythonanywhere-account" class="anchorjs-link "></a></h1><p>Next it's time to sign up for a free "Beginner" account on PythonAnywhere.</p><ul><li><a href="https://www.pythonanywhere.com/" target="_blank">www.pythonanywhere.com</a>
+</li></ul>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-4x fa-edit"></strong><p> When choosing your username here, bear in mind that your blog's URL will take the form <code>yourusername.pythonanywhere.com</code>, so choose either your own nickname, or a name for what your blog is all about.</p></blockquote><h1 id="start-reading">Start reading<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: start reading" href="#start-reading" class="anchorjs-link "></a></h1><p>Congratulations,
+ you are all set up and ready to go! If you still have some time before 
+the workshop, it would be useful to start reading a few of the beginning
+ chapters:</p><ul><li><p><a href="http://tutorial.djangogirls.org/en/how_the_internet_works/">How the internet works</a></p></li>
+<li><p><a href="http://tutorial.djangogirls.org/en/intro_to_command_line/">Introduction to the command line</a></p></li>
+<li><p><a href="http://tutorial.djangogirls.org/en/python_introduction/">Introduction to Python</a></p></li>
+<li><p><a href="http://tutorial.djangogirls.org/en/django/">What is Django?</a></p></li></ul>
+<h1 id="enjoy-the-workshop">Enjoy the workshop!<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: enjoy the workshop" href="#enjoy-the-workshop" class="anchorjs-link "></a></h1><p>When you begin the workshop, you'll be able to go straight to <a href="http://tutorial.djangogirls.org/en/django_start_project/">Your first Django project!</a> because you already covered the material in the earlier chapters.</p>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 id="results-matching" class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: results matching" href="#results-matching" class="anchorjs-link "></a></h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 id="no-results-matching" class="search-results-title">No results matching "<span class="search-query"></span>"<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: no results matching" href="#no-results-matching" class="anchorjs-link "></a></h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="http://tutorial.djangogirls.org/en/" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a style="margin-right: 0px;" href="http://tutorial.djangogirls.org/en/how_the_internet_works/" class="navigation navigation-next " aria-label="Next page: How the Internet works">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script src="Installation%20%C2%B7%20Django%20Girls%20Tutorial_files/analytics.js" async=""></script><script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Installation","level":"1.2","depth":1,"next":{"title":"How the Internet works","level":"1.3","depth":1,"path":"how_the_internet_works/README.md","ref":"how_the_internet_works/README.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["heading-anchors@1.0.3","ga@1.0.1","richquotes@0.0.7","github@2.0.0","language-picker","sidebar-ad","codeblock-label",""],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"language-picker":{"grid-columns":3},"github":{"url":"https://github.com/DjangoGirls/tutorial"},"codeblock-label":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"default":false},"heading-anchors":{},"sidebar-ad":{"imageUrl":"https://cdn.shopify.com/s/files/1/0992/7712/products/codelikeagirl---mockup4_large.jpg","url":"https://store.djangogirls.org/","description":"💖 Support our work and buy a Django Girls t-shirt! ✨","btnText":"Get a t-shirt!"},"highlight":{},"ga":{"configuration":"auto","token":"UA-51680040-3"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"github":"DjangoGirls/tutorial","theme":"default","author":"DjangoGirls","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Girls Tutorial","language":"en","links":{"sidebar":{"Need help? Talk to us!":"https://gitter.im/DjangoGirls/tutorial","Django Girls Tutorial":"https://www.gitbook.com/book/djangogirls/djangogirls-tutorial"},"gitbook":true},"gitbook":"*","description":"This book is a Django tutorial created for DjangoGirls event."},"file":{"path":"installation/README.md","mtime":"2016-07-28T17:34:41.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-07-28T17:38:43.085Z"},"basePath":"..","book":{"language":"en"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="Installation%20%C2%B7%20Django%20Girls%20Tutorial_files/gitbook.js"></script>
+    <script src="Installation%20%C2%B7%20Django%20Girls%20Tutorial_files/theme.js"></script>
+    
+        
+        <script src="Installation%20%C2%B7%20Django%20Girls%20Tutorial_files/anchor.js"></script>
+        
+    
+        
+        <script src="Installation%20%C2%B7%20Django%20Girls%20Tutorial_files/anchor-style.js"></script>
+        
+    
+        
+        <script src="Installation%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin.js"></script>
+        
+    
+        
+        <script src="Installation%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin_002.js"></script>
+        
+    
+        
+        <script src="Installation%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin_003.js"></script>
+        
+    
+        
+        <script src="Installation%20%C2%B7%20Django%20Girls%20Tutorial_files/search-engine.js"></script>
+        
+    
+        
+        <script src="Installation%20%C2%B7%20Django%20Girls%20Tutorial_files/search.js"></script>
+        
+    
+        
+        <script src="Installation%20%C2%B7%20Django%20Girls%20Tutorial_files/lunr.js"></script>
+        
+    
+        
+        <script src="Installation%20%C2%B7%20Django%20Girls%20Tutorial_files/search-lunr.js"></script>
+        
+    
+        
+        <script src="Installation%20%C2%B7%20Django%20Girls%20Tutorial_files/buttons.js"></script>
+        
+    
+        
+        <script src="Installation%20%C2%B7%20Django%20Girls%20Tutorial_files/fontsettings.js"></script>
+        
+    
+
+    
+
+
+</body></html>

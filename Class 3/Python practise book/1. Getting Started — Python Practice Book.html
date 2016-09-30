@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html style="" class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Getting Started — Python Practice Book</title>
+  
+
+  
+  
+
+  
+  <link href="1.%20Getting%20Started%20%E2%80%94%20Python%20Practice%20Book_files/css.css" rel="stylesheet" type="text/css">
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="1.%20Getting%20Started%20%E2%80%94%20Python%20Practice%20Book_files/theme.css" type="text/css">
+  
+
+  
+    <link rel="top" title="Python Practice Book" href="http://anandology.com/python-practice-book/index.html">
+        <link rel="next" title="2. Working with Data" href="http://anandology.com/python-practice-book/working-with-data.html">
+        <link rel="prev" title="Python Practice Book" href="http://anandology.com/python-practice-book/index.html">
+ 
+
+<script src="1.%20Getting%20Started%20%E2%80%94%20Python%20Practice%20Book_files/ga.js" async="" type="text/javascript"></script><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-31293347-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+  
+  <script src="1.%20Getting%20Started%20%E2%80%94%20Python%20Practice%20Book_files/modernizr.js"></script>
+
+<script src="1.%20Getting%20Started%20%E2%80%94%20Python%20Practice%20Book_files/in.php" async="" type="text/javascript"></script></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="http://anandology.com/python-practice-book/index.html" class="fa fa-home"> Python Practice Book</a>
+        <div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input name="q" placeholder="Search docs" type="text">
+    <input name="check_keywords" value="yes" type="hidden">
+    <input name="area" value="default" type="hidden">
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">1. Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#running-python-interpreter">1.1. Running Python Interpreter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-python-scripts">1.2. Running Python Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#assignments">1.3. Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#numbers">1.4. Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#strings">1.5. Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">1.6. Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conditional-expressions">1.7. Conditional Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lists">1.8. Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modules">1.9. Modules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://anandology.com/python-practice-book/working-with-data.html">2. Working with Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/working-with-data.html#lists">2.1. Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/working-with-data.html#tuples">2.2. Tuples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/working-with-data.html#sets">2.3. Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/working-with-data.html#strings">2.4. Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/working-with-data.html#working-with-files">2.5. Working With Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/working-with-data.html#list-comprehensions">2.6. List Comprehensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/working-with-data.html#dictionaries">2.7. Dictionaries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://anandology.com/python-practice-book/modules.html">3. Modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/modules.html#standard-library">3.1. Standard Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/modules.html#installing-third-party-modules">3.2. Installing third-party modules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://anandology.com/python-practice-book/object_oriented_programming.html">4. Object Oriented Programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/object_oriented_programming.html#state">4.1. State</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/object_oriented_programming.html#classes-and-objects">4.2. Classes and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/object_oriented_programming.html#inheritance">4.3. Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/object_oriented_programming.html#special-class-methods">4.4. Special Class Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/object_oriented_programming.html#errors-and-exceptions">4.5. Errors and Exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://anandology.com/python-practice-book/iterators.html">5. Iterators &amp; Generators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/iterators.html#iterators">5.1. Iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/iterators.html#generators">5.2. Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/iterators.html#generator-expressions">5.3. Generator Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/iterators.html#itertools">5.4. Itertools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://anandology.com/python-practice-book/functional-programming.html">6. Functional Programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/functional-programming.html#recursion">6.1. Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/functional-programming.html#higher-order-functions-decorators">6.2. Higher Order Functions &amp; Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://anandology.com/python-practice-book/functional-programming.html#exec-eval">6.3. exec &amp; eval</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="http://anandology.com/python-practice-book/index.html">Python Practice Book</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="http://anandology.com/python-practice-book/index.html">Docs</a> »</li>
+      
+    <li>1. Getting Started</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="http://anandology.com/python-practice-book/_sources/getting-started.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr>
+</div>
+          <div role="main">
+            
+  <div class="section" id="getting-started">
+<h1>1. Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="running-python-interpreter">
+<h2>1.1. Running Python Interpreter<a class="headerlink" href="#running-python-interpreter" title="Permalink to this headline">¶</a></h2>
+<p>Python comes with an interactive interpreter. When you type <tt class="docutils literal"><span class="pre">python</span></tt> in your
+shell or command prompt, the python interpreter becomes active with a <tt class="docutils literal"><span class="pre">&gt;&gt;&gt;</span></tt>
+prompt and waits for your commands.</p>
+<div class="highlight-python"><div class="highlight"><pre>$ python
+Python 2.7.1 (r271:86832, Mar 17 2011, 07:02:35)
+[GCC 4.2.1 (Apple Inc. build 5664)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<p>Now you can type any valid python expression at the prompt. python reads the
+typed expression, evaluates it and prints the result.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">42</span>
+<span class="go">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">4</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="go">6</span>
+</pre></div>
+</div>
+<p><strong>Problem 1: </strong>Open a new Python interpreter and use it to find the value of <tt class="docutils literal"><span class="pre">2</span> <span class="pre">+</span> <span class="pre">3</span></tt>.</p>
+</div>
+<div class="section" id="running-python-scripts">
+<h2>1.2. Running Python Scripts<a class="headerlink" href="#running-python-scripts" title="Permalink to this headline">¶</a></h2>
+<p>Open your text editor, type the following text and save it as <tt class="docutils literal"><span class="pre">hello.py</span></tt>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="s">"hello, world!"</span>
+</pre></div>
+</div>
+<p>And run this program by calling <tt class="docutils literal"><span class="pre">python</span> <span class="pre">hello.py</span></tt>. Make sure you change to
+the directory where you saved the file before doing it.</p>
+<div class="highlight-python"><div class="highlight"><pre>anand@bodhi ~$ python hello.py
+hello, world!
+anand@bodhi ~$
+</pre></div>
+</div>
+<p>Text after <tt class="docutils literal"><span class="pre">#</span></tt> character in any line is considered as comment.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># This is helloworld program</span>
+<span class="c"># run this as:</span>
+<span class="c">#    python hello.py</span>
+<span class="k">print</span> <span class="s">"hello, world!"</span>
+</pre></div>
+</div>
+<p><strong>Problem 2: </strong>Create a python script to print  <tt class="docutils literal"><span class="pre">hello,</span> <span class="pre">world!</span></tt> four times.</p>
+<p><strong>Problem 3: </strong>Create a python script with the following text and see the output.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>If it doesn’t print anything, what changes can you make to the program to print the value?</p>
+</div>
+<div class="section" id="assignments">
+<h2>1.3. Assignments<a class="headerlink" href="#assignments" title="Permalink to this headline">¶</a></h2>
+<p>One of the building blocks of programming is associating a name to a value.
+This is called assignment. The associated name is usually called a <em>variable</em>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+<span class="go">16</span>
+</pre></div>
+</div>
+<p>In this example <tt class="docutils literal"><span class="pre">x</span></tt> is a variable and it’s value is <tt class="docutils literal"><span class="pre">4</span></tt>.</p>
+<p>If you try to use a name that is not associated with any value, python gives an error message.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">foo</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">"&lt;stdin&gt;"</span>, line <span class="m">1</span>, in <span class="n">?</span>
+<span class="gr">NameError</span>: <span class="n">name 'foo' is not defined</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">foo</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">foo</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+<p>If you re-assign a different value to an existing variable, the new value
+overwrites the old value.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="s">'hello'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">'hello'</span>
+</pre></div>
+</div>
+<p>It is possible to do multiple assignments at once.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+<p>Swapping values of 2 variables in python is very simple.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+<p>When executing assignments, python evaluates the right hand side 
+first and then assigns those values to the variables specified in the 
+left hand side.</p>
+<p><strong>Problem 4: </strong>What will be output of the following program.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">print</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p><strong>Problem 5: </strong>What will be the output of the following program.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="k">print</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p><strong>Problem 6: </strong>What will be the output of the following program.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
+<span class="n">c</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">,</span> <span class="n">c</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="k">print</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="numbers">
+<h2>1.4. Numbers<a class="headerlink" href="#numbers" title="Permalink to this headline">¶</a></h2>
+<p>We already know how to work with numbers.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">42</span>
+<span class="go">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">4</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="go">6</span>
+</pre></div>
+</div>
+<p>Python also supports decimal numbers.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mf">4.2</span>
+<span class="go">4.2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">4.2</span> <span class="o">+</span> <span class="mf">2.3</span>
+<span class="go">6.5</span>
+</pre></div>
+</div>
+<p>Python supports the following operators on numbers.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">+</span></tt> addition</li>
+<li><tt class="docutils literal"><span class="pre">-</span></tt> subtraction</li>
+<li><tt class="docutils literal"><span class="pre">*</span></tt> multiplication</li>
+<li><tt class="docutils literal"><span class="pre">/</span></tt> division</li>
+<li><tt class="docutils literal"><span class="pre">**</span></tt> exponent</li>
+<li><tt class="docutils literal"><span class="pre">%</span></tt> remainder</li>
+</ul>
+<p>Let’s try them on integers.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">7</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="go">9</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">7</span> <span class="o">-</span> <span class="mi">2</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">7</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="go">14</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">7</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">7</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="go">49</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">7</span> <span class="o">%</span> <span class="mi">2</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+<p>If you notice, the result <tt class="docutils literal"><span class="pre">7</span> <span class="pre">/</span> <span class="pre">2</span></tt> is <tt class="docutils literal"><span class="pre">3</span></tt> not <tt class="docutils literal"><span class="pre">3.5</span></tt>. It is because the <tt class="docutils literal"><span class="pre">/</span></tt> operator when working on integers, produces only an integer. Lets see what happens when we try it with decimal numbers:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mf">7.0</span> <span class="o">/</span> <span class="mf">2.0</span>
+<span class="go">3.5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">7.0</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="go">3.5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">7</span> <span class="o">/</span> <span class="mf">2.0</span>
+<span class="go">3.5</span>
+</pre></div>
+</div>
+<p>The operators can be combined.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">7</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">-</span> <span class="mi">3</span>
+<span class="go">11</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span>
+<span class="go">10</span>
+</pre></div>
+</div>
+<p>It is important to understand how these compound expressions are evaluated. The
+operators have precedence, a kind of priority that determines which operator is
+applied first. Among the numerical operators, the precedence of operators is as
+follows, from low precedence to high.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">+</span></tt>, <tt class="docutils literal"><span class="pre">-</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">*</span></tt>, <tt class="docutils literal"><span class="pre">/</span></tt>, <tt class="docutils literal"><span class="pre">%</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">**</span></tt></li>
+</ul>
+<p>When we compute <tt class="docutils literal"><span class="pre">2</span> <span class="pre">+</span> <span class="pre">3</span> <span class="pre">*</span> <span class="pre">4</span></tt>, <tt class="docutils literal"><span class="pre">3</span> <span class="pre">*</span> <span class="pre">4</span></tt> is computed first as the precedence of
+<tt class="docutils literal"><span class="pre">*</span></tt> is higher than <tt class="docutils literal"><span class="pre">+</span></tt> and then the result is added to 2.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span>
+<span class="go">14</span>
+</pre></div>
+</div>
+<p>We can use parenthesis to specify the explicit groups.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span>
+<span class="go">20</span>
+</pre></div>
+</div>
+<p>All the operators except <tt class="docutils literal"><span class="pre">**</span></tt> are left-associcate, that means that the application of the operators starts from left to right.</p>
+<div class="highlight-python"><div class="highlight"><pre>1 + 2 + 3 * 4 + 5
+  ↓
+  3   + 3 * 4 + 5
+          ↓
+  3   +   12  + 5
+      ↓
+      15      + 5
+              ↓
+             20
+</pre></div>
+</div>
+</div>
+<div class="section" id="strings">
+<h2>1.5. Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h2>
+<p>Strings what you use to represent text.</p>
+<p>Strings are a sequence of characters, enclosed in single quotes or double quotes.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="s">"hello"</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="s">'world'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+<span class="go">hello world</span>
+</pre></div>
+</div>
+<p>There is difference between single quotes and double quotes, they can used interchangebly.</p>
+<p>Multi-line strings can be written using three single quotes or three double quotes.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="s">"""This is a multi-line string</span>
+<span class="s">written in</span>
+<span class="s">three lines."""</span>
+<span class="k">print</span> <span class="n">x</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="s">'''multi-line strings can be written</span>
+<span class="s">using three single quote characters as well.</span>
+<span class="s">The string can contain 'single quotes' or "double quotes"</span>
+<span class="s">in side it.'''</span>
+<span class="k">print</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions">
+<h2>1.6. Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<p>Just like a value can be associated with a name, a piece of logic can also be
+associated with a name by defining a function.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">... </span>   <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">square</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">25</span>
+</pre></div>
+</div>
+<p>The body of the function is indented. Indentation is the Python’s way of
+grouping statements.</p>
+<p>The <tt class="docutils literal"><span class="pre">...</span></tt> is the secondary prompt, which the Python interpreter uses to
+denote that it is expecting some more input.</p>
+<p>The functions can be used in any expressions.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">square</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">square</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">13</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">square</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="go">81</span>
+</pre></div>
+</div>
+<p>Existing functions can be used in creating new functions.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">sum_of_squares</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="gp">... </span>   <span class="k">return</span> <span class="n">square</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">square</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sum_of_squares</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">13</span>
+</pre></div>
+</div>
+<p>Functions are just like other values, they can assigned, passed as arguments to
+other functions etc.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">square</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">16</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">fxy</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fxy</span><span class="p">(</span><span class="n">square</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">13</span>
+</pre></div>
+</div>
+<p>It is important to understand, the scope of the variables used in functions.</p>
+<p>Lets look at an example.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">def</span> <span class="nf">incr</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">y</span>
+<span class="n">incr</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p>Variables assigned in a function, including the arguments are called the local
+variables to the function. The variables defined in the top-level are called
+global variables.</p>
+<p>Changing the values of <tt class="docutils literal"><span class="pre">x</span></tt> and <tt class="docutils literal"><span class="pre">y</span></tt> inside the function <tt class="docutils literal"><span class="pre">incr</span></tt> won’t
+effect the values of global <tt class="docutils literal"><span class="pre">x</span></tt> and <tt class="docutils literal"><span class="pre">y</span></tt>.</p>
+<p>But, we can use the values of the global variables.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14</span>
+<span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span>
+</pre></div>
+</div>
+<p>When Python sees use of a variable not defined locally, it tries to find a
+global variable with that name.</p>
+<p>However, you have to explicitly declare a variable as <tt class="docutils literal"><span class="pre">global</span></tt> to modify it.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">numcalls</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">numcalls</span>
+    <span class="n">numcalls</span> <span class="o">=</span> <span class="n">numcalls</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+</pre></div>
+</div>
+<p><strong>Problem 7: </strong>How many multiplications are performed when each of the following
+lines of code is executed?</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="n">square</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">square</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Problem 8: </strong>What will be the output of the following program?</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">x</span>
+<span class="k">print</span> <span class="n">x</span>
+<span class="k">print</span> <span class="n">f</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Problem 9: </strong>What will be the output of the following program?</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">x</span>
+<span class="k">print</span> <span class="n">x</span>
+<span class="k">print</span> <span class="n">f</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">x</span>
+</pre></div>
+</div>
+<p><strong>Problem 10: </strong>What will be the output of the following program?</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="k">print</span> <span class="n">x</span>
+<span class="k">print</span> <span class="n">f</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">x</span>
+</pre></div>
+</div>
+<p><strong>Problem 11: </strong>What will be the output of the following program?</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">a</span>
+    <span class="k">return</span> <span class="n">x</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p>Functions can be called with keyword arguments.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">difference</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="gp">... </span>   <span class="k">return</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">difference</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">difference</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">difference</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">difference</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+<p>And some arguments can have default values.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">increment</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">amount</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="gp">... </span>   <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">amount</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">increment</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="go">11</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">increment</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="go">15</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">increment</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">amount</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">12</span>
+</pre></div>
+</div>
+<p>There is another way of creating functions, using the <tt class="docutils literal"><span class="pre">lambda</span></tt> operator.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fxy</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">35</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fxy</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">35</span>
+</pre></div>
+</div>
+<p>Notice that unlike function defination, lambda doesn’t need a <tt class="docutils literal"><span class="pre">return</span></tt>. The
+body of the <tt class="docutils literal"><span class="pre">lambda</span></tt> is a single expression.</p>
+<p>The <tt class="docutils literal"><span class="pre">lambda</span></tt> operator becomes handy when writing small functions to be
+passed as arguments etc. We’ll see more of it as we get into solving more
+serious problems.</p>
+<div class="section" id="built-in-functions">
+<h3>1.6.1. Built-in Functions<a class="headerlink" href="#built-in-functions" title="Permalink to this headline">¶</a></h3>
+<p>Python provides some useful built-in functions.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">min</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+<p>The built-in function <tt class="docutils literal"><span class="pre">len</span></tt> computes length of a string.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="s">"helloworld"</span><span class="p">)</span>
+<span class="go">10</span>
+</pre></div>
+</div>
+<p>The built-in function <tt class="docutils literal"><span class="pre">int</span></tt> converts string to ingeter and built-in function
+<tt class="docutils literal"><span class="pre">str</span></tt> converts integers and other type of objects to strings.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="s">"50"</span><span class="p">)</span>
+<span class="go">50</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<span class="go">"123"</span>
+</pre></div>
+</div>
+<p><strong>Problem 12: </strong>Write a function <tt class="docutils literal"><span class="pre">count_digits</span></tt> to find number of digits in the given number.</p><div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">count_digits</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">count_digits</span><span class="p">(</span><span class="mi">12345</span><span class="p">)</span>
+<span class="go">5</span>
+</pre></div>
+</div>
+<p></p>
+</div>
+<div class="section" id="methods">
+<h3>1.6.2. Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
+<p>Methods are special kind of functions that work on an object.</p>
+<p>For example, <tt class="docutils literal"><span class="pre">upper</span></tt> is a method available on string objects.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="s">"hello"</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="go">HELLO</span>
+</pre></div>
+</div>
+<p>As already mentioned, methods are also functions. They can be assigned to other
+variables can be called separately.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">upper</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">f</span><span class="p">()</span>
+<span class="go">HELLO</span>
+</pre></div>
+</div>
+<p><strong>Problem 13: </strong>Write a function <cite>istrcmp</cite> to compare two strings, ignoring the case.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">istrcmp</span><span class="p">(</span><span class="s">'python'</span><span class="p">,</span> <span class="s">'Python'</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">istrcmp</span><span class="p">(</span><span class="s">'LaTeX'</span><span class="p">,</span> <span class="s">'Latex'</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">istrcmp</span><span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="conditional-expressions">
+<h2>1.7. Conditional Expressions<a class="headerlink" href="#conditional-expressions" title="Permalink to this headline">¶</a></h2>
+<p>Python provides various operators for comparing values. The result of a comparison is a boolean value, either <tt class="docutils literal"><span class="pre">True</span></tt> or <tt class="docutils literal"><span class="pre">False</span></tt>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">3</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">3</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Here is the list of available conditional operators.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">==</span></tt> equal to</li>
+<li><tt class="docutils literal"><span class="pre">!=</span></tt> not equal to</li>
+<li><tt class="docutils literal"><span class="pre">&lt;</span></tt> less than</li>
+<li><tt class="docutils literal"><span class="pre">&gt;</span></tt> greater than</li>
+<li><tt class="docutils literal"><span class="pre">&lt;=</span></tt> less than or equal to</li>
+<li><tt class="docutils literal"><span class="pre">&gt;=</span></tt> greater than or equal to</li>
+</ul>
+<p>It is even possible to combine these operators.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">4</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="o">&lt;</span> <span class="mi">6</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>The conditional operators work even on strings - the ordering being the lexical order.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="s">"python"</span> <span class="o">&gt;</span> <span class="s">"perl"</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">"python"</span> <span class="o">&gt;</span> <span class="s">"java"</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>There are few logical operators to combine boolean values.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">a</span> <span class="pre">and</span> <span class="pre">b</span></tt> is <tt class="docutils literal"><span class="pre">True</span></tt> only if both <tt class="docutils literal"><span class="pre">a</span></tt> and <tt class="docutils literal"><span class="pre">b</span></tt> are True.</li>
+<li><tt class="docutils literal"><span class="pre">a</span> <span class="pre">or</span> <span class="pre">b</span></tt> is True if either <tt class="docutils literal"><span class="pre">a</span></tt> or <tt class="docutils literal"><span class="pre">b</span></tt> is True.</li>
+<li><tt class="docutils literal"><span class="pre">not</span> <span class="pre">a</span></tt> is True only if <tt class="docutils literal"><span class="pre">a</span></tt> is False.</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="bp">True</span> <span class="ow">and</span> <span class="bp">True</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="bp">True</span> <span class="ow">and</span> <span class="bp">False</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="ow">and</span> <span class="mi">5</span> <span class="o">&lt;</span> <span class="mi">4</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="ow">or</span> <span class="mi">5</span> <span class="o">&lt;</span> <span class="mi">4</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p><strong>Problem 14: </strong>What will be output of the following program?</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="ow">and</span> <span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">1</span>
+<span class="k">print</span> <span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="ow">or</span> <span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">1</span>
+<span class="k">print</span> <span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="ow">or</span> <span class="ow">not</span> <span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">1</span>
+<span class="k">print</span> <span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="ow">and</span> <span class="ow">not</span> <span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p><strong>Problem 15: </strong>What will be output of the following program?</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span> <span class="ow">or</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">z</span>
+<span class="k">print</span> <span class="n">p</span>
+</pre></div>
+</div>
+<p><strong>Problem 16: </strong>What will be output of the following program?</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="bp">True</span><span class="p">,</span> <span class="bp">False</span> <span class="o">=</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">True</span>
+<span class="k">print</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span>
+<span class="k">print</span> <span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">3</span>
+</pre></div>
+</div>
+<div class="section" id="the-if-statement">
+<h3>1.7.1. The if statement<a class="headerlink" href="#the-if-statement" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">if</span></tt> statement is used to execute a piece of code only when a boolean expression is true.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="k">print</span> <span class="s">'even'</span>
+<span class="go">even</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+<p>In this example, <tt class="docutils literal"><span class="pre">print</span> <span class="pre">'even'</span></tt> is executed only when <tt class="docutils literal"><span class="pre">x</span> <span class="pre">%</span> <span class="pre">2</span> <span class="pre">==</span> <span class="pre">0</span></tt> is <tt class="docutils literal"><span class="pre">True</span></tt>.</p>
+<p>The code associated with <tt class="docutils literal"><span class="pre">if</span></tt>
+ can be written as a separate indented block of code, which is often the
+ case when there is more than one statement to be executed.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span> <span class="s">'even'</span>
+<span class="gp">...</span>
+<span class="go">even</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">if</span></tt> statement can have optional <tt class="docutils literal"><span class="pre">else</span></tt> clause, which is executed when the boolean expression is <tt class="docutils literal"><span class="pre">False</span></tt>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span> <span class="s">'even'</span>
+<span class="gp">... </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span> <span class="s">'odd'</span>
+<span class="gp">...</span>
+<span class="go">odd</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">if</span></tt> statement can have optional <tt class="docutils literal"><span class="pre">elif</span></tt> clauses when there are more
+conditions to be checked. The <tt class="docutils literal"><span class="pre">elif</span></tt> keyword is short for <tt class="docutils literal"><span class="pre">else</span> <span class="pre">if</span></tt>, and is
+useful to avoid excessive indentation.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+<span class="gp">... </span>       <span class="k">print</span> <span class="s">'one digit number'</span>
+<span class="gp">... </span><span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span> <span class="s">'two digit number'</span>
+<span class="gp">... </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span> <span class="s">'big number'</span>
+<span class="gp">...</span>
+<span class="go">two digit number</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+<p><strong>Problem 17: </strong>What happens when the following code is executed? Will it give any
+error? Explain the reasons.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">x</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p><strong>Problem 18: </strong>What happens the following code is executed? Will it give any error? Explain the reasons.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">x</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">+</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="lists">
+<h2>1.8. Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h2>
+<p>Lists are one of the great datastructures in Python. We are going to learn a
+little bit about lists now. Basic knowledge of lists is requrired to be able to
+solve some problems that we want to solve in this chapter.</p>
+<p>Here is a list of numbers.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>And here is a list of strings.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s">"hello"</span><span class="p">,</span> <span class="s">"world"</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>List can be heterogeneous. Here is a list containings integers, strings and another list.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s">"hello, "</span><span class="n">world</span><span class="s">", ["</span><span class="n">another</span><span class="s">", "</span><span class="nb">list</span><span class="s">"]]</span>
+</pre></div>
+</div>
+<p>The built-in function <tt class="docutils literal"><span class="pre">len</span></tt> works for lists as well.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">[]</span></tt> operator is used to access individual elements of a list.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+<p>The first element is indexed with <tt class="docutils literal"><span class="pre">0</span></tt>, second with <tt class="docutils literal"><span class="pre">1</span></tt> and so on.</p>
+<p>We’ll learn more about lists in the next chapter.</p>
+</div>
+<div class="section" id="modules">
+<h2>1.9. Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
+<p>Modules are libraries in Python. Python ships with many standard library modules.</p>
+<p>A module can be imported using the <tt class="docutils literal"><span class="pre">import</span></tt> statement.</p>
+<p>Lets look at <tt class="docutils literal"><span class="pre">time</span></tt> module for example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">time</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span><span class="o">.</span><span class="n">asctime</span><span class="p">()</span>
+<span class="go">'Tue Sep 11 21:42:06 2012'</span>
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">asctime</span></tt> function from the <tt class="docutils literal"><span class="pre">time</span></tt> module returns the current time of
+the system as a string.</p>
+<p>The <tt class="docutils literal"><span class="pre">sys</span></tt> module provides access to the list of arguments passed to the
+program, among the other things.</p>
+<p>The <tt class="docutils literal"><span class="pre">sys.argv</span></tt> variable contains the list of arguments passed to the program.
+As a convention, the first element of that list is the name of the program.</p>
+<p>Lets look at the following program <tt class="docutils literal"><span class="pre">echo.py</span></tt> that prints the first argument
+passed to it.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">print</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Lets try running it.</p>
+<div class="highlight-python"><div class="highlight"><pre>$ python echo.py hello
+hello
+$ python echo.py hello world
+hello
+</pre></div>
+</div>
+<p>There are many more interesting modules in the standard library. We’ll learn
+more about them in the coming chapters.</p>
+<p><strong>Problem 19: </strong>Write a program <tt class="docutils literal"><span class="pre">add.py</span></tt> that takes 2 numbers as command line
+arguments and prints its sum.</p>
+<div class="highlight-python"><div class="highlight"><pre>$ python add.py 3 5
+8
+$ python add.py 2 9
+11
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="http://anandology.com/python-practice-book/working-with-data.html" class="btn btn-neutral float-right" title="2. Working with Data">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="http://anandology.com/python-practice-book/index.html" class="btn btn-neutral" title="Python Practice Book"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>
+        © Copyright 2014, <a href="http://anandology.com/">Anand Chitipothu</a>.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2014-08-10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="1.%20Getting%20Started%20%E2%80%94%20Python%20Practice%20Book_files/jquery.js"></script>
+      <script type="text/javascript" src="1.%20Getting%20Started%20%E2%80%94%20Python%20Practice%20Book_files/underscore.js"></script>
+      <script type="text/javascript" src="1.%20Getting%20Started%20%E2%80%94%20Python%20Practice%20Book_files/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="1.%20Getting%20Started%20%E2%80%94%20Python%20Practice%20Book_files/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ 
+
+<script src="1.%20Getting%20Started%20%E2%80%94%20Python%20Practice%20Book_files/js.js" type="text/javascript"></script>
+<script type="text/javascript">try{ clicky.init(66579110); }catch(e){}</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/66579110ns.gif" /></p></noscript>
+
+
+
+
+</body></html>

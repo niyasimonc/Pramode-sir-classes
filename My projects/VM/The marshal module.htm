@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><meta http-equiv="content-type" content="text/html; charset=UTF-8"><link rel="alternate" type="application/rss+xml" title="RSS" href="http://effbot.org/librarybook/rss.xml"><link rel="shortcut icon" href="http://effbot.org/media/img/effbot.ico"><link rel="stylesheet" href="The%20marshal%C2%A0module_files/effbot-min.css" type="text/css" media="screen"><link rel="stylesheet" href="The%20marshal%C2%A0module_files/effbotprint-min.css" type="text/css" media="print"><title>The marshal&nbsp;module</title></head><body data-page-id="578"><div id="doc2" class="yui-t2"><div id="hd"></div><div id="bd"><div id="yui-main"><div class="yui-b"><div class="content"><div class="yui-g"><h1 class="maintitle">The marshal&nbsp;module</h1></div><div class="yui-ge"><div class="yui-u first"><p>This module is used to serialize data; that is, convert data to
+and from character strings, so that they can be stored on file or
+sent over a network.</p><p>Marshal uses a simple self-describing data format. For each data
+item, the marshalled string contains a type code, followed by one
+or more type specific fields. Integers are stored in little-endian
+order, strings as a length field followed by the string’s contents
+(which can include null bytes), tuples as a length field followed
+by the objects that make up the tuple, etc.</p><div class="example">
+<b style="example">Example: Using the marshal
+module to serialize data</b>
+<pre># File: <a href="http://effbot.org/librarybook/marshal/marshal-example-1.py">marshal-example-1.py</a>
+
+import marshal
+
+value = (
+    "this is a string",
+    [1, 2, 3, 4],
+    ("more tuples", 1.0, 2.3, 4.5),
+    "this is yet another string"
+    )
+
+data = marshal.dumps(value)
+
+# intermediate format
+print type(data), len(data)
+
+print "-"*50
+print repr(data)
+print "-"*50
+
+print marshal.loads(data)
+
+</pre><pre class="computeroutput" moreinfo="NONE">&lt;type 'string'&gt; 118
+--------------------------------------------------
+'(\004\000\000\000s\020\000\000\000this is a string
+[\004\000\000\000i\001\000\000\000i\002\000\000\000
+i\003\000\000\000i\004\000\000\000(\004\000\000\000
+s\013\000\000\000more tuplesf\0031.0f\0032.3f\0034.
+5s\032\000\000\000this is yet another string'
+--------------------------------------------------
+('this is a string', [1, 2, 3, 4], ('more tuples',
+1.0, 2.3, 4.5), 'this is yet another string')
+</pre></div><p>The marshal module can also handle code objects (it’s used to
+store precompiled Python modules).</p><div class="example">
+<b style="example">Example: Using the marshal module to serialize code</b>
+<pre># File: <a href="http://effbot.org/librarybook/marshal/marshal-example-2.py">marshal-example-2.py</a>
+
+import marshal
+
+script = """
+print 'hello'
+"""
+
+code = compile(script, "&lt;script&gt;", "exec")
+
+data = marshal.dumps(code)
+
+# <i>intermediate format</i>
+print type(data), len(data)
+
+print "-"*50
+print repr(data)
+print "-"*50
+
+exec marshal.loads(data)
+</pre><pre class="computeroutput" moreinfo="NONE">&lt;type 'string'&gt; 81
+--------------------------------------------------
+'c\000\000\000\000\001\000\000\000s\017\000\000\00
+0\177\000\000\177\002\000d\000\000GHd\001\000S(\00
+2\000\000\000s\005\000\000\000helloN(\000\000\000\
+000(\000\000\000\000s\010\000\000\000&lt;script&gt;s\001
+\000\000\000?\002\000s\000\000\000\000'
+--------------------------------------------------
+hello
+</pre><p>Note that the byte code is portable between platforms, but not
+necessarily between different Python releases.  The <b>imp.get_magic()</b>
+function returns a 4-byte string that identifies the current byte code
+version.  If you’re planning to store byte code in some persistent
+storage, it’s a good idea to include the “magic” value, and check that
+before executing the code.</p></div></div><div class="yui-u">&nbsp;</div></div><div class="yui-g"></div></div></div></div><div class="yui-b"><div id="menu"><ul><li><b><a href="http://effbot.org/" title="Go to effbot.org.">::: effbot.org</a></b></li><li><b><a href="http://effbot.org/librarybook/" title="Go to librarybook index page.">::: librarybook :::</a></b></li></ul></div></div></div><div id="ft"><p><a href="http://www.djangoproject.com/"><img src="The%20marshal%C2%A0module_files/djangosite80x15.gif" alt="A Django site." title="A Django site." style="vertical-align: bottom;" border="0" height="15" width="80"></a>
+rendered by a <a href="http://www.djangoproject.com/">django</a> application.  hosted by <a href="http://www.webfaction.com/shared_hosting?affiliate=slab">webfaction</a>.</p></div></div><script src="The%20marshal%C2%A0module_files/effbot-min.js" type="text/javascript"></script>
+</body></html>

@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+        <title>Django ORM (Querysets) · Django Girls Tutorial</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        <meta name="author" content="DjangoGirls">
+        
+        
+    
+    <style class="anchorjs"></style><link rel="stylesheet" href="Django%20ORM%20%28Querysets%29%20%C2%B7%20Django%20Girls%20Tutorial_files/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="Django%20ORM%20%28Querysets%29%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="Django%20ORM%20%28Querysets%29%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin_002.css">
+                
+            
+                
+                <link rel="stylesheet" href="Django%20ORM%20%28Querysets%29%20%C2%B7%20Django%20Girls%20Tutorial_files/sidebar-ad.css">
+                
+            
+                
+                <link rel="stylesheet" href="Django%20ORM%20%28Querysets%29%20%C2%B7%20Django%20Girls%20Tutorial_files/block.css">
+                
+            
+                
+                <link rel="stylesheet" href="Django%20ORM%20%28Querysets%29%20%C2%B7%20Django%20Girls%20Tutorial_files/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="Django%20ORM%20%28Querysets%29%20%C2%B7%20Django%20Girls%20Tutorial_files/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="Django%20ORM%20%28Querysets%29%20%C2%B7%20Django%20Girls%20Tutorial_files/website_002.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://tutorial.djangogirls.org/gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="http://tutorial.djangogirls.org/gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="http://tutorial.djangogirls.org/en/dynamic_data_in_templates/">
+    
+    
+    <link rel="prev" href="http://tutorial.djangogirls.org/en/html/">
+    
+
+    </head>
+    <body>
+        
+<div class="book without-animation with-summary font-size-2 font-family-1">
+    <div class="book-summary">
+        
+  
+            
+<div id="book-search-input" role="search">
+    <input placeholder="Type to search" type="text">
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://gitter.im/DjangoGirls/tutorial" target="_blank" class="custom-link">Need help? Talk to us!</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://www.gitbook.com/book/djangogirls/djangogirls-tutorial" target="_blank" class="custom-link">Django Girls Tutorial</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="http://tutorial.djangogirls.org/en/">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../installation/">
+            
+                <a href="http://tutorial.djangogirls.org/en/installation/">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../how_the_internet_works/">
+            
+                <a href="http://tutorial.djangogirls.org/en/how_the_internet_works/">
+            
+                    
+                    How the Internet works
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../intro_to_command_line/">
+            
+                <a href="http://tutorial.djangogirls.org/en/intro_to_command_line/">
+            
+                    
+                    Introduction to command line
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../python_installation/">
+            
+                <a href="http://tutorial.djangogirls.org/en/python_installation/">
+            
+                    
+                    Python installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../code_editor/">
+            
+                <a href="http://tutorial.djangogirls.org/en/code_editor/">
+            
+                    
+                    Code editor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../python_introduction/">
+            
+                <a href="http://tutorial.djangogirls.org/en/python_introduction/">
+            
+                    
+                    Introduction to Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../django/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django/">
+            
+                    
+                    What is Django?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../django_installation/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_installation/">
+            
+                    
+                    Django installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../django_start_project/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_start_project/">
+            
+                    
+                    Your first Django project!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../django_models/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_models/">
+            
+                    
+                    Django models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../django_admin/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_admin/">
+            
+                    
+                    Django admin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../deploy/">
+            
+                <a href="http://tutorial.djangogirls.org/en/deploy/">
+            
+                    
+                    Deploy!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../django_urls/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_urls/">
+            
+                    
+                    Django urls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../django_views/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_views/">
+            
+                    
+                    Django views - time to create!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../html/">
+            
+                <a href="http://tutorial.djangogirls.org/en/html/">
+            
+                    
+                    Introduction to HTML
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.17" data-path="./">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_orm/">
+            
+                    
+                    Django ORM (Querysets)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../dynamic_data_in_templates/">
+            
+                <a href="http://tutorial.djangogirls.org/en/dynamic_data_in_templates/">
+            
+                    
+                    Dynamic data in templates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="../django_templates/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_templates/">
+            
+                    
+                    Django templates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="../css/">
+            
+                <a href="http://tutorial.djangogirls.org/en/css/">
+            
+                    
+                    CSS - make it pretty
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="../template_extending/">
+            
+                <a href="http://tutorial.djangogirls.org/en/template_extending/">
+            
+                    
+                    Template extending
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="../extend_your_application/">
+            
+                <a href="http://tutorial.djangogirls.org/en/extend_your_application/">
+            
+                    
+                    Extend your application
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" data-path="../django_forms/">
+            
+                <a href="http://tutorial.djangogirls.org/en/django_forms/">
+            
+                    
+                    Django Forms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.24" data-path="../whats_next/">
+            
+                <a href="http://tutorial.djangogirls.org/en/whats_next/">
+            
+                    
+                    What's next?
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com/" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+  <div class="sidebar-addition">
+      
+        <a href="https://store.djangogirls.org/" target="_blank">
+      
+        <img src="Django%20ORM%20%28Querysets%29%20%C2%B7%20Django%20Girls%20Tutorial_files/codelikeagirl---mockup4_large.jpg">
+      
+        </a>
+      
+      
+        <p>💖 Support our work and buy a Django Girls t-shirt! ✨</p>
+      
+      
+      <a href="https://store.djangogirls.org/" class="btn" target="_blank">
+        Get a t-shirt!
+      </a>
+      
+  </div>
+
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <a href="#" aria-label="" class="btn pull-left js-toolbar-action"><i class="fa fa-align-justify"></i></a><a href="#" aria-label="GitHub" class="btn pull-right js-toolbar-action"><i class="fa fa-github"></i></a><div class="dropdown pull-left language-picker js-toolbar-action"><a href="#" aria-label="Change language" class="btn toggle-dropdown"><i class="fa fa-globe"></i></a><div class="dropdown-menu dropdown-right"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div></div></div><div class="dropdown pull-right  js-toolbar-action"><a href="#" aria-label="Share" class="btn toggle-dropdown"><i class="fa fa-share-alt"></i></a><div class="dropdown-menu dropdown-left"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div><div class="buttons"><button class="button size-5 ">Facebook</button><button class="button size-5 ">Google+</button><button class="button size-5 ">Twitter</button><button class="button size-5 ">Weibo</button><button class="button size-5 ">Instapaper</button></div></div></div><a href="#" aria-label="" class="btn pull-right js-toolbar-action"><i class="fa fa-facebook"></i></a><a href="#" aria-label="" class="btn pull-right js-toolbar-action"><i class="fa fa-twitter"></i></a><div class="dropdown pull-left font-settings js-toolbar-action"><a href="#" aria-label="Font Settings" class="btn toggle-dropdown"><i class="fa fa-font"></i></a><div class="dropdown-menu dropdown-right"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div><div class="buttons"><button class="button size-2 font-reduce">A</button><button class="button size-2 font-enlarge">A</button></div><div class="buttons"><button class="button size-2 ">Serif</button><button class="button size-2 ">Sans</button></div><div class="buttons"><button class="button size-3 ">White</button><button class="button size-3 ">Sepia</button><button class="button size-3 ">Night</button></div></div></div><h1 id="django-orm-querysets">
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="http://tutorial.djangogirls.org/en/">Django ORM (Querysets)</a>
+    <a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: django orm querysets" href="#django-orm-querysets" class="anchorjs-link "></a></h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="django-orm-and-querysets">Django ORM and QuerySets<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: django orm and querysets" href="#django-orm-and-querysets" class="anchorjs-link "></a></h1><p>In this chapter you'll learn how Django connects to the database and stores data in it. Let's dive in!</p><h2 id="what-is-a-queryset">What is a QuerySet?<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: what is a queryset" href="#what-is-a-queryset" class="anchorjs-link "></a></h2><p>A
+ QuerySet is, in essence, a list of objects of a given Model. QuerySet 
+allows you to read the data from the database, filter it and order it.</p><p>It's easiest to learn by example. Let's try this, shall we?</p><h2 id="django-shell">Django shell<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: django shell" href="#django-shell" class="anchorjs-link "></a></h2><p>Open up your local console (not on PythonAnywhere) and type this command:</p><p></p><p class="code-label">command-line</p><p></p><pre><code>(myvenv) ~/djangogirls$ python manage.py shell</code></pre>
+<p>The effect should be like this:</p><p></p><p class="code-label">command-line</p><p></p><pre><code class="lang-python">(InteractiveConsole)
+&gt;&gt;&gt;</code></pre>
+<p>You're now in Django's interactive console. It's just like Python 
+prompt but with some additional Django magic :). You can use all the 
+Python commands here too, of course.</p><h3 id="all-objects">All objects<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: all objects" href="#all-objects" class="anchorjs-link "></a></h3><p>Let's try to display all of our posts first. You can do that with the following command:</p><p></p><p class="code-label">command-line</p><p></p><pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>Post.objects.all()
+Traceback (most recent call last):
+      File <span class="hljs-string">"&lt;console&gt;"</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;
+NameError: name <span class="hljs-string">'Post'</span> <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> defined</code></pre>
+<p>Oops! An error showed up. It tells us that there is no Post. It's correct -- we forgot to import it first!</p><p></p><p class="code-label">command-line</p><p></p><pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> blog.models <span class="hljs-keyword">import</span> Post</code></pre>
+<p>This is simple: we import model <code>Post</code> from <code>blog.models</code>. Let's try displaying all posts again:</p><p></p><p class="code-label">command-line</p><p></p><pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>Post.objects.all()
+[&lt;Post: my post title&gt;, &lt;Post: another post title&gt;]</code></pre>
+<p>It's a list of the posts we created earlier! We created these posts 
+using the Django admin interface. But, now we want to create new posts 
+using Python, so how do we do that?</p><h3 id="create-object">Create object<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: create object" href="#create-object" class="anchorjs-link "></a></h3><p>This is how you create a new Post object in database:</p><p></p><p class="code-label">command-line</p><p></p><pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>Post.objects.create(author=me, title=<span class="hljs-string">'Sample title'</span>, text=<span class="hljs-string">'Test'</span>)</code></pre>
+<p>But we have one missing ingredient here: <code>me</code>. We need to pass an instance of <code>User</code> model as an author. How to do that?</p><p>Let's import User model first:</p><p></p><p class="code-label">command-line</p><p></p><pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> django.contrib.auth.models <span class="hljs-keyword">import</span> User</code></pre>
+<p>What users do we have in our database? Try this:</p><p></p><p class="code-label">command-line</p><p></p><pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>User.objects.all()
+[&lt;User: ola&gt;]</code></pre>
+<p>It's the superuser we created earlier! Let's get an instance of the user now:</p><p></p><p class="code-label">command-line</p><p></p><pre><code class="lang-python">me = User.objects.get(username=<span class="hljs-string">'ola'</span>)</code></pre>
+<p>As you can see, we now <code>get</code> a <code>User</code> with a <code>username</code> that equals to 'ola'. Neat! Of course, you have to adjust it to your username.</p><p>Now we can finally create our post:</p><p></p><p class="code-label">command-line</p><p></p><pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>Post.objects.create(author=me, title=<span class="hljs-string">'Sample title'</span>, text=<span class="hljs-string">'Test'</span>)</code></pre>
+<p>Hurray! Wanna check if it worked?</p><p></p><p class="code-label">command-line</p><p></p><pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>Post.objects.all()
+[&lt;Post: my post title&gt;, &lt;Post: another post title&gt;, &lt;Post: Sample title&gt;]</code></pre>
+<p>There it is, one more post in the list!</p><h3 id="add-more-posts">Add more posts<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: add more posts" href="#add-more-posts" class="anchorjs-link "></a></h3><p>You can now have a little fun and add more posts to see how it works. Add 2-3 more and go ahead to the next part.</p><h3 id="filter-objects">Filter objects<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: filter objects" href="#filter-objects" class="anchorjs-link "></a></h3><p>A big part of QuerySets is an ability to filter them. Let's say, we want to find all posts User ola authored. We will use <code>filter</code> instead of <code>all</code> in <code>Post.objects.all()</code>. In parentheses we will state what condition(s) a blog post needs to meet to end up in our queryset. In our situation it is <code>author</code> that is equal to <code>me</code>. The way to write it in Django is: <code>author=me</code>. Now our piece of code looks like this:</p><p></p><p class="code-label">command-line</p><p></p><pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>Post.objects.filter(author=me)
+[&lt;Post: Sample title&gt;, &lt;Post: Post number <span class="hljs-number">2</span>&gt;, &lt;Post: My <span class="hljs-number">3</span>rd post!&gt;, &lt;Post: <span class="hljs-number">4</span>th title of post&gt;]</code></pre>
+<p>Or maybe we want to see all the posts that contain a word 'title' in the <code>title</code> field?</p><p></p><p class="code-label">command-line</p><p></p><pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>Post.objects.filter(title__contains=<span class="hljs-string">'title'</span>)
+[&lt;Post: Sample title&gt;, &lt;Post: <span class="hljs-number">4</span>th title of post&gt;]</code></pre>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-4x fa-edit"></strong><p> There are two underscore characters (<code>_</code>) between <code>title</code> and <code>contains</code>.
+ Django's ORM uses this rule to separate field names ("title") and 
+operations or filters ("contains"). If you only use one underscore, 
+you'll get an error like "FieldError: Cannot resolve keyword 
+title_contains".</p></blockquote><p>You can also get a list of all published posts. We do it by filtering all the posts that have <code>published_date</code> set in the past:</p><p></p><p class="code-label">command-line</p><p></p><pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> django.utils <span class="hljs-keyword">import</span> timezone
+<span class="hljs-meta">&gt;&gt;&gt; </span>Post.objects.filter(published_date__lte=timezone.now())
+[]</code></pre>
+<p>Unfortunately, the post we added from the Python console is not 
+published yet. We can change that! First get an instance of a post we 
+want to publish:</p><p></p><p class="code-label">command-line</p><p></p><pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>post = Post.objects.get(title=<span class="hljs-string">"Sample title"</span>)</code></pre>
+<p>And then publish it with our <code>publish</code> method!</p><p></p><p class="code-label">command-line</p><p></p><pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>post.publish()</code></pre>
+<p>Now try to get list of published posts again (press the up arrow button 3 times and hit <code>enter</code>):</p><p></p><p class="code-label">command-line</p><p></p><pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>Post.objects.filter(published_date__lte=timezone.now())
+[&lt;Post: Sample title&gt;]</code></pre>
+<h3 id="ordering-objects">Ordering objects<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: ordering objects" href="#ordering-objects" class="anchorjs-link "></a></h3><p>QuerySets also allow you to order the list of objects. Let's try to order them by <code>created_date</code> field:</p><p></p><p class="code-label">command-line</p><p></p><pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>Post.objects.order_by(<span class="hljs-string">'created_date'</span>)
+[&lt;Post: Sample title&gt;, &lt;Post: Post number <span class="hljs-number">2</span>&gt;, &lt;Post: My <span class="hljs-number">3</span>rd post!&gt;, &lt;Post: <span class="hljs-number">4</span>th title of post&gt;]</code></pre>
+<p>We can also reverse the ordering by adding <code>-</code> at the beginning:</p><p></p><p class="code-label">command-line</p><p></p><pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>Post.objects.order_by(<span class="hljs-string">'-created_date'</span>)
+[&lt;Post: <span class="hljs-number">4</span>th title of post&gt;,  &lt;Post: My <span class="hljs-number">3</span>rd post!&gt;, &lt;Post: Post number <span class="hljs-number">2</span>&gt;, &lt;Post: Sample title&gt;]</code></pre>
+<h3 id="chaining-querysets">Chaining QuerySets<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: chaining querysets" href="#chaining-querysets" class="anchorjs-link "></a></h3><p>You can also combine QuerySets by <strong>chaining</strong> them together:</p><pre><code>&gt;&gt;&gt; Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')</code></pre>
+<p>This is really powerful and lets you write quite complex queries.</p><p>Cool! You're now ready for the next part! To close the shell, type this:</p><p></p><p class="code-label">command-line</p><p></p><pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>exit()
+$</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 id="results-matching" class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: results matching" href="#results-matching" class="anchorjs-link "></a></h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 id="no-results-matching" class="search-results-title">No results matching "<span class="search-query"></span>"<a style="padding-left: 0.375em;" data-anchorjs-icon="#" aria-label="Anchor link for: no results matching" href="#no-results-matching" class="anchorjs-link "></a></h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="http://tutorial.djangogirls.org/en/html/" class="navigation navigation-prev " aria-label="Previous page: Introduction to HTML">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a style="margin-right: 0px;" href="http://tutorial.djangogirls.org/en/dynamic_data_in_templates/" class="navigation navigation-next " aria-label="Next page: Dynamic data in templates">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script src="Django%20ORM%20%28Querysets%29%20%C2%B7%20Django%20Girls%20Tutorial_files/analytics.js" async=""></script><script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Django ORM (Querysets)","level":"1.17","depth":1,"next":{"title":"Dynamic data in templates","level":"1.18","depth":1,"path":"dynamic_data_in_templates/README.md","ref":"dynamic_data_in_templates/README.md","articles":[]},"previous":{"title":"Introduction to HTML","level":"1.16","depth":1,"path":"html/README.md","ref":"html/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["heading-anchors@1.0.3","ga@1.0.1","richquotes@0.0.7","github@2.0.0","language-picker","sidebar-ad","codeblock-label",""],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"language-picker":{"grid-columns":3},"github":{"url":"https://github.com/DjangoGirls/tutorial"},"codeblock-label":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"default":false},"heading-anchors":{},"sidebar-ad":{"imageUrl":"https://cdn.shopify.com/s/files/1/0992/7712/products/codelikeagirl---mockup4_large.jpg","url":"https://store.djangogirls.org/","description":"💖 Support our work and buy a Django Girls t-shirt! ✨","btnText":"Get a t-shirt!"},"highlight":{},"ga":{"configuration":"auto","token":"UA-51680040-3"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"github":"DjangoGirls/tutorial","theme":"default","author":"DjangoGirls","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Django Girls Tutorial","language":"en","links":{"sidebar":{"Need help? Talk to us!":"https://gitter.im/DjangoGirls/tutorial","Django Girls Tutorial":"https://www.gitbook.com/book/djangogirls/djangogirls-tutorial"},"gitbook":true},"gitbook":"*","description":"This book is a Django tutorial created for DjangoGirls event."},"file":{"path":"django_orm/README.md","mtime":"2016-08-16T12:08:42.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-08-16T12:09:40.212Z"},"basePath":"..","book":{"language":"en"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="Django%20ORM%20%28Querysets%29%20%C2%B7%20Django%20Girls%20Tutorial_files/gitbook.js"></script>
+    <script src="Django%20ORM%20%28Querysets%29%20%C2%B7%20Django%20Girls%20Tutorial_files/theme.js"></script>
+    
+        
+        <script src="Django%20ORM%20%28Querysets%29%20%C2%B7%20Django%20Girls%20Tutorial_files/anchor.js"></script>
+        
+    
+        
+        <script src="Django%20ORM%20%28Querysets%29%20%C2%B7%20Django%20Girls%20Tutorial_files/anchor-style.js"></script>
+        
+    
+        
+        <script src="Django%20ORM%20%28Querysets%29%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin.js"></script>
+        
+    
+        
+        <script src="Django%20ORM%20%28Querysets%29%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin_002.js"></script>
+        
+    
+        
+        <script src="Django%20ORM%20%28Querysets%29%20%C2%B7%20Django%20Girls%20Tutorial_files/plugin_003.js"></script>
+        
+    
+        
+        <script src="Django%20ORM%20%28Querysets%29%20%C2%B7%20Django%20Girls%20Tutorial_files/search-engine.js"></script>
+        
+    
+        
+        <script src="Django%20ORM%20%28Querysets%29%20%C2%B7%20Django%20Girls%20Tutorial_files/search.js"></script>
+        
+    
+        
+        <script src="Django%20ORM%20%28Querysets%29%20%C2%B7%20Django%20Girls%20Tutorial_files/lunr.js"></script>
+        
+    
+        
+        <script src="Django%20ORM%20%28Querysets%29%20%C2%B7%20Django%20Girls%20Tutorial_files/search-lunr.js"></script>
+        
+    
+        
+        <script src="Django%20ORM%20%28Querysets%29%20%C2%B7%20Django%20Girls%20Tutorial_files/buttons.js"></script>
+        
+    
+        
+        <script src="Django%20ORM%20%28Querysets%29%20%C2%B7%20Django%20Girls%20Tutorial_files/fontsettings.js"></script>
+        
+    
+
+    
+
+
+</body></html>

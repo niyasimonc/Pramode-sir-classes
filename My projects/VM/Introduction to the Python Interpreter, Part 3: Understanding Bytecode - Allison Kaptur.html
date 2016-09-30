@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!-->
+<html class=" js video no-maskImage placeholder" lang="en"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>Introduction to the Python Interpreter, Part 3: Understanding Bytecode - Allison Kaptur</title>
+  <meta name="author" content="akaptur">
+
+  
+  <meta name="description" content="This is Part 3 in a series on the Python interpreter. Part 1 here, Part 2 here. If you’re enjoying this series, consider applying to Hacker …">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+  <link rel="canonical" href="http://akaptur.github.com/blog/2013/11/17/introduction-to-the-python-interpreter-3/">
+  <link href="http://akaptur.com/favicon.png" rel="icon">
+  <link href="Introduction%20to%20the%20Python%20Interpreter,%20Part%203:%20Understanding%20Bytecode%20-%20Allison%20Kaptur_files/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="Introduction%20to%20the%20Python%20Interpreter,%20Part%203:%20Understanding%20Bytecode%20-%20Allison%20Kaptur_files/ga.js" async="" type="text/javascript"></script><script src="Introduction%20to%20the%20Python%20Interpreter,%20Part%203:%20Understanding%20Bytecode%20-%20Allison%20Kaptur_files/modernizr-2.js"></script>
+  <script src="Introduction%20to%20the%20Python%20Interpreter,%20Part%203:%20Understanding%20Bytecode%20-%20Allison%20Kaptur_files/ender.js"></script>
+  <script src="Introduction%20to%20the%20Python%20Interpreter,%20Part%203:%20Understanding%20Bytecode%20-%20Allison%20Kaptur_files/octopress.js" type="text/javascript"></script>
+  <link href="http://akaptur.com/atom.xml" rel="alternate" title="Allison Kaptur" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="Introduction%20to%20the%20Python%20Interpreter,%20Part%203:%20Understanding%20Bytecode%20-%20Allison%20Kaptur_files/css.css" rel="stylesheet" type="text/css">
+<link href="Introduction%20to%20the%20Python%20Interpreter,%20Part%203:%20Understanding%20Bytecode%20-%20Allison%20Kaptur_files/css_002.css" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-42870230-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+<script src="Introduction%20to%20the%20Python%20Interpreter,%20Part%203:%20Understanding%20Bytecode%20-%20Allison%20Kaptur_files/widgets.js" async="" type="text/javascript"></script></head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="http://akaptur.com/">Allison Kaptur</a></h1>
+  
+    <h2>An occasional blog on programming</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://akaptur.com/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input name="q" value="site:akaptur.github.com" type="hidden">
+    <input class="search" name="q" results="0" placeholder="Search" type="text">
+  </fieldset><fieldset class="mobile-nav"><select><option value="">Navigate…</option><option value="http://akaptur.com/">» Blog</option><option value="http://akaptur.com/blog/archives">» Archives</option><option value="http://akaptur.com/about">» About</option><option value="http://akaptur.com/talks">» Talks</option><option selected="selected" value="http://akaptur.com/atom.xml">» RSS</option></select></fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="http://akaptur.com/">Blog</a></li>
+  <li><a href="http://akaptur.com/blog/archives">Archives</a></li>
+  <li><a href="http://akaptur.com/about">About</a></li>
+  <li><a href="http://akaptur.com/talks">Talks</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Introduction to the Python Interpreter, Part 3: Understanding Bytecode</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-17T09:56:00-05:00" pubdate="" data-updated="true">Nov 17<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><em>This is Part 3 in a series on the Python interpreter.  Part 1 <a href="http://akaptur.com/blog/2013/11/15/introduction-to-the-python-interpreter/">here</a>, Part 2 <a href="http://akaptur.com/blog/2013/11/15/introduction-to-the-python-interpreter-2/">here</a>.  If you’re enjoying this series, consider applying to <a href="https://www.hackerschool.com/">Hacker School</a>, where I work as a facilitator.</em></p>
+
+<h3>Bytecode</h3>
+
+<p>When we left our heroes, they had come across some odd-looking output:</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tbody><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="python"><span class="line"><span class="o">&gt;&gt;&gt;</span> <span class="n">foo</span><span class="o">.</span><span class="n">func_code</span><span class="o">.</span><span class="n">co_code</span>
+</span><span class="line"><span class="s">'d</span><span class="se">\x01\x00</span><span class="s">}</span><span class="se">\x01\x00</span><span class="s">|</span><span class="se">\x01\x00</span><span class="s">|</span><span class="se">\x00\x00\x17</span><span class="s">S'</span>
+</span></code></pre></td></tr></tbody></table></div></figure>
+
+
+<p>This is python <em>bytecode</em>.</p>
+
+<p>You recall from Part 2 that “python bytecode” and “a python code 
+object” are not the same thing: the bytecode is an attribute of the code
+ object, among many other attributes.  Bytecode is found in the <code>co_code</code> attribute of the code object, and contains instructions for the interpreter.</p>
+
+<p>So what is bytecode?  Well, it’s just a series of bytes.  They look 
+wacky when we print them because some bytes are printable and others 
+aren’t, so let’s take the <code>ord</code> of each byte to see that they’re just numbers.</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tbody><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="python"><span class="line"><span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="nb">ord</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">foo</span><span class="o">.</span><span class="n">func_code</span><span class="o">.</span><span class="n">co_code</span><span class="p">]</span>
+</span><span class="line"><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">125</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">124</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">124</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">83</span><span class="p">]</span>
+</span></code></pre></td></tr></tbody></table></div></figure>
+
+
+<p>Here are the bytes that make up python bytecode.  The interpreter 
+will loop through each byte, look up what it should do for each one, and
+ then do that thing.  Notice that the bytecode itself doesn’t include 
+any python objects, or references to objects, or anything like that.</p>
+
+<p>One way to understand python bytecode would be to find the CPython interpreter file (it’s <code>ceval.c</code>), and flip through it looking up what <code>100</code> means, then <code>1</code>, then <code>0</code>, and so on.  We’ll do this later in the series!  For now, there’s a simpler way: the <code>dis</code> module.</p>
+
+<h3>Disassembling bytecode</h3>
+
+<p>Disassembling bytecode means taking this series of bytes and printing
+ out something we humans can understand.  It’s not a step in python 
+execution; the <code>dis</code> module just helps us understand an 
+intermediate state of python internals. I can’t think of a reason why 
+you’d ever want to use <code>dis</code> in production code – it’s for humans, not for machines.</p>
+
+<p>Today, however, taking some bytecode and making it human-readable is exactly what we’re trying to do, so <code>dis</code> is a great tool.  We’ll use the function <code>dis.dis</code> to analyze the code object of our function <code>foo</code>.</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tbody><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+</pre></td><td class="code"><pre><code class="python"><span class="line"><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+</span><span class="line"><span class="o">...</span>     <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+</span><span class="line"><span class="o">...</span>     <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">a</span>
+</span><span class="line"><span class="o">...</span>
+</span><span class="line"><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">dis</span>
+</span><span class="line"><span class="o">&gt;&gt;&gt;</span> <span class="n">dis</span><span class="o">.</span><span class="n">dis</span><span class="p">(</span><span class="n">foo</span><span class="o">.</span><span class="n">func_code</span><span class="p">)</span>
+</span><span class="line">  <span class="mi">2</span>           <span class="mi">0</span> <span class="n">LOAD_CONST</span>               <span class="mi">1</span> <span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</span><span class="line">              <span class="mi">3</span> <span class="n">STORE_FAST</span>               <span class="mi">1</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span><span class="line">
+</span><span class="line">  <span class="mi">3</span>           <span class="mi">6</span> <span class="n">LOAD_FAST</span>                <span class="mi">1</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span><span class="line">              <span class="mi">9</span> <span class="n">LOAD_FAST</span>                <span class="mi">0</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span><span class="line">             <span class="mi">12</span> <span class="n">BINARY_ADD</span>
+</span><span class="line">             <span class="mi">13</span> <span class="n">RETURN_VALUE</span>
+</span></code></pre></td></tr></tbody></table></div></figure>
+
+
+<p>(You usually see this called as <code>dis.dis(foo)</code>, directly on the function object.  That’s just a convenience: <code>dis</code> is really analyzing the code object.  If it’s passed a function, it just gets its code object.)</p>
+
+<p>The numbers in the left-hand column are line numbers in the original 
+source code.  The second column is the offset into the bytecode: <code>LOAD_CONST</code> appears at position 0, <code>STORE_FAST</code>
+ at position 3, and so on.  The middle column shows the names of bytes. 
+These names are just for our (human) benefit – the interpreter doesn’t 
+need the names.</p>
+
+<p>The last two columns give details about the instructions’s argument, 
+if there is an argument.  The fourth column shows the argument itself, 
+which represents an index into other attributes of the code object. In 
+the example, <code>LOAD_CONST</code>’s argument is an index into the list <code>co_consts</code>, and <code>STORE_FAST</code>’s argument is an index into <code>co_varnames</code>.  Finally, in the fifth column, <code>dis</code>
+ has looked up the constants or names in the place the fourth column 
+specified and told us what it found there. We can easily verify this:</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tbody><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class="python"><span class="line"><span class="o">&gt;&gt;&gt;</span> <span class="n">foo</span><span class="o">.</span><span class="n">func_code</span><span class="o">.</span><span class="n">co_consts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span><span class="line"><span class="mi">3</span>
+</span><span class="line"><span class="o">&gt;&gt;&gt;</span> <span class="n">foo</span><span class="o">.</span><span class="n">func_code</span><span class="o">.</span><span class="n">co_varnames</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span><span class="line"><span class="s">'x'</span>
+</span></code></pre></td></tr></tbody></table></div></figure>
+
+
+<p>This also explains why the second instruction, <code>STORE_FAST</code>,
+ is found at bytecode position 3.  If a bytecode has an argument, the 
+next two bytes are that argument. It’s the interpreter’s job to handle 
+this correctly.</p>
+
+<p>(You may be surprised that <code>BINARY_ADD</code> doesn’t have arguments. We’ll come back to this in a future installment, when we get to the interpreter itself.)</p>
+
+<p>People often say that <code>dis</code> is a disassembler of python bytecode.  This is true enough – the <code>dis</code> module’s docs say it – but <code>dis</code>
+ knows about more than just the bytecode, too: it uses the whole code 
+object to give us an understandable printout.  The middle three columns 
+show information actually encoded in the bytecode, while the first and 
+the last columns show other information.  Again, the bytecode itself is 
+really limited: it’s just a series of numbers, and things like names and
+ constants are not a part of it.</p>
+
+<p>How does the <code>dis</code> module get from bytes like <code>100</code> to names like <code>LOAD_CONST</code>
+ and back?  Try to think of a way you’d do it.  If you thought “Well, 
+you could have a list that has the byte names in the right order,” or 
+you thought, “I guess you could have a dictionary where the names are 
+the keys and the byte values are the values,” then congratulations!  
+That’s exactly what’s going on.  The file <code>opcode.py</code> defines the list and the dictionary.  It’s full of lines like these (<code>def_op</code> inserts the mapping in both the list and the dictionary):</p>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tbody><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class="python"><span class="line"><span class="n">def_op</span><span class="p">(</span><span class="s">'LOAD_CONST'</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>       <span class="c"># Index in const list</span>
+</span><span class="line"><span class="n">def_op</span><span class="p">(</span><span class="s">'BUILD_TUPLE'</span><span class="p">,</span> <span class="mi">102</span><span class="p">)</span>      <span class="c"># Number of tuple items</span>
+</span><span class="line"><span class="n">def_op</span><span class="p">(</span><span class="s">'BUILD_LIST'</span><span class="p">,</span> <span class="mi">103</span><span class="p">)</span>       <span class="c"># Number of list items</span>
+</span><span class="line"><span class="n">def_op</span><span class="p">(</span><span class="s">'BUILD_SET'</span><span class="p">,</span> <span class="mi">104</span><span class="p">)</span>        <span class="c"># Number of set items</span>
+</span></code></pre></td></tr></tbody></table></div></figure>
+
+
+<p>There’s even a friendly comment telling us what each byte’s argument means.</p>
+
+<p>Ok, now we understand what python bytecode is (and isn’t), and how to use <code>dis</code>
+ to make sense of it. In Part 4, we’ll look at another example to see 
+how Python can compile down to bytecode but still be a dynamic language.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">akaptur</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-17T09:56:00-05:00" pubdate="" data-updated="true">Nov 17<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class="category" href="http://akaptur.com/blog/categories/python/">python</a>, <a class="category" href="http://akaptur.com/blog/categories/python-internals/">python-internals</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <iframe data-url="http://akaptur.github.com/blog/2013/11/17/introduction-to-the-python-interpreter-3/" src="Introduction%20to%20the%20Python%20Interpreter,%20Part%203:%20Understanding%20Bytecode%20-%20Allison%20Kaptur_files/tweet_button.html" title="Twitter Tweet Button" style="position: static; visibility: visible; width: 77px; height: 20px;" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" allowtransparency="true" id="twitter-widget-0" frameborder="0" scrolling="no"></iframe>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="http://akaptur.com/blog/2013/11/15/introduction-to-the-python-interpreter-2/" title="Previous Post: Introduction to the Python Interpreter, Part 2: Code Objects">« Introduction to the Python Interpreter, Part 2: Code Objects</a>
+      
+      
+        <a class="basic-alignment right" href="http://akaptur.com/blog/2013/12/03/introduction-to-the-python-interpreter-4/" title="Next Post: Introduction to the Python Interpreter, Part 4: It's Dynamic!">Introduction to the Python Interpreter, Part 4: It's Dynamic! »</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="http://akaptur.com/blog/2014/10/23/ps1-for-python3/">PS1 for Python3</a>
+      </li>
+    
+      <li class="post">
+        <a href="http://akaptur.com/blog/2014/10/10/im-joining-dropbox/">I'm joining Dropbox</a>
+      </li>
+    
+      <li class="post">
+        <a href="http://akaptur.com/blog/2014/09/21/debugging-with-pstree/">Debugging with pstree</a>
+      </li>
+    
+      <li class="post">
+        <a href="http://akaptur.com/blog/2014/09/11/rejected-pycon-proposals/">Rejected PyCon Proposals</a>
+      </li>
+    
+      <li class="post">
+        <a href="http://akaptur.com/blog/2014/08/03/getting-started-with-python-internals/">Getting Started with Python Internals</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    <span class="toggle-sidebar"></span></div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright © 2014 - akaptur -
+  <span class="credit">Powered by <a href="http://octopress.org/">Octopress</a></span>
+  - <span class="credit">Theme by <a href="http://www.gehaxelt.in/">Gehaxelt</a></span>
+  <span class="credit">and <a href="http://www.it-solutions-neef.de/">IT Solutions Neef</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+
+
+</body></html>

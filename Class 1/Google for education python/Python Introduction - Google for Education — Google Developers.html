@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html class="devsite" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <script async="" src="Python%20Introduction%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/cbgapi.loaded_1"></script><script async="" src="Python%20Introduction%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/cbgapi.loaded_0"></script><script gapi_processed="true" src="Python%20Introduction%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/platform.js" async="" type="text/javascript"></script><script src="Python%20Introduction%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/analytics.js" async=""></script><script>var b=window.devsite||{};b.timing={};window.devsite=b;window.devsite.timing=b.timing;b.timing.timers=[];b.timing.tick=function(d,a,g){for(var c=0;c<b.timing.timers.length;c++)b.timing.timers[c].tick(d,a,g)};window.devsite.timing.tick=b.timing.tick;b.timing.report=function(d){b.setTimeout(function(){for(var a=0;a<b.timing.timers.length;a++)window.jstiming.report(b.timing.timers[a],d)},500)};
+b.timing.init=function(d){b.timing.timers.push(window.jstiming.load);if(d){var a=new window.jstiming.Timer;a.name=d;b.timing.timers.push(a)}document.addEventListener&&window.addEventListener&&(document.addEventListener("DOMContentLoaded",b.timing.handleDomContentLoaded,!1),window.addEventListener("load",b.timing.handleLoad,!1))};b.timing.handleDomContentLoaded=function(){b.timing.tick("ol");document.removeEventListener("DOMContentLoaded",b.timing.handleDomContentLoaded,!1)};
+b.timing.handleLoad=function(){window.removeEventListener("load",b.timing.handleLoad,!1);var d=document.querySelector("#devsite-request-elapsed");d&&(d=parseInt(d.getAttribute("data-request-elapsed"),10))&&(b.timing.tick("_st_start",null,1),b.timing.tick("st","_st_start",1+d));b.timing.tick("prt");b.timing.report()};(function(){function d(a){this.t={};this.tick=function(a,d,c){var e=void 0!=c?c:(new Date).getTime();this.t[a]=[e,d];if(void 0==c)try{window.console.timeStamp("CSI/"+a)}catch(f){}};this.tick("start",null,a)}var a;window.performance&&(a=window.performance.timing);var g=a?new d(a.responseStart):new d;window.jstiming={Timer:d,load:g};if(a){var c=a.navigationStart,f=a.responseStart;0<c&&f>=c&&(window.jstiming.srt=f-c)}if(a){var e=window.jstiming.load;0<c&&f>=c&&(e.tick("_wtsrt",void 0,c),e.tick("wtsrt_",
+"_wtsrt",f),e.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),e&&0<c&&(e.tick("_tbnd",void 0,window.chrome.csi().startE),e.tick("tbnd_","_tbnd",c))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,e&&0<c&&(e.tick("_tbnd",void 0,window.external.startE),e.tick("tbnd_","_tbnd",c))),a&&(window.jstiming.pt=a)}catch(h){}})();
+devsite.timing.init('DocPage');</script>
+    
+      <link href="https://developers.google.com/edu/python/introduction" rel="canonical">
+    
+    <meta charset="utf-8">
+    
+      
+    
+    <meta name="xsrf_token" content="r17Ynd2_i6fg50Khloa3juVq9ODddAB2xit2Sg47_Lk6MTQzMTY3NDY0ODMzNjg4MA">
+      <link rel="stylesheet" type="text/css" href="Python%20Introduction%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/screen-maia.css">
+      <link href="Python%20Introduction%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/css.css" rel="stylesheet" type="text/css">
+    
+      
+        <link rel="stylesheet" type="text/css" href="Python%20Introduction%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/screen-docs.css">
+      
+      
+      <link href="Python%20Introduction%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/screen-foot.css" rel="stylesheet" type="text/css" id="screen-foot" data-href="https://developers.google.com/_static/eb84c2176e/css/screen-foot.css">
+    
+    <link rel="shortcut icon" href="https://developers.google.com/_static/eb84c2176e/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://developers.google.com/_static/eb84c2176e/images/apple-touch-icon.png">
+    <link href="Python%20Introduction%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/css_002.css" rel="stylesheet" type="text/css">
+    
+    
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Google Developers" href="https://developers.google.com/s/opensearch.xml">
+    
+    
+    
+    <script src="Python%20Introduction%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/jquery.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="https://developers.google.com/_static/eb84c2176e/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+  <meta property="og:site_name" content="Google Developers">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://developers.google.com/edu/python/introduction">
+  <meta property="og:locale" content="en">
+
+  <script type="text/javascript">
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script>
+  
+    <title>Python Introduction - Google for Education — Google Developers</title>
+    <meta property="og:title" content="Python Introduction">
+  
+  
+
+  
+    
+    
+    
+  
+
+
+    <style>
+    
+    </style>
+  </head>
+  <body class=" slim   two-column docs normal-width">
+
+  <div class="maia-max">
+
+    
+    <div id="sandbar">
+      
+        
+          
+
+
+
+
+
+<div id="maia-header" class="maia-header">
+  <header id="googlebar">
+    <div id="logo-wrapper">
+      <a id="logo" href="https://developers.google.com/">
+        <img src="Python%20Introduction%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/developers-logo.svg" alt="Google">
+      </a>
+      <script>
+      if (navigator.userAgent.match(/msie/i) && navigator.appVersion.indexOf['8'] ==0) {
+        $('#gc-logo img').attr({src:'https://developers.google.com/_static/eb84c2176e/images/developers-logo.png'});
+      }
+      </script>
+    </div>
+
+    <div id="search-wrapper" class="head-sec search-wrapper2 history-enabled">
+      <form class="search" action="/s/results" method="GET" id="top-search">
+        <div id="searchbox" class="devsite-searchbox searchbox"><span class="devsite-search-chip">Google for Education</span>
+           
+           <input name="q" class="devsite-search-query" placeholder="Search" autocomplete="off" type="text">
+        <ul style="display: none;" tabindex="0" role="menu" id="ui-id-1" class="suggest-results ui-menu ui-widget ui-widget-content ui-corner-all"></ul></div>
+        <button style="position: relative; top: 0px; left: 0px;" id="search-button" class="button button-blue big">
+          <img src="Python%20Introduction%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/search.png" alt="Search">
+        </button>
+        
+          <input name="p" id="search_project" value="/edu" data-project-name="Google for Education" data-project-path="/edu" data-query-match="" type="hidden">
+        
+        
+
+
+  
+  <input id="suggest-category-label-2" value="Pages in Google for Education" type="hidden">
+  
+  <input id="suggest-category-label-3" value="Reference in Google for Education" type="hidden">
+
+
+<input id="suggest-category-label-1" value="Products" type="hidden">
+
+<input id="suggest-all-results-label" value="See all results for" type="hidden">
+
+      </form>
+    </div>
+
+    
+    <div id="user-history">
+      <img src="Python%20Introduction%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/16x9.png" id="history-badge" class="history-opened" alt="Click here to see your recently viewed pages and most viewed pages.">
+    <div style="position: relative; top: 10px; left: -149.667px;" class="triangle-border footer-only" id="user-history-box"><div class="release-announcement" id="user-history-footer">The
+ Google Developers website now saves the pages you visit when you are 
+logged into Google. You can quickly access them via the history icon at 
+the top of the site. <br><a href="https://history.google.com/" class="release-manage-link" target="_blank">Manage History</a><a href="#" id="dismiss">Dismiss</a></div></div></div>
+    
+
+    <div id="social-wrapper" class="social">
+      
+      <span class="signed-in">
+        <div>
+          <a class"email"="" href="https://plus.google.com/me">niyasimonc@gmail.com</a>
+          <a href="https://www.google.com/accounts/Logout?continue=https://developers.google.com/edu/python/introduction&amp;service=ahsid">Sign out</a>
+        </div>
+        <img class="avatar" src="Python%20Introduction%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/photo.jpg">
+      </span>
+      
+    </div>
+  </header>
+</div>
+
+<script>
+  if (window.jQuery) {
+    $(document).ready(function() {
+      if (window.devsite && window.devsite.search) {
+        window.devsite.search.init('en', true, null, true)
+      }
+    });
+  }
+</script>
+
+        
+      
+    </div><!-- end div.sandbar -->
+    
+
+    
+    <div class="kd-butterbar">
+      <span>
+        <span class="message"></span>
+        
+        <a href="#" class="kd-butterbar-dismiss">Hide</a>
+      </span>
+    </div>
+    
+    <div id="gc-wrapper" itemscope="" itemtype="http://schema.org/Article">
+      
+        
+          <input class="google-analytics-id-json" value="{&quot;dimensions&quot;: {&quot;dimension6&quot;: &quot;en&quot;, &quot;dimension4&quot;: &quot;Google for Education&quot;, &quot;dimension5&quot;: &quot;en&quot;, &quot;dimension3&quot;: false, &quot;dimension1&quot;: &quot;Signed In&quot;}, &quot;gaid&quot;: &quot;UA-24532603-1&quot;}" type="hidden">
+        
+          <input class="google-analytics-id-json" value="{&quot;dimensions&quot;: {&quot;dimension6&quot;: &quot;en&quot;, &quot;dimension4&quot;: &quot;Google for Education&quot;, &quot;dimension5&quot;: &quot;en&quot;, &quot;dimension3&quot;: false, &quot;dimension1&quot;: &quot;Signed In&quot;}, &quot;gaid&quot;: &quot;UA-49880327-1&quot;}" type="hidden">
+        
+      
+
+      
+
+      
+
+<div id="gc-appnav" class="maia-aux">
+  <ol class="breadcrumbs">
+    
+    <li><a href="https://developers.google.com/products/">Products</a></li>
+    
+    <li><a href="https://developers.google.com/edu/">Google for Education</a></li>
+    
+  </ol>
+</div>
+
+
+
+      
+        
+        
+          <div class="maia-aux" id="gc-appbar">
+
+          
+          
+
+  <a href="https://developers.google.com/edu/" class="gc-appbar-title">
+    
+    Google for Education
+  </a>
+
+
+
+<div class="plusone-container" style="height:27px">
+  <div id="___plusone_0" style="position: absolute; width: 450px; left: -10000px;"><iframe data-gapiattached="true" src="Python%20Introduction%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/fastbutton.html" name="I0_1431674650388" id="I0_1431674650388" vspace="0" tabindex="0" style="position:absolute;top:-10000px;width:450px;margin:0px;border-style:none" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div><div data-gapistub="true" data-onload="true" data-gapiscan="true" class="g-plusone" data-href="https://developers.google.com/edu/python/introduction" data-size="medium" data-source="google:developers"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+          
+          </div>
+
+        
+      
+
+      
+        
+          <div id="gc-main" class="main">
+        
+        
+  
+  
+      
+      
+      <div id="gc-sidebar">
+        
+
+  <nav class="devsite-section-nav devsite-nav gc-toc"><ul class="devsite-nav-expandable"><li class="devsite-nav-item devsite-nav-item-section-expandable"><a href="https://developers.google.com/edu/python" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Python Course</a><a class="devsite-nav-toggle devsite-nav-toggle-expanded"></a><ul class="devsite-nav-section devsite-nav-section-expanded"><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/set-up" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Python Set Up</a></li><li class="devsite-nav-item devsite-nav-active"><a href="https://developers.google.com/edu/python/introduction" class="devsite-nav-title gc-analytics-event devsite-nav-active" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Introduction</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/strings" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Strings</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/lists" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Lists</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/sorting" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Sorting</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/dict-files" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Dicts and Files</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/regular-expressions" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Regular Expressions</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/utilities" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Utilities</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><a tabindex="0" class="devsite-nav-title devsite-nav-title-no-path ">Lecture Videos day1, day2</a><a class="devsite-nav-toggle devsite-nav-toggle-collapsed"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=tKTZoB2Vjuk" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">1.1 Introduction, strings</a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=EPYupizJYQI" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">1.2 Lists and sorting</a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=haycL41dAhg" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">1.3 Dicts and files</a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=kWyoYtvJpe4" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">2.1 Regular expr</a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=uKZ8GBKmeDM" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">2.2 Utilities</a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=Nn2KQmVF5Og" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">2.3 Utilities urllib</a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=IcteAbMC1Ok" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">2.4 Conclusions</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><a tabindex="0" class="devsite-nav-title devsite-nav-title-no-path ">Python Exercises</a><a class="devsite-nav-toggle devsite-nav-toggle-collapsed"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/exercises/basic" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Basic Exercises</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/exercises/baby-names" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Baby Names Exercise</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/exercises/copy-special" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Copy Special Exercise</a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/exercises/log-puzzle" class="devsite-nav-title gc-analytics-event " data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Log Puzzle Exercise</a></li></ul></li></ul></nav>
+
+
+      </div>
+      
+
+      <div id="gc-content">
+        
+        <div>
+  
+          
+  
+  <h1 itemprop="name" class="page-title">Python Introduction</h1>
+  
+  <div itemprop="articleBody">
+  
+
+<p></p>
+
+<h2>Prelude</h2>
+
+<p>Welcome to Google's Python online tutorial. It is based on the 
+introductory Python course offered internally. Originally created during
+ the Python 2.4 days, we've tried to keep the content universal and 
+exercises relevant, even for newer releases. As mentioned on the <a href="https://developers.google.com/edu/python/set-up">setup page</a>,
+ this material covers Python 2. While we recommend "avoiding" Python 3 
+for now, recognize that it is the future, as all new features are only 
+going there. The good news is that developers learning either version 
+can pick up the other without too much difficulty. If you want to know 
+more about choosing Python 2 vs. 3, check out <a href="http://qr.ae/36Yaz">this post</a>.</p>
+
+<p>We strongly recommend you follow along with the companion videos throughout the course, starting with <a href="http://youtu.be/tKTZoB2Vjuk">the first one</a>. If you're seeking a companion MOOC course, try the ones from <a href="http://udacity.com/course/cs101">Udacity</a> and Coursera (<a href="http://coursera.org/course/programming1">intro to programming</a> [beginners] or <a href="http://coursera.org/course/interactivepython">intro to Python</a>), and if you're looking for a companion book to your learning, regardless of your Python skill level, check out <a href="http://goo.gl/i4u0R">these reading lists</a>. Finally, if you're seeking self-paced online learning <i>without</i> watching videos, try the ones listed towards the end of <a href="http://stackoverflow.com/a/3226704/305689">this post</a>
+ — each feature learning content as well as a Python interactive 
+interpreter you can practice with. What's this "interpreter" we mention?
+ You'll find out in the next section!</p>
+
+<h2>Language Introduction</h2>
+
+<p>Python is a dynamic, interpreted (bytecode-compiled) language. There 
+are no type declarations of variables, parameters, functions, or methods
+ in source code. This makes the code short and flexible, and you lose 
+the compile-time type checking of the source code. Python tracks the 
+types of all values at runtime and flags code that does not make sense 
+as it runs.
+
+</p><p>An excellent way to see how Python code works is to run the 
+Python interpreter and type code right into it. If you ever have a 
+question like, "What happens if I add an <code>int</code> to a <code>list</code>?"
+ Just typing it into the Python interpreter is a fast and likely the 
+best way to see what happens. (See below to see what really happens!)</p>
+
+<pre class="prettyprint"><span class="pln">$ python &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">## Run the Python interpreter</span><span class="pln"><br></span><span class="typ">Python</span><span class="pln"> </span><span class="lit">2.7</span><span class="pun">.</span><span class="lit">9</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">default</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Dec</span><span class="pln"> </span><span class="lit">30</span><span class="pln"> </span><span class="lit">2014</span><span class="pun">,</span><span class="pln"> </span><span class="lit">03</span><span class="pun">:</span><span class="lit">41</span><span class="pun">:</span><span class="lit">42</span><span class="pun">)</span><span class="pln"> <br></span><span class="pun">[</span><span class="pln">GCC </span><span class="lit">4.1</span><span class="pun">.</span><span class="lit">2</span><span class="pln"> </span><span class="lit">20080704</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Red</span><span class="pln"> </span><span class="typ">Hat</span><span class="pln"> </span><span class="lit">4.1</span><span class="pun">.</span><span class="lit">2</span><span class="pun">-</span><span class="lit">55</span><span class="pun">)]</span><span class="pln"> on linux2<br></span><span class="typ">Type</span><span class="pln"> </span><span class="str">"help"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"copyright"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"credits"</span><span class="pln"> </span><span class="kwd">or</span><span class="pln"> </span><span class="str">"license"</span><span class="pln"> </span><span class="kwd">for</span><span class="pln"> more information</span><span class="pun">.</span><span class="pln"><br></span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">6</span><span class="pln"> &nbsp; &nbsp; &nbsp; </span><span class="com">## set a variable in this interpreter session</span><span class="pln"><br></span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> a &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">## entering an expression prints its value</span><span class="pln"><br></span><span class="lit">6</span><span class="pln"><br></span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> a </span><span class="pun">+</span><span class="pln"> </span><span class="lit">2</span><span class="pln"><br></span><span class="lit">8</span><span class="pln"><br></span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="str">'hi'</span><span class="pln"> &nbsp; &nbsp;</span><span class="com">## 'a' can hold a string just as well</span><span class="pln"><br></span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> a<br></span><span class="str">'hi'</span><span class="pln"><br></span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> len</span><span class="pun">(</span><span class="pln">a</span><span class="pun">)</span><span class="pln"> &nbsp; &nbsp; &nbsp;</span><span class="com">## call the len() function on a string</span><span class="pln"><br></span><span class="lit">2</span><span class="pln"><br></span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> a </span><span class="pun">+</span><span class="pln"> len</span><span class="pun">(</span><span class="pln">a</span><span class="pun">)</span><span class="pln"> &nbsp;</span><span class="com">## try something that doesn't work</span><span class="pln"><br></span><span class="typ">Traceback</span><span class="pln"> </span><span class="pun">(</span><span class="pln">most recent call </span><span class="kwd">last</span><span class="pun">):</span><span class="pln"><br>&nbsp; </span><span class="typ">File</span><span class="pln"> </span><span class="str">"</span><stdin><span class="str">"</span><span class="pun">,</span><span class="pln"> line </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">in</span><span class="pln"> </span><module><span class="pln"><br></span><span class="typ">TypeError</span><span class="pun">:</span><span class="pln"> cannot concatenate </span><span class="str">'str'</span><span class="pln"> </span><span class="kwd">and</span><span class="pln"> </span><span class="str">'int'</span><span class="pln"> objects<br></span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> a </span><span class="pun">+</span><span class="pln"> str</span><span class="pun">(</span><span class="pln">len</span><span class="pun">(</span><span class="pln">a</span><span class="pun">))</span><span class="pln"> &nbsp;</span><span class="com">## probably what you really wanted</span><span class="pln"><br></span><span class="str">'hi2'</span><span class="pln"><br></span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> foo &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">## try something else that doesn't work</span><span class="pln"><br></span><span class="typ">Traceback</span><span class="pln"> </span><span class="pun">(</span><span class="pln">most recent call </span><span class="kwd">last</span><span class="pun">):</span><span class="pln"><br>&nbsp; </span><span class="typ">File</span><span class="pln"> </span><span class="str">"</span><stdin><span class="str">"</span><span class="pun">,</span><span class="pln"> line </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">in</span><span class="pln"> </span><module><span class="pln"><br></span><span class="typ">NameError</span><span class="pun">:</span><span class="pln"> name </span><span class="str">'foo'</span><span class="pln"> </span><span class="kwd">is</span><span class="pln"> </span><span class="kwd">not</span><span class="pln"> </span><span class="kwd">defined</span><span class="pln"><br></span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> </span><span class="pun">^</span><span class="pln">D &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">## type CTRL-d to exit (CTRL-z in Windows/DOS terminal)</span><span class="pln"><br></span></module></stdin></module></stdin></pre>
+
+<p>As you can see above, it's easy to experiment with variables and 
+operators. Also, the interpreter throws, or "raises" in Python parlance,
+ a runtime error if the code tries to read a variable that has not been 
+assigned a value. Like C++ and Java, Python is case sensitive so "a" and
+ "A" are different variables. The end of a line marks the end of a 
+statement, so unlike C++ and Java, Python does not require a semicolon 
+at the end of each statement. Comments begin with a '#' and extend to 
+the end of the line.</p>
+
+<h2>Python source code</h2>
+
+<p>Python source files use the ".py" extension and are called "modules." With a Python module <code>hello.py</code>,
+ the easiest way to run it is with the shell command "python hello.py 
+Alice" which calls the Python interpreter to execute the code in <code>hello.py</code>, passing it the command line argument "Alice".
+See the <a href="http://docs.python.org/using/cmdline">official docs page</a> on all the different options you have when running Python from the command-line.
+</p>
+
+<p>Here's a very simple <code>hello.py</code> program (notice that blocks of code are delimited strictly using indentation rather than curly braces — more on this later!):</p>
+
+<pre class="prettyprint"><span class="com">#!/usr/bin/env python</span><span class="pln"><br><br></span><span class="com"># import modules used here -- sys is a very standard one</span><span class="pln"><br></span><span class="kwd">import</span><span class="pln"> sys<br><br></span><span class="com"># Gather our code in a main() function</span><span class="pln"><br></span><span class="kwd">def</span><span class="pln"> main</span><span class="pun">():</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> </span><span class="str">'Hello there'</span><span class="pun">,</span><span class="pln"> sys</span><span class="pun">.</span><span class="pln">argv</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="com"># Command line args are in sys.argv[1], sys.argv[2] ...</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="com"># sys.argv[0] is the script name itself and can be ignored</span><span class="pln"><br><br></span><span class="com"># Standard boilerplate to call the main() function to begin</span><span class="pln"><br></span><span class="com"># the program.</span><span class="pln"><br></span><span class="kwd">if</span><span class="pln"> __name__ </span><span class="pun">==</span><span class="pln"> </span><span class="str">'__main__'</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; main</span><span class="pun">()</span></pre>
+
+<p>Running this program from the command line looks like:</p>
+<pre>$ python hello.py Guido
+Hello there Guido
+$ ./hello.py Alice  ## without needing 'python' first (Unix)
+Hello there Alice
+</pre>
+
+<h2>Imports, Command-line arguments, and <code>len()</code></h2>
+
+<p>The outermost statements in a Python file, or "module", do its 
+one-time setup — those statements run from top to bottom the first time 
+the module is imported somewhere, setting up its variables and 
+functions. A Python module can be run directly — as above "python 
+hello.py Bob" — or it can be imported and used by some other module. 
+When a Python file is run directly, the special variable "__name__" is 
+set to "__main__".  Therefore, it's common to have the boilerplate <code>if __name__ ==...</code>
+ shown above to call a main() function when the module is run directly, 
+but not when the module is imported by some other module.</p>
+
+<p>In a standard Python program, the list <code>sys.argv</code> contains
+ the command-line arguments in the standard way with sys.argv[0] being 
+the program itself, sys.argv[1] the first argument, and so on. If you 
+know about <code>argc</code>, or the number of arguments, you can simply request this value from Python with <code>len(sys.argv)</code>, just like we did in the interactive interpreter code above when requesting the length of a string. In general, <code>len()</code>
+ can tell you how long a string is, the number of elements in lists and 
+tuples (another array-like data structure), and the number of key-value 
+pairs in a dictionary.</p>
+
+<h2>User-defined Functions</h2>
+
+<p>Functions in Python are defined like this:</p>
+
+<pre class="prettyprint"><span class="com"># Defines a "repeat" function that takes 2 arguments.</span><span class="pln"><br></span><span class="kwd">def</span><span class="pln"> repeat</span><span class="pun">(</span><span class="pln">s</span><span class="pun">,</span><span class="pln"> exclaim</span><span class="pun">):</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="str">"""<br>&nbsp; &nbsp; Returns the string 's' repeated 3 times.<br>&nbsp; &nbsp; If exclaim is true, add exclamation marks.<br>&nbsp; &nbsp; """</span><span class="pln"><br><br>&nbsp; &nbsp; result </span><span class="pun">=</span><span class="pln"> s </span><span class="pun">+</span><span class="pln"> s </span><span class="pun">+</span><span class="pln"> s </span><span class="com"># can also use "s * 3" which is faster (Why?)</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> exclaim</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; result </span><span class="pun">=</span><span class="pln"> result </span><span class="pun">+</span><span class="pln"> </span><span class="str">'!!!'</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">return</span><span class="pln"> result</span></pre>
+
+<p>Notice also how the lines that make up the function or if-statement 
+are grouped by all having the same level of indentation. We also 
+presented 2 different ways to repeat strings, using the + operator which
+ is more user-friendly, but * also works because it's Python's "repeat" 
+operator, meaning that <code>'-' * 10</code> gives <code>'----------'</code>,
+ a neat way to create an onscreen "line." In the code comment, we hinted
+ that * works faster than +, the reason being that * calculates the size
+ of the resulting object once whereas with +, that calculation is made 
+each time + is called. Both + and * are called "overloaded" operators 
+because they mean different things for numbers vs. for strings (and 
+other data types).</p>
+
+<p>The <code>def</code> keyword defines the function with its parameters
+ within parentheses and its code indented. The first line of a function 
+can be a documentation string ("docstring") that describes what the 
+function does. The docstring can be a single line, or a multi-line 
+description as in the example above. (Yes, those are "triple quotes," a 
+feature unique to Python!) Variables defined in the function are local 
+to that function, so the "result" in the above function is separate from
+ a "result" variable in another function. The <code>return</code> statement can take an argument, in which case that is the value returned to the caller.</p>
+
+<p>Here is code that calls the above repeat() function, printing what it returns:</p>
+
+<pre class="prettyprint"><span class="kwd">def</span><span class="pln"> main</span><span class="pun">():</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> repeat</span><span class="pun">(</span><span class="str">'Yay'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">False</span><span class="pun">)</span><span class="pln"> &nbsp; &nbsp; &nbsp;</span><span class="com">## YayYayYay</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> repeat</span><span class="pun">(</span><span class="str">'Woo Hoo'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">True</span><span class="pun">)</span><span class="pln"> &nbsp; </span><span class="com">## Woo HooWoo HooWoo Hoo!!!</span></pre>
+
+<p>At run time, functions must be defined by the execution of a "def" 
+before they are called. It's typical to def a main() function towards 
+the bottom of the file with the functions it calls above it.</p>
+
+<h2>Indentation</h2>
+
+<p>One unusual Python feature is that the whitespace indentation of a 
+piece of code affects its meaning. A logical block of statements such as
+ the ones that make up a function should all have the same indentation, 
+set in from the indentation of their parent function or "if" or 
+whatever. If one of the lines in a group has a different indentation, it
+ is flagged as a syntax error.</p>
+
+<p>Python's use of whitespace feels a little strange at first, but it's 
+logical and I found I got used to it very quickly. Avoid using TABs as 
+they greatly complicate the indentation scheme (not to mention TABs may 
+mean different things on different platforms). Set your editor to insert
+ spaces instead of TABs for Python code.</p>
+
+<p>A common question beginners ask is, "How many spaces should I indent?" According to <a href="http://python.org/dev/peps/pep-0008/#indentation">the official Python style guide (PEP 8)</a>, you should indent with 4 spaces. (Fun fact: Google's internal style guideline dictates indenting by 2 spaces!)</p>
+
+<h2>Code Checked at Runtime</h2>
+
+<p>Python does very little checking at compile time, deferring almost 
+all type, name, etc. checks on each line until that line runs. Suppose 
+the above main() calls repeat() like this:</p>
+
+<pre class="prettyprint"><span class="kwd">def</span><span class="pln"> main</span><span class="pun">():</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> name </span><span class="pun">==</span><span class="pln"> </span><span class="str">'Guido'</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> repeeeet</span><span class="pun">(</span><span class="pln">name</span><span class="pun">)</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">'!!!'</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">else</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> repeat</span><span class="pun">(</span><span class="pln">name</span><span class="pun">)</span></pre>
+
+<p>The if-statement contains an obvious error, where the repeat() 
+function is accidentally typed in as repeeeet(). The funny thing in 
+Python ... this code compiles and runs fine so long as the name at 
+runtime is not 'Guido'. Only when a run actually tries to execute the 
+repeeeet() will it notice that there is no such function and raise an 
+error. This just means that when you first run a Python program, some of
+ the first errors you see will be simple typos like this. This is one 
+area where languages with a more verbose type system, like Java, have an
+ advantage ... they can catch such errors at compile time (but of course
+ you have to maintain all that type information ... it's a tradeoff).</p>
+
+<h2>Variable Names</h2>
+
+<p>Since Python variables don't have any type spelled out in the source 
+code, it's extra helpful to give meaningful names to your variables to 
+remind yourself of what's going on. So use "name" if it's a single name,
+ and "names" if it's a list of names, and "tuples" if it's a list of 
+tuples. <!-- may link to list/tuple docs here --> Many basic Python 
+errors result from forgetting what type of value is in each variable, so
+ use your variable names (all you have really) to help keep things 
+straight.</p>
+
+<p>As far as actual naming goes, some languages prefer underscored_parts
+ for variable names made up of "more than one word," but other languages
+ prefer camelCasing. In general, Python <a href="http://python.org/dev/peps/pep-0008/#function-names">prefers</a>
+ the underscore method but guides developers to defer to camelCasing if 
+integrating into existing Python code that already uses that style. 
+Readability counts. Read more in <a href="https://www.python.org/dev/peps/pep-0008/#naming-conventions">the section on naming conventions in PEP 8</a>.</p>
+
+<p>As you can guess, keywords like 'print' and 'while' cannot be used as
+ variable names — you'll get a syntax error if you do. However, be 
+careful not to use built-ins as variable names. For example, while 'str'
+ and 'list' may seem like good names, you'd be overriding those system 
+variables. Built-ins are not keywords and thus, are susceptible to 
+inadvertent use by new Python developers.</p>
+
+<h2>More on Modules and their Namespaces</h2>
+
+<p>Suppose you've got a module "binky.py" which contains a "def foo()". 
+The fully qualified name of that foo function is "binky.foo". In this 
+way, various Python modules can name their functions and variables 
+whatever they want, and the variable names won't conflict — module1.foo 
+is different from module2.foo. In the Python vocabulary, we'd say that 
+binky, module1, and module2 each have their own "namespaces," which as 
+you can guess are variable name-to-object bindings.</p>
+
+<p>For example, we have the standard "sys" module that contains some 
+standard system facilities, like the argv list, and exit() function. 
+With the statement "import sys" you can can then access the definitions 
+in the sys module and makes them available by their fully-qualified 
+name, e.g. sys.exit(). (Yes, 'sys' has a namespace too!)</p>
+
+<pre class="prettyprint"><span class="pln">&nbsp; </span><span class="kwd">import</span><span class="pln"> sys<br><br>&nbsp; </span><span class="com"># Now can refer to sys.xxx facilities</span><span class="pln"><br>&nbsp; sys</span><span class="pun">.</span><span class="kwd">exit</span><span class="pun">(</span><span class="lit">0</span><span class="pun">)</span></pre>
+
+<p>There is another import form that looks like this: "from sys import 
+argv, exit". That makes argv and exit() available by their short names; 
+however, we recommend the original form with the fully-qualified names 
+because it's a lot easier to determine where a function or attribute 
+came from.</p>
+
+<p>There are many modules and packages which are bundled with a standard
+ installation of the Python interpreter, so you don't have do anything 
+extra to use them. These are collectively known as the "Python Standard 
+Library." Commonly used modules/packages include:</p>
+
+<ul>
+   <li> sys — access to exit(), argv, stdin, stdout, ...
+
+   </li><li> re — regular expressions
+
+   </li><li> os — operating system interface, file system
+</li></ul>
+
+<p>You can find the documentation of all the Standard Library modules and packages at <a href="http://docs.python.org/library">http://docs.python.org/library</a>.</p>
+
+<!-- could link to modules materials -->
+
+<h2>Online help, <code>help()</code>, and <code>dir()</code></h2>
+
+<p>There are a variety ways to get help for Python.</p>
+
+<ul>
+   <li>Do a Google search, starting with the word "python", like "python
+ list" or "python string lowercase". The first hit is often the answer. 
+This technique seems to work better for Python than it does for other 
+languages for some reason.</li>
+
+   <li>The official Python docs site —
+    <a href="http://docs.python.org/">docs.python.org</a> — has high quality docs. Nonetheless, I often find a Google search of a couple words to be quicker.</li>
+
+   <li>There is also an <a href="http://mail.python.org/mailman/listinfo/tutor">official Tutor mailing list</a> specifically designed for those who are new to Python and/or programming!</li>
+   <li>Many questions (and answers) can be found on <a href="http://stackoverflow.com/questions/tagged/python">StackOverflow</a> and <a href="http://quora.com/Python-programming-language">Quora</a>.</li>
+   <li>Use the help() and dir() functions (see below).</li>
+</ul>
+
+<p>Inside the Python interpreter, the help() function pulls up 
+documentation strings for various modules, functions, and methods. These
+ doc strings are similar to Java's javadoc. The dir() function tells you
+ what the attributes of an object are. Below are some ways to call 
+help() and dir() from the interpreter:
+
+</p><ul>
+   <li><code>help(len)</code> — help string for the built-in <code>len()</code> function; note that it's "len" not "len()", which is a <strong>call</strong> to the function, which we don't want</li>
+
+   <li><code>help(sys)</code> — help string for the <code>sys</code> module (must do an <code>import sys</code> first)</li>
+
+   <li><code>dir(sys)</code> — <code>dir()</code> is like <code>help()</code> but just gives a quick list of its defined symbols, or "attributes"</li>
+
+   <li><code>help(sys.exit)</code> — help string for the <code>exit()</code> function in the <code>sys</code> module</li>
+
+   <li><code>help('xyz'.split)</code> — help string for the <code>split()</code> method for string objects. You can call <code>help()</code> with that object itself or an <strong>example</strong> of that object, plus its attribute. For example, calling <code>help('xyz'.split)</code> is the same as calling <code>help(str.split)</code>.</li>
+
+   <li><code>help(list)</code> — help string for <code>list</code> objects</li>
+
+   <li><code>dir(list)</code> — displays <code>list</code> object attributes, including its methods</li>
+
+   <li><code>help(list.append)</code> — help string for the <code>append()</code> method for <code>list</code> objects</li>
+</ul>
+
+
+      
+  </div>
+
+  
+        </div>
+        
+<div id="gc-content-footer">
+
+<div id="gc-content-license">
+
+    
+      
+        <p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="https://developers.google.com/site-policies">Site Policies</a>.</p>
+      
+    
+    
+    
+
+</div>
+
+
+
+<div itemprop="datePublished" content="2015-02-04T19:01:30.552940" id="gc-content-last-updated">Last updated February 4, 2015.</div>
+
+</div>
+
+
+      </div>
+  
+
+        
+      </div>
+        
+      
+      
+        
+          
+        
+      
+
+      
+
+  
+
+  
+       <!-- not (if site.theme == 'maia' or site.theme == 'maia-cloud') -->
+      <div id="gc-footer-container">
+        <footer id="gc-footer">
+          
+
+
+
+
+        <div id="maia-footer-local" class="footer-local">
+          <div id="footer-top" class="maia-aux">
+            <div class="footer-top-wrap">
+
+             <div class="search-wrap new_left">
+               <div class="dev-wrap new_left">
+                 <a href="https://developers.google.com/"><img src="Python%20Introduction%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/developers-logo.png"></a>
+               </div>
+               <form class="search new_left" action="/s/results" method="GET" id="footer-search">
+                 <div id="searchbox" class="devsite-searchbox searchbox new_left">
+                   <input name="q" class="devsite-search-query" placeholder="Search" autocomplete="off" type="text">
+                 </div>
+                 <button id="search-button" class="button button-blue big new_left">
+                   <img src="Python%20Introduction%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/search.png" alt="Search">
+                 </button>
+               </form>
+             </div>
+             <div class="plus-wrap new_left">
+               <div class="plus">
+                 <div id="___follow_0" style="position: absolute; width: 450px; left: -10000px;"><iframe data-gapiattached="true" src="Python%20Introduction%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/follow.html" name="I1_1431674650393" id="I1_1431674650393" vspace="0" tabindex="0" style="position:absolute;top:-10000px;width:450px;margin:0px;border-style:none" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div><div data-gapistub="true" data-onload="true" data-gapiscan="true" class="g-follow" data-annotation="bubble" data-height="24" data-href="https://plus.google.com/+GoogleDevelopers/" data-rel="publisher"></div>
+               </div>
+             </div>
+           </div>
+         </div>
+
+      <div id="footer-list" class="maia-aux">
+    <div class="footer-list-wrap  maia-cols">
+      <div class="maia-col-3">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="https://developers.google.com/products/">Products</a></li>
+          <li><a href="https://developers.google.com/events/">Events</a></li>
+          <li><a href="https://developers.google.com/community/">Communities</a></li>
+        </ul>
+      </div>
+      <div class="maia-col-3">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="http://googledevelopers.blogspot.com/" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Blog Link">Blog</a></li>
+          <li><a href="https://plus.google.com/+GoogleDevelopers/posts" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer G+ Link">Google+ Community</a></li>
+          <li><a href="http://www.youtube.com/user/GoogleDevelopers" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer YouTube Link">YouTube Channel</a></li>
+          <li><a class="google-feedback" id="devsite-feedback-site">Report an Issue</a></li>
+          <li><a href="https://developers.google.com/careers/">Jobs</a></li>
+        </ul>
+      </div>
+      
+      <script type="text/javascript">
+      $(document).ready(function() {
+        new devsite.feedback.Widget({
+            'product_id': '81425',
+            'bucket': 'Documentation',
+            'version': 'devsite-20150514-r00-rc02.default'
+          },
+          document.querySelectorAll('#devsite-feedback-site'),
+          null,
+          null,
+          null,
+          null
+        );
+      });
+      </script>
+      <div class="maia-col-3">
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="https://developers.google.com/groups/">Groups</a></li>
+          <li><a href="https://developers.google.com/experts/">Experts</a></li>
+          <li><a href="https://developers.google.com/startups/">Startups</a></li>
+          <li><a href="https://www.womentechmakers.com/">Women Techmakers</a></li>
+        </ul>
+      </div>
+      <div class="maia-col-3">
+        <h4>Top Products</h4>
+        <ul class="top-prod-1 left">
+          <li><a href="https://developers.google.com/ads/">Ads</a></li>
+          <li><a href="https://developers.google.com/analytics/">Analytics</a></li>
+          <li><a href="https://developer.android.com/" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Android Link">Android</a></li>
+          <li><a href="https://developers.google.com/cast/">Cast</a></li>
+          <li><a href="https://developers.google.com/chrome/">Chrome</a></li>
+          <li><a href="https://cloud.google.com/docs/" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Cloud Link">Cloud</a></li>
+        </ul>
+        <ul class="top-prod-2 left">
+          <li><a href="https://developers.google.com/google-apps/">Google Apps</a></li>
+          <li><a href="https://developers.google.com/+/">Google+</a></li>
+          <li><a href="https://developers.google.com/maps/">Maps</a></li>
+          <li><a href="https://developers.google.com/search/">Search</a></li>
+          <li><a href="https://developers.google.com/commerce/wallet/">Wallet</a></li>
+          <li><a href="https://developers.google.com/youtube/">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div><!-- END DIV#MAIA-FOOTER-LOCAL -->
+
+<div id="maia-footer-global" class="footer-global">
+  <div class="maia-aux">
+    <span id="terms">
+      <a href="https://developers.google.com/site-terms/">Terms of Use</a>
+    </span>
+    <span class="pipe">
+    </span>
+    <span id="privacy">
+      <a href="http://www.google.com/intl/en/privacy/" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Privacy Link">Privacy Policy</a>
+    </span>
+
+    
+    <div id="gc-language" class="new_right">
+    <ul>
+      <li>
+        <form id="setlang" action="/i18n/setlang/" method="post">
+          <input name="xsrf_token" value="r17Ynd2_i6fg50Khloa3juVq9ODddAB2xit2Sg47_Lk6MTQzMTY3NDY0ODMzNjg4MA" type="hidden">
+          <select style="display: none;" id="footer_language" name="language">
+            <option value="ar">
+                العربيّة
+              </option><option value="bg">
+                български
+              </option><option value="ca">
+                català
+              </option><option value="zh-cn">
+                简体中文
+              </option><option value="zh-tw">
+                繁體中文
+              </option><option value="hr">
+                Hrvatski
+              </option><option value="cs">
+                česky
+              </option><option value="da">
+                dansk
+              </option><option value="nl">
+                Nederlands
+              </option><option value="en" selected="selected">
+                English
+              </option><option value="fa">
+                فارسی
+              </option><option value="fi">
+                suomi
+              </option><option value="fr">
+                français
+              </option><option value="de">
+                Deutsch
+              </option><option value="el">
+                Ελληνικά
+              </option><option value="he">
+                עברית
+              </option><option value="hi">
+                Hindi
+              </option><option value="hu">
+                Magyar
+              </option><option value="id">
+                Bahasa Indonesia
+              </option><option value="it">
+                italiano
+              </option><option value="ja">
+                日本語
+              </option><option value="ko">
+                한국어
+              </option><option value="lv">
+                latviešu
+              </option><option value="lt">
+                Lithuanian
+              </option><option value="nb">
+                norsk (bokmål)
+              </option><option value="nn">
+                norsk (nynorsk)
+              </option><option value="pl">
+                polski
+              </option><option value="pt-br">
+                Português Brasileiro
+              </option><option value="pt">
+                Português
+              </option><option value="ro">
+                Română
+              </option><option value="ru">
+                Русский
+              </option><option value="sr">
+                српски
+              </option><option value="sk">
+                slovenský
+              </option><option value="sl">
+                Slovenščina
+              </option><option value="es">
+                español
+              </option><option value="sv">
+                svenska
+              </option><option value="th">
+                Thai
+              </option><option value="tr">
+                Türkçe
+              </option><option value="uk">
+                Українська
+              </option><option value="vi">
+                Vietnamese
+              </option>
+          </select><span class="kd-button kd-menubutton kd-select"><div style="display: inline-block;"><div style="float: left;" class="label">
+                English
+              </div><div class="kd-disclosureindicator"></div></div></span>
+        </form>
+      </li>
+    </ul>
+    </div>
+    
+  </div>
+</div><!-- END DIV#MAIA-FOOTER-GLOBAL -->
+
+        </footer>
+      </div>
+      
+
+      
+      
+  
+
+    </div>
+
+    <div id="search-autocomplete" class="search-results search-autocomplete" style="display:none"></div>
+    <script type="text/javascript" async="" defer="defer" src="Python%20Introduction%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/api.js"></script>
+
+    
+    <script>
+      (function($) {
+        var cssHref = $('#screen-foot').attr('data-href');
+        $('#screen-foot').attr('href', cssHref);
+        $('#screen-foot').load(function() {
+          
+          devsite.timing.tick('cl');
+        });
+      })(jQuery);
+    </script>
+    
+
+    <script id="jqueryui" src="Python%20Introduction%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/jquery-ui.js"></script>
+    
+    <script type="text/javascript" src="Python%20Introduction%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/a"></script>
+    <script src="Python%20Introduction%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/script_foot_closure.js"></script>
+    <script src="Python%20Introduction%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/script_foot.js"></script>
+    <script>
+      
+      devsite.timing.tick('jl');
+      (function($) {
+        devsite.devsite.Init($, 'devsite',
+            '[]', '',
+            'en', true,
+            'eb84c2176e', 'niyasimonc@gmail.com',
+            false,
+            {"296e8173cd0024b4839dd7f3d7fa4387": true, "04f8c40014dc472fb1b95e175fb1b9fd": true, "6749dcb526ce9bde6993550c7d928d24": true, "993b1906435224595bd618f6f331ee45": true, "6e6d95ece619bf85cc1ea2c6da8a4690": true});
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+    </script>
+
+    
+
+    
+
+    <script type="text/javascript">
+    $('#setlang select').each(function() {
+      if (navigator.userAgent.match(/msie/i)) {
+        $(this).change(function() {
+          $('#setlang').submit();
+        });
+      } else {
+        $(this).kdSelect({'change': function() {
+          $('#setlang').submit();
+        }});
+      }
+    });
+    </script>
+
+    
+
+    
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="Python%20Introduction%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/conversion.js"></script><img alt="" src="Python%20Introduction%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/a_002" border="0" height="1" width="1">
+    <noscript>
+      <img style="display:none;" src="//www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;guid=ON&amp;script=0"/>
+    </noscript>
+
+    
+
+    
+    
+    <script async="" defer="defer" src="Python%20Introduction%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/async_survey"></script>
+    
+
+    
+
+
+
+<script type="text/javascript" defer="defer">
+
+
+</script>
+
+
+
+
+  </div><ul style="display: none; position: absolute; top: 5455px; right: 0px; bottom: auto; left: auto; height: 1312px; padding: 0px;" class="kd-menulist"><li class="kd-menulistitem">
+                العربيّة
+              </li><li class="kd-menulistitem">
+                български
+              </li><li class="kd-menulistitem">
+                català
+              </li><li class="kd-menulistitem">
+                简体中文
+              </li><li class="kd-menulistitem">
+                繁體中文
+              </li><li class="kd-menulistitem">
+                Hrvatski
+              </li><li class="kd-menulistitem">
+                česky
+              </li><li class="kd-menulistitem">
+                dansk
+              </li><li class="kd-menulistitem">
+                Nederlands
+              </li><li class="kd-menulistitem selected">
+                English
+              </li><li class="kd-menulistitem">
+                فارسی
+              </li><li class="kd-menulistitem">
+                suomi
+              </li><li class="kd-menulistitem">
+                français
+              </li><li class="kd-menulistitem">
+                Deutsch
+              </li><li class="kd-menulistitem">
+                Ελληνικά
+              </li><li class="kd-menulistitem">
+                עברית
+              </li><li class="kd-menulistitem">
+                Hindi
+              </li><li class="kd-menulistitem">
+                Magyar
+              </li><li class="kd-menulistitem">
+                Bahasa Indonesia
+              </li><li class="kd-menulistitem">
+                italiano
+              </li><li class="kd-menulistitem">
+                日本語
+              </li><li class="kd-menulistitem">
+                한국어
+              </li><li class="kd-menulistitem">
+                latviešu
+              </li><li class="kd-menulistitem">
+                Lithuanian
+              </li><li class="kd-menulistitem">
+                norsk (bokmål)
+              </li><li class="kd-menulistitem">
+                norsk (nynorsk)
+              </li><li class="kd-menulistitem">
+                polski
+              </li><li class="kd-menulistitem">
+                Português Brasileiro
+              </li><li class="kd-menulistitem">
+                Português
+              </li><li class="kd-menulistitem">
+                Română
+              </li><li class="kd-menulistitem">
+                Русский
+              </li><li class="kd-menulistitem">
+                српски
+              </li><li class="kd-menulistitem">
+                slovenský
+              </li><li class="kd-menulistitem">
+                Slovenščina
+              </li><li class="kd-menulistitem">
+                español
+              </li><li class="kd-menulistitem">
+                svenska
+              </li><li class="kd-menulistitem">
+                Thai
+              </li><li class="kd-menulistitem">
+                Türkçe
+              </li><li class="kd-menulistitem">
+                Українська
+              </li><li class="kd-menulistitem">
+                Vietnamese
+              </li></ul><!-- END DIV.MAIA-MAX -->
+  
+
+  
+    
+    <span id="devsite-request-elapsed" data-request-elapsed="644.3400383"></span>
+  
+
+<div id="contain-402"></div><script src="Python%20Introduction%20-%20Google%20for%20Education%20%E2%80%94%20Google%20Developers_files/prompt"></script><iframe tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;" src="https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fdevelopers.google.com#rpctoken=741893040&amp;forcesecure=1" id="oauth2relay548245248" name="oauth2relay548245248"></iframe></body></html>

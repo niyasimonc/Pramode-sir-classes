@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8"> <![endif]-->
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class=" js no-touch csstransforms3d csstransitions" style=""><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+<meta charset="utf-8">
+<title>What is a Socket?</title>
+<meta name="Description" content="What is a Socket? - Learning Unix Sockets in simple steps with C porgramming language. Build Client and Server Networking Applications using Unix Sockets. Network Addresses, Host Names, Structures, Ports and Services, IP Address Functions, Core and Helper Functions, Summary.">
+<meta name="Keywords" content="Learning, Unix, Sockets, Programming, C, Language, Networking. Network Addresses, Host Names, Structures, Ports and Services, IP Address Functions, Core and Helper Functions, Summary.">
+<!-- base href="http://www.tutorialspoint.com/" -->
+<link rel="shortcut icon" href="http://www.tutorialspoint.com/favicon.ico" type="image/x-icon">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="471319149685276">
+<meta property="og:site_name" content="www.tutorialspoint.com">
+<meta name="robots" content="index, follow">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="tutorialspoint.com">
+<script src="What%20is%20a%20Socket%3F_files/ca-pub-7133395778201029.js"></script><script type="text/javascript" src="What%20is%20a%20Socket%3F_files/script-min-v4.js"></script>
+<link rel="stylesheet" href="What%20is%20a%20Socket%3F_files/style-min.css">
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+pre.prettyprint.tryit {min-height:37px; background: #eee url(/unix_sockets/images/try-it.jpg) top right no-repeat !important}div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #28aa8a url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #28aa8a !important;}
+.submenu-item{ border-bottom: 2px solid #28aa8a !important; border-top: 2px solid #28aa8a !important }
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+</head>
+<body onload="prettyPrint()">
+<div class="wrapLoader">
+   <div class="imgLoader">
+      <img src="What%20is%20a%20Socket%3F_files/loading-cg.gif" alt="" height="70" width="70">
+   </div>
+</div>
+<header>
+   <div class="container">			
+      <h1 class="logo">
+      <a href="http://www.tutorialspoint.com/index.htm" title="tutorialspoint">
+      <img style="height: auto; width: auto;" alt="tutorialspoint" src="What%20is%20a%20Socket%3F_files/logo.png">
+      </a>
+      </h1>			
+      <div class="search" id="searchBar">
+         <form method="get" class="searchform" name="searchform" action="http://www.google.com/search" target="_blank">
+            <input name="sitesearch" value="www.tutorialspoint.com" type="hidden">
+            <div class="input-group">
+               <input class="form-control search" name="q" autocomplete="off" placeholder="Search your tutorials..." onfocus="if (this.value == 'Search your tutorials...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search your tutorials...';}" type="text">
+               <input value="FORID:11" name="cof" type="hidden">
+               <input name="ie" value="ISO-8859-1" type="hidden">
+               <span class="input-group-btn"> <button class="btn btn-default" type="submit" onclick="javascript:void(0);"><i class="icon icon-search"></i></button> </span>
+            </div>
+         </form>
+      </div>
+      <nav>
+         <ul class="nav nav-pills nav-top">
+            <li> <a href="http://www.tutorialspoint.com/questions_and_answers.htm"><i class="fa fa-question"></i> &nbsp;Quizzes</a> </li>
+            <li> <a href="http://www.tutorialspoint.com/shared-tutorials.php"><i class="icon icon-user"></i> &nbsp;Shared</a> </li>
+            <li> <a href="http://www.tutorialspoint.com/articles/index.php"><i class="icon icon-file-text-o"></i> &nbsp;Articles</a> </li>
+            <li class="top-icons" style="display:none;">
+              <ul class="social-icons">
+              <li class="facebook"><a href="https://www.facebook.com/tutorialspointindia" target="_blank" data-placement="bottom" title="tutorialspoint @ Facebook">Facebook</a></li>
+              <li class="googleplus"><a href="https://plus.google.com/u/0/116678774017490391259/posts" target="_blank" data-placement="bottom" title="tutorialspoint @ Google+">Google+</a></li>
+              <li class="twitter"><a href="http://www.twitter.com/tutorialspoint" target="_blank" data-placement="bottom" title="tutorialspoint @ Twitter">Twitter</a></li>
+              <li class="linkedin"><a href="http://www.linkedin.com/company/tutorialspoint" target="_blank" data-placement="bottom" title="tutorialspoint @ Linkedin">Linkedin</a></li>
+              <li class="rss"><a href="http://feeds.feedburner.com/SharedTutorials" target="_blank" data-placement="bottom" title="tutorialspoint RSS">RSS</a></li>
+              </ul>
+           </li>
+         </ul>
+      </nav>
+         <!-- search code here  --> 
+      <button style="top: 741px!important" class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse" id="pull"> <i class="icon icon-bars"></i> </button>
+   </div>
+   <div class="navbar nav-main">
+      <div class="container">
+         <nav class="nav-main mega-menu">
+            <ul class="nav nav-pills nav-main" id="mainMenu">
+               <li class="dropdown no-sub-menu"> <a class="dropdown" href="http://www.tutorialspoint.com/index.htm"><i class="icon icon-home"></i> Home</a> </li>   
+               <li class="dropdown" id="liTL"><a class="dropdown" href="javascript:void(0);"><span class="tut-lib"> Tutorials Library  <i class="fa-caret-down"></i></span></a></li>
+               <li class="dropdown" id="liCG"><a class="dropdown" href="javascript:void(0);"><i class="fa-code"></i> Coding Ground <i class="fa-caret-down"></i> </a> </li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="https://www.send18.com/" target="_blank"><i class="fa fa-send"></i>  Send18</a></li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="http://www.tutorialspoint.com/online_file_conversion.htm"><i class="icon icon-refresh"></i>  Conversion</a></li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="http://www.tutorialspoint.com/online_dev_tools.htm"><span class="dev-tools-menu">  Dev Tools</span></a></li>
+            </ul>
+         </nav>
+         <div class="submenu-item sub-main-menu" id="top-sub-menu"></div>
+      </div>
+   </div>	
+</header>
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+<div class="col-md-2">
+<aside class="sidebar">
+<div class="mini-logo">
+<img src="What%20is%20a%20Socket%3F_files/unix-socket-mini-logo.jpg" alt="Unix Sockets Tutorial">
+</div>
+<ul class="nav nav-list primary left-menu">
+<li class="heading">Unix Socket Tutorial</li>
+<li><a href="http://www.tutorialspoint.com/unix_sockets/index.htm">Unix Socket - Home</a></li>
+<li><a style="background-color: rgb(214, 214, 214);" href="http://www.tutorialspoint.com/unix_sockets/what_is_socket.htm">Unix Socket - What is a Socket?</a></li>
+<li><a href="http://www.tutorialspoint.com/unix_sockets/network_addresses.htm">Unix Socket - Network Addresses</a></li> 
+<li><a href="http://www.tutorialspoint.com/unix_sockets/network_host_names.htm">Unix Socket - Network Host Names</a></li>
+<li><a href="http://www.tutorialspoint.com/unix_sockets/client_server_model.htm">Unix Socket - Client Server Model</a></li>
+<li><a href="http://www.tutorialspoint.com/unix_sockets/socket_structures.htm">Unix Socket - Structures</a></li>
+<li><a href="http://www.tutorialspoint.com/unix_sockets/ports_and_services.htm">Unix Socket - Ports and Services</a></li>
+<li><a href="http://www.tutorialspoint.com/unix_sockets/network_byte_orders.htm">Unix Socket - Network Byte Orders</a></li>
+<li><a href="http://www.tutorialspoint.com/unix_sockets/ip_address_functions.htm">Unix Socket - IP Address Functions</a></li>
+<li><a href="http://www.tutorialspoint.com/unix_sockets/socket_core_functions.htm">Unix Socket - Core Functions</a></li>
+<li><a href="http://www.tutorialspoint.com/unix_sockets/socket_helper_functions.htm">Unix Socket - Helper Functions</a></li>
+<li><a href="http://www.tutorialspoint.com/unix_sockets/socket_server_example.htm">Unix Socket - Server Example</a></li>
+<li><a href="http://www.tutorialspoint.com/unix_sockets/socket_client_example.htm">Unix Socket - Client Example</a></li>
+<li><a href="http://www.tutorialspoint.com/unix_sockets/socket_summary.htm">Unix Socket - Summary</a></li>
+</ul>
+<ul class="nav nav-list primary left-menu">
+<li class="heading">Unix Socket Useful Resources</li>
+<li><a href="http://www.tutorialspoint.com/unix_sockets/socket_quick_guide.htm">Unix Socket - Quick Guide</a></li>
+<li><a href="http://www.tutorialspoint.com/unix_sockets/socket_useful_resources.htm">Unix Socket - Useful Resources</a></li>
+<li><a href="http://www.tutorialspoint.com/unix_sockets/unix_sockets_discussion.htm">Unix Socket - Discussion</a></li>
+</ul>
+<ul class="nav nav-list primary push-bottom left-menu special">
+<li class="sreading">Selected Reading</li>
+<li><a target="_top" href="http://www.tutorialspoint.com/developers_best_practices/index.htm">Developer's Best Practices</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/questions_and_answers.htm">Questions and Answers</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/effective_resume_writing.htm">Effective Resume Writing</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/hr_interview_questions/index.htm">HR Interview Questions</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/computer_glossary.htm">Computer Glossary</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/computer_whoiswho.htm">Who is Who</a></li>
+</ul>
+</aside>
+</div>
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+<div class="col-md-7 middle-col">
+<h1>What is a Socket?</h1>
+<div class="topgooglead">
+<hr>
+<div style="padding-bottom:5px;padding-left:10px;">Advertisements</div>
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_ad_type = "image";
+google_ad_channel = "";
+//--></script>
+<script type="text/javascript" src="What%20is%20a%20Socket%3F_files/show_ads.js"> 
+</script><ins id="aswift_0_expand" style="display:inline-table;border:none;height:60px;margin:0;padding:0;position:relative;visibility:visible;width:468px;background-color:transparent"><ins id="aswift_0_anchor" style="display:block;border:none;height:60px;margin:0;padding:0;position:relative;visibility:visible;width:468px;background-color:transparent"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;" frameborder="0" height="60" scrolling="no" width="468"></iframe></ins></ins>
+</div>
+<hr>
+<div class="pre-btn">
+<a href="http://www.tutorialspoint.com/unix_sockets/index.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> Previous Page</a>
+</div>
+<div class="nxt-btn">
+<a href="http://www.tutorialspoint.com/unix_sockets/network_addresses.htm">Next Page <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
+</div>
+<div class="clearer"></div>
+<hr>
+<p>Sockets allow communication between two different processes on the 
+same or different machines. To be more precise, it's a way to talk to 
+other computers using standard Unix file descriptors. In Unix, every I/O
+ action is done by writing or reading a file descriptor. A file 
+descriptor is just an integer associated with an open file and it can be
+ a network connection, a text file, a terminal, or something else.</p>
+<p>To a programmer, a socket looks and behaves much like a low-level 
+file descriptor. This is because commands such as read() and write() 
+work with sockets in the same way they do with files and pipes.</p>
+<p>Sockets were first introduced in 2.1BSD and subsequently refined into
+ their current form with 4.2BSD. The sockets feature is now available 
+with most current UNIX system releases.</p>
+<h2>Where is Socket Used?</h2>
+<p>A Unix Socket is used in a client-server application framework. A 
+server is a process that performs some functions on request from a 
+client. Most of the application-level protocols like FTP, SMTP, and POP3
+ make use of sockets to establish connection between client and server 
+and then for exchanging data.</p>
+<h2>Socket Types</h2>
+<p>There are four types of sockets available to the users. The first two are most commonly used and the last two are rarely used.</p>
+<p>Processes are presumed to communicate only between sockets of the 
+same type but there is no restriction that prevents communication 
+between sockets of different types.</p>
+<ul class="list">
+<li><p><b>Stream Sockets</b> − Delivery in a networked environment is 
+guaranteed. If you send through the stream socket three items "A, B, C",
+ they will arrive in the same order − "A, B, C". These sockets use TCP 
+(Transmission Control Protocol) for data transmission. If delivery is 
+impossible, the sender receives an error indicator. Data records do not 
+have any boundaries.</p></li>
+<li><p><b>Datagram Sockets</b> − Delivery in a networked environment is 
+not guaranteed. They're connectionless because you don't need to have an
+ open connection as in Stream Sockets − you build a packet with the 
+destination information and send it out. They use UDP (User Datagram 
+Protocol).</p></li>
+<li><p><b>Raw Sockets</b> − These provide users access to the underlying
+ communication protocols, which support socket abstractions. These 
+sockets are normally datagram oriented, though their exact 
+characteristics are dependent on the interface provided by the protocol.
+ Raw sockets are not intended for the general user; they have been 
+provided mainly for those interested in developing new communication 
+protocols, or for gaining access to some of the more cryptic facilities 
+of an existing protocol.</p></li>
+<li><p><b>Sequenced Packet Sockets</b> − They are similar to a stream 
+socket, with the exception that record boundaries are preserved. This 
+interface is provided only as a part of the Network Systems (NS) socket 
+abstraction, and is very important in most serious NS applications. 
+Sequenced-packet sockets allow the user to manipulate the Sequence 
+Packet Protocol (SPP) or Internet Datagram Protocol (IDP) headers on a 
+packet or a group of packets, either by writing a prototype header along
+ with whatever data is to be sent, or by specifying a default header to 
+be used with all outgoing data, and allows the user to receive the 
+headers on incoming packets.</p></li>
+</ul>
+<h2>What is Next?</h2>
+<p>The next few chapters are meant to strengthen your basics and prepare
+ a foundation before you can write Server and Client programs using <i>socket</i>.
+ If you directly want to jump to see how to write a client and server 
+program, then you can do so but it is not recommended. It is strongly 
+recommended that you go step by step and complete these initial few 
+chapters to make your base before moving on to do programming.</p>
+<hr>
+<div class="pre-btn">
+<a href="http://www.tutorialspoint.com/unix_sockets/index.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> Previous Page</a>
+</div>
+<div class="print-btn center">
+<a href="http://www.tutorialspoint.com/cgi-bin/printpage.cgi" target="_blank"><i class="icon icon-print big-font"></i> Print</a>
+</div>
+<div class="nxt-btn">
+<a href="http://www.tutorialspoint.com/unix_sockets/network_addresses.htm">Next Page <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
+</div>
+<hr>
+<!-- PRINTING ENDS HERE -->
+<div class="bottomgooglead">
+<div class="bottomadtag">Advertisements</div>
+<script type="text/javascript"><!--
+var width = 580;
+var height = 400;
+var format = "580x400_as";
+if( window.innerWidth < 468 ){
+   width = 300;
+   height = 250;
+   format = "300x250_as";
+}
+google_ad_client = "pub-7133395778201029";
+google_ad_width = width;
+google_ad_height = height;
+google_ad_format = format;
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript" src="What%20is%20a%20Socket%3F_files/show_ads.js">
+</script><ins id="aswift_1_expand" style="display:inline-table;border:none;height:400px;margin:0;padding:0;position:relative;visibility:visible;width:580px;background-color:transparent"><ins id="aswift_1_anchor" style="display:block;border:none;height:400px;margin:0;padding:0;position:relative;visibility:visible;width:580px;background-color:transparent"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;" frameborder="0" height="400" scrolling="no" width="580"></iframe></ins></ins>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-3" id="rightbar">
+<div class="simple-ad">
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('http://www.facebook.com/sharer.php?u=' + 'http://www.tutorialspoint.com/unix_sockets/what_is_socket.htm','sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="What%20is%20a%20Socket%3F_files/facebookIcon.jpg" alt="img">
+</a>
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('http://twitter.com/share?url=' + 'http://www.tutorialspoint.com/unix_sockets/what_is_socket.htm','sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="What%20is%20a%20Socket%3F_files/twitterIcon.jpg" alt="img">
+</a>
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://www.linkedin.com/cws/share?url=' + 'http://www.tutorialspoint.com/unix_sockets/what_is_socket.htm&amp;title='+ document.title,'sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="What%20is%20a%20Socket%3F_files/linkedinIcon.jpg" alt="img">
+</a>
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://plus.google.com/share?url=http://www.tutorialspoint.com/unix_sockets/what_is_socket.htm','sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="What%20is%20a%20Socket%3F_files/googlePlusIcon.jpg" alt="img">
+</a>
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('http://www.stumbleupon.com/submit?url=http://www.tutorialspoint.com/unix_sockets/what_is_socket.htm&amp;title='+ document.title,'sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="What%20is%20a%20Socket%3F_files/StumbleUponIcon.jpg" alt="img">
+</a>
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('http://reddit.com/submit?url=http://www.tutorialspoint.com/unix_sockets/what_is_socket.htm&amp;title='+ document.title,'sharer','toolbar=0,status=0,width=626,height=656,top='+sTop+',left='+sLeft);return false;">
+<img src="What%20is%20a%20Socket%3F_files/reddit.jpg" alt="img">
+</a>
+</div>
+<div class="rightgooglead">
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 300;
+google_ad_height = 250;
+google_ad_format = "300x250_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript" src="What%20is%20a%20Socket%3F_files/show_ads.js">
+</script><ins id="aswift_2_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_2_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;" frameborder="0" height="250" scrolling="no" width="300"></iframe></ins></ins>
+</div>
+<div class="rightgooglead">
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 300;
+google_ad_height = 600;
+google_ad_format = "300x600_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript" src="What%20is%20a%20Socket%3F_files/show_ads.js">
+</script><ins id="aswift_3_expand" style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_3_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;" frameborder="0" height="600" scrolling="no" width="300"></iframe></ins></ins>
+</div>
+<div class="rightgooglead">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-2537027957187252";
+/* Right Side Ad */
+google_ad_slot = "right_side_ad";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript" src="What%20is%20a%20Socket%3F_files/show_ads.js">
+</script><ins id="aswift_4_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_4_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_4" name="aswift_4" style="left:0;position:absolute;top:0;" frameborder="0" height="250" scrolling="no" width="300"></iframe></ins></ins>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer-copyright">
+<div class="container">
+<div class="row">
+<div class="col-md-1">
+<a href="http://www.tutorialspoint.com/index.htm" class="logo"> <img alt="Tutorials Point" class="img-responsive" src="What%20is%20a%20Socket%3F_files/logo-footer.png"> </a>
+</div>
+<div class="col-md-4 col-sm-12 col-xs-12">
+   <nav id="sub-menu">
+      <ul>
+         <li><a href="http://www.tutorialspoint.com/about/tutorials_writing.htm">Write for us</a></li>
+         <li><a href="http://www.tutorialspoint.com/about/faq.htm">FAQ's</a></li>
+         <li><a href="http://www.tutorialspoint.com/about/about_helping.htm">Helping</a></li>
+         <li><a href="http://www.tutorialspoint.com/about/contact_us.htm">Contact</a></li>
+      </ul>
+   </nav>
+</div>
+<div class="col-md-3 col-sm-12 col-xs-12">
+<p>© Copyright 2015. All Rights Reserved.</p>
+</div>
+<div class="col-md-4 col-sm-12 col-xs-12">
+   <div class="news-group">
+      <input class="form-control-foot search" name="textemail" id="textemail" autocomplete="off" placeholder="Enter email for newsletter" onfocus="if (this.value == 'Enter email for newsletter...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Enter email for newsletter...';}" type="text">
+      <span class="input-group-btn"> <button class="btn btn-default btn-footer" id="btnemail" type="submit" onclick="javascript:void(0);">go</button> </span>
+      <div id="newsresponse"></div>
+   </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Libs -->
+<script type="text/javascript" src="What%20is%20a%20Socket%3F_files/custom-min.js"></script><a id="scrollToTop" href="#" class="scroll-to-top visible"><i class="icon icon-chevron-up icon-white"></i></a>
+<script src="What%20is%20a%20Socket%3F_files/urchin.js">
+</script>
+<script type="text/javascript">
+_uacct = "UA-232293-6";
+urchinTracker();
+$('.pg-icon').click(function(){
+   $('.wrapLoader').show();
+});
+</script>
+<script type="text/javascript" src="What%20is%20a%20Socket%3F_files/jquery.js"></script>
+<script type="text/javascript">
+   var tryit = new $.TryIt('/unix_sockets/try_unix_sockets.php');
+   tryit.compile();
+</script><div id="source" style="display:none;"></div><div id="supportsource" style="display:none;"></div><div id="utilsource" style="display:none;"></div><div id="extrasource" style="display:none;"></div><div id="inputs" style="display:none;"></div><div id="filename" style="display:none;"></div>
+
+
+<div style="top: 785px; left: 0px; width: 345px;" class="autocomplete-suggestions "></div><div style="display: none;" id="cboxOverlay"></div><div style="display: none;" tabindex="-1" role="dialog" class="" id="colorbox"><div id="cboxWrapper"><div><div style="float: left;" id="cboxTopLeft"></div><div style="float: left;" id="cboxTopCenter"></div><div style="float: left;" id="cboxTopRight"></div></div><div style="clear: left;"><div style="float: left;" id="cboxMiddleLeft"></div><div style="float: left;" id="cboxContent"><div style="float: left;" id="cboxTitle"></div><div style="float: left;" id="cboxCurrent"></div><button id="cboxPrevious" type="button"></button><button id="cboxNext" type="button"></button><button id="cboxSlideshow"></button><div style="float: left;" id="cboxLoadingOverlay"></div><div style="float: left;" id="cboxLoadingGraphic"></div></div><div style="float: left;" id="cboxMiddleRight"></div></div><div style="clear: left;"><div style="float: left;" id="cboxBottomLeft"></div><div style="float: left;" id="cboxBottomCenter"></div><div style="float: left;" id="cboxBottomRight"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none; max-width: none;"></div></div></body></html>
